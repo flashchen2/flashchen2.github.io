@@ -25,11 +25,11 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://example.com/img/bootstrap_pic/1.jpg">
 <meta property="article:published_time" content="2023-11-30T12:00:00.000Z">
-<meta property="article:modified_time" content="2023-12-07T11:56:54.584Z">
+<meta property="article:modified_time" content="2023-12-19T10:21:45.479Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="Web开发">
 <meta property="article:tag" content="前端">
-<meta property="article:tag" content="框架">
+<meta property="article:tag" content="前端框架">
 <meta property="article:tag" content="BootStrap">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="http://example.com/img/bootstrap_pic/1.jpg">
@@ -76,7 +76,7 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.5-a","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml","include_content_in_search":true};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.6","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml","include_content_in_search":true};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
@@ -120,7 +120,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/">
+              <a class="nav-link" href="/" target="_self">
                 <i class="iconfont icon-home-fill"></i>
                 <span>首页</span>
               </a>
@@ -132,7 +132,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/archives/">
+              <a class="nav-link" href="/archives/" target="_self">
                 <i class="iconfont icon-archive-fill"></i>
                 <span>归档</span>
               </a>
@@ -144,7 +144,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/categories/">
+              <a class="nav-link" href="/categories/" target="_self">
                 <i class="iconfont icon-category-fill"></i>
                 <span>分类</span>
               </a>
@@ -156,7 +156,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/tags/">
+              <a class="nav-link" href="/tags/" target="_self">
                 <i class="iconfont icon-tags-fill"></i>
                 <span>标签</span>
               </a>
@@ -168,7 +168,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/about/">
+              <a class="nav-link" href="/about/" target="_self">
                 <i class="iconfont icon-user-fill"></i>
                 <span>关于</span>
               </a>
@@ -227,7 +227,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          2.5k 字
+          493 字
         
       </span>
     
@@ -238,7 +238,7 @@
         
         
         
-          22 分钟
+          5 分钟
         
       </span>
     
@@ -289,13 +289,14 @@
 <h1 id="二、安装-导入Bootstrap"><a href="#二、安装-导入Bootstrap" class="headerlink" title="二、安装&amp;导入Bootstrap"></a>二、安装&amp;导入Bootstrap</h1><ol>
 <li><p>下载地址：<a target="_blank" rel="noopener" href="https://v3.bootcss.com/">https://v3.bootcss.com/</a></p>
 <div style="text-align:center">
- <img src="/img/bootstrap_pic/2.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
+ <img src="../img/bootstrap_pic/2.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
 </div>
+
 </li>
 <li><p>导入方式</p>
 <ol>
 <li>建立static - plugins目录，将解压好的BootStrap放到plugins中。并引入css文件 <div style="text-align:center">
- <img src="/img/bootstrap_pic/3.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
+ <img src="../img/bootstrap_pic/3.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
 </div></li>
 </ol>
 </li>
@@ -308,74 +309,79 @@
 <li><p>demo</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-meta">&lt;!DOCTYPE <span class="hljs-keyword">html</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">html</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">&quot;en&quot;</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">&quot;UTF-8&quot;</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>Title<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">&quot;stylesheet&quot;</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;static/plugins/bootstrap-3.4.1/css/bootstrap.css&quot;</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;button&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;提交&quot;</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;button&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;提交&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;btn btn-primary&quot;</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;button&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;提交&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;btn btn-success&quot;</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;button&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;提交&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;btn btn-danger&quot;</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;button&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;提交&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;btn btn-danger btn-xs&quot;</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span><br></code></pre></td></tr></table></figure>
 <div style="text-align:center">
- <img src="/img/bootstrap_pic/4.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
+ <img src="../img/bootstrap_pic/4.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
 </div></li>
 </ol>
 <h1 id="三、常用样式"><a href="#三、常用样式" class="headerlink" title="三、常用样式"></a>三、常用样式</h1><h2 id="1-布局容器"><a href="#1-布局容器" class="headerlink" title="1. 布局容器"></a>1. 布局容器</h2><ol>
 <li>优势：统一页面布局整体边距样式</li>
 <li>用于调整模块整体的高度和宽度（一般网页制作固定宽度，两侧留白）<div style="text-align:center">
- <img src="/img/bootstrap_pic/5.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
+ <img src="../img/bootstrap_pic/5.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
 </div></li>
 </ol>
 <h2 id="2-栅格网格系统"><a href="#2-栅格网格系统" class="headerlink" title="2. 栅格网格系统"></a>2. 栅格网格系统</h2><ol>
 <li>优势：对分割好的行内块级元素，进行再次分隔进行均分<div style="text-align:center">
- <img src="/img/bootstrap_pic/6.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
+ <img src="../img/bootstrap_pic/6.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
 </div></li>
 </ol>
 <div style="text-align:center">
-    <img src="/img/bootstrap_pic/7.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
+    <img src="../img/bootstrap_pic/7.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
 </div>
 
 <div style="text-align:center">
-    <img src="/img/bootstrap_pic/8.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
+    <img src="../img/bootstrap_pic/8.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
 </div>
+
 
 <h3 id="1-列组合-使用频率最高"><a href="#1-列组合-使用频率最高" class="headerlink" title="1. 列组合 - 使用频率最高"></a>1. 列组合 - 使用频率最高</h3><ol>
 <li>优势：块级元素不用浮动float，便能获得同一行的块级样式<div style="text-align:center">
- <img src="/img/bootstrap_pic/9.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
+ <img src="../img/bootstrap_pic/9.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
 </div></li>
 </ol>
 <h3 id="2-列偏移-用的比较少，多数靠调整外间距微调"><a href="#2-列偏移-用的比较少，多数靠调整外间距微调" class="headerlink" title="2. 列偏移 - 用的比较少，多数靠调整外间距微调"></a>2. 列偏移 - 用的比较少，多数靠调整外间距微调</h3><ol>
 <li>优势：行内块级元素之间的间距设计，依据行内均分大小<div style="text-align:center">
- <img src="/img/bootstrap_pic/10.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
+ <img src="../img/bootstrap_pic/10.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
 </div></li>
 </ol>
 <h3 id="3-列排序"><a href="#3-列排序" class="headerlink" title="3. 列排序"></a>3. 列排序</h3><ol>
 <li>优势：改变行内块级元素所在行内位置，从而改变元素排列<div style="text-align:center">
- <img src="/img/bootstrap_pic/11.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
+ <img src="../img/bootstrap_pic/11.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
 </div></li>
 </ol>
 <h3 id="4-列嵌套"><a href="#4-列嵌套" class="headerlink" title="4. 列嵌套"></a>4. 列嵌套</h3><ol>
 <li>优势：对分割好的行内块级元素，进行再次分隔进行均分<div style="text-align:center">
- <img src="/img/bootstrap_pic/12.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
+ <img src="../img/bootstrap_pic/12.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
 </div></li>
 </ol>
 <h2 id="3-排版"><a href="#3-排版" class="headerlink" title="3. 排版"></a>3. 排版</h2><h3 id="1-标题"><a href="#1-标题" class="headerlink" title="1. 标题"></a>1. 标题</h3><ol>
 <li>优势：<code>&lt;small&gt;</code>更好看的负标题标签<div style="text-align:center">
- <img src="/img/bootstrap_pic/13.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
- <img src="/img/bootstrap_pic/14.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
+ <img src="../img/bootstrap_pic/13.jpg" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:35%;">
+ <img src="../img/bootstrap_pic/14.jpg" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:35%;">
 </div></li>
 </ol>
 <h3 id="2-段落"><a href="#2-段落" class="headerlink" title="2. 段落"></a>2. 段落</h3><ol>
 <li>优势：<code>&lt;lead&gt;</code>更好看文本文字<div style="text-align:center">
- <img src="/img/bootstrap_pic/15.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
-</div>
-<div style="text-align:center">
- <img src="/img/bootstrap_pic/16.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
+ <img src="../img/bootstrap_pic/15.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
 </div></li>
 </ol>
+<div style="text-align:center">
+    <img src="../img/bootstrap_pic/16.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
+</div>
+
+
 <h3 id="3-强调"><a href="#3-强调" class="headerlink" title="3. 强调"></a>3. 强调</h3><ol>
 <li>优势：不用设置文字的字体颜色。设置字体表达含义，从而自动设定颜色<div style="text-align:center">
- <img src="/img/bootstrap_pic/17.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
+ <img src="../img/bootstrap_pic/17.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
 </div></li>
 </ol>
 <h3 id="4-对齐效果"><a href="#4-对齐效果" class="headerlink" title="4. 对齐效果"></a>4. 对齐效果</h3><div style="text-align:center">
-    <img src="/img/bootstrap_pic/18.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
+    <img src="../img/bootstrap_pic/18.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
 </div>
 
+
 <h3 id="5-代码-键盘按键"><a href="#5-代码-键盘按键" class="headerlink" title="5. 代码 键盘按键"></a>5. 代码 键盘按键</h3><div style="text-align:center">
-    <img src="/img/bootstrap_pic/19.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
+    <img src="../img/bootstrap_pic/19.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
 </div>
+
 
 <ol>
 <li><p>显示<code>html</code>代码需要使用字符实体<br><code>&lt;h2&gt;</code>变为<code>&amp;lt;h2&amp;gt;</code></p>
@@ -383,93 +389,111 @@
 </li>
 <li><p>多行代码过多可以增加滚动条</p>
 <div style="text-align:center">
- <img src="/img/bootstrap_pic/20.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
-</div>
-<div style="text-align:center">
- <img src="/img/bootstrap_pic/21.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
+ <img src="../img/bootstrap_pic/20.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
 </div></li>
 </ol>
+<div style="text-align:center">
+    <img src="../img/bootstrap_pic/21.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
+</div>
+
+
+
 <h3 id="6-表格"><a href="#6-表格" class="headerlink" title="6. 表格"></a>6. 表格</h3><div style="text-align:center">
-    <img src="/img/bootstrap_pic/22.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
+    <img src="../img/bootstrap_pic/22.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
 </div>
 
 <div style="text-align:center">
-    <img src="/img/bootstrap_pic/23.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
+    <img src="../img/bootstrap_pic/23.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
 </div>
+
 
 <h2 id="4-表单"><a href="#4-表单" class="headerlink" title="4. 表单"></a>4. 表单</h2><h3 id="1-文本框-text"><a href="#1-文本框-text" class="headerlink" title="1. 文本框 - text"></a>1. 文本框 - text</h3><p><code>class=&#39;form-control&#39;</code></p>
 <div style="text-align:center">
-    <img src="/img/bootstrap_pic/24.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
+    <img src="../img/bootstrap_pic/24.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
 </div>
+
 
 <h3 id="2-下拉框-select"><a href="#2-下拉框-select" class="headerlink" title="2. 下拉框 - select"></a>2. 下拉框 - select</h3><div style="text-align:center">
-    <img src="/img/bootstrap_pic/25.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
+    <img src="../img/bootstrap_pic/25.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
 </div>
+
 
 <h3 id="3-文本域-textarea"><a href="#3-文本域-textarea" class="headerlink" title="3. 文本域 - textarea"></a>3. 文本域 - textarea</h3><div style="text-align:center">
-    <img src="/img/bootstrap_pic/26.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
+    <img src="../img/bootstrap_pic/26.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
 </div>
+
 
 <h3 id="4-复选框-checkbox"><a href="#4-复选框-checkbox" class="headerlink" title="4. 复选框 - checkbox"></a>4. 复选框 - checkbox</h3><div style="text-align:center">
-    <img src="/img/bootstrap_pic/27.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
+    <img src="../img/bootstrap_pic/27.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
 </div>
+
 
 <h3 id="5-单选框-row"><a href="#5-单选框-row" class="headerlink" title="5. 单选框 - row"></a>5. 单选框 - row</h3><div style="text-align:center">
-    <img src="/img/bootstrap_pic/28.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
+    <img src="../img/bootstrap_pic/28.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
 </div>
+
 
 <h3 id="6-按钮-btn"><a href="#6-按钮-btn" class="headerlink" title="6. 按钮 - btn"></a>6. 按钮 - btn</h3><div style="text-align:center">
-    <img src="/img/bootstrap_pic/29.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
+    <img src="../img/bootstrap_pic/29.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
 </div>
 
 <div style="text-align:center">
-    <img src="/img/bootstrap_pic/30.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
+    <img src="../img/bootstrap_pic/30.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
 </div>
+
 
 <h3 id="7-水平表单-form"><a href="#7-水平表单-form" class="headerlink" title="7. 水平表单 - form"></a>7. 水平表单 - form</h3><div style="text-align:center">
-    <img src="/img/bootstrap_pic/31.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
+    <img src="../img/bootstrap_pic/31.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
 </div>
 
 <div style="text-align:center">
-    <img src="/img/bootstrap_pic/32.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
+    <img src="../img/bootstrap_pic/32.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
 </div>
+
 
 <p>内联表单使用次数较少</p>
 <div style="text-align:center">
-    <img src="/img/bootstrap_pic/33.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
+    <img src="../img/bootstrap_pic/33.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
 </div>
+
 
 
 <h2 id="4-缩略图"><a href="#4-缩略图" class="headerlink" title="4. 缩略图"></a>4. 缩略图</h2><div style="text-align:center">
-    <img src="/img/bootstrap_pic/34.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
+    <img src="../img/bootstrap_pic/34.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
 </div>
 
+
 <h2 id="5-面板"><a href="#5-面板" class="headerlink" title="5. 面板"></a>5. 面板</h2><div style="text-align:center">
-    <img src="/img/bootstrap_pic/35.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
+    <img src="../img/bootstrap_pic/35.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
 </div>
+
 
 <h2 id="6-表单内容美化格式"><a href="#6-表单内容美化格式" class="headerlink" title="6. 表单内容美化格式"></a>6. 表单内容美化格式</h2><ul>
 <li>重点为<div>标签<figure class="highlight django"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs django"><span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">form</span> <span class="hljs-attr">method</span>=<span class="hljs-string">&quot;post&quot;</span> <span class="hljs-attr">novalidate</span>&gt;</span></span><br><span class="language-xml">    </span><span class="hljs-template-tag">&#123;% <span class="hljs-name"><span class="hljs-name">csrf_token</span></span> %&#125;</span><span class="language-xml"></span><br><span class="language-xml">    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;form-group&quot;</span>&gt;</span></span><br><span class="language-xml">        <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">for</span>=<span class="hljs-string">&quot;group_name&quot;</span>&gt;</span>飞书群名称<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span></span><br><span class="language-xml">        <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;form-control&quot;</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;group_name&quot;</span> <span class="hljs-attr">placeholder</span>=<span class="hljs-string">&quot;group_name&quot;</span>&gt;</span></span><br><span class="language-xml">    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span><br><span class="language-xml">    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;form-group&quot;</span>&gt;</span></span><br><span class="language-xml">        <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">for</span>=<span class="hljs-string">&quot;project_filter&quot;</span>&gt;</span>项目filter<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span></span><br><span class="language-xml">        <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;form-control&quot;</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;project_filter&quot;</span> <span class="hljs-attr">placeholder</span>=<span class="hljs-string">&quot;project_filter&quot;</span>&gt;</span></span><br><span class="language-xml">    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span><br><span class="language-xml"></span><br><span class="language-xml">    <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;submit&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;btn btn-success&quot;</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;send_btn&quot;</span>&gt;</span>发送<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span></span><br><span class="language-xml"><span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span></span><br></code></pre></td></tr></table></figure></li>
 </ul>
 <h2 id="7-导航"><a href="#7-导航" class="headerlink" title="7. 导航"></a>7. 导航</h2><div style="text-align:center">
-    <img src="/img/bootstrap_pic/36.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
+    <img src="../img/bootstrap_pic/36.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
 </div>
+
 
 <h3 id="1-路径导航"><a href="#1-路径导航" class="headerlink" title="1. 路径导航"></a>1. 路径导航</h3><figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs angelscript">&lt;ol <span class="hljs-keyword">class</span>=&quot;<span class="hljs-symbol">breadcrumb</span>&quot;&gt;<br>    &lt;<span class="hljs-symbol">li</span>&gt;&lt;<span class="hljs-symbol">a</span> <span class="hljs-symbol">href</span>=&quot;#&quot;&gt;<span class="hljs-symbol">Home</span>&lt;/<span class="hljs-symbol">a</span>&gt;&lt;/<span class="hljs-symbol">li</span>&gt;<br>    &lt;<span class="hljs-symbol">li</span>&gt;&lt;<span class="hljs-symbol">a</span> <span class="hljs-symbol">href</span>=&quot;#&quot;&gt;<span class="hljs-symbol">Library</span>&lt;/<span class="hljs-symbol">a</span>&gt;&lt;/<span class="hljs-symbol">li</span>&gt;<br>    &lt;<span class="hljs-symbol">li</span> <span class="hljs-symbol">class</span>=&quot;<span class="hljs-symbol">active</span>&quot;&gt;<span class="hljs-symbol">Data</span>&lt;/<span class="hljs-symbol">li</span>&gt;<br>&lt;/<span class="hljs-symbol">ol</span>&gt;<br></code></pre></td></tr></table></figure>
 <div style="text-align:center">
-    <img src="/img/bootstrap_pic/37.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
+    <img src="../img/bootstrap_pic/37.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
 </div>
+
 
 <h3 id="2-分页导航"><a href="#2-分页导航" class="headerlink" title="2. 分页导航"></a>2. 分页导航</h3><div style="text-align:center">
-    <img src="/img/bootstrap_pic/38.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
+    <img src="../img/bootstrap_pic/38.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
 </div>
+
 
 <h3 id="3-下拉菜单"><a href="#3-下拉菜单" class="headerlink" title="3. 下拉菜单"></a>3. 下拉菜单</h3><div style="text-align:center">
-    <img src="/img/bootstrap_pic/39.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
+    <img src="../img/bootstrap_pic/39.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
 </div>
 
+
 <h3 id="4-模态框-弹出框"><a href="#4-模态框-弹出框" class="headerlink" title="4. 模态框 弹出框"></a>4. 模态框 弹出框</h3><div style="text-align:center">
-    <img src="/img/bootstrap_pic/40.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
+    <img src="../img/bootstrap_pic/40.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
 </div>
 
 
@@ -516,7 +540,7 @@
       
         <a href="/tags/%E5%89%8D%E7%AB%AF/" class="print-no-link">#前端</a>
       
-        <a href="/tags/%E6%A1%86%E6%9E%B6/" class="print-no-link">#框架</a>
+        <a href="/tags/%E5%89%8D%E7%AB%AF%E6%A1%86%E6%9E%B6/" class="print-no-link">#前端框架</a>
       
         <a href="/tags/BootStrap/" class="print-no-link">#BootStrap</a>
       
@@ -585,8 +609,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2023/11/29/jQuery/" title="JavaScript之jQuery">
-                        <span class="hidden-mobile">JavaScript之jQuery</span>
+                      <a href="/2023/11/30/Markdown/" title="Markdown">
+                        <span class="hidden-mobile">Markdown</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

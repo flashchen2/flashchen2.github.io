@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://example.com/img/mysql_base_pic/1.jpg">
 <meta property="article:published_time" content="2023-12-05T12:00:00.000Z">
-<meta property="article:modified_time" content="2023-12-06T09:02:09.732Z">
+<meta property="article:modified_time" content="2023-12-21T08:17:20.099Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="Web开发">
 <meta property="article:tag" content="后端">
@@ -77,7 +77,7 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.5-a","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml","include_content_in_search":true};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.6","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml","include_content_in_search":true};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
@@ -121,7 +121,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/">
+              <a class="nav-link" href="/" target="_self">
                 <i class="iconfont icon-home-fill"></i>
                 <span>首页</span>
               </a>
@@ -133,7 +133,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/archives/">
+              <a class="nav-link" href="/archives/" target="_self">
                 <i class="iconfont icon-archive-fill"></i>
                 <span>归档</span>
               </a>
@@ -145,7 +145,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/categories/">
+              <a class="nav-link" href="/categories/" target="_self">
                 <i class="iconfont icon-category-fill"></i>
                 <span>分类</span>
               </a>
@@ -157,7 +157,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/tags/">
+              <a class="nav-link" href="/tags/" target="_self">
                 <i class="iconfont icon-tags-fill"></i>
                 <span>标签</span>
               </a>
@@ -169,7 +169,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/about/">
+              <a class="nav-link" href="/about/" target="_self">
                 <i class="iconfont icon-user-fill"></i>
                 <span>关于</span>
               </a>
@@ -228,7 +228,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          2k 字
+          620 字
         
       </span>
     
@@ -239,7 +239,7 @@
         
         
         
-          17 分钟
+          6 分钟
         
       </span>
     
@@ -293,15 +293,16 @@
 </li>
 <li><p>下载mysql<br>注：可以选择5.7.31版本，既支持windows也支持mac</p>
 <div style="text-align:center">
- <img src="/img/mysql_base_pic/2.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
+ <img src="../img/mysql_base_pic/2.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
 </div>
+
 </li>
 <li><p>配置</p>
 <ol>
 <li>解压之后，在此目录下创建my.ini配置文件</li>
-<li>编写配置文件，如图所示<div style="text-align:center">
- <img src="/img/mysql_base_pic/3.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
- <img src="/img/mysql_base_pic/4.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
+<li>编写配置文件，如图所示<div style="text-align:center;display:flex;gap:5px">
+ <img src="../img/mysql_base_pic/3.jpg" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:45%;">
+ <img src="../img/mysql_base_pic/4.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
 </div></li>
 </ol>
 </li>
@@ -309,8 +310,9 @@
 </li>
 <li><p>出现此页面代表链接成功，第一次登录无密码</p>
 <div style="text-align:center">
- <img src="/img/mysql_base_pic/5.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
+ <img src="../img/mysql_base_pic/5.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
 </div>
+
 </li>
 <li><p>登录后设置密码set password &#x3D; password(“Pooh_0505”)</p>
 </li>
@@ -333,8 +335,9 @@
 <li>查看文件夹下所有的数据表：show tables;</li>
 </ol>
 <div style="text-align:center">
-    <img src="/img/mysql_base_pic/6.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
+    <img src="../img/mysql_base_pic/6.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
 </div>
+
 
 <h2 id="3-对具体文件操作"><a href="#3-对具体文件操作" class="headerlink" title="3. 对具体文件操作"></a>3. 对具体文件操作</h2><ol>
 <li>创建表：<code>create table 表的名称（列名称 类型，列名称 类型，列名称 类型）default charset=utf8;</code></li>
@@ -369,7 +372,7 @@
 </ol>
 <ul>
 <li>用户名默认是root<div style="text-align:center">
-  <img src="/img/mysql_base_pic/7.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
+  <img src="../img/mysql_base_pic/7.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
 </div></li>
 </ul>
 <ol start="2">
@@ -378,19 +381,19 @@
 <h1 id="四、常用的数据类型"><a href="#四、常用的数据类型" class="headerlink" title="四、常用的数据类型"></a>四、常用的数据类型</h1><ol>
 <li><p>整型：tinyint  &amp;  int  &amp;  bigint</p>
 </li>
-<li><p>有符号范围：-128~127   【默认】<br>  age tinyint</p>
+<li><p>有符号范围：-128~127   【默认】<br>age tinyint</p>
 </li>
-<li><p>无符号范围：0~255<br>  age tinyint unsigned</p>
+<li><p>无符号范围：0~255<br>age tinyint unsigned</p>
 </li>
 <li><p>小数：float &amp; double &amp; decimal</p>
 </li>
-<li><p>salary decimal(8,2)<br>  其中salary总共有8位数，小数点前6位，小数点后2位</p>
+<li><p>salary decimal(8,2)<br>其中salary总共有8位数，小数点前6位，小数点后2位</p>
 </li>
 <li><p>字符串：char &amp; varchar &amp; text</p>
 </li>
-<li><p>char 定长字符串<br>  mobile char(11)<br>  固定使用11个字符串进行存储，哪怕没有11个</p>
+<li><p>char 定长字符串<br>mobile char(11)<br>固定使用11个字符串进行存储，哪怕没有11个</p>
 </li>
-<li><p>varchar变长字符串<br>  mobile varchar(11)<br>  真实数据有多长，就会存储多长</p>
+<li><p>varchar变长字符串<br>mobile varchar(11)<br>真实数据有多长，就会存储多长</p>
 </li>
 <li><p>时间：datetime &amp; time</p>
 </li>
@@ -521,8 +524,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2023/12/01/FontAwesome/" title="FontAwesome">
-                        <span class="hidden-mobile">FontAwesome</span>
+                      <a href="/2023/12/03/Flask%E6%A1%86%E6%9E%B6/" title="Flask框架">
+                        <span class="hidden-mobile">Flask框架</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

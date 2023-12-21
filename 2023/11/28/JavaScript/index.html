@@ -23,15 +23,16 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="前端三驾马车之一，JavaScript3是一种高级编程语言，通常用于在Web浏览器中创建交互式的动态效果。他可以帮助网页实现一些更加酷炫的效果，快让他“动起来”吧！">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://example.com/img/javascript_img/javascript_pic1.jpg">
+<meta property="og:image" content="http://example.com/img/javascript_pic/1.jpg">
 <meta property="article:published_time" content="2023-11-28T12:00:00.000Z">
-<meta property="article:modified_time" content="2023-12-05T09:30:50.930Z">
+<meta property="article:modified_time" content="2023-12-21T09:13:25.834Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="Web开发">
 <meta property="article:tag" content="前端">
+<meta property="article:tag" content="语言">
 <meta property="article:tag" content="JavaScript">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="http://example.com/img/javascript_img/javascript_pic1.jpg">
+<meta name="twitter:image" content="http://example.com/img/javascript_pic/1.jpg">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
@@ -75,7 +76,7 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.5-a","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml","include_content_in_search":true};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.6","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml","include_content_in_search":true};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
@@ -119,7 +120,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/">
+              <a class="nav-link" href="/" target="_self">
                 <i class="iconfont icon-home-fill"></i>
                 <span>首页</span>
               </a>
@@ -131,7 +132,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/archives/">
+              <a class="nav-link" href="/archives/" target="_self">
                 <i class="iconfont icon-archive-fill"></i>
                 <span>归档</span>
               </a>
@@ -143,7 +144,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/categories/">
+              <a class="nav-link" href="/categories/" target="_self">
                 <i class="iconfont icon-category-fill"></i>
                 <span>分类</span>
               </a>
@@ -155,7 +156,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/tags/">
+              <a class="nav-link" href="/tags/" target="_self">
                 <i class="iconfont icon-tags-fill"></i>
                 <span>标签</span>
               </a>
@@ -167,7 +168,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/about/">
+              <a class="nav-link" href="/about/" target="_self">
                 <i class="iconfont icon-user-fill"></i>
                 <span>关于</span>
               </a>
@@ -226,7 +227,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.5k 字
+          342 字
         
       </span>
     
@@ -237,7 +238,7 @@
         
         
         
-          13 分钟
+          3 分钟
         
       </span>
     
@@ -296,31 +297,58 @@
 <h1 id="二、javascript具体应用"><a href="#二、javascript具体应用" class="headerlink" title="二、javascript具体应用"></a>二、javascript具体应用</h1><h2 id="1-语句"><a href="#1-语句" class="headerlink" title="1. 语句"></a>1. 语句</h2><ol>
 <li>javascript程序的单位是行，也就是一行一行的执行。一般情况下，每一行就是一个语句。</li>
 </ol>
-<figure class="highlight abnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs abnf">var num <span class="hljs-operator">=</span> <span class="hljs-number">10</span><span class="hljs-comment">; </span><br></code></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">var</span> num = <span class="hljs-number">10</span>; <br></code></pre></td></tr></table></figure>
+
+
 
 <h2 id="2-数组"><a href="#2-数组" class="headerlink" title="2.数组"></a>2.数组</h2><ol>
 <li><p>定义</p>
-<figure class="highlight arcade"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs arcade"><span class="hljs-keyword">var</span> v1 = [<span class="hljs-number">11</span>,<span class="hljs-number">22</span>,<span class="hljs-number">33</span>,<span class="hljs-number">44</span>];<br><span class="hljs-keyword">var</span> v2 = <span class="hljs-built_in">Array</span>([<span class="hljs-number">11</span>,<span class="hljs-number">22</span>,<span class="hljs-number">33</span>,<span class="hljs-number">44</span>]);<br></code></pre></td></tr></table></figure></li>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">var</span> v1 = [<span class="hljs-number">11</span>,<span class="hljs-number">22</span>,<span class="hljs-number">33</span>,<span class="hljs-number">44</span>];<br><span class="hljs-keyword">var</span> v2 = <span class="hljs-title class_">Array</span>([<span class="hljs-number">11</span>,<span class="hljs-number">22</span>,<span class="hljs-number">33</span>,<span class="hljs-number">44</span>]);<br></code></pre></td></tr></table></figure></li>
 <li><p>操作</p>
-<figure class="highlight arcade"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs arcade"><span class="hljs-keyword">var</span> v1 = [<span class="hljs-number">11</span>,<span class="hljs-number">22</span>,<span class="hljs-number">33</span>,<span class="hljs-number">44</span>];<br><br>v1[<span class="hljs-number">1</span>]<br>v1[<span class="hljs-number">0</span>] = <span class="hljs-string">&quot;zhangchen&quot;</span>;<br><br>v1.<span class="hljs-built_in">push</span>(<span class="hljs-string">&quot;zc&quot;</span>);  <span class="hljs-comment">//尾部追加[11,22,33,44,&quot;zc&quot;]</span><br><br>v1.unshift(<span class="hljs-string">&quot;zc&quot;</span>);   <span class="hljs-comment">//头部添加[&quot;zc&quot;,11,22,33,44]</span><br><br><span class="hljs-comment">// v1.splice(索引位置,0,元素);</span><br>v1.<span class="hljs-built_in">splice</span>(<span class="hljs-number">1</span>,<span class="hljs-number">0</span>,<span class="hljs-string">&quot;zc&quot;</span>);   <span class="hljs-comment">//从中间插入[11,&quot;zc&quot;,22,33,44]</span><br><br>v1.<span class="hljs-built_in">pop</span>();   <span class="hljs-comment">//尾部删除</span><br>v1.shift();   <span class="hljs-comment">//头部删除</span><br><span class="hljs-comment">// v1.splice(索引位置,1);</span><br>v1.<span class="hljs-built_in">splice</span>(<span class="hljs-number">2</span>,<span class="hljs-number">1</span>);   <span class="hljs-comment">//将索引为2的元素删除[11,22,44]</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">var</span> v1 = [<span class="hljs-number">11</span>,<span class="hljs-number">22</span>,<span class="hljs-number">33</span>,<span class="hljs-number">44</span>];<br><br>v1[<span class="hljs-number">1</span>]<br>v1[<span class="hljs-number">0</span>] = <span class="hljs-string">&quot;zhangchen&quot;</span>;<br><br>v1.<span class="hljs-title function_">push</span>(<span class="hljs-string">&quot;zc&quot;</span>);  <span class="hljs-comment">//尾部追加[11,22,33,44,&quot;zc&quot;]</span><br><br>v1.<span class="hljs-title function_">unshift</span>(<span class="hljs-string">&quot;zc&quot;</span>);   <span class="hljs-comment">//头部添加[&quot;zc&quot;,11,22,33,44]</span><br><br><span class="hljs-comment">// v1.splice(索引位置,0,元素);</span><br>v1.<span class="hljs-title function_">splice</span>(<span class="hljs-number">1</span>,<span class="hljs-number">0</span>,<span class="hljs-string">&quot;zc&quot;</span>);   <span class="hljs-comment">//从中间插入[11,&quot;zc&quot;,22,33,44]</span><br><br>v1.<span class="hljs-title function_">pop</span>();   <span class="hljs-comment">//尾部删除</span><br>v1.<span class="hljs-title function_">shift</span>();   <span class="hljs-comment">//头部删除</span><br><span class="hljs-comment">// v1.splice(索引位置,1);</span><br>v1.<span class="hljs-title function_">splice</span>(<span class="hljs-number">2</span>,<span class="hljs-number">1</span>);   <span class="hljs-comment">//将索引为2的元素删除[11,22,44]</span><br></code></pre></td></tr></table></figure>
 
 </li>
 <li><p>循环使用</p>
-<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs actionscript"><span class="hljs-keyword">var</span> vl = [<span class="hljs-number">11</span>,<span class="hljs-number">22</span>,<span class="hljs-number">33</span>,<span class="hljs-number">44</span>];<br><span class="hljs-keyword">for</span>(<span class="hljs-keyword">var</span> idx <span class="hljs-keyword">in</span> vl)&#123;<br>    <span class="hljs-comment">// idx = 0/1/2/3</span><br>    <span class="hljs-comment">// data = vl[idx]</span><br>&#125;<br></code></pre></td></tr></table></figure></li>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">var</span> vl = [<span class="hljs-number">11</span>,<span class="hljs-number">22</span>,<span class="hljs-number">33</span>,<span class="hljs-number">44</span>];<br><span class="hljs-keyword">for</span>(<span class="hljs-keyword">var</span> idx <span class="hljs-keyword">in</span> vl)&#123;<br>    <span class="hljs-comment">// idx = 0/1/2/3</span><br>    <span class="hljs-comment">// data = vl[idx]</span><br>&#125;<br></code></pre></td></tr></table></figure></li>
 </ol>
-<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs stylus"><span class="hljs-selector-tag">var</span> vl = <span class="hljs-selector-attr">[11,22,33,44]</span><br><span class="hljs-function"><span class="hljs-title">for</span><span class="hljs-params">(var i=<span class="hljs-number">0</span>; i&lt;vl.length; i++)</span></span>&#123;<br>    <span class="hljs-comment">// i=0/1/2/3  </span><br>    <span class="hljs-comment">// data=vl[idx]</span><br>&#125;<br></code></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">var</span> vl = [<span class="hljs-number">11</span>,<span class="hljs-number">22</span>,<span class="hljs-number">33</span>,<span class="hljs-number">44</span>]<br><span class="hljs-keyword">for</span>(<span class="hljs-keyword">var</span> i=<span class="hljs-number">0</span>; i&lt;vl.<span class="hljs-property">length</span>; i++)&#123;<br>    <span class="hljs-comment">// i=0/1/2/3  </span><br>    <span class="hljs-comment">// data=vl[idx]</span><br>&#125;<br></code></pre></td></tr></table></figure>
 
 <ol start="4">
-<li>进阶<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text/javascript&quot;</span>&gt;</span><span class="language-javascript"></span><br><span class="language-javascript"></span><br><span class="language-javascript"><span class="hljs-comment">// 发送网络请求，获取数据</span></span><br><span class="language-javascript"><span class="hljs-keyword">var</span> cityList = [<span class="hljs-string">&quot;北京&quot;</span>,<span class="hljs-string">&quot;上海&quot;</span>,<span class="hljs-string">&quot;深圳&quot;</span>];</span><br><span class="language-javascript"><span class="hljs-keyword">for</span>(<span class="hljs-keyword">var</span> idx <span class="hljs-keyword">in</span> cityList)&#123;</span><br><span class="language-javascript">    <span class="hljs-keyword">var</span> text = cityList[idx];</span><br><span class="language-javascript"></span><br><span class="language-javascript">    <span class="hljs-comment">// 创建&lt;li&gt;&lt;/li&gt;</span></span><br><span class="language-javascript">    <span class="hljs-keyword">var</span> tag = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">createElement</span>(<span class="hljs-string">&quot;li&quot;</span>);</span><br><span class="language-javascript">    <span class="hljs-comment">// 在li标签中写入内容</span></span><br><span class="language-javascript">    tag.<span class="hljs-property">innerText</span> = text;</span><br><span class="language-javascript"></span><br><span class="language-javascript">    <span class="hljs-comment">// 添加到id=city那个标签里面</span></span><br><span class="language-javascript">    <span class="hljs-keyword">var</span> parentTag = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">getElementById</span>(<span class="hljs-string">&quot;city&quot;</span>);</span><br><span class="language-javascript">    parentTag.<span class="hljs-title function_">appendChild</span>(tag);</span><br><span class="language-javascript">&#125;</span><br><span class="language-javascript"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br></code></pre></td></tr></table></figure></li>
+<li>进阶<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs javascript">&lt;script type=<span class="hljs-string">&quot;text/javascript&quot;</span>&gt;<br><br><span class="hljs-comment">// 发送网络请求，获取数据</span><br><span class="hljs-keyword">var</span> cityList = [<span class="hljs-string">&quot;北京&quot;</span>,<span class="hljs-string">&quot;上海&quot;</span>,<span class="hljs-string">&quot;深圳&quot;</span>];<br><span class="hljs-keyword">for</span>(<span class="hljs-keyword">var</span> idx <span class="hljs-keyword">in</span> cityList)&#123;<br>    <span class="hljs-keyword">var</span> text = cityList[idx];<br><br>    <span class="hljs-comment">// 创建&lt;li&gt;&lt;/li&gt;</span><br>    <span class="hljs-keyword">var</span> tag = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">createElement</span>(<span class="hljs-string">&quot;li&quot;</span>);<br>    <span class="hljs-comment">// 在li标签中写入内容</span><br>    tag.<span class="hljs-property">innerText</span> = text;<br><br>    <span class="hljs-comment">// 添加到id=city那个标签里面</span><br>    <span class="hljs-keyword">var</span> parentTag = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">getElementById</span>(<span class="hljs-string">&quot;city&quot;</span>);<br>    parentTag.<span class="hljs-title function_">appendChild</span>(tag);<br>&#125;<br>&lt;/script&gt;<br></code></pre></td></tr></table></figure></li>
 </ol>
-<h2 id="3-字典对象"><a href="#3-字典对象" class="headerlink" title="3. 字典对象"></a>3. 字典对象</h2><figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs pgsql"><span class="hljs-keyword">info</span> = &#123;<br>    <span class="hljs-type">name</span>: &quot;zc&quot;,<br>    age: <span class="hljs-number">18</span><br>&#125;<br><br># 修改<br><span class="hljs-keyword">info</span>.name = &quot;zl&quot;<br><span class="hljs-keyword">info</span>[&quot;name&quot;] = &quot;zl&quot;<br></code></pre></td></tr></table></figure>
+<h2 id="3-字典对象"><a href="#3-字典对象" class="headerlink" title="3. 字典对象"></a>3. 字典对象</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs javascript">info = &#123;<br>    <span class="hljs-attr">name</span>: <span class="hljs-string">&quot;zc&quot;</span>,<br>    <span class="hljs-attr">age</span>: <span class="hljs-number">18</span><br>&#125;<br><br># 修改<br>info.<span class="hljs-property">name</span> = <span class="hljs-string">&quot;zl&quot;</span><br>info[<span class="hljs-string">&quot;name&quot;</span>] = <span class="hljs-string">&quot;zl&quot;</span><br></code></pre></td></tr></table></figure>
+
+
 
 <h2 id="4-变量的打印"><a href="#4-变量的打印" class="headerlink" title="4. 变量的打印"></a>4. 变量的打印</h2><ol>
-<li>正常打印<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="language-javascript"></span><br><span class="language-javascript">    <span class="hljs-keyword">var</span> num = <span class="hljs-number">10</span>;</span><br><span class="language-javascript">    num = <span class="hljs-number">30</span>;</span><br><span class="language-javascript">    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(num)</span><br><span class="language-javascript"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br></code></pre></td></tr></table></figure>
-<div style="text-align:center">
- <img src="/img/javascript_img/javascript_pic2.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
-</div></li>
+<li><p>正常打印</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs javascript">&lt;script&gt;<br>    <span class="hljs-keyword">var</span> num = <span class="hljs-number">10</span>;<br>    num = <span class="hljs-number">30</span>;<br>    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(num)<br>&lt;/script&gt;<br></code></pre></td></tr></table></figure>
+<p><img src="/../img/javascript_pic/2.jpg" srcset="/img/loading.gif" lazyload alt="2.jpg"></p>
+</li>
+<li><p>undefined</p>
+</li>
 </ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs javascript">&lt;script&gt;<br>    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(num)<br>    <span class="hljs-keyword">var</span> num = <span class="hljs-number">10</span>;<br>&lt;/script&gt;<br></code></pre></td></tr></table></figure>
+<p><img src="/../img/jenkins_pic/3.jpg" srcset="/img/loading.gif" lazyload alt="3.jpg"></p>
+<ol start="3">
+<li>报错</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs javascript">&lt;script&gt;<br>    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(num)<br>&lt;/script&gt;<br></code></pre></td></tr></table></figure>
+<p><img src="/../img/javascript_pic/4.jpg" srcset="/img/loading.gif" lazyload alt="2.jpg"></p>
+<h2 id="5-将javascript引入到html文件中"><a href="#5-将javascript引入到html文件中" class="headerlink" title="5. 将javascript引入到html文件中"></a>5. 将javascript引入到html文件中</h2><p>javascript一般放在<body>内的最后面。因为html是按顺序执行的，先执行html后执行javascript</p>
+<p><img src="/../img/javascript_pic/5.jpg" srcset="/img/loading.gif" lazyload alt="5.jpg"></p>
+<h2 id="6-javascript输出方式"><a href="#6-javascript输出方式" class="headerlink" title="6. javascript输出方式"></a>6. javascript输出方式</h2><ol>
+<li>控制台输出<br><code>console.log(&quot;要输出的内容&quot;)</code></li>
+</ol>
+<p><img src="/../img/javascript_pic/6.jpg" srcset="/img/loading.gif" lazyload alt="6.jpg"></p>
+<ol start="2">
+<li>弹出框输出<br><code>alert(&quot;要输出的内容&quot;)</code></li>
+</ol>
+<p><img src="/../img/javascript_pic/7.jpg" srcset="/img/loading.gif" lazyload alt="2.jpg"></p>
+<ol start="3">
+<li>页面中输出<br><code>document.write(&quot;要输出的内容&quot;)</code></li>
+</ol>
+<p><img src="/../img/javascript_pic/8.jpg" srcset="/img/loading.gif" lazyload alt="2.jpg"></p>
 
                 
               </div>
@@ -364,6 +392,8 @@
         <a href="/tags/Web%E5%BC%80%E5%8F%91/" class="print-no-link">#Web开发</a>
       
         <a href="/tags/%E5%89%8D%E7%AB%AF/" class="print-no-link">#前端</a>
+      
+        <a href="/tags/%E8%AF%AD%E8%A8%80/" class="print-no-link">#语言</a>
       
         <a href="/tags/JavaScript/" class="print-no-link">#JavaScript</a>
       
@@ -422,9 +452,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2023/11/29/jQuery/" title="JavaScript之jQuery">
+                      <a href="/2023/11/29/%E5%90%84%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%BB%88%E7%AB%AF%E9%AB%98%E9%A2%91%E5%91%BD%E4%BB%A4/" title="各操作系统终端高频命令">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">JavaScript之jQuery</span>
+                        <span class="hidden-mobile">各操作系统终端高频命令</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     

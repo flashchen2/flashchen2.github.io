@@ -60,7 +60,7 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.5-a","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml","include_content_in_search":true};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.6","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml","include_content_in_search":true};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
@@ -104,7 +104,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/">
+              <a class="nav-link" href="/" target="_self">
                 <i class="iconfont icon-home-fill"></i>
                 <span>首页</span>
               </a>
@@ -116,7 +116,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/archives/">
+              <a class="nav-link" href="/archives/" target="_self">
                 <i class="iconfont icon-archive-fill"></i>
                 <span>归档</span>
               </a>
@@ -128,7 +128,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/categories/">
+              <a class="nav-link" href="/categories/" target="_self">
                 <i class="iconfont icon-category-fill"></i>
                 <span>分类</span>
               </a>
@@ -140,7 +140,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/tags/">
+              <a class="nav-link" href="/tags/" target="_self">
                 <i class="iconfont icon-tags-fill"></i>
                 <span>标签</span>
               </a>
@@ -152,7 +152,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/about/">
+              <a class="nav-link" href="/about/" target="_self">
                 <i class="iconfont icon-user-fill"></i>
                 <span>关于</span>
               </a>
@@ -295,15 +295,15 @@
             
               <a href="/tags/Web%E5%BC%80%E5%8F%91/">#Web开发</a>
             
+              <a href="/tags/Python/">#Python</a>
+            
+              <a href="/tags/Django/">#Django</a>
+            
               <a href="/tags/%E5%90%8E%E7%AB%AF/">#后端</a>
             
               <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">#数据库</a>
             
               <a href="/tags/MySQL/">#MySQL</a>
-            
-              <a href="/tags/Django/">#Django</a>
-            
-              <a href="/tags/Python/">#Python</a>
             
           </div>
         
@@ -404,6 +404,86 @@
     
     
       <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2023/12/03/Flask%E6%A1%86%E6%9E%B6/" target="_self">
+          <img src="/img/flask_pic/1.jpg" srcset="/img/loading.gif" lazyload alt="Flask框架">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h2 class="index-header">
+        
+        <a href="/2023/12/03/Flask%E6%A1%86%E6%9E%B6/" target="_self">
+          Flask框架
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt " href="/2023/12/03/Flask%E6%A1%86%E6%9E%B6/" target="_self">
+        <div>
+          Flask是一个轻量级的Python Web框架。它被设计成简单易用，同时也具有足够的灵活性和扩展性，可以用于构建各种类型的Web应用程序。Flask可以最快速的快速搭建一个小型的静态网站。
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2023-12-03 20:00" pubdate>
+              2023-12-03
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/Web%E5%BC%80%E5%8F%91/" class="category-chain-item">Web开发</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/Web%E5%BC%80%E5%8F%91/%E6%A1%86%E6%9E%B6/" class="category-chain-item">框架</a>
+  
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/Web%E5%BC%80%E5%8F%91/">#Web开发</a>
+            
+              <a href="/tags/Web%E6%A1%86%E6%9E%B6/">#Web框架</a>
+            
+              <a href="/tags/Python/">#Python</a>
+            
+              <a href="/tags/Flask/">#Flask</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
         <a href="/2023/12/01/FontAwesome/" target="_self">
           <img src="/img/fontawesome_pic/1.jpg" srcset="/img/loading.gif" lazyload alt="FontAwesome">
         </a>
@@ -470,7 +550,7 @@
             
               <a href="/tags/%E5%89%8D%E7%AB%AF/">#前端</a>
             
-              <a href="/tags/%E5%9B%BE%E6%A0%87%E5%AD%97%E4%BD%93%E5%BA%93/">#图标字体库</a>
+              <a href="/tags/%E5%89%8D%E7%AB%AF%E5%9B%BE%E6%A0%87%E5%AD%97%E4%BD%93%E5%BA%93/">#前端图标字体库</a>
             
               <a href="/tags/FontAwesome/">#FontAwesome</a>
             
@@ -550,7 +630,7 @@
             
               <a href="/tags/%E5%89%8D%E7%AB%AF/">#前端</a>
             
-              <a href="/tags/%E6%A1%86%E6%9E%B6/">#框架</a>
+              <a href="/tags/%E5%89%8D%E7%AB%AF%E6%A1%86%E6%9E%B6/">#前端框架</a>
             
               <a href="/tags/BootStrap/">#BootStrap</a>
             
@@ -564,23 +644,23 @@
     
     
       <div class="col-12 col-md-4 m-auto index-img">
-        <a href="/2023/11/29/jQuery/" target="_self">
-          <img src="/img/jquery_pic/1.jpg" srcset="/img/loading.gif" lazyload alt="JavaScript之jQuery">
+        <a href="/2023/11/30/Markdown/" target="_self">
+          <img src="/img/markdown_pic/1.jpg" srcset="/img/loading.gif" lazyload alt="Markdown">
         </a>
       </div>
     
     <article class="col-12 col-md-8 mx-auto index-info">
       <h2 class="index-header">
         
-        <a href="/2023/11/29/jQuery/" target="_self">
-          JavaScript之jQuery
+        <a href="/2023/11/30/Markdown/" target="_self">
+          Markdown
         </a>
       </h2>
 
       
-      <a class="index-excerpt " href="/2023/11/29/jQuery/" target="_self">
+      <a class="index-excerpt " href="/2023/11/30/Markdown/" target="_self">
         <div>
-          jQuery是一个JavaScript库，它简化了JavaScript的编写，提供了一些常用的功能和方法，使得开发者可以更快速、更方便地编写JavaScript代码。jQuery提供了一些常用的DOM操作、事件处理、动画效果、AJAX等功能。
+          Markdown是一种轻量级标记语言，它可以通过简单的文本标记来实现文本的格式化。Markdown可以用于编写各种文档，如博客、论文、说明文档等。它的的优点是可以快速地将文本转换为HTML格式。
         </div>
       </a>
 
@@ -588,8 +668,8 @@
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2023-11-29 20:00" pubdate>
-              2023-11-29
+            <time datetime="2023-11-30 20:00" pubdate>
+              2023-11-30
             </time>
           </div>
         
@@ -604,12 +684,12 @@
     
       <span class="category-chain">
         
-  <a href="/categories/Web%E5%BC%80%E5%8F%91/" class="category-chain-item">Web开发</a>
+  <a href="/categories/%E5%BC%80%E5%8F%91/" class="category-chain-item">开发</a>
   
   
     <span>></span>
     
-  <a href="/categories/Web%E5%BC%80%E5%8F%91/%E5%89%8D%E7%AB%AF/" class="category-chain-item">前端</a>
+  <a href="/categories/%E5%BC%80%E5%8F%91/%E5%B7%A5%E5%85%B7/" class="category-chain-item">工具</a>
   
   
 
@@ -626,390 +706,12 @@
           <div class="post-meta">
             <i class="iconfont icon-tags"></i>
             
-              <a href="/tags/Web%E5%BC%80%E5%8F%91/">#Web开发</a>
+              <a href="/tags/%E5%BC%80%E5%8F%91/">#开发</a>
             
-              <a href="/tags/%E5%89%8D%E7%AB%AF/">#前端</a>
-            
-              <a href="/tags/jQuery/">#jQuery</a>
-            
-              <a href="/tags/JavaScript%E5%BA%93/">#JavaScript库</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-      <div class="col-12 col-md-4 m-auto index-img">
-        <a href="/2023/11/28/JavaScript/" target="_self">
-          <img src="/img/javascript_img/javascript_pic1.jpg" srcset="/img/loading.gif" lazyload alt="JavaScript">
-        </a>
-      </div>
-    
-    <article class="col-12 col-md-8 mx-auto index-info">
-      <h2 class="index-header">
-        
-        <a href="/2023/11/28/JavaScript/" target="_self">
-          JavaScript
-        </a>
-      </h2>
-
-      
-      <a class="index-excerpt " href="/2023/11/28/JavaScript/" target="_self">
-        <div>
-          前端三驾马车之一，JavaScript3是一种高级编程语言，通常用于在Web浏览器中创建交互式的动态效果。他可以帮助网页实现一些更加酷炫的效果，快让他“动起来”吧！
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2023-11-28 20:00" pubdate>
-              2023-11-28
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3 d-flex align-items-center">
-            <i class="iconfont icon-category"></i>
-            
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/Web%E5%BC%80%E5%8F%91/" class="category-chain-item">Web开发</a>
-  
-  
-    <span>></span>
-    
-  <a href="/categories/Web%E5%BC%80%E5%8F%91/%E5%89%8D%E7%AB%AF/" class="category-chain-item">前端</a>
-  
-  
-
-  
-
-      </span>
-    
-  
-</span>
-
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/Web%E5%BC%80%E5%8F%91/">#Web开发</a>
-            
-              <a href="/tags/%E5%89%8D%E7%AB%AF/">#前端</a>
-            
-              <a href="/tags/JavaScript/">#JavaScript</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-      <div class="col-12 col-md-4 m-auto index-img">
-        <a href="/2023/11/26/Css/" target="_self">
-          <img src="/img/css_img/css_index.jpg" srcset="/img/loading.gif" lazyload alt="Css">
-        </a>
-      </div>
-    
-    <article class="col-12 col-md-8 mx-auto index-info">
-      <h2 class="index-header">
-        
-        <a href="/2023/11/26/Css/" target="_self">
-          Css
-        </a>
-      </h2>
-
-      
-      <a class="index-excerpt " href="/2023/11/26/Css/" target="_self">
-        <div>
-          前端三驾马车之一，Css3是一种用来修饰网页的方式，搭配Html5服用，可以制作出一个美观的静态页面。快让你的页面变得好看起来吧！
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2023-11-26 20:00" pubdate>
-              2023-11-26
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3 d-flex align-items-center">
-            <i class="iconfont icon-category"></i>
-            
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/Web%E5%BC%80%E5%8F%91/" class="category-chain-item">Web开发</a>
-  
-  
-    <span>></span>
-    
-  <a href="/categories/Web%E5%BC%80%E5%8F%91/%E5%89%8D%E7%AB%AF/" class="category-chain-item">前端</a>
-  
-  
-
-  
-
-      </span>
-    
-  
-</span>
-
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/Web%E5%BC%80%E5%8F%91/">#Web开发</a>
-            
-              <a href="/tags/%E5%89%8D%E7%AB%AF/">#前端</a>
-            
-              <a href="/tags/Css/">#Css</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-      <div class="col-12 col-md-4 m-auto index-img">
-        <a href="/2023/11/24/Html/" target="_self">
-          <img src="/img/html_img/html_index2.jpg" srcset="/img/loading.gif" lazyload alt="Html">
-        </a>
-      </div>
-    
-    <article class="col-12 col-md-8 mx-auto index-info">
-      <h2 class="index-header">
-        
-        <a href="/2023/11/24/Html/" target="_self">
-          Html
-        </a>
-      </h2>
-
-      
-      <a class="index-excerpt " href="/2023/11/24/Html/" target="_self">
-        <div>
-          前端三驾马车之一，Html5是一种用来描述网页的语言，被称为超文本传输语言。使用Html5可以快速搭建一个前端界面，让我们来画第一个界面吧！
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2023-11-24 20:00" pubdate>
-              2023-11-24
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3 d-flex align-items-center">
-            <i class="iconfont icon-category"></i>
-            
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/Web%E5%BC%80%E5%8F%91/" class="category-chain-item">Web开发</a>
-  
-  
-    <span>></span>
-    
-  <a href="/categories/Web%E5%BC%80%E5%8F%91/%E5%89%8D%E7%AB%AF/" class="category-chain-item">前端</a>
-  
-  
-
-  
-
-      </span>
-    
-  
-</span>
-
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/Web%E5%BC%80%E5%8F%91/">#Web开发</a>
-            
-              <a href="/tags/%E5%89%8D%E7%AB%AF/">#前端</a>
-            
-              <a href="/tags/Html/">#Html</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-      <div class="col-12 col-md-4 m-auto index-img">
-        <a href="/2023/11/22/hello-world/" target="_self">
-          <img src="/img/hello_hexo.jpg" srcset="/img/loading.gif" lazyload alt="Hello World">
-        </a>
-      </div>
-    
-    <article class="col-12 col-md-8 mx-auto index-info">
-      <h2 class="index-header">
-        
-        <a href="/2023/11/22/hello-world/" target="_self">
-          Hello World
-        </a>
-      </h2>
-
-      
-      <a class="index-excerpt " href="/2023/11/22/hello-world/" target="_self">
-        <div>
-          程序员入门第一课。
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2023-11-22 20:00" pubdate>
-              2023-11-22
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3 d-flex align-items-center">
-            <i class="iconfont icon-category"></i>
-            
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/Web%E5%BC%80%E5%8F%91/" class="category-chain-item">Web开发</a>
-  
-  
-    <span>></span>
-    
-  <a href="/categories/Web%E5%BC%80%E5%8F%91/%E5%90%8E%E7%AB%AF/" class="category-chain-item">后端</a>
-  
-  
-
-  
-
-      </span>
-    
-  
-</span>
-
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/Web%E5%BC%80%E5%8F%91/">#Web开发</a>
-            
-              <a href="/tags/%E6%A1%86%E6%9E%B6/">#框架</a>
-            
-              <a href="/tags/Css/">#Css</a>
-            
-              <a href="/tags/Html/">#Html</a>
-            
-              <a href="/tags/JavaScript/">#JavaScript</a>
-            
-              <a href="/tags/%E5%90%8E%E7%AB%AF/">#后端</a>
-            
-              <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">#数据库</a>
-            
-              <a href="/tags/MySQL/">#MySQL</a>
-            
-              <a href="/tags/Django/">#Django</a>
-            
-              <a href="/tags/Python/">#Python</a>
-            
-              <a href="/tags/Flask/">#Flask</a>
-            
-              <a href="/tags/%E8%AF%AD%E8%A8%80/">#语言</a>
-            
-              <a href="/tags/%E5%BA%93/">#库</a>
-            
-              <a href="/tags/%E6%8F%92%E4%BB%B6/">#插件</a>
-            
-              <a href="/tags/Cas/">#Cas</a>
-            
-              <a href="/tags/%E6%B5%8B%E8%AF%95/">#测试</a>
-            
-              <a href="/tags/API/">#API</a>
-            
-              <a href="/tags/%E5%8A%9F%E8%80%97/">#功耗</a>
-            
-              <a href="/tags/%E6%80%A7%E8%83%BD/">#性能</a>
-            
-              <a href="/tags/%E5%8E%8B%E5%8A%9B/">#压力</a>
-            
-              <a href="/tags/%E7%BB%AD%E8%88%AA/">#续航</a>
-            
-              <a href="/tags/%E5%85%85%E7%94%B5/">#充电</a>
-            
-              <a href="/tags/%E6%8A%AC%E8%85%95%E4%BA%AE%E5%B1%8F/">#抬腕亮屏</a>
-            
-              <a href="/tags/Java/">#Java</a>
-            
-              <a href="/tags/Linux/">#Linux</a>
-            
-              <a href="/tags/Appium/">#Appium</a>
-            
-              <a href="/tags/Jenkins/">#Jenkins</a>
-            
-              <a href="/tags/Scrapy/">#Scrapy</a>
-            
-              <a href="/tags/jQuery/">#jQuery</a>
-            
-              <a href="/tags/Bootstrap/">#Bootstrap</a>
-            
-              <a href="/tags/Font-Awesome/">#Font Awesome</a>
-            
-              <a href="/tags/C/">#C</a>
+              <a href="/tags/%E5%B7%A5%E5%85%B7/">#工具</a>
             
               <a href="/tags/Markdown/">#Markdown</a>
             
-              <a href="/tags/Hexo/">#Hexo</a>
-            
-              <a href="/tags/Git/">#Git</a>
-            
           </div>
         
       </div>
@@ -1020,23 +722,23 @@
     
     
       <div class="col-12 col-md-4 m-auto index-img">
-        <a href="/2023/11/20/blog%E6%95%B4%E4%BD%93%E8%A7%84%E5%88%92/" target="_self">
-          <img src="/img/blog_plan_hexo1.jpg" srcset="/img/loading.gif" lazyload alt="blog整体规划">
+        <a href="/2023/11/30/%E5%85%85%E7%94%B5%E6%B5%8B%E8%AF%95/" target="_self">
+          <img src="/img/charge_test_pic/1.jpg" srcset="/img/loading.gif" lazyload alt="电源测试方法">
         </a>
       </div>
     
     <article class="col-12 col-md-8 mx-auto index-info">
       <h2 class="index-header">
         
-        <a href="/2023/11/20/blog%E6%95%B4%E4%BD%93%E8%A7%84%E5%88%92/" target="_self">
-          blog整体规划
+        <a href="/2023/11/30/%E5%85%85%E7%94%B5%E6%B5%8B%E8%AF%95/" target="_self">
+          电源测试方法
         </a>
       </h2>
 
       
-      <a class="index-excerpt " href="/2023/11/20/blog%E6%95%B4%E4%BD%93%E8%A7%84%E5%88%92/" target="_self">
+      <a class="index-excerpt " href="/2023/11/30/%E5%85%85%E7%94%B5%E6%B5%8B%E8%AF%95/" target="_self">
         <div>
-          讲述作为一名测试开发工程师，工作1.5年过程中的自白。以及对测试技术与开发技术的积累与感悟。
+          记录在电源测试过程中所遇到的问题
         </div>
       </a>
 
@@ -1044,8 +746,8 @@
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2023-11-20 20:00" pubdate>
-              2023-11-20
+            <time datetime="2023-11-30 20:00" pubdate>
+              2023-11-30
             </time>
           </div>
         
@@ -1060,7 +762,7 @@
     
       <span class="category-chain">
         
-  <a href="/categories/%E6%80%BB%E7%BB%93/" class="category-chain-item">总结</a>
+  <a href="/categories/%E6%B5%8B%E8%AF%95/" class="category-chain-item">测试</a>
   
   
 
@@ -1075,7 +777,225 @@
           <div class="post-meta">
             <i class="iconfont icon-tags"></i>
             
-              <a href="/tags/%E6%80%BB%E7%BB%93/">#总结</a>
+              <a href="/tags/%E6%B5%8B%E8%AF%95/">#测试</a>
+            
+              <a href="/tags/%E7%94%B5%E6%BA%90%E6%B5%8B%E8%AF%95/">#电源测试</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2023/11/30/%E5%8A%9F%E8%80%97%E6%B5%8B%E8%AF%95/" target="_self">
+          <img src="/img/power_test_pic/1.jpg" srcset="/img/loading.gif" lazyload alt="功耗测试方法">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h2 class="index-header">
+        
+        <a href="/2023/11/30/%E5%8A%9F%E8%80%97%E6%B5%8B%E8%AF%95/" target="_self">
+          功耗测试方法
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt " href="/2023/11/30/%E5%8A%9F%E8%80%97%E6%B5%8B%E8%AF%95/" target="_self">
+        <div>
+          记录在功耗测试过程中所遇到的问题
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2023-11-30 20:00" pubdate>
+              2023-11-30
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E6%B5%8B%E8%AF%95/" class="category-chain-item">测试</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E6%B5%8B%E8%AF%95/">#测试</a>
+            
+              <a href="/tags/%E5%8A%9F%E8%80%97%E6%B5%8B%E8%AF%95/">#功耗测试</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2023/11/30/Java/" target="_self">
+          <img src="/img/java_pic/1.jpg" srcset="/img/loading.gif" lazyload alt="Java基础">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h2 class="index-header">
+        
+        <a href="/2023/11/30/Java/" target="_self">
+          Java基础
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt " href="/2023/11/30/Java/" target="_self">
+        <div>
+          记录Java基础知识
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2023-11-30 20:00" pubdate>
+              2023-11-30
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E5%BC%80%E5%8F%91/" class="category-chain-item">开发</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E5%BC%80%E5%8F%91/%E8%AF%AD%E8%A8%80/" class="category-chain-item">语言</a>
+  
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E8%AF%AD%E8%A8%80/">#语言</a>
+            
+              <a href="/tags/%E5%BC%80%E5%8F%91/">#开发</a>
+            
+              <a href="/tags/Java/">#Java</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2023/11/30/%E7%BB%AD%E8%88%AA%E6%B5%8B%E8%AF%95/" target="_self">
+          <img src="/img/endurance_test_pic/1.jpg" srcset="/img/loading.gif" lazyload alt="续航测试方法">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h2 class="index-header">
+        
+        <a href="/2023/11/30/%E7%BB%AD%E8%88%AA%E6%B5%8B%E8%AF%95/" target="_self">
+          续航测试方法
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt " href="/2023/11/30/%E7%BB%AD%E8%88%AA%E6%B5%8B%E8%AF%95/" target="_self">
+        <div>
+          记录在续航测试过程中所遇到的问题
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2023-11-30 20:00" pubdate>
+              2023-11-30
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E6%B5%8B%E8%AF%95/" class="category-chain-item">测试</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E6%B5%8B%E8%AF%95/">#测试</a>
+            
+              <a href="/tags/%E7%BB%AD%E8%88%AA%E6%B5%8B%E8%AF%95/">#续航测试</a>
             
           </div>
         
@@ -1084,6 +1004,12 @@
   </div>
 
 
+
+  <nav aria-label="navigation">
+    <span class="pagination" id="pagination">
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/#board">2</a><a class="page-number" href="/page/3/#board">3</a><a class="extend next" rel="next" href="/page/2/#board"><i class="iconfont icon-arrowright"></i></a>
+    </span>
+  </nav>
 
 
 
