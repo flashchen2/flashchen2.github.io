@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://example.com/img/jquery_pic/1.jpg">
 <meta property="article:published_time" content="2023-11-29T12:00:00.000Z">
-<meta property="article:modified_time" content="2023-12-21T08:46:11.994Z">
+<meta property="article:modified_time" content="2023-12-22T10:25:23.124Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="Web开发">
 <meta property="article:tag" content="前端">
@@ -228,7 +228,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          713 字
+          717 字
         
       </span>
     
@@ -338,8 +338,12 @@
 
 <h3 id="2-动态创建数据案例"><a href="#2-动态创建数据案例" class="headerlink" title="2. 动态创建数据案例"></a>2. 动态创建数据案例</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><code class="hljs javascript">&lt;body&gt;<br>    &lt;input type=&quot;text&quot; id=&quot;txtUser&quot; placeholder=&quot;用户名&quot;&gt;<br>    &lt;input type=&quot;text&quot; id=&quot;txtEmail&quot; placeholder=&quot;邮箱&quot;&gt;<br>    &lt;input type=&quot;button&quot; value=&quot;提交&quot; onclick=&quot;getInfo()&quot;&gt;<br><br>    &lt;ul id=&quot;view&quot;&gt;&lt;/ul&gt;<br><br>    &lt;script src=&quot;static/jquery-3.6.0.min.js&quot;&gt;&lt;/script&gt;<br>    &lt;script&gt;<br>        function getInfo()&#123;<br>            // 1. 获取用户输入的用户名和密码<br>            var username = $(&quot;#txtUser&quot;).val();<br>            var email = $(&quot;#txtEmail&quot;).val();<br>            var dataString = username + &quot; - &quot; + email;<br><br>            // 2. 创建li标签，在li的内部写入内容，$(&quot;&lt;li&gt;&quot;)<br>            var newLi = $(&quot;&lt;li&gt;&quot;).text(dataString);<br><br>            // 3. 把新创建的li标签添加到ul里面<br>            $(&quot;#view&quot;).append(newLi);<br>        &#125;<br>    &lt;/script&gt;<br>&lt;/body&gt;<br></code></pre></td></tr></table></figure>
 
+<div style="text-align:center;gap:5px">
+    <img src="/img/jquery_pic/2.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
+</div>
 
-<p><img src="/../img/jquery_pic/2.jpg" srcset="/img/loading.gif" lazyload alt="2.jpg"></p>
+
+
 <h2 id="3-jQuery正确书写方式"><a href="#3-jQuery正确书写方式" class="headerlink" title="3. jQuery正确书写方式"></a>3. jQuery正确书写方式</h2><ul>
 <li>为了使页面内容快速加载，减少用户等待时间。一般设置html框架加载完成后，再执行javascript代码<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs javascript">&lt;body&gt;<br>    <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">ul</span>&gt;</span></span><br><span class="language-xml">        <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>百度<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span></span><br><span class="language-xml">        <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>谷歌<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span></span><br><span class="language-xml">        <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>搜狗<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span></span><br><span class="language-xml">    <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span></span><br><br>    <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;static/jquery-3.6.0.min.js&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></span><br>    <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="language-javascript"><span class="language-xml">        $(<span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)&#123;</span></span><br><span class="language-javascript"><span class="language-xml">            <span class="hljs-comment">// 当页面的框架加载完成之后，自动执行</span></span></span><br><span class="language-javascript"><span class="language-xml"></span></span><br><span class="language-javascript"><span class="language-xml">            $(<span class="hljs-string">&quot;li&quot;</span>).<span class="hljs-title function_">click</span>(<span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)&#123;</span></span><br><span class="language-javascript"><span class="language-xml">                $(<span class="hljs-variable language_">this</span>).<span class="hljs-title function_">remove</span>();</span></span><br><span class="language-javascript"><span class="language-xml">            &#125;);</span></span><br><span class="language-javascript"><span class="language-xml">        &#125;);</span></span><br><span class="language-javascript"><span class="language-xml">    </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></span><br>&lt;/body&gt;<br></code></pre></td></tr></table></figure></li>
 </ul>
@@ -392,7 +396,9 @@
 ## 7. 前端传递url关键词不显示
 左边方式有问题，更换为右边形式
 
-![3.jpg](../img/jquery_pic/3.jpg)
+&lt;div style=&quot;text-align:center;gap:5px&quot;&gt;
+    &lt;img src=&quot;/img/jquery_pic/3.jpg&quot; alt=&quot;图片描述&quot;&gt;
+&lt;/div&gt;
 
 
 
@@ -505,9 +511,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2023/11/29/%E5%90%84%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%BB%88%E7%AB%AF%E9%AB%98%E9%A2%91%E5%91%BD%E4%BB%A4/" title="各操作系统终端高频命令">
+                      <a href="/2023/11/29/Shell%E6%8C%87%E4%BB%A4/" title="Shell指令">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">各操作系统终端高频命令</span>
+                        <span class="hidden-mobile">Shell指令</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     

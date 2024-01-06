@@ -16,30 +16,27 @@
   <meta name="author" content="张辰">
   <meta name="keywords" content="">
   
-    <meta name="description" content="操作系统是一种系统软件，它是计算机系统中最基本的软件之一，负责管理和控制计算机硬件和软件资源，为用户和应用程序提供服务。常见的操作系统包括Windows、MacOS、Linux等。">
+    <meta name="description" content="帮助你看懂公司的代码，大数量下处理集合效率高，代码可读性高，消灭嵌套地狱">
 <meta property="og:type" content="article">
-<meta property="og:title" content="各操作系统终端高频命令">
-<meta property="og:url" content="http://example.com/2023/11/29/%E5%90%84%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%BB%88%E7%AB%AF%E9%AB%98%E9%A2%91%E5%91%BD%E4%BB%A4/index.html">
+<meta property="og:title" content="Lambda函数式编程">
+<meta property="og:url" content="http://example.com/2023/11/29/Lambda%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="操作系统是一种系统软件，它是计算机系统中最基本的软件之一，负责管理和控制计算机硬件和软件资源，为用户和应用程序提供服务。常见的操作系统包括Windows、MacOS、Linux等。">
+<meta property="og:description" content="帮助你看懂公司的代码，大数量下处理集合效率高，代码可读性高，消灭嵌套地狱">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://example.com/img/operate_system_command_pic/1.jpg">
+<meta property="og:image" content="http://example.com/img/lambda_pic/1.jpg">
 <meta property="article:published_time" content="2023-11-29T12:00:00.000Z">
-<meta property="article:modified_time" content="2023-12-19T09:38:10.602Z">
+<meta property="article:modified_time" content="2024-01-04T09:56:25.533Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="开发">
-<meta property="article:tag" content="Linux">
-<meta property="article:tag" content="操作系统">
-<meta property="article:tag" content="MacOS">
-<meta property="article:tag" content="Windows">
+<meta property="article:tag" content="Lambda">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="http://example.com/img/operate_system_command_pic/1.jpg">
+<meta name="twitter:image" content="http://example.com/img/lambda_pic/1.jpg">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-  <title>各操作系统终端高频命令 - Hexo</title>
+  <title>Lambda函数式编程 - Hexo</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -205,7 +202,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="各操作系统终端高频命令"></span>
+            <span id="subtitle" data-typed-text="Lambda函数式编程"></span>
           
         </div>
 
@@ -228,7 +225,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          414 字
+          0 字
         
       </span>
     
@@ -239,7 +236,7 @@
         
         
         
-          4 分钟
+          1 分钟
         
       </span>
     
@@ -276,90 +273,12 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">各操作系统终端高频命令</h1>
+            <h1 id="seo-header">Lambda函数式编程</h1>
             
             
               <div class="markdown-body">
                 
-                <h1 id="一、MacOS"><a href="#一、MacOS" class="headerlink" title="一、MacOS"></a>一、MacOS</h1><h2 id="1-高频命令"><a href="#1-高频命令" class="headerlink" title="1. 高频命令"></a>1. 高频命令</h2><ol>
-<li><code>ls</code> 显示当前文件夹下所有的文件<br> <code>ls -al</code> 显示当前页面下的所有文件，可用于检测首页面所有隐藏文件夹，如配置环境变量的最终位置<code>.bash_profile</code></li>
-<li><code>open .bash_profile</code> 打开<code>.bash_profile</code>文件夹<br> <code>export PATH=&#123;PATH&#125;:/文件路径（这是是mysql路径）/bin</code>  配置路径</li>
-<li><code>cd /user/local/bin</code>  进去mac配置环境的路径<br> <code>cd /</code> 回到根目录</li>
-<li><code>mv chromedriver  /user/local/bin</code> 将chromedriver移动到<code>/user/local/bin</code>下，删除原位置文件</li>
-<li><code>ps -ef | grep mysq</code>l 全局查找“mysql”文件位置<br> <code>ls | grep mysql</code> 当前路径查找“mysql”文件位置</li>
-<li><code>pwd</code> 查看当前所在目录</li>
-<li><code>touch abcd</code> 新建abcd文件</li>
-<li><code>rm abcd</code>  删除abcd文件<br> <code>rm -rf abcd</code> 强制删除abcd文件 （-r是递归处理，就是一层一层的删，-f是强制删除）<br> <code>sudo rm -drf</code> 最高级别删除</li>
-<li><code>pip-&gt;pip3</code> 因为使用的是python3<br> <code>pip3 install --upgrade Django==2.1</code> 将Django版本升级为2.1版本</li>
-<li><code>which virtualenvwrapper.sh</code> 查找virtualenvwrapper所在位置</li>
-<li><code>mkdir ~/pyEnv</code> 创建一个pyEnv目录</li>
-<li><code>java -v</code> 不支持<br><code>java -version</code> 支持</li>
-</ol>
-<h2 id="2-查看本机ip"><a href="#2-查看本机ip" class="headerlink" title="2. 查看本机ip"></a>2. 查看本机ip</h2><figure class="highlight 1c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs 1c">ifconfig <span class="hljs-string">| grep &quot;</span>inet<span class="hljs-string">&quot;</span><br></code></pre></td></tr></table></figure>
-<div style="text-align:center">
-    <img src="../img/operate_system_command_pic/2.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
-</div>
-
-<ul>
-<li>注：个人Mac电脑对应得ip为10.220.164.103</li>
-</ul>
-<h2 id="3-查找xx文件夹，并将路径输出到终端"><a href="#3-查找xx文件夹，并将路径输出到终端" class="headerlink" title="3. 查找xx文件夹，并将路径输出到终端"></a>3. 查找xx文件夹，并将路径输出到终端</h2><figure class="highlight sqf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sqf"><span class="hljs-built_in">find</span> . -<span class="hljs-built_in">type</span> d -<span class="hljs-built_in">name</span> my_folder<br></code></pre></td></tr></table></figure>
-
-
-
-<h2 id="4-新建分屏终端页面"><a href="#4-新建分屏终端页面" class="headerlink" title="4. 新建分屏终端页面"></a>4. 新建分屏终端页面</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">command</span> + d<br></code></pre></td></tr></table></figure>
-
-
-
-<h2 id="5-取消分屏"><a href="#5-取消分屏" class="headerlink" title="5. 取消分屏"></a>5. 取消分屏</h2><figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs lsl"><span class="hljs-section">control</span> + d<br></code></pre></td></tr></table></figure>
-
-
-
-<h2 id="6-MAC配置环境变量"><a href="#6-MAC配置环境变量" class="headerlink" title="6. MAC配置环境变量 ***"></a>6. MAC配置环境变量 ***</h2><p>vi ~&#x2F;.zshrc 进入配置环境变量<br>i&amp;a 开始编辑，添加路径（i：在光标前追加；a：在光标后追加）<br>export PATH&#x3D;${PATH}:&#x2F;user&#x2F;local&#x2F;mysql&#x2F;bin 以配置mysql为例<br>esc后，:wq! 退出当前添加<br>source ~&#x2F;.zshrc 生效所配置的内容<br>mysql -u root -p 确认安装成功</p>
-<div style="text-align:center">
-    <img src="../img/operate_system_command_pic/3.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
-</div>
-
-<div style="text-align:center">
-    <img src="../img/operate_system_command_pic/4.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
-</div>
-
-<div style="text-align:center">
-    <img src="../img/operate_system_command_pic/5.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
-</div>
-
-
-<h1 id="二、Windows终端"><a href="#二、Windows终端" class="headerlink" title="二、Windows终端"></a>二、Windows终端</h1><h2 id="1-显示当前文件夹下所有的文件"><a href="#1-显示当前文件夹下所有的文件" class="headerlink" title="1. 显示当前文件夹下所有的文件"></a>1. 显示当前文件夹下所有的文件</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">dir</span><br></code></pre></td></tr></table></figure>
-
-<h2 id="2-在终端中切换磁盘"><a href="#2-在终端中切换磁盘" class="headerlink" title="2. 在终端中切换磁盘"></a>2. 在终端中切换磁盘</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">cd</span> /d 想要进入的盘符:<br></code></pre></td></tr></table></figure>
-<div style="text-align:center">
-    <img src="../img/operate_system_command_pic/6.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
-</div>
-
-<div style="text-align:center">
-    <img src="../img/operate_system_command_pic/7.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
-</div>
-
-
-<h2 id="3-查找终端安装包的位置"><a href="#3-查找终端安装包的位置" class="headerlink" title="3. 查找终端安装包的位置"></a>3. 查找终端安装包的位置</h2><ol>
-<li>查找终端安装包都有什么：pip list</li>
-<li>查找某包的位置：pip show idna</li>
-<li>可以直接将python中的包，复制到终端下<div style="text-align:center">
- <img src="../img/operate_system_command_pic/8.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
-</div></li>
-</ol>
-<h1 id="三、手表手环终端"><a href="#三、手表手环终端" class="headerlink" title="三、手表手环终端"></a>三、手表手环终端</h1><h2 id="1-向固件中推入apk"><a href="#1-向固件中推入apk" class="headerlink" title="1. 向固件中推入apk"></a>1. 向固件中推入apk</h2><ol>
-<li>adb devices   # pc是否通过usb检测到固件</li>
-<li>adb root </li>
-<li>adb remount</li>
-<li>adb push WearSysUi.apk &#x2F;system&#x2F;priv-app&#x2F;WearSysUi&#x2F;</li>
-<li>adb disable-verity</li>
-<li>adb shell reboot  # 重启</li>
-</ol>
-<h2 id="2-拉取固件日志"><a href="#2-拉取固件日志" class="headerlink" title="2. 拉取固件日志"></a>2. 拉取固件日志</h2><ol>
-<li>adb bugreport  #所拉取日志位于 此电脑-c盘-用户-用户处</li>
-</ol>
-
+                
                 
               </div>
             
@@ -382,7 +301,7 @@
   
     <span>></span>
     
-  <a href="/categories/%E5%BC%80%E5%8F%91/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" class="category-chain-item">操作系统</a>
+  <a href="/categories/%E5%BC%80%E5%8F%91/Lambda/" class="category-chain-item">Lambda</a>
   
   
 
@@ -401,13 +320,7 @@
       
         <a href="/tags/%E5%BC%80%E5%8F%91/" class="print-no-link">#开发</a>
       
-        <a href="/tags/Linux/" class="print-no-link">#Linux</a>
-      
-        <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" class="print-no-link">#操作系统</a>
-      
-        <a href="/tags/MacOS/" class="print-no-link">#MacOS</a>
-      
-        <a href="/tags/Windows/" class="print-no-link">#Windows</a>
+        <a href="/tags/Lambda/" class="print-no-link">#Lambda</a>
       
     </div>
   
@@ -419,8 +332,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>各操作系统终端高频命令</div>
-      <div>http://example.com/2023/11/29/各操作系统终端高频命令/</div>
+      <div>Lambda函数式编程</div>
+      <div>http://example.com/2023/11/29/Lambda函数式编程/</div>
     </div>
     <div class="license-meta">
       
@@ -474,8 +387,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2023/11/29/jQuery/" title="JavaScript之jQuery">
-                        <span class="hidden-mobile">JavaScript之jQuery</span>
+                      <a href="/2023/11/29/Shell%E6%8C%87%E4%BB%A4/" title="Shell指令">
+                        <span class="hidden-mobile">Shell指令</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://example.com/img/mysql_advance_pic/1.jpg">
 <meta property="article:published_time" content="2023-12-06T12:00:00.000Z">
-<meta property="article:modified_time" content="2023-12-21T08:28:48.228Z">
+<meta property="article:modified_time" content="2023-12-22T10:44:06.757Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="Web开发">
 <meta property="article:tag" content="Python">
@@ -328,7 +328,7 @@
 <li>启动MySQL服务:<code>mysql -u root -p</code><br> <code>Enter password:Pooh_0505</code></li>
 <li>自带的工具创建数据库：<code>create database 数据库名字 DEFAULT CHARSET utf8 COLLATE utf8_general_ci;</code></li>
 <li>查看mysql目录下文件夹：<code>show databases;</code> <div style="text-align:center">
- <img src="../img/mysql_advance_pic/3.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
+ <img src="/img/mysql_advance_pic/3.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
  </div></li>
 </ol>
 </li>
@@ -337,9 +337,10 @@
 <li>在settings.py文件中进行配置和修改,连接MySQL</li>
 </ol>
  <div style="text-align:center">
-     <img src="../img/mysql_advance_pic/4.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
+     <img src="/img/mysql_advance_pic/4.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
  </div>
-
+ 
+ 
  
 <ol start="2">
 <li>注释掉原有DATABASES数据，重新写入 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs python">DATABASES = &#123;<br><span class="hljs-string">&#x27;default&#x27;</span>: &#123;<br>    <span class="hljs-string">&#x27;ENGINE&#x27;</span>: <span class="hljs-string">&#x27;django.db.backends.mysql&#x27;</span>, <span class="hljs-comment"># 链接mysql数据库</span><br>    <span class="hljs-string">&#x27;NAME&#x27;</span>: <span class="hljs-string">&#x27;mysqltest&#x27;</span>,  <span class="hljs-comment"># 数据库名字</span><br>    <span class="hljs-string">&#x27;USER&#x27;</span>: <span class="hljs-string">&#x27;root&#x27;</span>,      <span class="hljs-comment"># 用户名字，默认是root</span><br>    <span class="hljs-string">&#x27;PASSWORD&#x27;</span>: <span class="hljs-string">&#x27;Pooh_0505&#x27;</span>,    <span class="hljs-comment"># 用户密码</span><br>    <span class="hljs-string">&#x27;HOST&#x27;</span>: <span class="hljs-string">&#x27;127.0.0.1&#x27;</span>,    <span class="hljs-comment"># 那台机器安装了MySQL</span><br>    <span class="hljs-string">&#x27;PORT&#x27;</span>: <span class="hljs-string">&#x27;3306&#x27;</span>,   <span class="hljs-comment"># 端口含默认3306</span><br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure></li>
@@ -353,8 +354,9 @@
 </li>
 </ol>
 <div style="text-align:center">
-    <img src="../img/mysql_advance_pic/5.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
+    <img src="/img/mysql_advance_pic/5.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
 </div>
+
 
 
 <ol start="2">
@@ -367,8 +369,9 @@
 <ol>
 <li><p>Tools - Run manage.py Task</p>
  <div style="text-align:center">
- <img src="../img/mysql_advance_pic/5.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
+ <img src="/img/mysql_advance_pic/5.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
  </div>
+
 
 </li>
 <li><p>在下方终端输入</p>
@@ -378,9 +381,9 @@
 </ol>
 </li>
 <li><p>运行后会自动创建【settings】已经注册项中的所有表</p>
-<div style="text-align:center;display:flex;gap:5px">
- <img src="../img/mysql_advance_pic/6.jpg" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:35%;">
- <img src="../img/mysql_advance_pic/7.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
+<div style="text-align:center;gap:5px">
+ <img src="/img/mysql_advance_pic/6.jpg" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:55%;">
+ <img src="/img/mysql_advance_pic/7.jpg" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:95%;">
 </div></li>
 </ol>
 <h3 id="2-删除表"><a href="#2-删除表" class="headerlink" title="2. 删除表"></a>2. 删除表</h3><ol>
@@ -415,7 +418,7 @@
 
 <ol start="2">
 <li>验证结果：<br>访问mysql：<code>mysql -u root -p</code><br>重置密码：<code>set password = password(&quot;Pooh_0505&quot;)</code><br>查看mysql目录下文件夹：<code>show databases;</code><br>进入数据库：<code>use 数据库名字；</code><br>查看文件夹下所有的数据表：<code>show tables；</code><br>查看新建表中的数据：<code>desc 数据表名;</code><br>查看新建表中的数据：<code>select * from 表的名称;</code><div style="text-align:center">
- <img src="../img/mysql_advance_pic/9.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
+ <img src="/img/mysql_advance_pic/9.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
 </div></li>
 </ol>
 <h3 id="5-Django操作表-新建、删除、查找、更新"><a href="#5-Django操作表-新建、删除、查找、更新" class="headerlink" title="5. Django操作表 - 新建、删除、查找、更新"></a>5. Django操作表 - 新建、删除、查找、更新</h3><ol>
@@ -456,7 +459,7 @@
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">ppc_test_center_DOU</span>(<span class="hljs-params">request</span>):<br>    DOU_project_form = DOUProjectForm()<br>    data_list = DOU_project_basic_information_list.objects.<span class="hljs-built_in">all</span>()<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;data_list&#x27;</span>, data_list)<br>    <span class="hljs-keyword">if</span> request.method == <span class="hljs-string">&quot;GET&quot;</span>:<br>        <br>        <span class="hljs-keyword">return</span> render(request, <span class="hljs-string">&quot;ppc_test_center_DOU.html&quot;</span>, &#123;<span class="hljs-string">&quot;data_list&quot;</span>: data_list&#125;)<br></code></pre></td></tr></table></figure>
 </li>
 <li><p><code>mysql_info_list_test.html</code></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><code class="hljs python">&lt;!DOCTYPE html&gt;<br>&lt;html lang=<span class="hljs-string">&quot;en&quot;</span>&gt;<br>&lt;head&gt;<br>    &lt;meta charset=<span class="hljs-string">&quot;UTF-8&quot;</span>&gt;<br>    &lt;title&gt;Title&lt;/title&gt;<br>&lt;/head&gt;<br>&lt;body&gt;<br>&lt;h1&gt;项目基础信息&lt;/h1&gt;<br>&lt;h2&gt;&lt;a href=<span class="hljs-string">&quot;/mysql_model_form_add_test/&quot;</span>&gt;model_form添加信息&lt;/a&gt;&lt;/h2&gt;<br>&lt;table border=<span class="hljs-string">&quot;1&quot;</span>&gt;<br>    &lt;thead&gt;<br>    &lt;tr&gt;<br>        &lt;th&gt;<span class="hljs-comment">#&lt;/th&gt;</span><br>        &lt;th&gt;项目名称&lt;/th&gt;<br>        &lt;th&gt;测试轮次&lt;/th&gt;<br>        &lt;th&gt;测试时间&lt;/th&gt;<br>        &lt;th&gt;硬件版本&lt;/th&gt;<br>        &lt;th&gt;固件版本&lt;/th&gt;<br>        &lt;th&gt;APP版本&lt;/th&gt;<br>        &lt;th&gt;操作&lt;/th&gt;<br>    &lt;/tr&gt;<br>    &lt;/thead&gt;<br>    &lt;tbody&gt;<br>        &#123;% <span class="hljs-keyword">for</span> singo_data_list <span class="hljs-keyword">in</span> data_list%&#125;<br>        &lt;tr&gt;<br>            &lt;td&gt;&#123;&#123;singo_data_list.<span class="hljs-built_in">id</span>&#125;&#125;&lt;/td&gt;<br>            &lt;td&gt;&#123;&#123;singo_data_list.project_name&#125;&#125;&lt;/td&gt;<br>            &lt;td&gt;&#123;&#123;singo_data_list.test_rounds&#125;&#125;&lt;/td&gt;<br>            &lt;td&gt;&#123;&#123;singo_data_list.test_time&#125;&#125;&lt;/td&gt;<br>            &lt;td&gt;&#123;&#123;singo_data_list.hardware_version&#125;&#125;&lt;/td&gt;<br>            &lt;td&gt;&#123;&#123;singo_data_list.firmware_version&#125;&#125;&lt;/td&gt;<br>            &lt;td&gt;&#123;&#123;singo_data_list.app_version&#125;&#125;&lt;/td&gt;<br>        &lt;td&gt;<br>            &lt;a href=<span class="hljs-string">&quot;/mysql_delete_test/?nid=&#123;&#123; singo_data_list.id &#125;&#125;&quot;</span>&gt;删除&lt;/a&gt;<br>        &lt;/td&gt;<br><br>        &lt;/tr&gt;<br>        &#123;% endfor %&#125;<br>    &lt;/tbody&gt;<br>&lt;/table&gt;<br>&lt;/body&gt;<br>&lt;/html&gt;<br></code></pre></td></tr></table></figure></li>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-meta">&lt;!DOCTYPE <span class="hljs-keyword">html</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">html</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">&quot;en&quot;</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">&quot;UTF-8&quot;</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>Title<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>项目基础信息<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">h2</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;/mysql_model_form_add_test/&quot;</span>&gt;</span>model_form添加信息<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">table</span> <span class="hljs-attr">border</span>=<span class="hljs-string">&quot;1&quot;</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">thead</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">tr</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">th</span>&gt;</span>#<span class="hljs-tag">&lt;/<span class="hljs-name">th</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">th</span>&gt;</span>项目名称<span class="hljs-tag">&lt;/<span class="hljs-name">th</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">th</span>&gt;</span>测试轮次<span class="hljs-tag">&lt;/<span class="hljs-name">th</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">th</span>&gt;</span>测试时间<span class="hljs-tag">&lt;/<span class="hljs-name">th</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">th</span>&gt;</span>硬件版本<span class="hljs-tag">&lt;/<span class="hljs-name">th</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">th</span>&gt;</span>固件版本<span class="hljs-tag">&lt;/<span class="hljs-name">th</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">th</span>&gt;</span>APP版本<span class="hljs-tag">&lt;/<span class="hljs-name">th</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">th</span>&gt;</span>操作<span class="hljs-tag">&lt;/<span class="hljs-name">th</span>&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">tr</span>&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">thead</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">tbody</span>&gt;</span><br>        &#123;% for singo_data_list in data_list%&#125;<br>        <span class="hljs-tag">&lt;<span class="hljs-name">tr</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>&#123;&#123;singo_data_list.id&#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>&#123;&#123;singo_data_list.project_name&#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>&#123;&#123;singo_data_list.test_rounds&#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>&#123;&#123;singo_data_list.test_time&#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>&#123;&#123;singo_data_list.hardware_version&#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>&#123;&#123;singo_data_list.firmware_version&#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>&#123;&#123;singo_data_list.app_version&#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;/mysql_delete_test/?nid=&#123;&#123; singo_data_list.id &#125;&#125;&quot;</span>&gt;</span>删除<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><br>        <span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span><br><br>        <span class="hljs-tag">&lt;/<span class="hljs-name">tr</span>&gt;</span><br>        &#123;% endfor %&#125;<br>    <span class="hljs-tag">&lt;/<span class="hljs-name">tbody</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">table</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span><br></code></pre></td></tr></table></figure></li>
 </ol>
 <h2 id="3-添加信息"><a href="#3-添加信息" class="headerlink" title="3. 添加信息"></a>3. 添加信息</h2><p>因为添加信息的列表头部分，已经在models.py文件中写入，以下方法较为简便调用</p>
 <ol>
@@ -469,7 +472,7 @@
 <li><p><code>ppc_test_center_DOU_add_project_basic_information.html</code></p>
 </li>
 </ol>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><code class="hljs python">&#123;% load staticfiles %&#125;<br>&lt;!DOCTYPE html&gt;<br>&lt;html lang=<span class="hljs-string">&quot;en&quot;</span>&gt;<br>&lt;head&gt;<br>    &lt;meta charset=<span class="hljs-string">&quot;UTF-8&quot;</span>&gt;<br>    &lt;title&gt;Title&lt;/title&gt;<br>    &lt;link rel=<span class="hljs-string">&quot;stylesheet&quot;</span> <span class="hljs-built_in">type</span>=<span class="hljs-string">&quot;text/css&quot;</span> href=<span class="hljs-string">&#x27;&#123;% static &quot;plugins/bootstrap-3.4.1/css/bootstrap.css&quot; %&#125;&#x27;</span>&gt;<br>    &lt;link rel=<span class="hljs-string">&quot;stylesheet&quot;</span> <span class="hljs-built_in">type</span>=<span class="hljs-string">&quot;text/css&quot;</span> href=<span class="hljs-string">&#x27;&#123;% static &quot;plugins/bootstrap-3.4.1/js/bootstrap.js&quot; %&#125;&#x27;</span>&gt;<br>    &lt;link rel=<span class="hljs-string">&quot;stylesheet&quot;</span> <span class="hljs-built_in">type</span>=<span class="hljs-string">&quot;text/css&quot;</span> href=<span class="hljs-string">&#x27;&#123;% static &quot;plugins/font-awesome-4.7.0/css/font-awesome.css&quot; %&#125;&#x27;</span>&gt;<br>&lt;/head&gt;<br>&lt;body&gt;<br><br>&lt;form method=<span class="hljs-string">&quot;post&quot;</span> novalidate&gt;<br>        &#123;% csrf_token %&#125;<br><br>        &#123;% <span class="hljs-keyword">for</span> field <span class="hljs-keyword">in</span> form %&#125;<br>            &lt;div&gt;&#123;&#123; field.label &#125;&#125; : &#123;&#123; field &#125;&#125; &lt;span style=<span class="hljs-string">&quot;color: red&quot;</span> &gt;&#123;&#123; field.errors<span class="hljs-number">.0</span> &#125;&#125;&lt;/span&gt;&lt;/div&gt;<br>        &#123;% endfor %&#125;<br>    &lt;button&gt;&lt;a href=<span class="hljs-string">&quot;/ppc_test_center/DOU/&quot;</span>&gt;取消&lt;/a&gt;&lt;/button&gt;<br>    &lt;<span class="hljs-built_in">input</span> <span class="hljs-built_in">type</span>=<span class="hljs-string">&quot;submit&quot;</span> value=<span class="hljs-string">&quot;提交&quot;</span>&gt;<br>    &lt;/form&gt;<br>&lt;/body&gt;<br>&lt;/html&gt;<br></code></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><code class="hljs html">&#123;% load staticfiles %&#125;<br><span class="hljs-meta">&lt;!DOCTYPE <span class="hljs-keyword">html</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">html</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">&quot;en&quot;</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">&quot;UTF-8&quot;</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>Title<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">&quot;stylesheet&quot;</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text/css&quot;</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&#x27;&#123;% static &quot;plugins/bootstrap-3.4.1/css/bootstrap.css&quot; %&#125;&#x27;</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">&quot;stylesheet&quot;</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text/css&quot;</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&#x27;&#123;% static &quot;plugins/bootstrap-3.4.1/js/bootstrap.js&quot; %&#125;&#x27;</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">&quot;stylesheet&quot;</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text/css&quot;</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&#x27;&#123;% static &quot;plugins/font-awesome-4.7.0/css/font-awesome.css&quot; %&#125;&#x27;</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span><br><br><span class="hljs-tag">&lt;<span class="hljs-name">form</span> <span class="hljs-attr">method</span>=<span class="hljs-string">&quot;post&quot;</span> <span class="hljs-attr">novalidate</span>&gt;</span><br>        &#123;% csrf_token %&#125;<br><br>        &#123;% for field in form %&#125;<br>            <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>&#123;&#123; field.label &#125;&#125; : &#123;&#123; field &#125;&#125; <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">style</span>=<span class="hljs-string">&quot;color: red&quot;</span> &gt;</span>&#123;&#123; field.errors.0 &#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br>        &#123;% endfor %&#125;<br>    <span class="hljs-tag">&lt;<span class="hljs-name">button</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;/ppc_test_center/DOU/&quot;</span>&gt;</span>取消<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;submit&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;提交&quot;</span>&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span><br></code></pre></td></tr></table></figure>
 
 <h2 id="4-编辑信息"><a href="#4-编辑信息" class="headerlink" title="4. 编辑信息"></a>4. 编辑信息</h2><ol>
 <li><p><code>url.py</code></p>
@@ -484,12 +487,13 @@
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><code class="hljs python">&#123;% load staticfiles %&#125;<br>&lt;!DOCTYPE html&gt;<br>&lt;html lang=<span class="hljs-string">&quot;en&quot;</span>&gt;<br>&lt;head&gt;<br>    &lt;meta charset=<span class="hljs-string">&quot;UTF-8&quot;</span>&gt;<br>    &lt;title&gt;Title&lt;/title&gt;<br>    &lt;link rel=<span class="hljs-string">&quot;stylesheet&quot;</span> <span class="hljs-built_in">type</span>=<span class="hljs-string">&quot;text/css&quot;</span> href=<span class="hljs-string">&#x27;&#123;% static &quot;plugins/bootstrap-3.4.1/css/bootstrap.css&quot; %&#125;&#x27;</span>&gt;<br>    &lt;link rel=<span class="hljs-string">&quot;stylesheet&quot;</span> <span class="hljs-built_in">type</span>=<span class="hljs-string">&quot;text/css&quot;</span> href=<span class="hljs-string">&#x27;&#123;% static &quot;plugins/bootstrap-3.4.1/js/bootstrap.js&quot; %&#125;&#x27;</span>&gt;<br>    &lt;link rel=<span class="hljs-string">&quot;stylesheet&quot;</span> <span class="hljs-built_in">type</span>=<span class="hljs-string">&quot;text/css&quot;</span> href=<span class="hljs-string">&#x27;&#123;% static &quot;plugins/font-awesome-4.7.0/css/font-awesome.css&quot; %&#125;&#x27;</span>&gt;<br><br><br>    &lt;style&gt;<br><br>    &lt;/style&gt;<br>&lt;/head&gt;<br>&lt;body&gt;<br><br>&lt;form method=<span class="hljs-string">&quot;post&quot;</span> novalidate&gt;<br>        &#123;% csrf_token %&#125;<br><br>        &#123;% <span class="hljs-keyword">for</span> field <span class="hljs-keyword">in</span> form %&#125;<br>            &lt;div&gt;&#123;&#123; field.label &#125;&#125; : &#123;&#123; field &#125;&#125; &lt;span style=<span class="hljs-string">&quot;color: red&quot;</span> &gt;&#123;&#123; field.errors<span class="hljs-number">.0</span> &#125;&#125;&lt;/span&gt;&lt;/div&gt;<br>        &#123;% endfor %&#125;<br>    &lt;button&gt;&lt;a href=<span class="hljs-string">&quot;/ppc_test_center/DOU/&quot;</span>&gt;取消&lt;/a&gt;&lt;/button&gt;<br>    &lt;<span class="hljs-built_in">input</span> <span class="hljs-built_in">type</span>=<span class="hljs-string">&quot;submit&quot;</span> value=<span class="hljs-string">&quot;更改&quot;</span>&gt;<br>    &lt;/form&gt;<br></code></pre></td></tr></table></figure>
 
 <h2 id="4-调用不同数据库位置"><a href="#4-调用不同数据库位置" class="headerlink" title="4. 调用不同数据库位置"></a>4. 调用不同数据库位置</h2><div style="text-align:center">
-    <img src="../img/mysql_advance_pic/10.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
+    <img src="/img/mysql_advance_pic/10.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
 </div>
 
 <div style="text-align:center">
-    <img src="../img/mysql_advance_pic/11.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
+    <img src="/img/mysql_advance_pic/11.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
 </div>
+
 
 
 <h2 id="5-删除信息"><a href="#5-删除信息" class="headerlink" title="5. 删除信息"></a>5. 删除信息</h2><ol>
@@ -502,109 +506,119 @@
 </li>
 </ol>
 <h2 id="6-搜索"><a href="#6-搜索" class="headerlink" title="6. 搜索"></a>6. 搜索</h2><div style="text-align:center">
-    <img src="../img/mysql_advance_pic/12.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
+    <img src="/img/mysql_advance_pic/12.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
 </div>
+
 
 
 <ol>
 <li><p>html</p>
 <div style="text-align:center">
- <img src="../img/mysql_advance_pic/13.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
+ <img src="/img/mysql_advance_pic/13.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
 </div>
+
 
 </li>
 <li><p>views</p>
 <div style="text-align:center">
- <img src="../img/mysql_advance_pic/14.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
+ <img src="/img/mysql_advance_pic/14.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
 </div></li>
 </ol>
 <h2 id="7-分页"><a href="#7-分页" class="headerlink" title="7. 分页"></a>7. 分页</h2><ol>
 <li>分页的基本实现<div style="text-align:center">
- <img src="../img/mysql_advance_pic/15.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
+ <img src="/img/mysql_advance_pic/15.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
 </div></li>
 </ol>
 <div style="text-align:center">
-    <img src="../img/mysql_advance_pic/16.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
+    <img src="/img/mysql_advance_pic/16.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
 </div>
 
 <div style="text-align:center">
-    <img src="../img/mysql_advance_pic/17.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
+    <img src="/img/mysql_advance_pic/17.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
 </div>
 
 <div style="text-align:center">
-    <img src="../img/mysql_advance_pic/18.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
+    <img src="/img/mysql_advance_pic/18.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
 </div>
 
 <div style="text-align:center">
-    <img src="../img/mysql_advance_pic/19.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
+    <img src="/img/mysql_advance_pic/19.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
 </div>
+
 
 
 <ol start="2">
 <li>分页的封装<div style="text-align:center">
- <img src="../img/mysql_advance_pic/20.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
+ <img src="/img/mysql_advance_pic/20.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
 </div></li>
 </ol>
 <h2 id="8-管理员"><a href="#8-管理员" class="headerlink" title="8. 管理员"></a>8. 管理员</h2><ol>
 <li><p>建表</p>
 <div style="text-align:center">
- <img src="../img/mysql_advance_pic/21.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
+ <img src="/img/mysql_advance_pic/21.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
 </div>
+
 
 </li>
 <li><p>样式</p>
 <div style="text-align:center">
- <img src="../img/mysql_advance_pic/22.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
+ <img src="/img/mysql_advance_pic/22.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
 </div>
+
 
 </li>
 <li><p>管理员添加</p>
 <div style="text-align:center">
- <img src="../img/mysql_advance_pic/23.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
+ <img src="/img/mysql_advance_pic/23.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
 </div></li>
 </ol>
 <div style="text-align:center">
-    <img src="../img/mysql_advance_pic/24.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
+    <img src="/img/mysql_advance_pic/24.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
 </div>
+
 
 
 <ol start="4">
 <li>md5加密 - 非明文数据存入数据库<div style="text-align:center">
- <img src="../img/mysql_advance_pic/25.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
+ <img src="/img/mysql_advance_pic/25.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
 </div></li>
 </ol>
 <ul>
 <li><code>views</code><div style="text-align:center">
-  <img src="../img/mysql_advance_pic/26.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
+  <img src="/img/mysql_advance_pic/26.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
 </div></li>
 </ul>
 <h2 id="9-弹出框"><a href="#9-弹出框" class="headerlink" title="9. 弹出框"></a>9. 弹出框</h2><ul>
 <li><p><code>.html</code></p>
 <div style="text-align:center">
-  <img src="../img/mysql_advance_pic/27.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
+  <img src="/img/mysql_advance_pic/27.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
 </div>
+
 
 </li>
 <li><p><code>views.py</code></p>
 <div style="text-align:center">
-  <img src="../img/mysql_advance_pic/28.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
+  <img src="/img/mysql_advance_pic/28.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
 </div>
+
 
 </li>
 <li><p><code> 保存</code></p>
 <div style="text-align:center">
-  <img src="../img/mysql_advance_pic/29.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
+  <img src="/img/mysql_advance_pic/29.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
 </div>
+
 
 </li>
 <li><p><code>views.py</code><br>免除csrf认证</p>
 <div style="text-align:center">
-  <img src="../img/mysql_advance_pic/30.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
+  <img src="/img/mysql_advance_pic/30.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
 </div></li>
 </ul>
 <div style="text-align:center">
-    <img src="../img/mysql_advance_pic/31.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
+    <img src="/img/mysql_advance_pic/31.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
 </div>
+
 
 
 <h1 id="四、tips"><a href="#四、tips" class="headerlink" title="四、tips"></a>四、tips</h1><h2 id="1-设置数据库元素允许非空"><a href="#1-设置数据库元素允许非空" class="headerlink" title="1. 设置数据库元素允许非空"></a>1. 设置数据库元素允许非空</h2><ol>
@@ -635,16 +649,18 @@
 </ol>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> django.db <span class="hljs-keyword">import</span> models<br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">PrettyNum</span>(models.Model):<br>    <br>    level_choices = (<br>        (<span class="hljs-string">&#x27;1&#x27;</span>, <span class="hljs-string">&#x27;一级&#x27;</span>),<br>        (<span class="hljs-string">&#x27;2&#x27;</span>, <span class="hljs-string">&#x27;二级&#x27;</span>),<br>        (<span class="hljs-string">&#x27;3&#x27;</span>, <span class="hljs-string">&#x27;三级&#x27;</span>),<br>    )<br>    level = models.CharField(verbose_name=<span class="hljs-string">&#x27;级别&#x27;</span>, choices=level_choices, default=<span class="hljs-number">1</span>)<br></code></pre></td></tr></table></figure>
 <div style="text-align:center">
-    <img src="../img/mysql_advance_pic/32.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
+    <img src="/img/mysql_advance_pic/32.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
 </div>
+
 
 
 <h2 id="4-makemigrations-migrate"><a href="#4-makemigrations-migrate" class="headerlink" title="4. makemigrations &amp; migrate"></a>4. makemigrations &amp; migrate</h2><ol>
 <li>彻底删除数据库中的内容<br>参考链接：<a target="_blank" rel="noopener" href="https://blog.csdn.net/pythonstrat">https://blog.csdn.net/pythonstrat</a></li>
 </ol>
 <div style="text-align:center">
-    <img src="../img/mysql_advance_pic/33.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
+    <img src="/img/mysql_advance_pic/33.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
 </div>
+
 
 
 <h2 id="5-前端展示数据库的标签"><a href="#5-前端展示数据库的标签" class="headerlink" title="5. 前端展示数据库的标签"></a>5. 前端展示数据库的标签</h2><ul>

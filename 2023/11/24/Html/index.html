@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://example.com/img/html_pic/3.jpg">
 <meta property="article:published_time" content="2023-11-24T12:00:00.000Z">
-<meta property="article:modified_time" content="2023-12-21T09:47:17.935Z">
+<meta property="article:modified_time" content="2023-12-22T11:01:26.478Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="Web开发">
 <meta property="article:tag" content="前端">
@@ -400,14 +400,15 @@
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs html"># action:服务器地址  name:所生成的表单，提交到对应链接的位置<br><span class="hljs-tag">&lt;<span class="hljs-name">form</span> <span class="hljs-attr">action</span>=<span class="hljs-string">&quot;url&quot;</span> <span class="hljs-attr">method</span>=<span class="hljs-string">&quot;get|post&quot;</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;myform&quot;</span>&gt;</span><br>    <br>    # 必须含有submit才能提交表单<br>    <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;submit&quot;</span>&gt;</span><br><br><span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span><br></code></pre></td></tr></table></figure>
 </li>
 <li><p>后端</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs html"># 读取user对应的单一信息<br>user = request.form.get(&quot;user&quot;)<br><br># 读取hobby对应的列表信息<br>hobby_list = request.form.getlist(&quot;hobby&quot;)<br><br># 读取表单的所有信息<br>form_message = request_form<br></code></pre></td></tr></table></figure></li>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 读取user对应的单一信息</span><br>user = request.form.get(<span class="hljs-string">&quot;user&quot;</span>)<br><br><span class="hljs-comment"># 读取hobby对应的列表信息</span><br>hobby_list = request.form.getlist(<span class="hljs-string">&quot;hobby&quot;</span>)<br><br><span class="hljs-comment"># 读取表单的所有信息</span><br>form_message = request_form<br></code></pre></td></tr></table></figure></li>
 </ol>
 <h3 id="2-输入框"><a href="#2-输入框" class="headerlink" title="2. 输入框"></a>2. 输入框</h3><h4 id="1-按钮"><a href="#1-按钮" class="headerlink" title="1. 按钮&lt;input&gt;"></a>1. 按钮<code>&lt;input&gt;</code></h4><ol>
 <li><p>文字输入框：<code>&lt;input type = &quot;text&quot;&gt;</code></p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">form</span>&gt;</span><br>    First name: <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text&quot;</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;firstname&quot;</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">br</span>&gt;</span><br>    Last name: <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text&quot;</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;lastname&quot;</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span><br></code></pre></td></tr></table></figure>
 <div style="text-align:center">
- <img src="../img/html_pic/5.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
+ <img src="/img/html_pic/5.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
 </div>
+
 
 </li>
 <li><p>密码框：<code>&lt;input type = &quot;password&quot;&gt;</code></p>
@@ -416,7 +417,7 @@
 <ul>
 <li>注：密码字段字符不会明文显示，而是以星号或原点代替<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">form</span>&gt;</span><br>    Passward: <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;password&quot;</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;pwd&quot;</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span><br></code></pre></td></tr></table></figure>
 <div style="text-align:center">
-  <img src="../img/html_pic/6.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
+  <img src="/img/html_pic/6.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
 </div></li>
 </ul>
 <ol start="3">
@@ -425,15 +426,16 @@
 <ul>
 <li>注：当两个名字相同时，两个单选框是互斥的<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">form</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;radio&quot;</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;name1&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;1&quot;</span>&gt;</span>男<br>    <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;radio&quot;</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;name1&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;2&quot;</span>&gt;</span>女<br><span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span><br></code></pre></td></tr></table></figure>
 <div style="text-align:center">
-  <img src="../img/html_pic/7.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
+  <img src="/img/html_pic/7.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
 </div></li>
 </ul>
 <ol start="4">
 <li><p>复选框<code>&lt;input type=&quot;checkbox&quot;&gt;</code></p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">form</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;checkbox&quot;</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;hobby&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;10&quot;</span>&gt;</span>篮球<br>    <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;checkbox&quot;</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;hobby&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;20&quot;</span>&gt;</span>游泳<br>    <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;checkbox&quot;</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;hobby&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;30&quot;</span>&gt;</span>围棋<br>    <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;checkbox&quot;</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;hobby&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;40&quot;</span>&gt;</span>跳高<br><span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span><br></code></pre></td></tr></table></figure>
 <div style="text-align:center">
- <img src="../img/html_pic/8.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
+ <img src="/img/html_pic/8.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
 </div>
+
 
 </li>
 <li><p>文件框<code>&lt;input type=&quot;file&quot;&gt;</code></p>
@@ -442,7 +444,7 @@
 <ul>
 <li>注：可用于直接上传本地文件<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">form</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;file&quot;</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span><br></code></pre></td></tr></table></figure>
 <div style="text-align:center">
-  <img src="../img/html_pic/9.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
+  <img src="/img/html_pic/9.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
 </div></li>
 </ul>
 <ol start="6">
@@ -457,60 +459,64 @@
 </li>
 </ol>
 <div style="text-align:center">
-    <img src="../img/html_pic/10.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
+    <img src="/img/html_pic/10.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
 </div>
+
 
 
 <h4 id="2-下拉框"><a href="#2-下拉框" class="headerlink" title="2. 下拉框"></a>2. 下拉框</h4><ol>
 <li><p>单选框</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">select</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;bj&quot;</span>&gt;</span>北京<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;sh&quot;</span>&gt;</span>上海<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;sz&quot;</span>&gt;</span>深圳<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">select</span>&gt;</span><br></code></pre></td></tr></table></figure>
 <div style="text-align:center">
- <img src="../img/html_pic/11.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
+ <img src="/img/html_pic/11.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
 </div>
+
 
 </li>
 <li><p>多选框</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">select</span> <span class="hljs-attr">multiple</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">option</span>&gt;</span>北京<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">option</span>&gt;</span>上海<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">option</span>&gt;</span>深圳<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">select</span>&gt;</span><br></code></pre></td></tr></table></figure>
 <div style="text-align:center">
- <img src="../img/html_pic/12.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
+ <img src="/img/html_pic/12.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
 </div></li>
 </ol>
 <h4 id="3-多行文本"><a href="#3-多行文本" class="headerlink" title="3. 多行文本"></a>3. 多行文本</h4><ul>
 <li>注：rows限制行高<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">textarea</span> <span class="hljs-attr">rows</span>=<span class="hljs-string">&quot;3&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">textarea</span>&gt;</span><br></code></pre></td></tr></table></figure>
 <div style="text-align:center">
-  <img src="../img/html_pic/13.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
+  <img src="/img/html_pic/13.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
 </div></li>
 </ul>
 <h3 id="3-hower-鼠标所到之处改变格式-伪类"><a href="#3-hower-鼠标所到之处改变格式-伪类" class="headerlink" title="3. hower - 鼠标所到之处改变格式 - 伪类"></a>3. hower - 鼠标所到之处改变格式 - 伪类</h3><h4 id="示例1："><a href="#示例1：" class="headerlink" title="示例1："></a>示例1：</h4><p>鼠标移到c1处时，“联通”两个字回由原来的红色，18px大小，变为绿色，50px大小</p>
 <div style="text-align:center">
-    <img src="../img/html_pic/14.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
+    <img src="/img/html_pic/14.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
 </div>
+
 
 
 <h4 id="示例2"><a href="#示例2" class="headerlink" title="示例2:"></a>示例2:</h4><p>鼠标移动到app处时，会显示隐藏的图片</p>
 <div style="text-align:center">
-    <img src="../img/html_pic/15.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
+    <img src="/img/html_pic/15.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
 </div>
 
 
+
 <h3 id="4-after-在所选样式尾部追加-伪类"><a href="#4-after-在所选样式尾部追加-伪类" class="headerlink" title="4. after - 在所选样式尾部追加 - 伪类"></a>4. after - 在所选样式尾部追加 - 伪类</h3><ul>
-<li>注：一般仅用于清除浮动<div style="text-align:center;display:flex;gap:5px">
-  <img src="../img/html_pic/16.jpg" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:35%;">
-  <img src="../img/html_pic/17.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
+<li>注：一般仅用于清除浮动<div style="text-align:center;gap:5px">
+  <img src="/img/html_pic/16.jpg" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:35%;">
+  <img src="/img/html_pic/17.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
 </div></li>
 </ul>
 <h3 id="5-position-样式固定在页面中某位置"><a href="#5-position-样式固定在页面中某位置" class="headerlink" title="5. position - 样式固定在页面中某位置"></a>5. position - 样式固定在页面中某位置</h3><ol>
 <li><p>fixed固定在页面中某位置静止不动</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs html">.back&#123;<br>    position:fixed;<br>    width:60px;<br>    height:60px;<br>    border:1px solid red;<br>    <br>    # 距离页面右边框10px，距离下边框10px<br>    right:10px<br>    bottom:10px<br>    &#125;<br>    <br><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;back&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs css"><span class="hljs-selector-class">.back</span>&#123;<br>    <span class="hljs-attribute">position</span>:fixed;<br>    <span class="hljs-attribute">width</span>:<span class="hljs-number">60px</span>;<br>    <span class="hljs-attribute">height</span>:<span class="hljs-number">60px</span>;<br>    <span class="hljs-attribute">border</span>:<span class="hljs-number">1px</span> solid red;<br>    <br>    # 距离页面右边框<span class="hljs-number">10px</span>，距离下边框<span class="hljs-number">10px</span><br>    <span class="hljs-attribute">right</span>:<span class="hljs-number">10px</span><br>    bottom:<span class="hljs-number">10px</span><br>    &#125;<br>    <br>&lt;<span class="hljs-selector-tag">div</span> class=&quot;back&quot;&gt;&lt;/<span class="hljs-selector-tag">div</span>&gt;<br></code></pre></td></tr></table></figure>
 </li>
 <li><p>relative和absolute - 两个相对的位置静止不动</p>
 </li>
 </ol>
 <ul>
-<li>注：c2相对于c1静止不动<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><code class="hljs html">.c1&#123;<br>    height:300px;<br>    width:500px;<br>    border:1px solid red;<br>    margin:100px<br>    <br>    position:relative<br>&#125;<br><br>.c1 .c2&#123;<br>    height:59px;<br>    width:59px;<br>    background-color:black;<br>    <br>    position:absolute;<br>    right:20px;<br>    bottom:10px;<br>&#125;<br><br><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;c1&quot;</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;c2&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br>    <br></code></pre></td></tr></table></figure></li>
+<li>注：c2相对于c1静止不动<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><code class="hljs css"><span class="hljs-selector-class">.c1</span>&#123;<br>    <span class="hljs-attribute">height</span>:<span class="hljs-number">300px</span>;<br>    <span class="hljs-attribute">width</span>:<span class="hljs-number">500px</span>;<br>    <span class="hljs-attribute">border</span>:<span class="hljs-number">1px</span> solid red;<br>    <span class="hljs-attribute">margin</span>:<span class="hljs-number">100px</span><br>    <br>    position:relative<br>&#125;<br><br><span class="hljs-selector-class">.c1</span> <span class="hljs-selector-class">.c2</span>&#123;<br>    <span class="hljs-attribute">height</span>:<span class="hljs-number">59px</span>;<br>    <span class="hljs-attribute">width</span>:<span class="hljs-number">59px</span>;<br>    <span class="hljs-attribute">background-color</span>:black;<br>    <br>    <span class="hljs-attribute">position</span>:absolute;<br>    <span class="hljs-attribute">right</span>:<span class="hljs-number">20px</span>;<br>    <span class="hljs-attribute">bottom</span>:<span class="hljs-number">10px</span>;<br>&#125;<br><br>&lt;<span class="hljs-selector-tag">div</span> class=&quot;c1&quot;&gt;<br>    &lt;<span class="hljs-selector-tag">div</span> class=&quot;c2&quot;&gt;&lt;/<span class="hljs-selector-tag">div</span>&gt;<br>&lt;/<span class="hljs-selector-tag">div</span>&gt;<br>    <br></code></pre></td></tr></table></figure></li>
 </ul>
 <h3 id="6-transparent-透明色"><a href="#6-transparent-透明色" class="headerlink" title="6. transparent - 透明色"></a>6. transparent - 透明色</h3><ul>
-<li>注：提前设置好，鼠标移动到此处后变化的预留区域，为透明色。防止移动鼠标过程中，位置出现变化<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs html">.c1&#123;<br>    height:50px;<br>    width:500px;<br>    margin:100px;<br>    background-color:black;<br>    border-left:2px solid transparent;<br>    &#125;<br>    <br>.c1:hower&#123;<br>    border-left:2px solid red<br>&#125;<br><br><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>菜单<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br></code></pre></td></tr></table></figure></li>
+<li>注：提前设置好，鼠标移动到此处后变化的预留区域，为透明色。防止移动鼠标过程中，位置出现变化<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs css"><span class="hljs-selector-class">.c1</span>&#123;<br>    <span class="hljs-attribute">height</span>:<span class="hljs-number">50px</span>;<br>    <span class="hljs-attribute">width</span>:<span class="hljs-number">500px</span>;<br>    <span class="hljs-attribute">margin</span>:<span class="hljs-number">100px</span>;<br>    <span class="hljs-attribute">background-color</span>:black;<br>    <span class="hljs-attribute">border-left</span>:<span class="hljs-number">2px</span> solid transparent;<br>    &#125;<br>    <br><span class="hljs-selector-class">.c1</span>:hower&#123;<br>    <span class="hljs-attribute">border-left</span>:<span class="hljs-number">2px</span> solid red<br>&#125;<br><br>&lt;<span class="hljs-selector-tag">div</span>&gt;菜单&lt;/<span class="hljs-selector-tag">div</span>&gt;<br></code></pre></td></tr></table></figure></li>
 </ul>
 <h2 id="9-占位符"><a href="#9-占位符" class="headerlink" title="9. 占位符"></a>9. 占位符</h2><h3 id="1-用法"><a href="#1-用法" class="headerlink" title="1. 用法"></a>1. 用法</h3><ol>
 <li>py文件找到所给定位置的html文件，读取其中全部内容</li>
@@ -520,7 +526,7 @@
 <h3 id="2-直接传输类占位符"><a href="#2-直接传输类占位符" class="headerlink" title="2. 直接传输类占位符"></a>2. 直接传输类占位符</h3><ol>
 <li>使用<code>&#123;&#123; &#125;&#125;</code>占位</li>
 <li>子列表或子元素用.连接<div style="text-align:center">
- <img src="../img/html_pic/18.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
+ <img src="/img/html_pic/18.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
 </div></li>
 </ol>
 <h3 id="3-循环传输类占位符"><a href="#3-循环传输类占位符" class="headerlink" title="3. 循环传输类占位符"></a>3. 循环传输类占位符</h3><ol>
@@ -528,7 +534,7 @@
 <ol>
 <li> 循环结束 
 <div style="text-align:center">
- <img src="../img/html_pic/19.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
+ <img src="/img/html_pic/19.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
 </div></li>
 </ol>
 </li>
@@ -537,71 +543,79 @@
 <li>
     2. 
 <div style="text-align:center">
- <img src="../img/html_pic/20.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
+ <img src="/img/html_pic/20.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
 </div></li>
 </ol>
 </li>
 </ol>
 <h2 id="10-Tips"><a href="#10-Tips" class="headerlink" title="10. Tips"></a>10. Tips</h2><h3 id="1-在-py文件中运行html文件"><a href="#1-在-py文件中运行html文件" class="headerlink" title="1. 在.py文件中运行html文件"></a>1. 在.py文件中运行html文件</h3><figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs ini"><span class="hljs-attr">a</span> = f<span class="hljs-string">&#x27;&#x27;&#x27;</span><br><span class="hljs-string">    &lt;tr&gt;  &lt;/tr&gt;</span><br><span class="hljs-string">&#x27;&#x27;&#x27;</span><br></code></pre></td></tr></table></figure>
 <div style="text-align:center">
-    <img src="../img/html_pic/21.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
+    <img src="/img/html_pic/21.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
 </div>
+
 
 
 <h3 id="2"><a href="#2" class="headerlink" title="2. &lt;o:p&gt;&lt;/o:p&gt;"></a>2. <code>&lt;o:p&gt;&lt;/o:p&gt;</code></h3><div style="text-align:center">
-    <img src="../img/html_pic/22.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
+    <img src="/img/html_pic/22.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
 </div>
+
 
 
 <h3 id="3-调整字体上下边距"><a href="#3-调整字体上下边距" class="headerlink" title="3. 调整字体上下边距"></a>3. 调整字体上下边距</h3><ol>
 <li><code>&lt;style line_height:200px&gt;</code> 此方法会同时调节字体上下边距，无法单独调节某一边距，不推荐使用</li>
 </ol>
 <div style="text-align:center">
-    <img src="../img/html_pic/23.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
+    <img src="/img/html_pic/23.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
 </div>
+
 
 
 <ol start="2">
 <li><code>&lt;style padding:10px 0&gt;</code> 生成上下空白行，推荐使用<div style="text-align:center">
- <img src="../img/html_pic/24.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
+ <img src="/img/html_pic/24.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
 </div></li>
 </ol>
 <h3 id="4-文本的换行-与-缩进"><a href="#4-文本的换行-与-缩进" class="headerlink" title="4. 文本的换行&lt;br&gt; 与 缩进"></a>4. 文本的换行<code>&lt;br&gt;</code> 与 缩进</h3><ol>
 <li>换行<br>文本直接换行<code>&lt;br&gt;</code>，不开启新段落<code>&lt;p&gt;</code></li>
 </ol>
 <div style="text-align:center">
-    <img src="../img/html_pic/25.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
+    <img src="/img/html_pic/25.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
 </div>
+
 
 
 <ol start="2">
 <li>缩进</li>
 </ol>
 <div style="text-align:center">
-    <img src="../img/html_pic/26.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
+    <img src="/img/html_pic/26.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
 </div>
+
 
 
 <h3 id="5-文字在表格中居中-修改标签"><a href="#5-文字在表格中居中-修改标签" class="headerlink" title="5. 文字在表格中居中 修改&lt;td&gt;标签"></a>5. 文字在表格中居中 修改<code>&lt;td&gt;</code>标签</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">table</span> <span class="hljs-attr">border</span>=<span class="hljs-string">0</span> <span class="hljs-attr">cellspacing</span>=<span class="hljs-string">0</span> <span class="hljs-attr">cellpadding</span>=<span class="hljs-string">0</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">tr</span> <span class="hljs-attr">style</span>=<span class="hljs-string">&quot;height:40.0pt&quot;</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">td</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;power_test_background&quot;</span> <span class="hljs-attr">style</span>=<span class="hljs-string">&quot;text-align:center&quot;</span> <span class="hljs-attr">nowrap</span>=<span class="hljs-string">&#x27;nowrap&#x27;</span> <span class="hljs-attr">rowspan</span>=<span class="hljs-string">2</span> &gt;</span><br>           <span class="hljs-tag">&lt;<span class="hljs-name">p</span> &gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">b</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;module_body_message&quot;</span> &gt;</span>分类 <span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">b</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span><br>        <span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">tr</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">table</span>&gt;</span><br></code></pre></td></tr></table></figure>
 
 <p>需要在<code>&lt;td&gt;</code>标签中修改，不可以直接修改文本</p>
 <div style="text-align:center">
-    <img src="../img/html_pic/27.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
+    <img src="/img/html_pic/27.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
 </div>
+
 
 
 <p>修改前后对比图</p>
-<div style="text-align:center;display:flex;gap:5px">
-    <img src="../img/html_pic/28.jpg" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:35%;">
-    <img src="../img/html_pic/29.jpg" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:35%;">
+<div style="text-align:center;gap:5px">
+    <img src="/img/html_pic/28.jpg" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:35%;">
+    <img src="/img/html_pic/29.jpg" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:35%;">
 </div>
+
 
 
 <h3 id="6-文字于表格中居中-修改文字标签"><a href="#6-文字于表格中居中-修改文字标签" class="headerlink" title="6. 文字于表格中居中 修改文字&lt;p&gt;标签"></a>6. 文字于表格中居中 修改文字<code>&lt;p&gt;</code>标签</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">table</span> <span class="hljs-attr">border</span>=<span class="hljs-string">0</span> <span class="hljs-attr">cellspacing</span>=<span class="hljs-string">0</span> <span class="hljs-attr">cellpadding</span>=<span class="hljs-string">0</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">tr</span> <span class="hljs-attr">style</span>=<span class="hljs-string">&quot;height:40.0pt&quot;</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">td</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;power_test_background&quot;</span> <span class="hljs-attr">nowrap</span>=<span class="hljs-string">&#x27;nowrap&#x27;</span> <span class="hljs-attr">rowspan</span>=<span class="hljs-string">2</span>&gt;</span><br>           <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">align</span>=<span class="hljs-string">center</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">b</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;module_body_message&quot;</span> &gt;</span>分类 <span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">b</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span><br>        <span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">tr</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">table</span>&gt;</span><br></code></pre></td></tr></table></figure>
 
 <div style="text-align:center">
-    <img src="../img/html_pic/30.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
+    <img src="/img/html_pic/30.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
 </div>
+
 
 
 <h3 id="7-和"><a href="#7-和" class="headerlink" title="7. &lt;div&gt;和&lt;span&gt;"></a>7. <code>&lt;div&gt;</code>和<code>&lt;span&gt;</code></h3><p>相同点：书写素文本<br>不同点：<br><code>&lt;div&gt;</code>一个人占一整行【块级标签】<br><code>&lt;span&gt;</code>一个人占自己的宽度【行内标签】</p>
@@ -611,7 +625,7 @@
 </ol>
 <h3 id="9-html路径"><a href="#9-html路径" class="headerlink" title="9. html路径"></a>9. html路径</h3><ol>
 <li>父级目录相同，<code>../ + 对方父级文件夹名</code><div style="text-align:center">
- <img src="../img/html_pic/31.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
+ <img src="/img/html_pic/31.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
 </div></li>
 </ol>
 <h3 id="10-创建table表格，自定义td宽度，填充文字内容，文字长度宽于表格时，文字自动换行"><a href="#10-创建table表格，自定义td宽度，填充文字内容，文字长度宽于表格时，文字自动换行" class="headerlink" title="10. 创建table表格，自定义td宽度，填充文字内容，文字长度宽于表格时，文字自动换行"></a>10. 创建table表格，自定义td宽度，填充文字内容，文字长度宽于表格时，文字自动换行</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">table</span> <span class="hljs-attr">border</span>=<span class="hljs-string">0</span> <span class="hljs-attr">cellspacing</span>=<span class="hljs-string">0</span> <span class="hljs-attr">cellpadding</span>=<span class="hljs-string">0</span> </span><br><span class="hljs-tag"><span class="hljs-attr">style</span>=<span class="hljs-string">&quot;table-layout:fixed;word-break:break-all;&quot;</span>&gt;</span><br><br><span class="hljs-tag">&lt;<span class="hljs-name">td</span> <span class="hljs-attr">width</span>=<span class="hljs-string">111</span> <span class="hljs-attr">nowrap</span>=<span class="hljs-string">&#x27;nowrap&#x27;</span> <span class="hljs-attr">rowspan</span>=<span class="hljs-string">2</span> </span><br><span class="hljs-tag"><span class="hljs-attr">style</span>=<span class="hljs-string">&quot;word-wrap: break-word;width:6px;text-align:center;</span></span><br><span class="hljs-string"><span class="hljs-tag">border:solid #1F2329 1.0pt;background:#DDEBF7;padding:.75pt .75pt .75pt .75pt;&quot;</span>&gt;</span><br><br>   <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">style</span>=<span class="hljs-string">&quot;width:100%;white-space:normal;word-wrap:break-word;word-break:break-all;font-size:10.0pt；&quot;</span> </span><br><span class="hljs-tag">   <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;module_body_message&quot;</span> &gt;</span>耳机音乐播放功能 <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br>   <br><span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">table</span>&gt;</span><br></code></pre></td></tr></table></figure>
@@ -622,28 +636,31 @@
 <li>在div中加<code>style=&quot;width:100%;white-space:normal;word-wrap:break-word;word-break:break-all;&quot;</code></li>
 <li>只有设定好<code>&lt;td&gt;</code>的width后，才能使文本超出表格宽度后自动换行，不影响文本宽度；</li>
 </ol>
-<h3 id="11-文字距离td表格有一定距离，并居中"><a href="#11-文字距离td表格有一定距离，并居中" class="headerlink" title="11. 文字距离td表格有一定距离，并居中"></a>11. 文字距离td表格有一定距离，并居中</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">td</span> <span class="hljs-attr">style</span>=<span class="hljs-string">&quot;text-align: center;font-size:10.0pt&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span><br></code></pre></td></tr></table></figure>
+<h3 id="11-文字距离td表格有一定距离，并居中"><a href="#11-文字距离td表格有一定距离，并居中" class="headerlink" title="11. 文字距离td表格有一定距离，并居中"></a>11. 文字距离td表格有一定距离，并居中</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">td</span> <span class="hljs-attr">style</span>=<span class="hljs-string">&quot;text-align: center; font-size:10.0pt&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span><br></code></pre></td></tr></table></figure>
 
 <div style="text-align:center">
-    <img src="../img/html_pic/32.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
-    <img src="../img/html_pic/33.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
+    <img src="/img/html_pic/32.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
+    <img src="/img/html_pic/33.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
 </div>
 
 
-<h3 id="12-！-Tab快速创建html骨架"><a href="#12-！-Tab快速创建html骨架" class="headerlink" title="12. ！+Tab快速创建html骨架"></a>12. ！+Tab快速创建html骨架</h3><h3 id="13-outlook需要将想要固定的全都设定好宽度，不能依靠父的宽度约束子"><a href="#13-outlook需要将想要固定的全都设定好宽度，不能依靠父的宽度约束子" class="headerlink" title="13. outlook需要将想要固定的全都设定好宽度，不能依靠父的宽度约束子"></a>13. outlook需要将想要固定的<td>全都设定好宽度，不能依靠父<td>的宽度约束子<td></h3><div style="text-align:center;display:flex;gap:5px">
-    <img src="../img/html_pic/34.jpg" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:45%;">
-    <img src="../img/html_pic/35.jpg" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:45%;">
+
+<h3 id="12-！-Tab快速创建html骨架"><a href="#12-！-Tab快速创建html骨架" class="headerlink" title="12. ！+Tab快速创建html骨架"></a>12. ！+Tab快速创建html骨架</h3><h3 id="13-outlook需要将想要固定的全都设定好宽度，不能依靠父的宽度约束子"><a href="#13-outlook需要将想要固定的全都设定好宽度，不能依靠父的宽度约束子" class="headerlink" title="13. outlook需要将想要固定的全都设定好宽度，不能依靠父的宽度约束子"></a>13. outlook需要将想要固定的<td>全都设定好宽度，不能依靠父<td>的宽度约束子<td></h3><div style="text-align:center;gap:5px">
+    <img src="/img/html_pic/34.jpg" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:45%;">
+    <img src="/img/html_pic/35.jpg" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:60%;">
 </div>
+
 
 
 
 <h3 id="14-for循环与if判断"><a href="#14-for循环与if判断" class="headerlink" title="14. for循环与if判断 *"></a>14. for循环与if判断 *</h3><div style="text-align:center">
-    <img src="../img/html_pic/36.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
+    <img src="/img/html_pic/36.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
 </div>
 
 <div style="text-align:center">
-    <img src="../img/html_pic/37.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
+    <img src="/img/html_pic/37.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
 </div>
+
 
 
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><code class="hljs html">&#123;% for key,value in test_result.items %&#125;<br>&#123;% if key == 27%&#125;<br><span class="hljs-tag">&lt;<span class="hljs-name">tr</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">td</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;power_test_background_blue&quot;</span> <span class="hljs-attr">nowrap</span>=<span class="hljs-string">&#x27;nowrap&#x27;</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;module_body_message&quot;</span>&gt;</span>AAC <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">td</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;power_test_background_blue&quot;</span> <span class="hljs-attr">nowrap</span>=<span class="hljs-string">&#x27;nowrap&#x27;</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;module_body_message&quot;</span>&gt;</span>降噪-深度 <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">td</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;power_test_background_blue&quot;</span> <span class="hljs-attr">nowrap</span>=<span class="hljs-string">&#x27;nowrap&#x27;</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;module_body_message&quot;</span>&gt;</span>- <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">td</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;power_test_background_blue&quot;</span> <span class="hljs-attr">nowrap</span>=<span class="hljs-string">&#x27;nowrap&#x27;</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;module_body_message&quot;</span>&gt;</span>- <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">td</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;power_test_background_blue&quot;</span> <span class="hljs-attr">nowrap</span>=<span class="hljs-string">&#x27;nowrap&#x27;</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;module_body_message&quot;</span>&gt;</span>100% <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">td</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;power_test_background_gry&quot;</span> <span class="hljs-attr">nowrap</span>=<span class="hljs-string">&#x27;nowrap&#x27;</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;module_body_message&quot;</span>&gt;</span>&#123;&#123; test_standard.26.0 &#125;&#125; <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">td</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;power_test_background_white&quot;</span> <span class="hljs-attr">nowrap</span>=<span class="hljs-string">&#x27;nowrap&#x27;</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;module_body_message&quot;</span>&gt;</span>&#123;&#123; value.0 &#125;&#125; <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">td</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;power_test_background_gry&quot;</span> <span class="hljs-attr">nowrap</span>=<span class="hljs-string">&#x27;nowrap&#x27;</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;module_body_message&quot;</span>&gt;</span>&#123;&#123; test_standard.26.1 &#125;&#125; <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">td</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;power_test_background_white&quot;</span> <span class="hljs-attr">nowrap</span>=<span class="hljs-string">&#x27;nowrap&#x27;</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;module_body_message&quot;</span>&gt;</span>- <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span><br>    &#123;% if value.0 == &#x27;&#x27; and value.1 == &#x27;&#x27;%&#125;<br>        <span class="hljs-tag">&lt;<span class="hljs-name">td</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;power_test_background_white&quot;</span> <span class="hljs-attr">nowrap</span>=<span class="hljs-string">&#x27;nowrap&#x27;</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;module_body_message&quot;</span>&gt;</span> <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span><br>    &#123;% elif test_standard.26.0 &gt;= value.0 %&#125;<br>       <span class="hljs-tag">&lt;<span class="hljs-name">td</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;power_test_background_white&quot;</span> <span class="hljs-attr">nowrap</span>=<span class="hljs-string">&#x27;nowrap&#x27;</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;module_body_message&quot;</span> <span class="hljs-attr">style</span>=<span class="hljs-string">&quot;color:#548235&quot;</span>&gt;</span>Pass <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span><br>    &#123;% elif test_standard.26.0 == &#x27;-&#x27; and test_standard.26.1 == &#x27;-&#x27;%&#125;<br>        <span class="hljs-tag">&lt;<span class="hljs-name">td</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;power_test_background_white&quot;</span> <span class="hljs-attr">nowrap</span>=<span class="hljs-string">&#x27;nowrap&#x27;</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;module_body_message&quot;</span> <span class="hljs-attr">style</span>=<span class="hljs-string">&quot;color:#7030A0&quot;</span>&gt;</span>Block <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span><br>    &#123;% else %&#125;<br>       <span class="hljs-tag">&lt;<span class="hljs-name">td</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;power_test_background_white&quot;</span> <span class="hljs-attr">nowrap</span>=<span class="hljs-string">&#x27;nowrap&#x27;</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;module_body_message&quot;</span> <span class="hljs-attr">style</span>=<span class="hljs-string">&quot;color:red&quot;</span>&gt;</span>Fail <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span><br>    &#123;% endif %&#125;<br>    <span class="hljs-tag">&lt;<span class="hljs-name">td</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;power_test_background_white&quot;</span> <span class="hljs-attr">nowrap</span>=<span class="hljs-string">&#x27;nowrap&#x27;</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;module_body_message&quot;</span>&gt;</span> <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">tr</span>&gt;</span><br>&#123;% endif %&#125;<br>&#123;% endfor %&#125;<br></code></pre></td></tr></table></figure>
