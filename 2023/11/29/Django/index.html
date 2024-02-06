@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://example.com/img/django_pic/1.jpg">
 <meta property="article:published_time" content="2023-11-29T12:00:00.000Z">
-<meta property="article:modified_time" content="2023-12-22T07:46:36.227Z">
+<meta property="article:modified_time" content="2024-02-05T10:49:52.688Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="Web开发">
 <meta property="article:tag" content="Python">
@@ -386,7 +386,14 @@
 <p><code>子模板.html</code></p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs html"># 导入模板<br>&#123;% extends &#x27;layout.html&#x27; %&#125;<br><br>&#123;% block content_style %&#125; 此处为子模板中的内容 &#123;% endblock %&#125;<br>&#123;% block content_body %&#125; 此处为子模板中的内容 &#123;% endblock %&#125;<br></code></pre></td></tr></table></figure>
 
-<h1 id="四、请求、响应、返回值"><a href="#四、请求、响应、返回值" class="headerlink" title="四、请求、响应、返回值"></a>四、请求、响应、返回值</h1><ol>
+<h1 id="四、请求、响应、返回值"><a href="#四、请求、响应、返回值" class="headerlink" title="四、请求、响应、返回值"></a>四、请求、响应、返回值</h1><h2 id="1-请求"><a href="#1-请求" class="headerlink" title="1. 请求"></a>1. 请求</h2><h3 id="1-请求传递json数据"><a href="#1-请求传递json数据" class="headerlink" title="1. 请求传递json数据"></a>1. 请求传递json数据</h3><ol>
+<li><p>发送请求</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> requests<br><span class="hljs-keyword">import</span> json<br><br>url = <span class="hljs-string">&#x27;http://10.221.113.135:8000/Web_API/log_auto_analysis&#x27;</span><br>data = &#123;<span class="hljs-string">&#x27;name&#x27;</span>: <span class="hljs-string">&#x27;John&#x27;</span>, <span class="hljs-string">&#x27;age&#x27;</span>: <span class="hljs-number">30</span>&#125;<br><br>headers = &#123;<span class="hljs-string">&#x27;Content-Type&#x27;</span>: <span class="hljs-string">&#x27;application/json&#x27;</span>&#125;<br><br>response = requests.post(url, data=json.dumps(data), headers=headers)<br><br><span class="hljs-built_in">print</span>(response.text)<br></code></pre></td></tr></table></figure>
+</li>
+<li><p>获取参数</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> json<br><span class="hljs-keyword">from</span> django.http <span class="hljs-keyword">import</span> JsonResponse<br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">my_view</span>(<span class="hljs-params">request</span>):<br>    <span class="hljs-keyword">if</span> request.method == <span class="hljs-string">&#x27;POST&#x27;</span>:<br>        data = json.loads(request.body)<br>        name = data.get(<span class="hljs-string">&#x27;name&#x27;</span>)<br>        age = data.get(<span class="hljs-string">&#x27;age&#x27;</span>)<br>        <br>        <span class="hljs-keyword">if</span> <span class="hljs-built_in">type</span>(data) == <span class="hljs-built_in">dict</span>:<br>            <span class="hljs-keyword">return</span> HttpResponse(<span class="hljs-string">&#x27;传输成功&#x27;</span>)<br><br>        <span class="hljs-keyword">else</span>:<br>            <span class="hljs-keyword">return</span> HttpResponse(<span class="hljs-string">&#x27;传输失败&#x27;</span>)<br></code></pre></td></tr></table></figure></li>
+</ol>
+<h2 id="2-返回值"><a href="#2-返回值" class="headerlink" title="2. 返回值"></a>2. 返回值</h2><ol>
 <li><p><code>return HttpResponse</code>：返回具体内容，将字符串返回给请求者</p>
 </li>
 <li><p><code>return render(request,&#39;someting.html&#39;,&#123;&quot;title&quot;:&quot;xxx&quot;&#125;)</code>：读取HTML中内容 + 渲染（替换），生成字符串并返回给用户浏览器</p>
@@ -1023,9 +1030,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2023/11/30/%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95/" title="性能测试方法">
+                      <a href="/2023/11/30/%E5%8A%9F%E8%80%97%E6%B5%8B%E8%AF%95/" title="功耗测试方法">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">性能测试方法</span>
+                        <span class="hidden-mobile">功耗测试方法</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -1033,8 +1040,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2023/11/29/Jenkins/" title="Jenkins">
-                        <span class="hidden-mobile">Jenkins</span>
+                      <a href="/2023/11/29/Lambda%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B/" title="Lambda函数式编程">
+                        <span class="hidden-mobile">Lambda函数式编程</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
