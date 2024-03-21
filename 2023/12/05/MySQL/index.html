@@ -1,0 +1,1094 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="张辰">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="后端的核心就是数据库。MySQL是一种关系型数据库管理系统，可以用于存储、管理和检索数据，同时可以保证数据的备份与安全。本文主要讲述如何通过终端，来操作MySQL数据库">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MySQL">
+<meta property="og:url" content="http://example.com/2023/12/05/MySQL/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="后端的核心就是数据库。MySQL是一种关系型数据库管理系统，可以用于存储、管理和检索数据，同时可以保证数据的备份与安全。本文主要讲述如何通过终端，来操作MySQL数据库">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/img/mysql_base_pic/1.jpg">
+<meta property="article:published_time" content="2023-12-05T12:00:00.000Z">
+<meta property="article:modified_time" content="2024-03-20T15:34:00.297Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="Web开发">
+<meta property="article:tag" content="后端">
+<meta property="article:tag" content="数据库">
+<meta property="article:tag" content="MySQL">
+<meta property="article:tag" content="终端">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://example.com/img/mysql_base_pic/1.jpg">
+  
+  
+    <meta name="referrer" content="no-referrer-when-downgrade">
+  
+  
+  <title>MySQL - Hexo</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.6","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 7.0.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Blog</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/banner_hexo.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="MySQL"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2023-12-05 20:00" pubdate>
+          2023年12月5日 晚上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          1.2k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          10 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">MySQL</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <ul>
+<li>学习链接：<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Kr4y1i7ru?p=6&vd_source=4cf7b60c223a665538a4d958765c91a5">https://www.bilibili.com/video/BV1Kr4y1i7ru?</a></li>
+</ul>
+<h1 id="一、MySQL的安装-配置"><a href="#一、MySQL的安装-配置" class="headerlink" title="一、MySQL的安装&amp;配置"></a>一、MySQL的安装&amp;配置</h1><ol>
+<li><p>下载地址：<a target="_blank" rel="noopener" href="https://downloads.mysql.com/archives/community/">https://downloads.mysql.com/archives/community/</a></p>
+</li>
+<li><p>下载补丁文件</p>
+<ol>
+<li>vcredist_x64.exe：<a target="_blank" rel="noopener" href="https://www.microsoft.com/zh-cn/download/confirmation.aspx?id=40784">https://www.microsoft.com/zh-cn/download/confirmation.aspx?id=40784</a></li>
+<li>dxwebsetup.exe：<a target="_blank" rel="noopener" href="https://www.pcsoft.com.cn/soft/121449.html">https://www.pcsoft.com.cn/soft/121449.html</a></li>
+<li>安装此补丁时，不用勾选下载tools</li>
+</ol>
+</li>
+<li><p>下载mysql<br>注：可以选择5.7.31版本，既支持windows也支持mac</p>
+<div style="text-align:center">
+ <img src="/img/mysql_base_pic/2.jpg" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:60%;">
+</div>
+
+
+
+</li>
+<li><p>配置</p>
+<ol>
+<li>解压之后，在此目录下创建my.ini配置文件</li>
+<li>编写配置文件，如图所示<div style="text-align:center;gap:5px">
+ <img src="/img/mysql_base_pic/3.jpg" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:45%;">
+ <img src="/img/mysql_base_pic/4.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
+</div></li>
+</ol>
+</li>
+<li><p>后续内容可参考此文档：<a target="_blank" rel="noopener" href="https://blog.csdn.net/m0_72755989/article/details/127388356">https://blog.csdn.net/m0_72755989/article/details/127388356</a></p>
+</li>
+<li><p>出现此页面代表链接成功，第一次登录无密码</p>
+<div style="text-align:center">
+ <img src="/img/mysql_base_pic/5.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
+</div>
+
+
+</li>
+<li><p>登录后设置密码set password &#x3D; password(“Pooh_0505”)</p>
+</li>
+</ol>
+<h1 id="二、-MySQL基础语句"><a href="#二、-MySQL基础语句" class="headerlink" title="二、 MySQL基础语句"></a>二、 MySQL基础语句</h1><h2 id="1-通用语法"><a href="#1-通用语法" class="headerlink" title="1. 通用语法"></a>1. 通用语法</h2><ol>
+<li>SQL语句可以单行或多行书写，以分号结尾</li>
+<li>SQL语句可以使用空格&#x2F;缩进，来增强语句的可读性</li>
+<li>MYSQL数据库的SQL语句不区分大小写，关键字建议使用大写</li>
+<li>注释：<ol>
+<li>单行注释：– 注释内容 或 # 注释内容</li>
+<li>多行注释：&#x2F;* 注释内容 *&#x2F;</li>
+</ol>
+</li>
+</ol>
+<h2 id="2-DDL-数据库操作"><a href="#2-DDL-数据库操作" class="headerlink" title="2. DDL - 数据库操作"></a>2. DDL - 数据库操作</h2><ol>
+<li>查询<ol>
+<li>查询所有数据库：<code>SHOW DATABASES;</code></li>
+<li>查询当前数据库：<code>SELECT DATABASE();</code></li>
+</ol>
+</li>
+<li>创建数据库：<code>CREATE DATABASE 数据库名称</code></li>
+<li>删除数据库：<code>DROP DATABASE 数据库名称</code></li>
+<li>使用数据库：<code>USE 数据库名称</code></li>
+</ol>
+<h2 id="3-DDL-数据表操作"><a href="#3-DDL-数据表操作" class="headerlink" title="3. DDL - 数据表操作"></a>3. DDL - 数据表操作</h2><ol>
+<li>查询<ol>
+<li>查询当前数据库所有表：<code>SHOW TABLES;</code></li>
+<li><mark>查询表结构：</mark><code>DESC 表名;</code><ol>
+<li>DESC是describe的缩写，用于获取表的结构信息。</li>
+</ol>
+</li>
+<li>查询指定表的建表语句：<code>SHOW CREATE TABLE 表名;</code></li>
+</ol>
+</li>
+<li>创建</li>
+</ol>
+<ul>
+<li>创建表中最后一个字段后面没有逗号</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs shell">CREATE TABLE 表名(<br>	字段1 字段1类型[COMMENT 字段1注释],<br>	字段2 字段2类型[COMMENT 字段2注释],<br>	...<br>	字段n 字段n类型[COMMENT 字段n注释]<br>) [COMMENT 表注释];<br></code></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>示例1：</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th align="left">id</th>
+<th align="left">name</th>
+<th align="left">age</th>
+<th>gender</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">1</td>
+<td align="left">令狐冲</td>
+<td align="left">28</td>
+<td>男</td>
+</tr>
+<tr>
+<td align="left">2</td>
+<td align="left">风清扬</td>
+<td align="left">68</td>
+<td>男</td>
+</tr>
+<tr>
+<td align="left">3</td>
+<td align="left">东方不败</td>
+<td align="left">32</td>
+<td>男</td>
+</tr>
+</tbody></table>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs shell">create table tb_user(<br>	id int comment&#x27;编号&#x27;,<br>	name varchar(50) comment&#x27;姓名&#x27;,<br>	age int comment&#x27;年龄&#x27;,<br>	gender varchar(1) comment&#x27;性别&#x27;<br>) comment&#x27;用户表&#x27;;<br></code></pre></td></tr></table></figure>
+
+
+
+<ol start="4">
+<li><p>示例2：</p>
+<p>设计一张员工信息表，要求如下：</p>
+<ol>
+<li>编号（纯数字）</li>
+<li>员工工号（字符串类型，长度不超过10位）</li>
+<li>员工姓名（字符串类型，长度不超过10位）</li>
+<li>性别（男&#x2F;女，存储一个汉字）</li>
+<li>年龄（正常人年龄，不可能存储负数）</li>
+<li>身份证号（18位数，结尾可能是x）</li>
+<li>入职时间（取值年月日即可）</li>
+</ol>
+</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs shell">create table emp(<br>	id int,<br>	workno varchar(10),<br>	name varchar(10),<br>	gender char(1),<br>	age tinyint unsigned,<br>	idcard char(18),<br>	entrydate date<br>) ;<br></code></pre></td></tr></table></figure>
+
+
+
+<h1 id="三、-高频应用"><a href="#三、-高频应用" class="headerlink" title="三、 高频应用"></a>三、 高频应用</h1><h2 id="0-mysql的启动和关闭"><a href="#0-mysql的启动和关闭" class="headerlink" title="0. mysql的启动和关闭"></a>0. mysql的启动和关闭</h2><ol>
+<li>启动服务器：net start mysql</li>
+<li>服务停止命令：net stop mysql  </li>
+<li>退出mysql：exit；</li>
+<li>终止此行语句：ctrl + c</li>
+</ol>
+<h2 id="1-进入mysql"><a href="#1-进入mysql" class="headerlink" title="1. 进入mysql"></a>1. 进入mysql</h2><ol>
+<li>访问mysql：mysql -u root -p</li>
+<li>重置密码：set password &#x3D; password(“Pooh_0505”)</li>
+</ol>
+<h2 id="2-对mysql中文件夹操作"><a href="#2-对mysql中文件夹操作" class="headerlink" title="2. 对mysql中文件夹操作"></a>2. 对mysql中文件夹操作</h2><ol>
+<li>查看mysql目录下文件夹：show databases;</li>
+<li>创建数据库：create database 数据库名字 DEFAULT CHARSET utf8 COLLATE utf8_general_ci;</li>
+<li>删除数据库：drop database 数据库名字;</li>
+<li>进入数据库：use 数据库名字;</li>
+<li>查看文件夹下所有的数据表：show tables;</li>
+</ol>
+<div style="text-align:center">
+    <img src="/img/mysql_base_pic/6.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
+</div>
+
+
+
+<h2 id="3-对具体文件操作"><a href="#3-对具体文件操作" class="headerlink" title="3. 对具体文件操作"></a>3. 对具体文件操作</h2><ol>
+<li>创建表：<code>create table 表的名称（列名称 类型，列名称 类型，列名称 类型）default charset=utf8;</code></li>
+<li>删除表：<code>drop table 表的名称;</code></li>
+<li>查看表的格式：<code>desc 表的名称;</code></li>
+<li>插入数据：<code>insert into 表的名称（列1名称，列2名称） values (列1数据，列2数据），(列1数据，列2数据）;</code></li>
+<li>查看表中的数据：<code>select * from 表的名称;</code></li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs shell">create table tb1(<br>id int not null auto_increment primary key，  --内部维护，自增；主键（不允许为空，不允许重复）<br>name varchar(16)，    --字符串数据，最多不能超过16位<br>age int，   --int类型数据<br>age int not null，   --不能为空<br>age int null，   --可以为空<br>age int default 3   --如果没有插入数据，则age列的默认值为3<br>) default charset=utf8;<br></code></pre></td></tr></table></figure>
+
+<p class="note note-warning"> 
+注：
+主键一般用于表示当前行的数据的编号
+最后一行列表不能加'，'
+</p>
+
+
+<h2 id="4-数据行操作"><a href="#4-数据行操作" class="headerlink" title="4. 数据行操作"></a>4. 数据行操作</h2><ol>
+<li><p>新增数据：<code>insert into 表的名称（列1名称，列2名称） values(列1数据，列2数据），(列1数据，列2数据），(列1数据，列2数据）;</code></p>
+</li>
+<li><p>删除数据</p>
+<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs pgsql"><span class="hljs-keyword">delete</span> <span class="hljs-keyword">from</span> 表名；  <span class="hljs-comment">--  列表内容全部删除</span><br><span class="hljs-keyword">delete</span> <span class="hljs-keyword">from</span> 表名 <span class="hljs-keyword">where</span> id &gt;= <span class="hljs-number">3</span>;<br><span class="hljs-keyword">delete</span> <span class="hljs-keyword">from</span> 表名 <span class="hljs-keyword">where</span> id = <span class="hljs-number">3</span> <span class="hljs-keyword">and</span> <span class="hljs-type">name</span> = &quot;11&quot;;<br><span class="hljs-keyword">delete</span> <span class="hljs-keyword">from</span> 表名 <span class="hljs-keyword">where</span> id = <span class="hljs-number">3</span> <span class="hljs-keyword">or</span> <span class="hljs-type">name</span> = &quot;11&quot;;<br></code></pre></td></tr></table></figure>
+</li>
+<li><p>修改数据</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">update</span> 表名 <span class="hljs-keyword">set</span> 列<span class="hljs-operator">=</span>值；  <span class="hljs-comment">-- 把列表中的此列全部更改为某值</span><br><span class="hljs-keyword">update</span> 表名 <span class="hljs-keyword">set</span> 列<span class="hljs-operator">=</span>值，列<span class="hljs-operator">=</span>值；<br><span class="hljs-keyword">update</span> 表名 <span class="hljs-keyword">set</span> 列<span class="hljs-operator">=</span>值 <span class="hljs-keyword">where</span> 条件； <span class="hljs-comment">-- 把符合条件的所有列更改为某值</span><br></code></pre></td></tr></table></figure>
+</li>
+<li><p><mark>查询数据</mark></p>
+<figure class="highlight axapta"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs axapta"><span class="hljs-keyword">select</span> * <span class="hljs-keyword">from</span> 表的名称;<br><span class="hljs-keyword">select</span> 列名称 <span class="hljs-keyword">from</span> 表的名称;<br><span class="hljs-keyword">select</span> 列名称 <span class="hljs-keyword">from</span> 表的名称 <span class="hljs-keyword">where</span> 条件;<br></code></pre></td></tr></table></figure></li>
+</ol>
+<h2 id="5-其他指令"><a href="#5-其他指令" class="headerlink" title="5. 其他指令"></a>5. 其他指令</h2><ol>
+<li>显示目前已有的用户名：<code>select user from mysql.user;</code></li>
+</ol>
+<ul>
+<li>用户名默认是root<div style="text-align:center">
+  <img src="/img/mysql_base_pic/7.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
+</div></li>
+</ul>
+<ol start="2">
+<li>查看当前mysql数据库的版本：<code>select version();</code></li>
+</ol>
+<h1 id="四、常用的数据类型"><a href="#四、常用的数据类型" class="headerlink" title="四、常用的数据类型"></a>四、常用的数据类型</h1><h2 id="1-数值类型"><a href="#1-数值类型" class="headerlink" title="1. 数值类型"></a>1. 数值类型</h2><table>
+<thead>
+<tr>
+<th align="left">类型</th>
+<th align="left">大小</th>
+<th align="left">有符号（signed）范围</th>
+<th>无符号（unsigned）范围</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><mark>tinyint</mark></td>
+<td align="left">1 byte</td>
+<td align="left">(-128, 127)</td>
+<td>(0, 255)</td>
+<td>小整数值</td>
+</tr>
+<tr>
+<td align="left">smallint</td>
+<td align="left">2</td>
+<td align="left">(-32768, 32767)</td>
+<td>(0, 65535)</td>
+<td>大整数值</td>
+</tr>
+<tr>
+<td align="left">mediumint</td>
+<td align="left">3</td>
+<td align="left">(-8388608, 8388607)</td>
+<td>(0, 16777215)</td>
+<td>大整数值</td>
+</tr>
+<tr>
+<td align="left"><mark>int</mark> 或 <mark>integer</mark></td>
+<td align="left">4</td>
+<td align="left">(-2147483648, 2147483647)</td>
+<td>(0, 4294967295)</td>
+<td>大整数值</td>
+</tr>
+<tr>
+<td align="left">biting</td>
+<td align="left">8</td>
+<td align="left">(-2<sup>63</sup>, 2<sup>63</sup>-1)</td>
+<td>(0, 2<sup>64</sup>-1)</td>
+<td>极大整数值</td>
+</tr>
+<tr>
+<td align="left"><mark>float</mark></td>
+<td align="left">4</td>
+<td align="left">(-3.4 E+38, 3.4 E+38)</td>
+<td>0 和 (1.1 E-38, 3.4 E+38)</td>
+<td>单精度浮点数值</td>
+</tr>
+<tr>
+<td align="left">double</td>
+<td align="left">8</td>
+<td align="left">(-1.8 E+308, 1.8 E+308)</td>
+<td>0 和 (2.2 E-308, 1.8 E+308)</td>
+<td>双精度浮点数值</td>
+</tr>
+<tr>
+<td align="left">decimal</td>
+<td align="left"></td>
+<td align="left">依赖于M(精度)和D(标度)的值</td>
+<td>依赖于M(精度)和D(标度)的值</td>
+<td>小数值（精确定点数）</td>
+</tr>
+</tbody></table>
+<ul>
+<li>示例</li>
+</ul>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs nginx"><span class="hljs-attribute">age</span> tinyint           <span class="hljs-comment"># 有符号范围</span><br>age tinyint unsigned  <span class="hljs-comment"># 无符号范围</span><br></code></pre></td></tr></table></figure>
+
+
+
+
+
+<h2 id="2-字符串类型"><a href="#2-字符串类型" class="headerlink" title="2. 字符串类型"></a>2. 字符串类型</h2><table>
+<thead>
+<tr>
+<th align="left">类型</th>
+<th align="left">大小</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><mark>char</mark></td>
+<td align="left">0-255 bytes</td>
+<td align="left"><mark>定长字符串</mark></td>
+</tr>
+<tr>
+<td align="left"><mark>varchar</mark></td>
+<td align="left">0-65535 bytes</td>
+<td align="left"><mark>变长字符串</mark></td>
+</tr>
+<tr>
+<td align="left">tinyblob</td>
+<td align="left">0-255 bytes</td>
+<td align="left">不超过255个字符的二进制数据</td>
+</tr>
+<tr>
+<td align="left">tinytext</td>
+<td align="left">0-255 bytes</td>
+<td align="left">短文本字符串</td>
+</tr>
+<tr>
+<td align="left">blob</td>
+<td align="left">0-65535 bytes</td>
+<td align="left">二进制形式的长文本数据</td>
+</tr>
+<tr>
+<td align="left">text</td>
+<td align="left">0-65535 bytes</td>
+<td align="left">长文本数据</td>
+</tr>
+<tr>
+<td align="left">mediumblob</td>
+<td align="left">0-16777215 bytes</td>
+<td align="left">二进制形式的中等长度文本数据</td>
+</tr>
+<tr>
+<td align="left">mediumtext</td>
+<td align="left">0-16777215 bytes</td>
+<td align="left">中等长度文本数据</td>
+</tr>
+<tr>
+<td align="left">longblob</td>
+<td align="left">0-4294967295 bytes</td>
+<td align="left">二级制形式的极大文本数据</td>
+</tr>
+<tr>
+<td align="left">longtext</td>
+<td align="left">0-4294967295 bytes</td>
+<td align="left">极大文本数据</td>
+</tr>
+</tbody></table>
+<ul>
+<li>示例</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell">mobile char(11)     # 固定使用11个字符串进行存储，哪怕没有11个<br>mobile varchar(11)  # 真实数据有多长，就会存储多长<br></code></pre></td></tr></table></figure>
+
+
+
+
+
+<h2 id="3-日期时间类型"><a href="#3-日期时间类型" class="headerlink" title="3. 日期时间类型"></a>3. 日期时间类型</h2><table>
+<thead>
+<tr>
+<th align="left">类型</th>
+<th align="left">大小</th>
+<th align="left">格式</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><mark>DATE</mark></td>
+<td align="left">3</td>
+<td align="left">YYYY-MM-DD</td>
+<td>日期值</td>
+</tr>
+<tr>
+<td align="left"><mark>TIME</mark></td>
+<td align="left">3</td>
+<td align="left">HH-MM-SS</td>
+<td>时间值或持续时间</td>
+</tr>
+<tr>
+<td align="left">YEAR</td>
+<td align="left">1</td>
+<td align="left">YYYY</td>
+<td>年份值</td>
+</tr>
+<tr>
+<td align="left"><mark>DATETIME</mark></td>
+<td align="left">8</td>
+<td align="left">YYYY-MM-DD HH-MM-SS</td>
+<td>混合日期和时间值</td>
+</tr>
+<tr>
+<td align="left">TIMESTAMP</td>
+<td align="left">4</td>
+<td align="left">YYYY-MM-DD HH-MM-SS</td>
+<td>混合日期和时间值，时间戳</td>
+</tr>
+</tbody></table>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/Web%E5%BC%80%E5%8F%91/" class="category-chain-item">Web开发</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/Web%E5%BC%80%E5%8F%91/%E5%90%8E%E7%AB%AF/" class="category-chain-item">后端</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/Web%E5%BC%80%E5%8F%91/%E5%90%8E%E7%AB%AF/%E6%95%B0%E6%8D%AE%E5%BA%93/" class="category-chain-item">数据库</a>
+  
+  
+
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/Web%E5%BC%80%E5%8F%91/" class="print-no-link">#Web开发</a>
+      
+        <a href="/tags/%E5%90%8E%E7%AB%AF/" class="print-no-link">#后端</a>
+      
+        <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" class="print-no-link">#数据库</a>
+      
+        <a href="/tags/MySQL/" class="print-no-link">#MySQL</a>
+      
+        <a href="/tags/%E7%BB%88%E7%AB%AF/" class="print-no-link">#终端</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>MySQL</div>
+      <div>http://example.com/2023/12/05/MySQL/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>张辰</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2023年12月5日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2023/12/06/MySQL+Django/" title="MySQL+Django">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">MySQL+Django</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2023/12/03/Flask%20Web%E6%A1%86%E6%9E%B6/" title="Flask Web框架">
+                        <span class="hidden-mobile">Flask Web框架</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  <script>
+  Fluid.utils.createScript('https://lib.baomitu.com/mermaid/8.14.0/mermaid.min.js', function() {
+    mermaid.initialize({"theme":"default"});
+
+    Fluid.utils.listenDOMLoaded(function() {
+      Fluid.events.registerRefreshCallback(function() {
+        if ('mermaid' in window) {
+          mermaid.init();
+        }
+      });
+    });
+  });
+</script>
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="busuanzi_container_site_pv" style="display: none">
+        总访问量
+        <span id="busuanzi_value_site_pv"></span>
+        次
+      </span>
+    
+    
+      <span id="busuanzi_container_site_uv" style="display: none">
+        总访客数
+        <span id="busuanzi_value_site_uv"></span>
+        人
+      </span>
+    
+    
+  
+</div>
+
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
