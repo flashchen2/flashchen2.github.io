@@ -1,0 +1,893 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="张辰">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="记录在性能测试过程中所遇到的问题">
+<meta property="og:type" content="article">
+<meta property="og:title" content="性能测试方法">
+<meta property="og:url" content="http://example.com/2023/11/30/%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="记录在性能测试过程中所遇到的问题">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/img/performance_test_pic/1.jpg">
+<meta property="article:published_time" content="2023-11-30T12:00:00.000Z">
+<meta property="article:modified_time" content="2024-05-31T09:57:29.564Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="测试">
+<meta property="article:tag" content="性能测试">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://example.com/img/performance_test_pic/1.jpg">
+  
+  
+    <meta name="referrer" content="no-referrer-when-downgrade">
+  
+  
+  <title>性能测试方法 - Hexo</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.6","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 7.0.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Blog</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/banner_hexo.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="性能测试方法"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2023-11-30 20:00" pubdate>
+          2023年11月30日 晚上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          1.3k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          11 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">性能测试方法</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="一、手表、手环性能测试"><a href="#一、手表、手环性能测试" class="headerlink" title="一、手表、手环性能测试"></a>一、手表、手环性能测试</h1><ol>
+<li>基础性能：成功率、时长、主观体验</li>
+<li>流畅度：滑动帧率、丢帧率<br>CPU计算，GPU渲染<br>显示过慢：一次丢帧(janck) 一次撕裂<br>显示过快：</li>
+<li>时延：应用启动、滑动响应、滑动完成、点击完成、其他时延<br>公式：（结束帧数-启示帧数）*1000ms&#x2F;240</li>
+<li>应用启动<ol>
+<li>热启动：点击进入应用后，退出应用。5s内再次点击进入应用</li>
+<li>冷启动：每一次点击进入应用后，重启设备，再次点击进入应用</li>
+</ol>
+</li>
+<li>时延<ol>
+<li>录制视频30帧、60帧，就是每秒播放30、60个画面，也就是30f、60f<br> 1&#x2F;30&#x3D;0.03333秒&#x3D;33.33毫秒<br> 1&#x2F;60&#x3D;0.01666秒&#x3D;16.66毫秒</li>
+</ol>
+</li>
+</ol>
+<h1 id="二、耳机性能测试"><a href="#二、耳机性能测试" class="headerlink" title="二、耳机性能测试"></a>二、耳机性能测试</h1><h2 id="1-音画延迟"><a href="#1-音画延迟" class="headerlink" title="1. 音画延迟"></a>1. 音画延迟</h2><h3 id="1-前置条件"><a href="#1-前置条件" class="headerlink" title="1. 前置条件"></a>1. 前置条件</h3><h4 id="1-硬件前置条件"><a href="#1-硬件前置条件" class="headerlink" title="1. 硬件前置条件"></a>1. 硬件前置条件</h4><ol>
+<li>安静的办公室&#x2F;屏蔽室</li>
+<li>远离蓝牙&#x2F;wifi干扰信号源</li>
+<li>准备一台支持录制慢动作240帧率功能的辅助手机（iphone 12）</li>
+</ol>
+<h4 id="2-软件前置条件"><a href="#2-软件前置条件" class="headerlink" title="2. 软件前置条件"></a>2. 软件前置条件</h4><ol>
+<li>耳机蓝牙连接手机1；耳机放在手机2（iPhone 12）出音口处。</li>
+<li>在手机端“更多设置”里调节编码格式（AAC&#x2F;SBC&#x2F;LHDC&#x2F;APTX）</li>
+<li>在LHDC&#x2F;APTX模式下开启低延迟开关</li>
+<li>下载“和平精英”游戏，在游戏设置里将，游戏背景音调到最小，总音量调到最大</li>
+<li>进入到“训练室”选择MK47枪械，单发模式</li>
+</ol>
+<div style="text-align:center;display:flex;gap:5px">
+    <img src="/img/performance_test_pic/2.jpg" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:25%;">
+    <img src="/img/performance_test_pic/3.jpg" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:25%;">
+    <img src="/img/performance_test_pic/4.jpg" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:25%;">
+</div>
+
+
+
+
+
+<h3 id="2-测试过程"><a href="#2-测试过程" class="headerlink" title="2.测试过程"></a>2.测试过程</h3><ol>
+<li>手机端音量调到最大，辅助机打开录制视频慢动作240帧模式。</li>
+<li>测试耳机贴到辅助机的话筒处。</li>
+<li><div style="text-align:center;display:flex;gap:5px">
+    <img src="/img/power_test_pic/7.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
+</div></li>
+</ol>
+<h3 id="3-数据处理"><a href="#3-数据处理" class="headerlink" title="3.数据处理"></a>3.数据处理</h3><h4 id="1-ffmpeg驱动"><a href="#1-ffmpeg驱动" class="headerlink" title="1. ffmpeg驱动"></a>1. ffmpeg驱动</h4><ol>
+<li><p>下载ffmpeg工具，压缩包过大，目前存储于本地电脑中</p>
+</li>
+<li><p>初次使用时，按如下图示配置环境变量</p>
+</li>
+<li><p>我的电脑-属性-高级系统设置-配置路径选择到bin文件所在目录</p>
+</li>
+</ol>
+<div style="text-align:center;display:flex;gap:5px">
+    <img src="/img/performance_test_pic/5.jpg" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:45%;">
+    <img src="/img/performance_test_pic/6.jpg" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:45%;">
+    <img src="/img/performance_test_pic/7.jpg" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:45%;">
+</div>
+
+
+
+<ol start="4">
+<li>将录制视频导入电脑桌面；在桌面新建一个文件夹，重命名为file_dir。</li>
+<li>win+r打开CMD窗口后使用ffmepg命令解析视频<ol>
+<li>输入 cd Desktop</li>
+</ol>
+</li>
+</ol>
+<ul>
+<li><p>此步骤含义为进入桌面新建的文件夹。</p>
+</li>
+<li><p>其中黄标处可更改为如下图二路径（一般不用改）</p>
+  <div style="text-align:center;display:flex;gap:5px">
+      <img src="/img/performance_test_pic/8.jpg" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:35%;">
+      <img src="/img/performance_test_pic/9.jpg" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:35%;">
+  </div>
+
+
+<ol start="2">
+<li>输入ffmpeg -i 2021_05_25_11_35_IMG_0740.MOV -r 240 file_dir\f%05d.png</li>
+</ol>
+</li>
+<li><p>此步骤为将视频分解为每一帧图片。</p>
+</li>
+<li><p>黄1为桌面此视频的名称（需要更改）；黄2为桌面文件夹的名称（一般不用改）</p>
+<ol start="3">
+<li>继续输入ffmpeg -i 2021_05_25_11_35_IMG_0740.MOV -vn -y -acodec copy 123.aac</li>
+</ol>
+</li>
+<li><p>此步骤为抽出aac格式音频。</p>
+</li>
+<li><p>黄1为桌面此视频的名称（需要更改）；黄2为生成的acc音频名称（一般不用改）</p>
+</li>
+</ul>
+<h4 id="2-AAC-MP3"><a href="#2-AAC-MP3" class="headerlink" title="2. AAC MP3"></a>2. AAC MP3</h4><ol>
+<li><p>下载HooTech工具，压缩包过大，目前存储于本地电脑中</p>
+</li>
+<li><p>将aac格式音频转换为wav格式（工具使用HooTech_AAC_MP3_Converter）</p>
+<div style="text-align:center;display:flex;gap:5px">
+ <img src="/img/performance_test_pic/10.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
+</div>
+
+
+</li>
+<li><p>点击Add Files 选择转换成功的aac文件</p>
+</li>
+<li><p>点击Convert（自动）选择已经转换成功的的wav文件，并将此wav文件拖拽桌面</p>
+</li>
+</ol>
+<h4 id="3-Cool-Edit-Pro"><a href="#3-Cool-Edit-Pro" class="headerlink" title="3. Cool Edit Pro"></a>3. Cool Edit Pro</h4><ol>
+<li><p>下载CoolEditPro工具，压缩包过大，目前存储于本地电脑中</p>
+</li>
+<li><p>使用Cool Edit Pro打开wav格式音频，得到音频波形图</p>
+</li>
+<li><p>打开Cool Edit Pro，点击Keep Evaluating（可能需要等待一段时间）</p>
+</li>
+<li><p>点击红框中的图标，选择已经转换成功的的wav文件，并打开。</p>
+<div style="text-align:center;display:flex;gap:5px">
+ <img src="/img/performance_test_pic/11.jpg" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:35%;">
+ <img src="/img/performance_test_pic/12.jpg" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:35%;">
+</div>
+
+
+</li>
+<li><p>筛除视频底噪（不是必须步骤）</p>
+<div style="text-align:center;display:flex;gap:5px">
+ <img src="/img/performance_test_pic/13.jpg" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:25%;">
+ <img src="/img/performance_test_pic/14.jpg" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:25%;">
+ <img src="/img/performance_test_pic/15.jpg" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:25%;">
+</div></li>
+</ol>
+<h4 id="4-数据分析"><a href="#4-数据分析" class="headerlink" title="4. 数据分析"></a>4. 数据分析</h4><div style="text-align:center;display:flex;gap:5px">
+    <img src="/img/performance_test_pic/16.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
+</div>
+
+
+
+<ol>
+<li>在wav文件中，找到第一次开枪，听到声音那一刻的时间，并记录下方数据a1。<br>注：开枪那一刻波形会突然变粗，可以听个大概，然后找到特殊波形处，选择特殊波形前一刻定为开枪声音出现的时间即可。</li>
+<li>在分解出的图片中找到枪冒火那一帧（不是手机点击的那一刻），记录图片数据序号a2。<br>对应的ms值a3&#x3D;a2÷240</li>
+<li>实际延迟 a4&#x3D; (a1-a3)×1000</li>
+<li>记录上述方法，并重复五次开枪数据，记录实际延迟，取五次平均值。</li>
+</ol>
+<h2 id="2-WALT"><a href="#2-WALT" class="headerlink" title="2. WALT"></a>2. WALT</h2><h3 id="1-前置条件-1"><a href="#1-前置条件-1" class="headerlink" title="1.前置条件"></a>1.前置条件</h3><ol>
+<li><p>手机端安装walt工具，压缩包过大，目前存储于本地电脑中</p>
+</li>
+<li><p>手机蓝牙连接耳机，手机开到最大音量，walt工具连接手机，开启下方中间的电源键。</p>
+</li>
+<li><p>取单耳耳机放置walt上，用蓝丁胶粘好</p>
+<div style="text-align:center;display:flex;gap:5px">
+ <img src="/img/performance_test_pic/17.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
+</div>
+
+
+</li>
+<li><p>在手机端蓝牙连接的耳机设备-音效设置-里调节编码格式（AAC&#x2F;SBC&#x2F;LHDC&#x2F;APTX） </p>
+</li>
+<li><p>在手机端-更多设置-开发者选项-蓝牙音频编解码器中调制LHDC V3&#x2F;V4 及LHDC3.0&#x2F;4.0<br>注：需先调整耳机内格式，再调整开发者选项。单独更改开发者选项，LHDC不会生效。</p>
+</li>
+<li><p>在LHDC3.0&#x2F;LHDC4.0模式下开启低延迟开关 （位置：蓝牙-连接的耳机设备-音效设置-低延迟）</p>
+</li>
+<li><p>蓝牙-连接的耳机设备-通透 （在实际测试之前需要检查一遍，可能存在耳机自动跳转到通透模式）</p>
+</li>
+<li><p>蓝牙-连接的耳机设备-LHDC-192k（根据用例选择）</p>
+</li>
+<li><p>手机连接walt硬件测试工具的一端；walt测试工具的另一端连接一只耳机，橡皮泥用来收音、固定。</p>
+</li>
+<li><p>在手机端开发者模式下关闭：wlan扫描 和 enable bluetooth page scan(其它按默认)</p>
+</li>
+<li><p>关闭状态栏里边的wifi&#x2F;数据&#x2F;定位&#x2F;NFC等功能；打开飞行模式和蓝牙</p>
+<div style="text-align:center;display:flex;gap:5px">
+<img src="/img/performance_test_pic/18.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
+</div></li>
+</ol>
+<h3 id="2-测试过程-1"><a href="#2-测试过程-1" class="headerlink" title="2. 测试过程"></a>2. 测试过程</h3><ol>
+<li><p>打开WALT测试APP：Settings-Audio-Audio output test length(数值设置200) </p>
+<div style="text-align:center;display:flex;gap:5px">
+ <img src="/img/performance_test_pic/19.jpg" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:35%;">
+ <img src="/img/performance_test_pic/20.jpg" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:35%;">
+ <img src="/img/performance_test_pic/21.jpg" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:35%;">
+</div>
+
+
+</li>
+<li><p>返回到主页面点击Audio latency-选择Continuous Playback Latency模式 </p>
+<div style="text-align:center;display:flex;gap:5px">
+ <img src="/img/performance_test_pic/22.jpg" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:35%;">
+ <img src="/img/performance_test_pic/23.jpg" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:35%;">
+</div>
+
+
+</li>
+<li><p>数据处理</p>
+<ol>
+<li>点击开始并截图记录每次所测的数值，重复三次，记录数据并取平均值。<div style="text-align:center;display:flex;gap:5px">
+ <img src="/img/performance_test_pic/24.jpg" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:35%;">
+ <img src="/img/performance_test_pic/25.jpg" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:35%;">
+ <img src="/img/performance_test_pic/26.jpg" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:35%;">
+</div></li>
+</ol>
+</li>
+</ol>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E6%B5%8B%E8%AF%95/" class="category-chain-item">测试</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E6%B5%8B%E8%AF%95/" class="print-no-link">#测试</a>
+      
+        <a href="/tags/%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95/" class="print-no-link">#性能测试</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>性能测试方法</div>
+      <div>http://example.com/2023/11/30/性能测试/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>张辰</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2023年11月30日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2023/11/30/%E7%BB%AD%E8%88%AA%E6%B5%8B%E8%AF%95/" title="续航测试方法">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">续航测试方法</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2023/11/30/%E7%AE%97%E6%B3%95%E5%85%A5%E9%97%A8%E8%87%B3%E7%B2%BE%E9%80%9A/" title="算法入门至精通">
+                        <span class="hidden-mobile">算法入门至精通</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  <script>
+  Fluid.utils.createScript('https://lib.baomitu.com/mermaid/8.14.0/mermaid.min.js', function() {
+    mermaid.initialize({"theme":"default"});
+
+    Fluid.utils.listenDOMLoaded(function() {
+      Fluid.events.registerRefreshCallback(function() {
+        if ('mermaid' in window) {
+          mermaid.init();
+        }
+      });
+    });
+  });
+</script>
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="busuanzi_container_site_pv" style="display: none">
+        总访问量
+        <span id="busuanzi_value_site_pv"></span>
+        次
+      </span>
+    
+    
+      <span id="busuanzi_container_site_uv" style="display: none">
+        总访客数
+        <span id="busuanzi_value_site_uv"></span>
+        人
+      </span>
+    
+    
+  
+</div>
+
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

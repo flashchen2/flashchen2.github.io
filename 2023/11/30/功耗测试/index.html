@@ -1,0 +1,789 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="张辰">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="记录在功耗测试过程中所遇到的问题">
+<meta property="og:type" content="article">
+<meta property="og:title" content="功耗测试方法">
+<meta property="og:url" content="http://example.com/2023/11/30/%E5%8A%9F%E8%80%97%E6%B5%8B%E8%AF%95/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="记录在功耗测试过程中所遇到的问题">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/img/power_test_pic/1.jpg">
+<meta property="article:published_time" content="2023-11-30T12:00:00.000Z">
+<meta property="article:modified_time" content="2024-05-31T10:13:05.850Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="测试">
+<meta property="article:tag" content="功耗测试">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://example.com/img/power_test_pic/1.jpg">
+  
+  
+    <meta name="referrer" content="no-referrer-when-downgrade">
+  
+  
+  <title>功耗测试方法 - Hexo</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.6","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 7.0.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Blog</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/banner_hexo.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="功耗测试方法"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2023-11-30 20:00" pubdate>
+          2023年11月30日 晚上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          1.5k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          13 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">功耗测试方法</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="一、耳机功耗测试"><a href="#一、耳机功耗测试" class="headerlink" title="一、耳机功耗测试"></a>一、耳机功耗测试</h1><h2 id="1-准备工作"><a href="#1-准备工作" class="headerlink" title="1. 准备工作"></a>1. 准备工作</h2><h3 id="1-相关知识"><a href="#1-相关知识" class="headerlink" title="1. 相关知识"></a>1. 相关知识</h3><p>HV-Power-Monitor 用来供给飞线耳机电源，<br>其中耳机、耳机盒需要3.8V，手表、手机、手环需要3.85V</p>
+<h3 id="2-电脑软件准备"><a href="#2-电脑软件准备" class="headerlink" title="2. 电脑软件准备"></a>2. 电脑软件准备</h3><p>第一次进行功耗测试</p>
+<ol>
+<li><p>下载PowerTool，压缩包所占内存较大，当前存储于本地电脑中</p>
+</li>
+<li><p>右键此电脑-管理-设备管理器-系统设备-Inter(R) power Engine Plug-in-右键更新驱动程序。</p>
+<div style="text-align:center;display:flex;gap:5px">
+ <img src="/img/power_test_pic/2.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
+</div></li>
+</ol>
+<h3 id="3-手机准备"><a href="#3-手机准备" class="headerlink" title="3. 手机准备"></a>3. 手机准备</h3><h4 id="1-手机刷机"><a href="#1-手机刷机" class="headerlink" title="1. 手机刷机"></a>1. 手机刷机</h4><h4 id="2-蓝牙插件化"><a href="#2-蓝牙插件化" class="headerlink" title="2. 蓝牙插件化"></a>2. 蓝牙插件化</h4><ul>
+<li>注：此操作为了获取“详细的蓝牙界面”</li>
+</ul>
+<h4 id="3-软件准备"><a href="#3-软件准备" class="headerlink" title="3.软件准备"></a>3.软件准备</h4><p>关闭佩戴检测、数据、WiFi、消息页面下拉的第二页整页（非必要应用通知）<br>打开息屏模式至最大，飞行模式</p>
+<h4 id="4-音乐准备"><a href="#4-音乐准备" class="headerlink" title="4. 音乐准备"></a>4. 音乐准备</h4><p>压缩包所占内存较大，当前存储于本地电脑中</p>
+<h3 id="4-耳机准备"><a href="#4-耳机准备" class="headerlink" title="4. 耳机准备"></a>4. 耳机准备</h3><h4 id="1-连接准备"><a href="#1-连接准备" class="headerlink" title="1. 连接准备"></a>1. 连接准备</h4><ol>
+<li>耳机连接HV-Power-Monitor 用来供给飞线耳机电源，其中耳机需要3.8V，手表手机需要3.85V。</li>
+<li>打开软件,点击右上角Set Vout-Custom设为3.8V。</li>
+<li>设置完电压后点击Vout-Disable，黑盒的两个黄灯亮起，开始给耳机供电，相当于耳机的电池，双飞线耳机可以正常工作。<br>注：若此时亮灯为一红一黄，则代表此时电源串电（焊接点处线材交叉打结），此时先关闭软件端电源（点击Vout Enable下电），再关闭硬件端电源（按动Power-Monitor按钮关机后，再次按动Power-Monitor按钮开机）。梳理电源线，必要时可以缠绕黑色绝缘胶带，完成后重复连接。</li>
+<li>黑盒俯视图及尾端如下所示，黑盒尾端共有两根黑线，其中一根(末尾带一圆环)连接电源，供给飞线耳机工作；另一根连接电脑，传输信息。</li>
+</ol>
+<div style="text-align:center;display:flex;gap:5px">
+    <img src="/img/power_test_pic/3.jpg" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:35%;">
+    <img src="/img/power_test_pic/4.jpg" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:35%;">
+</div>
+
+
+
+
+<ol start="5">
+<li>Power-Monitor 前端如图所示共有两根线，红正黑负。因为此耳机为双飞线耳机，其中第一飞线为三引脚插头，用来抓取log；第二飞线为红、金两条线，用来连接黑盒作为电池，其中红正金负。当拆开耳机头部后可以看到，距离耳机外侧（麦克风）近的是正极，正常应该是红色。</li>
+</ol>
+<div style="text-align:center;display:flex;gap:5px">
+    <img src="/img/power_test_pic/5.jpg" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:35%;">
+    <img src="/img/power_test_pic/6.jpg" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:35%;">
+</div>
+
+
+
+<p>若顺利连接，耳机在耳机盒中电量应该显示为40%（L71） 25%（M75A）左右（因为输入电压为3.8V）</p>
+<h2 id="2-具体操作"><a href="#2-具体操作" class="headerlink" title="2. 具体操作"></a>2. 具体操作</h2><h3 id="1-基本步骤"><a href="#1-基本步骤" class="headerlink" title="1. 基本步骤"></a>1. 基本步骤</h3><ol>
+<li><p>下载Power Tool软件 </p>
+</li>
+<li><p>如图上图所示顺利连接后，如果电脑第一次连接黑盒，进入控制面板-电脑设备管理器-power驱动升级-&gt;可以使用。</p>
+</li>
+<li><p>因为两只耳机，连接两个黑盒，故开两个系统，其中数据参数调制下图所示</p>
+<div style="text-align:center;display:flex;gap:5px">
+ <img src="/img/power_test_pic/7.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
+</div>
+
+</li>
+<li><p>初次使用、以及单双耳切换后均需等待蓝牙广播三分钟。</p>
+</li>
+<li><p>点击Set Capture Triggers-Manual After 180s。</p>
+</li>
+<li><p>点击两个软件中的Run，并等待180s后自动暂停。</p>
+</li>
+<li><p>记录Average Current（平均电流值，单位为mA），其中电流与预期相比，低了可以，高了不行（代表耗电过高）。</p>
+</li>
+</ol>
+<h2 id="3-其他"><a href="#3-其他" class="headerlink" title="3. 其他"></a>3. 其他</h2><h3 id="1-通用"><a href="#1-通用" class="headerlink" title="1. 通用"></a>1. 通用</h3><ol>
+<li>ANC指的是降噪</li>
+<li>关闭低延迟、佩戴检测和双连接.</li>
+<li>空间音频分为手机空间音频和耳机空间音频，开启空间音频后，需要同时开启头部追踪。</li>
+<li>音频解码要是没写的话，默认AAC模式。</li>
+<li>当进行双耳-&gt;单耳时，不要移动耳机，在软件上点击“下电”Vout-Disable，就可以关闭一只耳机的电源，进入单耳模式。</li>
+<li>降噪需要调到深度模式。</li>
+<li>50%音量:音量调至零的情况下，摁7次音量上键。</li>
+<li>测量通话过程中的功耗时，身边的噪音对其影响不大，但是也要尽量保持安静。</li>
+<li>手机上方贴金属条是为了模拟人耳模式，检测时耳机连接另一块金属，几次调试后进入双儿入耳模式。因为单耳时耳机无法进入降噪模式，所以单耳成功连接为√ × √；双耳均成功连接为√ √ √ </li>
+<li>耳机恢复出场设置：长摁关机键，至闪白灯-闪红灯-闪白灯</li>
+<li>语音识别：在蓝牙插件化中的更多设置中</li>
+<li>环绕立体音：插件化设置中没有的话，可以在设置-声音与振动-最下方音质音效-开启虚拟环绕音替代</li>
+<li>空间音频指的是手机端空间音频</li>
+<li>手机端空间音频与LHDC-192khz采样率互斥，无法测试；耳机端空间音频与LHDC-192khz采样率不互斥</li>
+<li>测试过程中发现异常数据、波形且无法恢复，可以耳机软恢复出场。</li>
+</ol>
+<h3 id="2-待机"><a href="#2-待机" class="headerlink" title="2. 待机"></a>2. 待机</h3><ol>
+<li>测试耳机待机性能时，不开网、双连接；打开飞行模式，蓝牙，方向锁，息屏时间开至最大。</li>
+</ol>
+<h3 id="3-音乐"><a href="#3-音乐" class="headerlink" title="3. 音乐"></a>3. 音乐</h3><ol>
+<li>测试耳机音乐性能时，不开网、双连接，需打开飞行模式，并使用固定音源，在系统软件选择已经考入本地的音乐-加州旅馆。</li>
+</ol>
+<h3 id="4-通话"><a href="#4-通话" class="headerlink" title="4. 通话"></a>4. 通话</h3><ol>
+<li>测试耳机通话时，开网，关飞行。</li>
+<li>每测一次通话，都重新拨打一次。</li>
+<li>通话时，需要在通话界面调至50%音量（不是媒体音量），因为原有1格的音量，所有按音乐上键6次即可。</li>
+<li>测试音乐播放，空间音频、环绕立体声时：双耳机先放耳机盒里，主手机需要下载小米耳机，手机打开双设备模式-连接两台手机，关闭佩戴检测，打开空间音频，不用打开空间立体声</li>
+</ol>
+<h3 id="5-双连接"><a href="#5-双连接" class="headerlink" title="5. 双连接"></a>5. 双连接</h3><ol>
+<li>需要打开空间音频以及立体声，如果手机蓝牙设置有的话（小米耳机、手机），则不用额外下载“小米手机app”；当测试竞品的时候需要下载。</li>
+</ol>
+<h3 id="6-OTA升级"><a href="#6-OTA升级" class="headerlink" title="6. OTA升级"></a>6. OTA升级</h3><ol>
+<li>手机蓝牙插件化后，输入以下adb命令adb shell setprop log.tag.MMAServiceOTAtest VERBOSE可以打开耳机端更多设置，用于耳机无线OTA升级或循环升级。</li>
+<li>无法进行OTA升级过程中的功耗测试，因为升级过程中需要耳机在耳机盒中关盒升级，电流值会是负数。</li>
+</ol>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E6%B5%8B%E8%AF%95/" class="category-chain-item">测试</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E6%B5%8B%E8%AF%95/" class="print-no-link">#测试</a>
+      
+        <a href="/tags/%E5%8A%9F%E8%80%97%E6%B5%8B%E8%AF%95/" class="print-no-link">#功耗测试</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>功耗测试方法</div>
+      <div>http://example.com/2023/11/30/功耗测试/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>张辰</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2023年11月30日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2023/11/30/%E7%AE%97%E6%B3%95%E5%85%A5%E9%97%A8%E8%87%B3%E7%B2%BE%E9%80%9A/" title="算法入门至精通">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">算法入门至精通</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2023/11/29/Django%20Web%E6%A1%86%E6%9E%B6/" title="Django Web框架">
+                        <span class="hidden-mobile">Django Web框架</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  <script>
+  Fluid.utils.createScript('https://lib.baomitu.com/mermaid/8.14.0/mermaid.min.js', function() {
+    mermaid.initialize({"theme":"default"});
+
+    Fluid.utils.listenDOMLoaded(function() {
+      Fluid.events.registerRefreshCallback(function() {
+        if ('mermaid' in window) {
+          mermaid.init();
+        }
+      });
+    });
+  });
+</script>
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="busuanzi_container_site_pv" style="display: none">
+        总访问量
+        <span id="busuanzi_value_site_pv"></span>
+        次
+      </span>
+    
+    
+      <span id="busuanzi_container_site_uv" style="display: none">
+        总访客数
+        <span id="busuanzi_value_site_uv"></span>
+        人
+      </span>
+    
+    
+  
+</div>
+
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

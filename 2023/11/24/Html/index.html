@@ -1,0 +1,1093 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="张辰">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="前端三驾马车之一，Html5是一种用来描述网页的语言，被称为超文本传输语言。使用Html5可以快速搭建一个前端界面，让我们来画第一个界面吧！">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Html">
+<meta property="og:url" content="http://example.com/2023/11/24/Html/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="前端三驾马车之一，Html5是一种用来描述网页的语言，被称为超文本传输语言。使用Html5可以快速搭建一个前端界面，让我们来画第一个界面吧！">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/img/html_pic/3.jpg">
+<meta property="article:published_time" content="2023-11-24T12:00:00.000Z">
+<meta property="article:modified_time" content="2024-05-07T08:44:55.960Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="语言">
+<meta property="article:tag" content="Web开发">
+<meta property="article:tag" content="前端">
+<meta property="article:tag" content="Html">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://example.com/img/html_pic/3.jpg">
+  
+  
+    <meta name="referrer" content="no-referrer-when-downgrade">
+  
+  
+  <title>Html - Hexo</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.6","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 7.0.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Blog</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/banner_hexo.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="Html"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2023-11-24 20:00" pubdate>
+          2023年11月24日 晚上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          1.7k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          15 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">Html</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="一、-准备工作"><a href="#一、-准备工作" class="headerlink" title="一、 准备工作"></a>一、 准备工作</h1><h2 id="1-html5介绍"><a href="#1-html5介绍" class="headerlink" title="1. html5介绍"></a>1. html5介绍</h2><ol>
+<li>html5是用来描述网页的一种语言，被称为超文本传输语言。用html5编写的文件，文件格式后缀为<code>.html</code>。</li>
+<li>html5是一种标记语言，拥有一套标记标签</li>
+</ol>
+<ul>
+<li>双标签：<code>&lt;html&gt;&lt;/html&gt;</code></li>
+<li>单标签: <code>&lt;img&gt;</code></li>
+</ul>
+<h2 id="2-软件准备"><a href="#2-软件准备" class="headerlink" title="2. 软件准备"></a>2. 软件准备</h2><ol>
+<li>安装IDE：<code>Visual Studio Code</code></li>
+<li>安装插件：<code>Live Server</code>，用于在写html的过程中，查看效果</li>
+</ol>
+<h2 id="3-声明"><a href="#3-声明" class="headerlink" title="3. &lt;!DOCTYPE html&gt;声明"></a>3. <code>&lt;!DOCTYPE html&gt;</code>声明</h2><ol>
+<li>DOCTYPE是<code>document type</code>的缩写。<code>&lt;!DOCTYPE html&gt;</code>是H5的声明位于文档的最前面，处于标签之前。他是网页必备的组成部分，避免浏览器的<strong>怪异模式</strong></li>
+</ol>
+<h2 id="4-标签"><a href="#4-标签" class="headerlink" title="4. &lt;title&gt;标签"></a>4. <code>&lt;title&gt;</code>标签</h2><ol>
+<li>定位文档标题，显示在浏览器窗口的标题或者状态栏上</li>
+<li><code>&lt;title&gt;</code>的增加有利于增加SEO优化<p class="note note-info">SEO是搜索引擎优化的英文缩写，通过对网站内容调整，满足搜索引擎的排名需求</p></li>
+</ol>
+<h2 id="5-标签"><a href="#5-标签" class="headerlink" title="5. &lt;meta&gt;标签"></a>5. <code>&lt;meta&gt;</code>标签</h2><ol>
+<li><code>&lt;meta&gt;</code>标签是单标签，用来描述一个<code>Html</code>网页文档的属性，关键词等。例如：<code>charset=&quot;utf-8&quot;</code>，在开发中我们我们会看到<code>utf-8</code>或是<code>gbk</code></li>
+</ol>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-meta">&lt;!DOCTYPE <span class="hljs-keyword">html</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">html</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">&quot;en&quot;</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">&quot;UTF-8&quot;</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>第一个页面<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<h1 id="二、-高频基础语法"><a href="#二、-高频基础语法" class="headerlink" title="二、 高频基础语法"></a>二、 高频基础语法</h1><h2 id="1-段落"><a href="#1-段落" class="headerlink" title="1. 段落&lt;p&gt;"></a>1. 段落<code>&lt;p&gt;</code></h2><h2 id="2-换行"><a href="#2-换行" class="headerlink" title="2. 换行&lt;br&gt;"></a>2. 换行<code>&lt;br&gt;</code></h2><ol>
+<li><code>&lt;br&gt;</code>元素是一个空的Html单标签，可以在不产生一个新段落的情况下进行换行</li>
+</ol>
+<h2 id="3-水平线"><a href="#3-水平线" class="headerlink" title="3. 水平线&lt;hr&gt;"></a>3. 水平线<code>&lt;hr&gt;</code></h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">hr</span> <span class="hljs-attr">color</span>=<span class="hljs-string">&quot;&quot;</span> <span class="hljs-attr">width</span>=<span class="hljs-string">&quot;&quot;</span> <span class="hljs-attr">size</span>=<span class="hljs-string">&quot;&quot;</span> <span class="hljs-attr">align</span>=<span class="hljs-string">&quot;&quot;</span>&gt;</span><br></code></pre></td></tr></table></figure>
+<ol>
+<li>属性<ol>
+<li>size：高度</li>
+<li>align：水平线对其方式（默认居中），可取值left ｜ right</li>
+</ol>
+</li>
+</ol>
+<h2 id="4-图片标签"><a href="#4-图片标签" class="headerlink" title="4. 图片标签&lt;img&gt;"></a>4. 图片标签<code>&lt;img&gt;</code></h2><p class="note note-info">注：&lt;img&gt;是单标签，不需要进行闭合操作</p>
+
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;&quot;</span> <span class="hljs-attr">alt</span>=<span class="hljs-string">&quot;&quot;</span> <span class="hljs-attr">title</span>=<span class="hljs-string">&quot;&quot;</span> <span class="hljs-attr">width</span>=<span class="hljs-string">&quot;&quot;</span> <span class="hljs-attr">height</span>=<span class="hljs-string">&quot;&quot;</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<ol>
+<li>属性：<ol>
+<li>src：路径（图片地址与名称）</li>
+<li>alt：规定图像替代的文本</li>
+<li>title： 鼠标悬停在图片上给予提示</li>
+</ol>
+</li>
+</ol>
+<h2 id="5-图片路径"><a href="#5-图片路径" class="headerlink" title="5. 图片路径&lt;img src=&quot;&quot;&gt;"></a>5. 图片路径<code>&lt;img src=&quot;&quot;&gt;</code></h2><h3 id="1-绝对路径"><a href="#1-绝对路径" class="headerlink" title="1. 绝对路径"></a>1. 绝对路径</h3><ol>
+<li>指的是电脑的盘符存储与访问的具体地址<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;E:\code\1.jpg&quot;</span>&gt;</span><br></code></pre></td></tr></table></figure></li>
+</ol>
+<h3 id="2-相对路径"><a href="#2-相对路径" class="headerlink" title="2. 相对路径"></a>2. 相对路径</h3><ol>
+<li>两者相对关系，在同一路径下可以直接访问</li>
+</ol>
+<ul>
+<li>子级关系：<code>/</code></li>
+<li>夫级关系：<code>../</code></li>
+<li>同级关系：<code>./</code></li>
+</ul>
+<h3 id="3-网络路径"><a href="#3-网络路径" class="headerlink" title="3. 网络路径"></a>3. 网络路径</h3><ol>
+<li>不推荐使用，存在不稳因素</li>
+</ol>
+<h2 id="5-超文本链接"><a href="#5-超文本链接" class="headerlink" title="5. 超文本链接&lt;a&gt;"></a>5. 超文本链接<code>&lt;a&gt;</code></h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;url&quot;</span>&gt;</span>链接文本<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><br></code></pre></td></tr></table></figure>
+<ol>
+<li>默认情况，链接会按以下形式出现在浏览器中</li>
+</ol>
+<ul>
+<li>一个未访问的链接，显示为蓝色字体并带有下划线</li>
+<li>访问过的链接，显示为紫色并带有下划线</li>
+<li>点击链接时，链接显示为红色并带有下划线</li>
+</ul>
+<p class="note note-info"><span style="font-weight:bold;">注:<span>后期我们会通过CSS样式修改掉这些效果</p>
+
+<ol start="2">
+<li>点击链接后，跳转到一个新生成的页面，原页面保留</li>
+</ol>
+<ul>
+<li>在<code>&lt;a&gt;</code>标签中增加<code>&lt;a href=&quot;&quot; target=&quot;_blank&quot;&gt;</code></li>
+</ul>
+<h2 id="6-列表"><a href="#6-列表" class="headerlink" title="6. 列表"></a>6. 列表</h2><h3 id="1-有序列表"><a href="#1-有序列表" class="headerlink" title="1. 有序列表&lt;ol&gt;+&lt;li&gt;"></a>1. 有序列表<code>&lt;ol&gt;+&lt;li&gt;</code></h3><ul>
+<li>默认<code>1</code>，通过修改<code>&lt;ol&gt;</code>的<code>type</code>属性，可变更为<code>a</code>, <code>A</code>, <code>i</code>, <code>l</code>等<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">ol</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>zhangchen<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>chenxu<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">ol</span>&gt;</span><br><br>print:<br>1.zhangchen<br>2.chenxu<br></code></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="2-无序列表"><a href="#2-无序列表" class="headerlink" title="2. 无序列表&lt;ul&gt;+&lt;li&gt;"></a>2. 无序列表<code>&lt;ul&gt;+&lt;li&gt;</code></h3><ul>
+<li>默认实心圆，通过修改<code>&lt;ul&gt;</code>的<code>type</code>属性，可变更为空心圆、小方块等</li>
+</ul>
+<h2 id="7-表格"><a href="#7-表格" class="headerlink" title="7. 表格"></a>7. 表格</h2><h3 id="1-常规表格"><a href="#1-常规表格" class="headerlink" title="1. 常规表格"></a>1. 常规表格</h3><ol>
+<li>单元格特点：同行等高，同列等宽</li>
+<li>表头与表身：<code>&lt;thead&gt;</code>、<code>&lt;tbody&gt;</code><ol>
+<li>表头<code>&lt;thead&gt;</code>中，<code>&lt;tr&gt;</code>形容行，<code>&lt;th&gt;</code>形容列（单元格）</li>
+<li>表身<code>&lt;tbody&gt;</code>中，<code>&lt;tr&gt;</code>形容行，<code>&lt;td&gt;</code>形容列（单元格）</li>
+</ol>
+</li>
+</ol>
+<h3 id="2-进阶表格"><a href="#2-进阶表格" class="headerlink" title="2. 进阶表格"></a>2. 进阶表格</h3><h4 id="1-单元格合并"><a href="#1-单元格合并" class="headerlink" title="1. 单元格合并"></a>1. 单元格合并</h4><ul>
+<li>水平合并，保留上边，删除下边：<code>colspan=&quot;&quot;</code></li>
+<li>垂直合并，保留左边，删除右边：<code>rowspan=&quot;&quot;</code></li>
+</ul>
+<h4 id="2-文字在格内上下居中"><a href="#2-文字在格内上下居中" class="headerlink" title="2. 文字在格内上下居中"></a>2. 文字在格内上下居中</h4><ul>
+<li><code>align=&quot;center&quot;</code></li>
+</ul>
+<h4 id="3-表格边框唯一"><a href="#3-表格边框唯一" class="headerlink" title="3. 表格边框唯一"></a>3. 表格边框唯一</h4><ul>
+<li><code>cellspacing=&quot;0&quot;</code></li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">table</span> <span class="hljs-attr">align</span>=<span class="hljs-string">&quot;center&quot;</span> <span class="hljs-attr">border</span>=<span class="hljs-string">&quot;&quot;</span> <span class="hljs-attr">width</span>=<span class="hljs-string">&quot;500px&quot;</span> <span class="hljs-attr">height</span>=<span class="hljs-string">&quot;200px&quot;</span> <span class="hljs-attr">cellspacing</span>=<span class="hljs-string">&quot;0&quot;</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">tr</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">td</span> <span class="hljs-attr">colspan</span>=<span class="hljs-string">&quot;2&quot;</span>&gt;</span>单元格1单元格2<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>单元格3<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">td</span>&gt;</span>单元格4<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">tr</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">table</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<h2 id="8-表单数据提交"><a href="#8-表单数据提交" class="headerlink" title="8. 表单数据提交"></a>8. 表单数据提交</h2><h3 id="1-表单容器"><a href="#1-表单容器" class="headerlink" title="1. 表单容器&lt;form&gt;"></a>1. 表单容器<code>&lt;form&gt;</code></h3><h4 id="1-基本构成"><a href="#1-基本构成" class="headerlink" title="1. 基本构成"></a>1. 基本构成</h4><ol>
+<li><p>必须包含<code>submit</code>按钮，用于传输表单信息</p>
+</li>
+<li><p><mark>表单标签中需要包含<code>name</code>属性</mark>，否则对应不上后端传入的信息</p>
+<ol>
+<li>注：<code>id</code>属性是用于前端事件 &#x2F; 控件</li>
+</ol>
+</li>
+<li><p>数据传递方式</p>
+<ol>
+<li>get请求、post请求</li>
+<li>只有get请求的数据在url中可以看到</li>
+<li>get请求用于提交少量数据，post请求用于提交大量数据</li>
+</ol>
+</li>
+<li><p>输入标签相关，如果是用户需要实际写入的数据不用特殊标注。如果是用户需要选择的标签，需要在后台定义好他的value</p>
+</li>
+</ol>
+<h4 id="2-具体写法"><a href="#2-具体写法" class="headerlink" title="2. 具体写法"></a>2. 具体写法</h4><ol>
+<li><p>前端</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs html"># action:服务器地址  name:所生成的表单，提交到对应链接的位置<br><span class="hljs-tag">&lt;<span class="hljs-name">form</span> <span class="hljs-attr">action</span>=<span class="hljs-string">&quot;url&quot;</span> <span class="hljs-attr">method</span>=<span class="hljs-string">&quot;get|post&quot;</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;myform&quot;</span>&gt;</span><br>    <br>    # 必须含有submit才能提交表单<br>    <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;submit&quot;</span>&gt;</span><br><br><span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span><br></code></pre></td></tr></table></figure>
+</li>
+<li><p>后端</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 读取user对应的单一信息</span><br>user = request.form.get(<span class="hljs-string">&quot;user&quot;</span>)<br><br><span class="hljs-comment"># 读取hobby对应的列表信息</span><br>hobby_list = request.form.getlist(<span class="hljs-string">&quot;hobby&quot;</span>)<br><br><span class="hljs-comment"># 读取表单的所有信息</span><br>form_message = request_form<br></code></pre></td></tr></table></figure></li>
+</ol>
+<h3 id="2-输入框"><a href="#2-输入框" class="headerlink" title="2. 输入框"></a>2. 输入框</h3><h4 id="1-按钮"><a href="#1-按钮" class="headerlink" title="1. 按钮&lt;input&gt;"></a>1. 按钮<code>&lt;input&gt;</code></h4><ol>
+<li><p>文字输入框：<code>&lt;input type = &quot;text&quot;&gt;</code></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">form</span>&gt;</span><br>    First name: <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text&quot;</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;firstname&quot;</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">br</span>&gt;</span><br>    Last name: <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text&quot;</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;lastname&quot;</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span><br></code></pre></td></tr></table></figure>
+<div style="text-align:center">
+ <img src="/img/html_pic/5.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
+</div>
+
+
+</li>
+<li><p>密码框：<code>&lt;input type = &quot;password&quot;&gt;</code></p>
+</li>
+</ol>
+<ul>
+<li>注：密码字段字符不会明文显示，而是以星号或原点代替<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">form</span>&gt;</span><br>    Passward: <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;password&quot;</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;pwd&quot;</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span><br></code></pre></td></tr></table></figure>
+<div style="text-align:center">
+  <img src="/img/html_pic/6.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
+</div></li>
+</ul>
+<ol start="3">
+<li>单选框<code>&lt;input type=&quot;radio&quot;&gt;</code></li>
+</ol>
+<ul>
+<li>注：当两个名字相同时，两个单选框是互斥的<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">form</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;radio&quot;</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;name1&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;1&quot;</span>&gt;</span>男<br>    <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;radio&quot;</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;name1&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;2&quot;</span>&gt;</span>女<br><span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span><br></code></pre></td></tr></table></figure>
+<div style="text-align:center">
+  <img src="/img/html_pic/7.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
+</div></li>
+</ul>
+<ol start="4">
+<li><p>复选框<code>&lt;input type=&quot;checkbox&quot;&gt;</code></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">form</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;checkbox&quot;</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;hobby&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;10&quot;</span>&gt;</span>篮球<br>    <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;checkbox&quot;</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;hobby&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;20&quot;</span>&gt;</span>游泳<br>    <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;checkbox&quot;</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;hobby&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;30&quot;</span>&gt;</span>围棋<br>    <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;checkbox&quot;</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;hobby&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;40&quot;</span>&gt;</span>跳高<br><span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span><br></code></pre></td></tr></table></figure>
+<div style="text-align:center">
+ <img src="/img/html_pic/8.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
+</div>
+
+
+</li>
+<li><p>文件框<code>&lt;input type=&quot;file&quot;&gt;</code></p>
+</li>
+</ol>
+<ul>
+<li>注：可用于直接上传本地文件<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">form</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;file&quot;</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span><br></code></pre></td></tr></table></figure>
+<div style="text-align:center">
+  <img src="/img/html_pic/9.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
+</div></li>
+</ul>
+<ol start="6">
+<li>表单按钮<code>&lt;input type=&quot;submit/button&quot;&gt;</code><ol>
+<li>整体流程<br> 当用户点击确认按钮时，表单的内容会被传送到另一个文件。表单的动作属性定义了目的文件的文件名。由动作属性定义的这个文件通常会对接收的输入数据进行相关的处理</li>
+<li>前端按钮写法<ol>
+<li><code>&lt;input type=&quot;submit&quot;&gt;</code> — 提交表单，点击后跳转提交表单</li>
+<li><code>&lt;input type=&quot;button&quot;&gt;</code> — 普通按钮，点击后无现象 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">form</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;input&quot;</span> <span class="hljs-attr">action</span>=<span class="hljs-string">&quot;url&quot;</span> <span class="hljs-attr">method</span>=<span class="hljs-string">&quot;get&quot;</span>&gt;</span><br>    Username: <br>    <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text&quot;</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;user&quot;</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;submit&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;Submit&quot;</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span><br></code></pre></td></tr></table></figure></li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<div style="text-align:center">
+    <img src="/img/html_pic/10.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
+</div>
+
+
+
+<h4 id="2-下拉框"><a href="#2-下拉框" class="headerlink" title="2. 下拉框"></a>2. 下拉框</h4><ol>
+<li><p>单选框</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">select</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;bj&quot;</span>&gt;</span>北京<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;sh&quot;</span>&gt;</span>上海<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;sz&quot;</span>&gt;</span>深圳<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">select</span>&gt;</span><br></code></pre></td></tr></table></figure>
+<div style="text-align:center">
+ <img src="/img/html_pic/11.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
+</div>
+
+
+</li>
+<li><p>多选框</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">select</span> <span class="hljs-attr">multiple</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">option</span>&gt;</span>北京<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">option</span>&gt;</span>上海<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">option</span>&gt;</span>深圳<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">select</span>&gt;</span><br></code></pre></td></tr></table></figure>
+<div style="text-align:center">
+ <img src="/img/html_pic/12.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
+</div></li>
+</ol>
+<h4 id="3-多行文本"><a href="#3-多行文本" class="headerlink" title="3. 多行文本"></a>3. 多行文本</h4><ul>
+<li>注：rows限制行高<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">textarea</span> <span class="hljs-attr">rows</span>=<span class="hljs-string">&quot;3&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">textarea</span>&gt;</span><br></code></pre></td></tr></table></figure>
+<div style="text-align:center">
+  <img src="/img/html_pic/13.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
+</div></li>
+</ul>
+<h3 id="3-hower-鼠标所到之处改变格式-伪类"><a href="#3-hower-鼠标所到之处改变格式-伪类" class="headerlink" title="3. hower - 鼠标所到之处改变格式 - 伪类"></a>3. hower - 鼠标所到之处改变格式 - 伪类</h3><h4 id="示例1："><a href="#示例1：" class="headerlink" title="示例1："></a>示例1：</h4><p>鼠标移到c1处时，“联通”两个字回由原来的红色，18px大小，变为绿色，50px大小</p>
+<div style="text-align:center">
+    <img src="/img/html_pic/14.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
+</div>
+
+
+
+<h4 id="示例2"><a href="#示例2" class="headerlink" title="示例2:"></a>示例2:</h4><p>鼠标移动到app处时，会显示隐藏的图片</p>
+<div style="text-align:center">
+    <img src="/img/html_pic/15.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
+</div>
+
+
+
+<h3 id="4-after-在所选样式尾部追加-伪类"><a href="#4-after-在所选样式尾部追加-伪类" class="headerlink" title="4. after - 在所选样式尾部追加 - 伪类"></a>4. after - 在所选样式尾部追加 - 伪类</h3><ul>
+<li>注：一般仅用于清除浮动<div style="text-align:center;gap:5px">
+  <img src="/img/html_pic/16.jpg" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:35%;">
+  <img src="/img/html_pic/17.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
+</div></li>
+</ul>
+<h3 id="5-position-样式固定在页面中某位置"><a href="#5-position-样式固定在页面中某位置" class="headerlink" title="5. position - 样式固定在页面中某位置"></a>5. position - 样式固定在页面中某位置</h3><ol>
+<li><p>fixed固定在页面中某位置静止不动</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs css"><span class="hljs-selector-class">.back</span>&#123;<br>    <span class="hljs-attribute">position</span>:fixed;<br>    <span class="hljs-attribute">width</span>:<span class="hljs-number">60px</span>;<br>    <span class="hljs-attribute">height</span>:<span class="hljs-number">60px</span>;<br>    <span class="hljs-attribute">border</span>:<span class="hljs-number">1px</span> solid red;<br>    <br>    # 距离页面右边框<span class="hljs-number">10px</span>，距离下边框<span class="hljs-number">10px</span><br>    <span class="hljs-attribute">right</span>:<span class="hljs-number">10px</span><br>    bottom:<span class="hljs-number">10px</span><br>    &#125;<br>    <br>&lt;<span class="hljs-selector-tag">div</span> class=&quot;back&quot;&gt;&lt;/<span class="hljs-selector-tag">div</span>&gt;<br></code></pre></td></tr></table></figure>
+</li>
+<li><p>relative和absolute - 两个相对的位置静止不动</p>
+</li>
+</ol>
+<ul>
+<li>注：c2相对于c1静止不动<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><code class="hljs css"><span class="hljs-selector-class">.c1</span>&#123;<br>    <span class="hljs-attribute">height</span>:<span class="hljs-number">300px</span>;<br>    <span class="hljs-attribute">width</span>:<span class="hljs-number">500px</span>;<br>    <span class="hljs-attribute">border</span>:<span class="hljs-number">1px</span> solid red;<br>    <span class="hljs-attribute">margin</span>:<span class="hljs-number">100px</span><br>    <br>    position:relative<br>&#125;<br><br><span class="hljs-selector-class">.c1</span> <span class="hljs-selector-class">.c2</span>&#123;<br>    <span class="hljs-attribute">height</span>:<span class="hljs-number">59px</span>;<br>    <span class="hljs-attribute">width</span>:<span class="hljs-number">59px</span>;<br>    <span class="hljs-attribute">background-color</span>:black;<br>    <br>    <span class="hljs-attribute">position</span>:absolute;<br>    <span class="hljs-attribute">right</span>:<span class="hljs-number">20px</span>;<br>    <span class="hljs-attribute">bottom</span>:<span class="hljs-number">10px</span>;<br>&#125;<br><br>&lt;<span class="hljs-selector-tag">div</span> class=&quot;c1&quot;&gt;<br>    &lt;<span class="hljs-selector-tag">div</span> class=&quot;c2&quot;&gt;&lt;/<span class="hljs-selector-tag">div</span>&gt;<br>&lt;/<span class="hljs-selector-tag">div</span>&gt;<br>    <br></code></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="6-transparent-透明色"><a href="#6-transparent-透明色" class="headerlink" title="6. transparent - 透明色"></a>6. transparent - 透明色</h3><ul>
+<li>注：提前设置好，鼠标移动到此处后变化的预留区域，为透明色。防止移动鼠标过程中，位置出现变化<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs css"><span class="hljs-selector-class">.c1</span>&#123;<br>    <span class="hljs-attribute">height</span>:<span class="hljs-number">50px</span>;<br>    <span class="hljs-attribute">width</span>:<span class="hljs-number">500px</span>;<br>    <span class="hljs-attribute">margin</span>:<span class="hljs-number">100px</span>;<br>    <span class="hljs-attribute">background-color</span>:black;<br>    <span class="hljs-attribute">border-left</span>:<span class="hljs-number">2px</span> solid transparent;<br>    &#125;<br>    <br><span class="hljs-selector-class">.c1</span>:hower&#123;<br>    <span class="hljs-attribute">border-left</span>:<span class="hljs-number">2px</span> solid red<br>&#125;<br><br>&lt;<span class="hljs-selector-tag">div</span>&gt;菜单&lt;/<span class="hljs-selector-tag">div</span>&gt;<br></code></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="9-占位符"><a href="#9-占位符" class="headerlink" title="9. 占位符"></a>9. 占位符</h2><h3 id="1-用法"><a href="#1-用法" class="headerlink" title="1. 用法"></a>1. 用法</h3><ol>
+<li>py文件找到所给定位置的html文件，读取其中全部内容</li>
+<li>在html文件中找到”特殊的占位符”,将数据替换</li>
+<li>将替换完成的字符串返回给用户的浏览器</li>
+</ol>
+<h3 id="2-直接传输类占位符"><a href="#2-直接传输类占位符" class="headerlink" title="2. 直接传输类占位符"></a>2. 直接传输类占位符</h3><ol>
+<li>使用<code>&#123;&#123; &#125;&#125;</code>占位</li>
+<li>子列表或子元素用.连接<div style="text-align:center">
+ <img src="/img/html_pic/18.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
+</div></li>
+</ol>
+<h3 id="3-循环传输类占位符"><a href="#3-循环传输类占位符" class="headerlink" title="3. 循环传输类占位符"></a>3. 循环传输类占位符</h3><ol>
+<li><p>for循环</p>
+<ol>
+<li> 循环结束 
+<div style="text-align:center">
+ <img src="/img/html_pic/19.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
+</div></li>
+</ol>
+</li>
+<li><p>if判断</p>
+<ol>
+<li>
+    2. 
+<div style="text-align:center">
+ <img src="/img/html_pic/20.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
+</div></li>
+</ol>
+</li>
+</ol>
+<h1 id="三、-Tips"><a href="#三、-Tips" class="headerlink" title="三、 Tips"></a>三、 Tips</h1><h2 id="1-在-py文件中运行html文件"><a href="#1-在-py文件中运行html文件" class="headerlink" title="1. 在.py文件中运行html文件"></a>1. 在.py文件中运行html文件</h2><figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs ini"><span class="hljs-attr">a</span> = f<span class="hljs-string">&#x27;&#x27;&#x27;</span><br><span class="hljs-string">    &lt;tr&gt;  &lt;/tr&gt;</span><br><span class="hljs-string">&#x27;&#x27;&#x27;</span><br></code></pre></td></tr></table></figure>
+<div style="text-align:center">
+    <img src="/img/html_pic/21.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
+</div>
+
+
+
+<h2 id="2"><a href="#2" class="headerlink" title="2. &lt;o:p&gt;&lt;/o:p&gt;"></a>2. <code>&lt;o:p&gt;&lt;/o:p&gt;</code></h2><div style="text-align:center">
+    <img src="/img/html_pic/22.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
+</div>
+
+
+
+<h2 id="3-调整字体上下边距"><a href="#3-调整字体上下边距" class="headerlink" title="3. 调整字体上下边距"></a>3. 调整字体上下边距</h2><ol>
+<li><code>&lt;style line_height:200px&gt;</code> 此方法会同时调节字体上下边距，无法单独调节某一边距，不推荐使用</li>
+</ol>
+<div style="text-align:center">
+    <img src="/img/html_pic/23.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
+</div>
+
+
+
+<ol start="2">
+<li><code>&lt;style padding:10px 0&gt;</code> 生成上下空白行，推荐使用<div style="text-align:center">
+ <img src="/img/html_pic/24.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
+</div></li>
+</ol>
+<h2 id="4-文本的换行-与-缩进"><a href="#4-文本的换行-与-缩进" class="headerlink" title="4. 文本的换行&lt;br&gt; 与 缩进"></a>4. 文本的换行<code>&lt;br&gt;</code> 与 缩进</h2><ol>
+<li>换行<br>文本直接换行<code>&lt;br&gt;</code>，不开启新段落<code>&lt;p&gt;</code></li>
+</ol>
+<div style="text-align:center">
+    <img src="/img/html_pic/25.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
+</div>
+
+
+
+<ol start="2">
+<li>缩进</li>
+</ol>
+<div style="text-align:center">
+    <img src="/img/html_pic/26.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
+</div>
+
+
+
+<h2 id="5-文字在表格中居中-修改标签"><a href="#5-文字在表格中居中-修改标签" class="headerlink" title="5. 文字在表格中居中 修改&lt;td&gt;标签"></a>5. 文字在表格中居中 修改<code>&lt;td&gt;</code>标签</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">table</span> <span class="hljs-attr">border</span>=<span class="hljs-string">0</span> <span class="hljs-attr">cellspacing</span>=<span class="hljs-string">0</span> <span class="hljs-attr">cellpadding</span>=<span class="hljs-string">0</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">tr</span> <span class="hljs-attr">style</span>=<span class="hljs-string">&quot;height:40.0pt&quot;</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">td</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;power_test_background&quot;</span> <span class="hljs-attr">style</span>=<span class="hljs-string">&quot;text-align:center&quot;</span> <span class="hljs-attr">nowrap</span>=<span class="hljs-string">&#x27;nowrap&#x27;</span> <span class="hljs-attr">rowspan</span>=<span class="hljs-string">2</span> &gt;</span><br>           <span class="hljs-tag">&lt;<span class="hljs-name">p</span> &gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">b</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;module_body_message&quot;</span> &gt;</span>分类 <span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">b</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span><br>        <span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">tr</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">table</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<p>需要在<code>&lt;td&gt;</code>标签中修改，不可以直接修改文本</p>
+<div style="text-align:center">
+    <img src="/img/html_pic/27.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
+</div>
+
+
+
+<p>修改前后对比图</p>
+<div style="text-align:center;gap:5px">
+    <img src="/img/html_pic/28.jpg" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:35%;">
+    <img src="/img/html_pic/29.jpg" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:35%;">
+</div>
+
+
+
+<h2 id="6-文字于表格中居中-修改文字标签"><a href="#6-文字于表格中居中-修改文字标签" class="headerlink" title="6. 文字于表格中居中 修改文字&lt;p&gt;标签"></a>6. 文字于表格中居中 修改文字<code>&lt;p&gt;</code>标签</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">table</span> <span class="hljs-attr">border</span>=<span class="hljs-string">0</span> <span class="hljs-attr">cellspacing</span>=<span class="hljs-string">0</span> <span class="hljs-attr">cellpadding</span>=<span class="hljs-string">0</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">tr</span> <span class="hljs-attr">style</span>=<span class="hljs-string">&quot;height:40.0pt&quot;</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">td</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;power_test_background&quot;</span> <span class="hljs-attr">nowrap</span>=<span class="hljs-string">&#x27;nowrap&#x27;</span> <span class="hljs-attr">rowspan</span>=<span class="hljs-string">2</span>&gt;</span><br>           <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">align</span>=<span class="hljs-string">center</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">b</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;module_body_message&quot;</span> &gt;</span>分类 <span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">b</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span><br>        <span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">tr</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">table</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<div style="text-align:center">
+    <img src="/img/html_pic/30.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
+</div>
+
+
+<h2 id="9-html路径"><a href="#9-html路径" class="headerlink" title="9. html路径"></a>9. html路径</h2><ol>
+<li>父级目录相同，<code>../ + 对方父级文件夹名</code><div style="text-align:center">
+ <img src="/img/html_pic/31.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
+</div></li>
+</ol>
+<h2 id="10-创建table表格，自定义td宽度，填充文字内容，文字长度宽于表格时，文字自动换行"><a href="#10-创建table表格，自定义td宽度，填充文字内容，文字长度宽于表格时，文字自动换行" class="headerlink" title="10. 创建table表格，自定义td宽度，填充文字内容，文字长度宽于表格时，文字自动换行"></a>10. 创建table表格，自定义td宽度，填充文字内容，文字长度宽于表格时，文字自动换行</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">table</span> <span class="hljs-attr">border</span>=<span class="hljs-string">0</span> <span class="hljs-attr">cellspacing</span>=<span class="hljs-string">0</span> <span class="hljs-attr">cellpadding</span>=<span class="hljs-string">0</span> </span><br><span class="hljs-tag"><span class="hljs-attr">style</span>=<span class="hljs-string">&quot;table-layout:fixed;word-break:break-all;&quot;</span>&gt;</span><br><br><span class="hljs-tag">&lt;<span class="hljs-name">td</span> <span class="hljs-attr">width</span>=<span class="hljs-string">111</span> <span class="hljs-attr">nowrap</span>=<span class="hljs-string">&#x27;nowrap&#x27;</span> <span class="hljs-attr">rowspan</span>=<span class="hljs-string">2</span> </span><br><span class="hljs-tag"><span class="hljs-attr">style</span>=<span class="hljs-string">&quot;word-wrap: break-word;width:6px;text-align:center;</span></span><br><span class="hljs-string"><span class="hljs-tag">border:solid #1F2329 1.0pt;background:#DDEBF7;padding:.75pt .75pt .75pt .75pt;&quot;</span>&gt;</span><br><br>   <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">style</span>=<span class="hljs-string">&quot;width:100%;white-space:normal;word-wrap:break-word;word-break:break-all;font-size:10.0pt；&quot;</span> </span><br><span class="hljs-tag">   <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;module_body_message&quot;</span> &gt;</span>耳机音乐播放功能 <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br>   <br><span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">table</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<ol>
+<li>在table中加<code>table-layout:fixed;</code></li>
+<li>在td中加<code>word-wrap:break-word;word-break:break-all;</code></li>
+<li>在div中加<code>style=&quot;width:100%;white-space:normal;word-wrap:break-word;word-break:break-all;&quot;</code></li>
+<li>只有设定好<code>&lt;td&gt;</code>的width后，才能使文本超出表格宽度后自动换行，不影响文本宽度；</li>
+</ol>
+<h2 id="11-文字距离td表格有一定距离，并居中"><a href="#11-文字距离td表格有一定距离，并居中" class="headerlink" title="11. 文字距离td表格有一定距离，并居中"></a>11. 文字距离td表格有一定距离，并居中</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">td</span> <span class="hljs-attr">style</span>=<span class="hljs-string">&quot;text-align: center; font-size:10.0pt&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<div style="text-align:center">
+    <img src="/img/html_pic/32.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
+    <img src="/img/html_pic/33.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
+</div>
+
+
+
+<h2 id="12-！-Tab快速创建html骨架"><a href="#12-！-Tab快速创建html骨架" class="headerlink" title="12. ！+Tab快速创建html骨架"></a>12. ！+Tab快速创建html骨架</h2><h2 id="13-outlook需要将想要固定的全都设定好宽度，不能依靠父的宽度约束子"><a href="#13-outlook需要将想要固定的全都设定好宽度，不能依靠父的宽度约束子" class="headerlink" title="13. outlook需要将想要固定的全都设定好宽度，不能依靠父的宽度约束子"></a>13. outlook需要将想要固定的<td>全都设定好宽度，不能依靠父<td>的宽度约束子<td></h2><div style="text-align:center;gap:5px">
+    <img src="/img/html_pic/34.jpg" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:45%;">
+    <img src="/img/html_pic/35.jpg" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:60%;">
+</div>
+
+
+
+
+<h2 id="14-for循环与if判断"><a href="#14-for循环与if判断" class="headerlink" title="14. for循环与if判断 *"></a>14. for循环与if判断 *</h2><div style="text-align:center">
+    <img src="/img/html_pic/36.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
+</div>
+
+<div style="text-align:center">
+    <img src="/img/html_pic/37.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
+</div>
+
+
+
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><code class="hljs html">&#123;% for key,value in test_result.items %&#125;<br>&#123;% if key == 27%&#125;<br><span class="hljs-tag">&lt;<span class="hljs-name">tr</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">td</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;power_test_background_blue&quot;</span> <span class="hljs-attr">nowrap</span>=<span class="hljs-string">&#x27;nowrap&#x27;</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;module_body_message&quot;</span>&gt;</span>AAC <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">td</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;power_test_background_blue&quot;</span> <span class="hljs-attr">nowrap</span>=<span class="hljs-string">&#x27;nowrap&#x27;</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;module_body_message&quot;</span>&gt;</span>降噪-深度 <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">td</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;power_test_background_blue&quot;</span> <span class="hljs-attr">nowrap</span>=<span class="hljs-string">&#x27;nowrap&#x27;</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;module_body_message&quot;</span>&gt;</span>- <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">td</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;power_test_background_blue&quot;</span> <span class="hljs-attr">nowrap</span>=<span class="hljs-string">&#x27;nowrap&#x27;</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;module_body_message&quot;</span>&gt;</span>- <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">td</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;power_test_background_blue&quot;</span> <span class="hljs-attr">nowrap</span>=<span class="hljs-string">&#x27;nowrap&#x27;</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;module_body_message&quot;</span>&gt;</span>100% <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">td</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;power_test_background_gry&quot;</span> <span class="hljs-attr">nowrap</span>=<span class="hljs-string">&#x27;nowrap&#x27;</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;module_body_message&quot;</span>&gt;</span>&#123;&#123; test_standard.26.0 &#125;&#125; <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">td</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;power_test_background_white&quot;</span> <span class="hljs-attr">nowrap</span>=<span class="hljs-string">&#x27;nowrap&#x27;</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;module_body_message&quot;</span>&gt;</span>&#123;&#123; value.0 &#125;&#125; <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">td</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;power_test_background_gry&quot;</span> <span class="hljs-attr">nowrap</span>=<span class="hljs-string">&#x27;nowrap&#x27;</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;module_body_message&quot;</span>&gt;</span>&#123;&#123; test_standard.26.1 &#125;&#125; <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">td</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;power_test_background_white&quot;</span> <span class="hljs-attr">nowrap</span>=<span class="hljs-string">&#x27;nowrap&#x27;</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;module_body_message&quot;</span>&gt;</span>- <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span><br>    &#123;% if value.0 == &#x27;&#x27; and value.1 == &#x27;&#x27;%&#125;<br>        <span class="hljs-tag">&lt;<span class="hljs-name">td</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;power_test_background_white&quot;</span> <span class="hljs-attr">nowrap</span>=<span class="hljs-string">&#x27;nowrap&#x27;</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;module_body_message&quot;</span>&gt;</span> <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span><br>    &#123;% elif test_standard.26.0 &gt;= value.0 %&#125;<br>       <span class="hljs-tag">&lt;<span class="hljs-name">td</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;power_test_background_white&quot;</span> <span class="hljs-attr">nowrap</span>=<span class="hljs-string">&#x27;nowrap&#x27;</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;module_body_message&quot;</span> <span class="hljs-attr">style</span>=<span class="hljs-string">&quot;color:#548235&quot;</span>&gt;</span>Pass <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span><br>    &#123;% elif test_standard.26.0 == &#x27;-&#x27; and test_standard.26.1 == &#x27;-&#x27;%&#125;<br>        <span class="hljs-tag">&lt;<span class="hljs-name">td</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;power_test_background_white&quot;</span> <span class="hljs-attr">nowrap</span>=<span class="hljs-string">&#x27;nowrap&#x27;</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;module_body_message&quot;</span> <span class="hljs-attr">style</span>=<span class="hljs-string">&quot;color:#7030A0&quot;</span>&gt;</span>Block <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span><br>    &#123;% else %&#125;<br>       <span class="hljs-tag">&lt;<span class="hljs-name">td</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;power_test_background_white&quot;</span> <span class="hljs-attr">nowrap</span>=<span class="hljs-string">&#x27;nowrap&#x27;</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;module_body_message&quot;</span> <span class="hljs-attr">style</span>=<span class="hljs-string">&quot;color:red&quot;</span>&gt;</span>Fail <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span><br>    &#123;% endif %&#125;<br>    <span class="hljs-tag">&lt;<span class="hljs-name">td</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;power_test_background_white&quot;</span> <span class="hljs-attr">nowrap</span>=<span class="hljs-string">&#x27;nowrap&#x27;</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;module_body_message&quot;</span>&gt;</span> <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">tr</span>&gt;</span><br>&#123;% endif %&#125;<br>&#123;% endfor %&#125;<br></code></pre></td></tr></table></figure>
+
+<h2 id="15-对于字典的for循环"><a href="#15-对于字典的for循环" class="headerlink" title="15. 对于字典的for循环 *"></a>15. 对于字典的for循环 *</h2><p>&#96;</p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/Web%E5%BC%80%E5%8F%91/" class="category-chain-item">Web开发</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/Web%E5%BC%80%E5%8F%91/%E5%89%8D%E7%AB%AF/" class="category-chain-item">前端</a>
+  
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E8%AF%AD%E8%A8%80/" class="print-no-link">#语言</a>
+      
+        <a href="/tags/Web%E5%BC%80%E5%8F%91/" class="print-no-link">#Web开发</a>
+      
+        <a href="/tags/%E5%89%8D%E7%AB%AF/" class="print-no-link">#前端</a>
+      
+        <a href="/tags/Html/" class="print-no-link">#Html</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>Html</div>
+      <div>http://example.com/2023/11/24/Html/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>张辰</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2023年11月24日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2023/11/26/Css/" title="Css">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Css</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2023/11/23/ECharts/" title="ECharts">
+                        <span class="hidden-mobile">ECharts</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  <script>
+  Fluid.utils.createScript('https://lib.baomitu.com/mermaid/8.14.0/mermaid.min.js', function() {
+    mermaid.initialize({"theme":"default"});
+
+    Fluid.utils.listenDOMLoaded(function() {
+      Fluid.events.registerRefreshCallback(function() {
+        if ('mermaid' in window) {
+          mermaid.init();
+        }
+      });
+    });
+  });
+</script>
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="busuanzi_container_site_pv" style="display: none">
+        总访问量
+        <span id="busuanzi_value_site_pv"></span>
+        次
+      </span>
+    
+    
+      <span id="busuanzi_container_site_uv" style="display: none">
+        总访客数
+        <span id="busuanzi_value_site_uv"></span>
+        人
+      </span>
+    
+    
+  
+</div>
+
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

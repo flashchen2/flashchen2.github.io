@@ -1,0 +1,943 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="张辰">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="操作系统是一种系统软件，它是计算机系统中最基本的软件之一，负责管理和控制计算机硬件和软件资源，为用户和应用程序提供服务。常见的操作系统包括Windows、MacOS、Linux等。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linux操作系统">
+<meta property="og:url" content="http://example.com/2023/11/29/Linux%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="操作系统是一种系统软件，它是计算机系统中最基本的软件之一，负责管理和控制计算机硬件和软件资源，为用户和应用程序提供服务。常见的操作系统包括Windows、MacOS、Linux等。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/img/shell_instruction_pic/1.jpg">
+<meta property="article:published_time" content="2023-11-29T12:00:00.000Z">
+<meta property="article:modified_time" content="2024-05-11T09:41:54.481Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="开发">
+<meta property="article:tag" content="操作系统">
+<meta property="article:tag" content="MacOS">
+<meta property="article:tag" content="Windows">
+<meta property="article:tag" content="Linux">
+<meta property="article:tag" content="Shell">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://example.com/img/shell_instruction_pic/1.jpg">
+  
+  
+    <meta name="referrer" content="no-referrer-when-downgrade">
+  
+  
+  <title>Linux操作系统 - Hexo</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.6","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 7.0.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Blog</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/banner_hexo.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="Linux操作系统"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2023-11-29 20:00" pubdate>
+          2023年11月29日 晚上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          1.4k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          12 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">Linux操作系统</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="一、MacOS"><a href="#一、MacOS" class="headerlink" title="一、MacOS"></a>一、MacOS</h1><h2 id="1-高频命令"><a href="#1-高频命令" class="headerlink" title="1. 高频命令"></a>1. 高频命令</h2><ol>
+<li><code>ls</code> 显示当前文件夹下所有的文件<br> <code>ls -al</code> 显示当前页面下的所有文件，可用于检测首页面所有隐藏文件夹，如配置环境变量的最终位置<code>.bash_profile</code></li>
+<li><code>open .bash_profile</code> 打开<code>.bash_profile</code>文件夹<br> <code>export PATH=&#123;PATH&#125;:/文件路径（这是是mysql路径）/bin</code>  配置路径</li>
+<li><code>cd /user/local/bin</code>  进去mac配置环境的路径<br> <code>cd /</code> 回到根目录</li>
+<li><code>mv chromedriver  /user/local/bin</code> 将chromedriver移动到<code>/user/local/bin</code>下，删除原位置文件</li>
+<li><code>ps -ef | grep mysq</code>l 全局查找“mysql”文件位置<br> <code>ls | grep mysql</code> 当前路径查找“mysql”文件位置</li>
+<li><code>pwd</code> 查看当前所在目录</li>
+<li><code>touch abcd</code> 新建abcd文件</li>
+<li><code>rm abcd</code>  删除abcd文件<br> <code>rm -rf abcd</code> 强制删除abcd文件 （-r是递归处理，就是一层一层的删，-f是强制删除）<br> <code>sudo rm -drf</code> 最高级别删除</li>
+<li><code>which virtualenvwrapper.sh</code> 查找virtualenvwrapper所在位置</li>
+<li><code>mkdir ~/pyEnv</code> 创建一个pyEnv目录</li>
+<li><code>java -v</code> 不支持<br><code>java -version</code> 支持</li>
+</ol>
+<h2 id="2-查看本机ip"><a href="#2-查看本机ip" class="headerlink" title="2. 查看本机ip"></a>2. 查看本机ip</h2><figure class="highlight 1c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs 1c">ifconfig <span class="hljs-string">| grep &quot;</span>inet<span class="hljs-string">&quot;</span><br></code></pre></td></tr></table></figure>
+<div style="text-align:center">
+    <img src="/img/shell_instruction_pic/2.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
+</div>
+
+
+
+
+<ul>
+<li>注：个人Mac电脑对应得ip为10.220.164.103</li>
+</ul>
+<h2 id="3-查找xx文件夹，并将路径输出到终端"><a href="#3-查找xx文件夹，并将路径输出到终端" class="headerlink" title="3. 查找xx文件夹，并将路径输出到终端"></a>3. 查找xx文件夹，并将路径输出到终端</h2><figure class="highlight sqf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sqf"><span class="hljs-built_in">find</span> . -<span class="hljs-built_in">type</span> d -<span class="hljs-built_in">name</span> my_folder<br></code></pre></td></tr></table></figure>
+
+
+
+<h2 id="4-新建分屏终端页面"><a href="#4-新建分屏终端页面" class="headerlink" title="4. 新建分屏终端页面"></a>4. 新建分屏终端页面</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">command</span> + d<br></code></pre></td></tr></table></figure>
+
+
+
+<h2 id="5-取消分屏"><a href="#5-取消分屏" class="headerlink" title="5. 取消分屏"></a>5. 取消分屏</h2><figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs lsl"><span class="hljs-section">control</span> + d<br></code></pre></td></tr></table></figure>
+
+
+
+<h2 id="6-MAC配置环境变量"><a href="#6-MAC配置环境变量" class="headerlink" title="6. MAC配置环境变量 ***"></a>6. MAC配置环境变量 ***</h2><p>vi ~&#x2F;.zshrc 进入配置环境变量<br>i&amp;a 开始编辑，添加路径（i：在光标前追加；a：在光标后追加）<br>export PATH&#x3D;${PATH}:&#x2F;user&#x2F;local&#x2F;mysql&#x2F;bin 以配置mysql为例<br>esc后，:wq! 退出当前添加<br>source ~&#x2F;.zshrc 生效所配置的内容<br>mysql -u root -p 确认安装成功</p>
+<div style="text-align:center">
+    <img src="/img/shell_instruction_pic/3.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
+</div>
+
+<div style="text-align:center">
+    <img src="/img/shell_instruction_pic/4.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
+</div>
+
+<div style="text-align:center">
+    <img src="/img/shell_instruction_pic/5.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
+</div>
+
+
+<h2 id="7-Mac系统中的pip用作pip3"><a href="#7-Mac系统中的pip用作pip3" class="headerlink" title="7. Mac系统中的pip用作pip3"></a>7. Mac系统中的<mark>pip用作pip3</mark></h2><p>如：<code>pip3 install --upgrade Django==2.1</code> 将Django版本升级为2.1版本</p>
+<h1 id="二、Windows终端"><a href="#二、Windows终端" class="headerlink" title="二、Windows终端"></a>二、Windows终端</h1><h2 id="1-显示当前文件夹下所有的文件"><a href="#1-显示当前文件夹下所有的文件" class="headerlink" title="1. 显示当前文件夹下所有的文件"></a>1. 显示当前文件夹下所有的文件</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">dir</span><br></code></pre></td></tr></table></figure>
+
+<h2 id="2-在终端中切换磁盘"><a href="#2-在终端中切换磁盘" class="headerlink" title="2. 在终端中切换磁盘"></a>2. 在终端中切换磁盘</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">cd</span> /d 想要进入的盘符:<br></code></pre></td></tr></table></figure>
+<div style="text-align:center">
+    <img src="/img/shell_instruction_pic/6.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
+</div>
+
+<div style="text-align:center">
+    <img src="/img/shell_instruction_pic/7.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
+</div>
+
+
+
+
+<h2 id="3-查找终端安装包的位置"><a href="#3-查找终端安装包的位置" class="headerlink" title="3. 查找终端安装包的位置"></a>3. 查找终端安装包的位置</h2><ol>
+<li>查找终端安装包都有什么：pip list</li>
+<li>查找某包的位置：pip show idna</li>
+<li>可以直接将python中的包，复制到终端下<div style="text-align:center">
+ <img src="/img/shell_instruction_pic/8.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
+</div></li>
+</ol>
+<h2 id="4-查看python中安装的库"><a href="#4-查看python中安装的库" class="headerlink" title="4. 查看python中安装的库"></a>4. 查看python中安装的库</h2><p>查看python中安装的库以及版本</p>
+<p>输入pip list，便可以查看到所有安装的库以及版本</p>
+<div style="text-align:center;gap:5px">
+    <img src="/img/shell_instruction_pic/9.jpg" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:60%;">
+</div>
+
+
+<h1 id="三、Linux操作系统"><a href="#三、Linux操作系统" class="headerlink" title="三、Linux操作系统"></a>三、Linux操作系统</h1><ul>
+<li>学习链接：<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1pE411C7ho/?p=37&spm_id_from=pageDriver&vd_source=4cf7b60c223a665538a4d958765c91a5">https://www.bilibili.com/video/BV1pE411C7ho/?</a></li>
+</ul>
+<h2 id="1-bash是什么"><a href="#1-bash是什么" class="headerlink" title="1. bash是什么"></a>1. bash是什么</h2><ol>
+<li>bash是一个命令处理器，运行在文本窗口中，并能执行用户直接输入的命令。即终端</li>
+<li>bash还能从.sh文件中读取linux命令，称之为脚本</li>
+<li>bash还支持通配符、管道、命令替换、条件判断等逻辑控制语句</li>
+</ol>
+<h2 id="2-目录操作命令"><a href="#2-目录操作命令" class="headerlink" title="2. 目录操作命令"></a>2. 目录操作命令</h2><div style="text-align:center;gap:5px">
+    <img src="/img/shell_instruction_pic/11.png" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:60%;">
+</div>
+
+<h3 id="1-ls-显示目录下的内容"><a href="#1-ls-显示目录下的内容" class="headerlink" title="1. ls - 显示目录下的内容"></a>1. ls - 显示目录下的内容</h3><ul>
+<li>英文原意：list</li>
+</ul>
+<ol>
+<li>以列表形式显示文件：<code>ls -l</code></li>
+<li>显示隐藏文件：<code>ls -a</code></li>
+</ol>
+<h3 id="2-pwd-查看当前目录"><a href="#2-pwd-查看当前目录" class="headerlink" title="2. pwd - 查看当前目录"></a>2. pwd - 查看当前目录</h3><ul>
+<li>英文原意：print work directory</li>
+</ul>
+<h3 id="3-cd-切换所在目录"><a href="#3-cd-切换所在目录" class="headerlink" title="3. cd - 切换所在目录"></a>3. cd - 切换所在目录</h3><ul>
+<li>英文原意：change directory</li>
+</ul>
+<ol>
+<li>当前目录：<code>cd .</code></li>
+<li>返回上一级目录：<code>cd ..</code></li>
+<li>返回根目录：<code>cd ~</code></li>
+</ol>
+<h3 id="4-mkdir-创建空目录"><a href="#4-mkdir-创建空目录" class="headerlink" title="4. mkdir - 创建空目录"></a>4. mkdir - 创建空目录</h3><ul>
+<li>英文原意：make directory</li>
+<li>注：只能一级一级创建文件夹，不能同时创建多级目录</li>
+</ul>
+<ol>
+<li>创建文件夹：<code>mkdir 目录名</code>，如<code>mkdir aa</code></li>
+</ol>
+<h2 id="3-文件操作命令"><a href="#3-文件操作命令" class="headerlink" title="3. 文件操作命令"></a>3. 文件操作命令</h2><h3 id="1-touch-创建空文件"><a href="#1-touch-创建空文件" class="headerlink" title="1. touch - 创建空文件"></a>1. touch - 创建空文件</h3><ol>
+<li>创建文本：<code>touch text01.txt</code></li>
+<li>创建隐藏文件：<code>touch .text02.txt</code></li>
+</ol>
+<h3 id="2-cat-查看文件内容"><a href="#2-cat-查看文件内容" class="headerlink" title="2. cat - 查看文件内容"></a>2. cat - 查看文件内容</h3><ol>
+<li>查看文件内容：<code>cat 文件名</code></li>
+<li>查看文件内容，并显示行号：<code>cat -n 文件名</code></li>
+</ol>
+<h3 id="3-more-分屏显示文件内容"><a href="#3-more-分屏显示文件内容" class="headerlink" title="3. more - 分屏显示文件内容"></a>3. more - 分屏显示文件内容</h3><ul>
+<li>一般当文件内容比较多的时候，使文件的内容在终端分页进行打印</li>
+</ul>
+<ol>
+<li>查看文件内容：<code>more 文件名</code></li>
+</ol>
+<h2 id="4-目录-文件操作命令"><a href="#4-目录-文件操作命令" class="headerlink" title="4. 目录 &amp; 文件操作命令"></a>4. 目录 &amp; 文件操作命令</h2><h3 id="1-rm-删除目录或文件"><a href="#1-rm-删除目录或文件" class="headerlink" title="1. rm - 删除目录或文件"></a>1. rm - 删除目录或文件</h3><ul>
+<li>英文原意：remove</li>
+</ul>
+<ol>
+<li>移除文件：<code>rm text01.txt</code></li>
+<li>移除文件夹：<code>rm -d aa</code> 或 <code>rm -r aa</code></li>
+</ol>
+<h3 id="2-cp-复制文件"><a href="#2-cp-复制文件" class="headerlink" title="2. cp - 复制文件"></a>2. cp - 复制文件</h3><ul>
+<li>英文原意：copy</li>
+</ul>
+<ol>
+<li>复制文件：<code>cp 文件名 复制的位置</code>， <code>cp test01.txt aa</code></li>
+<li>复制文件夹：<code>cp -r 文件夹名 复制的位置</code>， <code>cp -r aa/bb .</code></li>
+</ol>
+<h3 id="3-mv-剪切文件或目录"><a href="#3-mv-剪切文件或目录" class="headerlink" title="3. mv - 剪切文件或目录"></a>3. mv - 剪切文件或目录</h3><ul>
+<li>英文原意：move</li>
+</ul>
+<ol>
+<li>移动文件位置：<code>mv 源文件 目标目录</code>，<code>mv test01.txt aa</code></li>
+<li>移动文件夹位置：<code>mv 源目录 目标目录</code>，<code>mv bb aa</code></li>
+</ol>
+<h2 id="5-搜索文件内容"><a href="#5-搜索文件内容" class="headerlink" title="5. 搜索文件内容"></a>5. 搜索文件内容</h2><h3 id="1-find-制定目录下查找文件"><a href="#1-find-制定目录下查找文件" class="headerlink" title="1. find - 制定目录下查找文件"></a>1. find - 制定目录下查找文件</h3><ol>
+<li>精确搜索 文件所在位置：<code>find 搜索路径 -name 查找的文件名</code>，<code>find /home -name &quot;test02.txt&quot;</code></li>
+<li>模糊搜索 文件所在位置：<code>find 搜索路径 -name 残缺的名字*</code>或<code>find 搜索路径 -name 残缺的名字？？</code></li>
+</ol>
+<p>​	例：<code>find /home -name test*</code> 或 <code>find /home -name test??????</code></p>
+<ol start="3">
+<li>不区分文件大小写的搜索：<code>find 搜索路径 -iname 查找的文件名</code></li>
+</ol>
+<h3 id="2-locate-按照文件名搜索文件"><a href="#2-locate-按照文件名搜索文件" class="headerlink" title="2. locate - 按照文件名搜索文件"></a>2. locate - 按照文件名搜索文件</h3><ul>
+<li>解释：locate命令其实是<code>find -name</code>的另一种写法，但是要比后者快得多，原因在于它不搜索具体目录(<code>find</code> 是去硬盘找)，而是搜索一个数据库<code>/var/lib/mlocate/mlocate.db</code>，这个数据库中含有本地所有文件信息。Linux系统自动创建这个数据库，并且每天自动更新一次，所以使用<mark><code>locate</code>命令查不到最新变动过的文件</mark>，为了避免这种情况，可以在使用<code>locate</code>之前，先使用<code>updatedb</code>命令手动更新数据库</li>
+<li>优点：搜索速度快</li>
+<li>缺点：只能按照文件名来搜索文件，而不能执行更复杂的搜索</li>
+</ul>
+<ol>
+<li>查找文件所在位置：<code>locate 查找的文件名</code></li>
+</ol>
+<h3 id="3-grep-提取文本中所需的信息"><a href="#3-grep-提取文本中所需的信息" class="headerlink" title="3. grep - 提取文本中所需的信息"></a>3. grep - 提取文本中所需的信息</h3><ol>
+<li>搜索文件内容：<code>grep 搜索的内容 文件名</code></li>
+<li>搜索文件内容，忽略大小写：<code>grep -i 搜索的内容 文件名</code></li>
+<li>搜索文件内容，并标记行号：<code>grep -n 搜索的内容 文件名</code></li>
+<li>搜索文件内容，反向查找：<code>grep -v 搜索的内容 文件名</code></li>
+<li>搜索以xx开头的文件内容：<code>grep ^搜索的内容 文件名</code></li>
+<li>搜索以xx结尾的文件内容：<code>grep 搜索的内容$ 文件名</code></li>
+</ol>
+<h3 id="4-管道符"><a href="#4-管道符" class="headerlink" title="4. | - 管道符"></a>4. | - 管道符</h3><ul>
+<li>命令格式：<code>命令1 | 命令2</code></li>
+<li>“|”管道符的作用是把命令1的正确输出作为命令2的操作对象</li>
+<li>一般配合more使用</li>
+</ul>
+<ol>
+<li>分页查看抓取到的内容：<code>grep -v ^&#39;#&#39; /etc/services | more</code><ol>
+<li>grep：抓取内容</li>
+<li>-v：取反</li>
+<li>^’#’：以#开头</li>
+<li>more：分页打印</li>
+</ol>
+</li>
+<li>筛选输出的内容：<code>ls -lh | grep 125</code></li>
+</ol>
+<h2 id="6-文本输出"><a href="#6-文本输出" class="headerlink" title="6. 文本输出"></a>6. 文本输出</h2><h3 id="1-echo-在控制台进行打印"><a href="#1-echo-在控制台进行打印" class="headerlink" title="1. echo - 在控制台进行打印"></a>1. echo - 在控制台进行打印</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs shell">echo zhangchen&#123;666,888&#125;<br><span class="hljs-meta prompt_">-&gt;</span><span class="language-bash">zhangchen666 zhangchen888</span><br><br>echo zhangchen&#123;1..3&#125;<br><span class="hljs-meta prompt_">-&gt;</span><span class="language-bash">zhangchen1 zhangchen2 zhangchen3</span><br><br>echo zhangchen&#123;1..5..2&#125;<br><span class="hljs-meta prompt_">-&gt;</span><span class="language-bash">zhangchen1 zhangchen3 zhangchen5</span><br></code></pre></td></tr></table></figure>
+
+
+
+<h3 id="2-将结果保存起来"><a href="#2-将结果保存起来" class="headerlink" title="2.&gt;-  将结果保存起来"></a>2.<code>&gt;</code>-  将结果保存起来</h3><ol>
+<li>将文本输入到文件中，覆盖文件原有内容：<code>echo hello &gt; test01.txt</code></li>
+<li>将文本输入到文件中，不覆盖文件原有内容：<code>echo hello &gt;&gt; test01.txt</code></li>
+<li>将列表信息，写入到文件中：<code>ls &gt; test01.txt</code></li>
+<li>将查找的信息，写入到文件中：<code>grep siki 126.txt &gt;&gt; test01.txt</code><ol>
+<li>将<code>126.txt</code>文件中，包含<code>siki</code>元素的行，写入<code>test01.txt</code>文件中</li>
+</ol>
+</li>
+</ol>
+<h2 id="7-其他操作"><a href="#7-其他操作" class="headerlink" title="7. 其他操作"></a>7. 其他操作</h2><h3 id="1-退出ubuntu子目录"><a href="#1-退出ubuntu子目录" class="headerlink" title="1. 退出ubuntu子目录"></a>1. 退出ubuntu子目录</h3><p>输入exit（）</p>
+<h3 id="2-查看ubuntu系统版本"><a href="#2-查看ubuntu系统版本" class="headerlink" title="2. 查看ubuntu系统版本"></a>2. 查看ubuntu系统版本</h3><p>输入cat &#x2F;proc&#x2F;version</p>
+<p>下图所示ubuntu版本为：7.5.0</p>
+<div style="text-align:center;gap:5px">
+    <img src="/img/shell_instruction_pic/10.jpg" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:60%;">
+</div>
+
+
+<h3 id="3-快捷键"><a href="#3-快捷键" class="headerlink" title="3. 快捷键"></a>3. 快捷键</h3><ol>
+<li>命令补全</li>
+</ol>
+<p><code>残缺命令 + Tab键</code></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs shell">py + Tab键<br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_">-&gt;</span><span class="language-bash"></span><br><span class="language-bash">pydoc3             pydoc3.7           python             python3-config     python3.10-config  python3.7-config   python3.7m-config  pyvenv-3.7</span><br>pydoc3.10          pyenv_prompt_info  python3            python3.10         python3.7          python3.7m         pyvenv<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>也常用于cd路径时，补全路径</li>
+</ul>
+<h1 id="四、手表手环终端"><a href="#四、手表手环终端" class="headerlink" title="四、手表手环终端"></a>四、手表手环终端</h1><h2 id="1-向固件中推入apk"><a href="#1-向固件中推入apk" class="headerlink" title="1. 向固件中推入apk"></a>1. 向固件中推入apk</h2><ol>
+<li>adb devices   # pc是否通过usb检测到固件</li>
+<li>adb root </li>
+<li>adb remount</li>
+<li>adb push WearSysUi.apk &#x2F;system&#x2F;priv-app&#x2F;WearSysUi&#x2F;</li>
+<li>adb disable-verity</li>
+<li>adb shell reboot  # 重启</li>
+</ol>
+<h2 id="2-拉取固件日志"><a href="#2-拉取固件日志" class="headerlink" title="2. 拉取固件日志"></a>2. 拉取固件日志</h2><ol>
+<li>adb bugreport  #所拉取日志位于 此电脑-c盘-用户-用户处</li>
+</ol>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E5%BC%80%E5%8F%91/" class="category-chain-item">开发</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E5%BC%80%E5%8F%91/Shell/" class="category-chain-item">Shell</a>
+  
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E5%BC%80%E5%8F%91/" class="print-no-link">#开发</a>
+      
+        <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" class="print-no-link">#操作系统</a>
+      
+        <a href="/tags/MacOS/" class="print-no-link">#MacOS</a>
+      
+        <a href="/tags/Windows/" class="print-no-link">#Windows</a>
+      
+        <a href="/tags/Linux/" class="print-no-link">#Linux</a>
+      
+        <a href="/tags/Shell/" class="print-no-link">#Shell</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>Linux操作系统</div>
+      <div>http://example.com/2023/11/29/Linux操作系统/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>张辰</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2023年11月29日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2023/11/29/Lambda%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B/" title="函数式表达式">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">函数式表达式</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2023/11/29/jQuery/" title="JavaScript之jQuery">
+                        <span class="hidden-mobile">JavaScript之jQuery</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  <script>
+  Fluid.utils.createScript('https://lib.baomitu.com/mermaid/8.14.0/mermaid.min.js', function() {
+    mermaid.initialize({"theme":"default"});
+
+    Fluid.utils.listenDOMLoaded(function() {
+      Fluid.events.registerRefreshCallback(function() {
+        if ('mermaid' in window) {
+          mermaid.init();
+        }
+      });
+    });
+  });
+</script>
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="busuanzi_container_site_pv" style="display: none">
+        总访问量
+        <span id="busuanzi_value_site_pv"></span>
+        次
+      </span>
+    
+    
+      <span id="busuanzi_container_site_uv" style="display: none">
+        总访客数
+        <span id="busuanzi_value_site_uv"></span>
+        人
+      </span>
+    
+    
+  
+</div>
+
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

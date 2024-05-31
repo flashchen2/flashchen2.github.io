@@ -1,0 +1,1334 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="张辰">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="Django是一个用Python编写的Web应用程序框架，旨在帮助开发人员快速构建高质量的Web应用程序。Django提供了许多内置的功能，如ORM（对象关系映射），模板系统，表单处理，用户身份验证等，这些功能可以帮助开发人员更快地构建Web应用程序。Django还有一个强大的社区，提供了许多第三方插件和库，可以帮助开发人员更快地构建Web应用程序。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Django Web框架">
+<meta property="og:url" content="http://example.com/2023/11/29/Django%20Web%E6%A1%86%E6%9E%B6/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="Django是一个用Python编写的Web应用程序框架，旨在帮助开发人员快速构建高质量的Web应用程序。Django提供了许多内置的功能，如ORM（对象关系映射），模板系统，表单处理，用户身份验证等，这些功能可以帮助开发人员更快地构建Web应用程序。Django还有一个强大的社区，提供了许多第三方插件和库，可以帮助开发人员更快地构建Web应用程序。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/img/django_pic/1.jpg">
+<meta property="article:published_time" content="2023-11-29T12:00:00.000Z">
+<meta property="article:modified_time" content="2024-05-03T06:58:17.174Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="Web开发">
+<meta property="article:tag" content="Python">
+<meta property="article:tag" content="框架">
+<meta property="article:tag" content="Django">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://example.com/img/django_pic/1.jpg">
+  
+  
+    <meta name="referrer" content="no-referrer-when-downgrade">
+  
+  
+  <title>Django Web框架 - Hexo</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.6","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 7.0.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Blog</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/banner_hexo.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="Django Web框架"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2023-11-29 20:00" pubdate>
+          2023年11月29日 晚上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          3.2k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          27 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">Django Web框架</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="一、准备工作"><a href="#一、准备工作" class="headerlink" title="一、准备工作"></a><font color=#1E90FF>一、准备工作</font></h1><h2 id="1-新建项目"><a href="#1-新建项目" class="headerlink" title="1. 新建项目"></a><font color=#1E90FF>1. 新建项目</font></h2><ol>
+<li><p>需要 pycharm 专业版</p>
+</li>
+<li><p>复用解释器</p>
+<div style="text-align:center;gap:5px">
+ <img src="/img/django_pic/2.jpg" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:35%;">
+ <img src="/img/django_pic/3.jpg" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:35%;">
+</div>
+
+
+</li>
+<li><p>创建django后的第一步，删除两红框部分</p>
+<ol>
+<li>templates文件夹</li>
+<li>settings中templates中dirs，仅保留空列表<div style="text-align:center">
+ <img src="/img/django_pic/4.jpg" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:45%;">
+</div></li>
+</ol>
+</li>
+</ol>
+<h2 id="2-目录"><a href="#2-目录" class="headerlink" title="2. 目录"></a><font color=#1E90FF>2. 目录</font></h2><ol>
+<li><p>目录概念</p>
+<div style="text-align:center">
+ <img src="/img/django_pic/5.jpg" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:45%;">
+</div>
+
+
+
+</li>
+<li><p>新建django中的子app项目</p>
+<ol>
+<li>pycharm终端中输入：<code>python manage.py startapp app01</code>（想要生成的文件夹名）</li>
+<li>生成的目录概念如下 <div style="text-align:center">
+ <img src="/img/django_pic/6.jpg" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:45%;">
+ </div></li>
+</ol>
+</li>
+<li><p>于终端路径下输入<code>tree</code>，可以获得此文件下的所有文件架构</p>
+<div style="text-align:center">
+ <img src="/img/django_pic/7.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
+</div>
+
+
+</li>
+<li><p>各软件版本<br>python3.11+django2.2.3+mysql5.7.31</p>
+</li>
+</ol>
+<h2 id="3-新建app"><a href="#3-新建app" class="headerlink" title="3. 新建app"></a><font color=#1E90FF>3. 新建app</font></h2><ol>
+<li>查看app名字【app】</li>
+<li>将app注册【settings】<div style="text-align:center;gap:5px">
+ <img src="/img/django_pic/8.jpg" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:50%;">
+ <img src="/img/django_pic/9.jpg" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:55%;">
+</div></li>
+</ol>
+<h1 id="二、基本框架"><a href="#二、基本框架" class="headerlink" title="二、基本框架"></a><font color=#1E90FF>二、基本框架</font></h1><h2 id="1-地址-后端"><a href="#1-地址-后端" class="headerlink" title="1. 地址-&gt;后端"></a><font color=#1E90FF>1. 地址-&gt;后端</font></h2><ol>
+<li>创建app的视图【views】</li>
+<li>链接app视图与app路径间的关系【urls】</li>
+<li>文本的输出方式为<code>HttpResponse(&quot;欢迎使用&quot;)</code><div style="text-align:center;gap:5px">
+ <img src="/img/django_pic/10.jpg" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:55%;">
+ <img src="/img/django_pic/11.jpg" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:40%;">
+</div></li>
+</ol>
+<h2 id="1-后端-前端"><a href="#1-后端-前端" class="headerlink" title="1. 后端-&gt;前端"></a><font color=#1E90FF>1. 后端-&gt;前端</font></h2><ol>
+<li>默认会去此app目录下的templates文件夹寻找html文件【views】</li>
+<li>html的输出方式为<code>return render(request, &quot;user_list.html&quot;)</code><div style="text-align:center;gap:5px">
+ <img src="/img/django_pic/12.jpg" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:50%;"> 
+ <img src="/img/django_pic/13.jpg" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:50%;">
+</div></li>
+</ol>
+<h2 id="3-启动运行程序"><a href="#3-启动运行程序" class="headerlink" title="3. 启动运行程序"></a><font color=#1E90FF>3. 启动运行程序</font></h2><div style="text-align:center">
+    <img src="/img/django_pic/14.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
+</div>
+
+
+<h2 id="4-静态文件-导入插件"><a href="#4-静态文件-导入插件" class="headerlink" title="4. 静态文件 - 导入插件"></a><font color=#1E90FF>4. 静态文件 - 导入插件</font></h2><ul>
+<li>将<code>css、bootstrap、fontawesome</code>等插件集中导入至父模板中</li>
+</ul>
+<div style="text-align:center">
+    <img src="/img/django_pic/62.jpg" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:30%">
+</div>
+
+
+
+
+
+<h1 id="三、模板语法"><a href="#三、模板语法" class="headerlink" title="三、模板语法"></a><font color=#1E90FF>三、模板语法</font></h1><h2 id="1-占位符"><a href="#1-占位符" class="headerlink" title="1. 占位符"></a><font color=#1E90FF>1. 占位符</font></h2><ol>
+<li>目的：将后端的数据传递给前端</li>
+<li>整体构成：</li>
+</ol>
+<div style="text-align:center;gap:5px">
+    <img src="/img/django_pic/16.jpg" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:60%;">
+</div>
+3. 后端样式：
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">return</span> render(request, <span class="hljs-string">&#x27;xx.html&#x27;</span>, &#123;<span class="hljs-string">&#x27;name&#x27;</span>:name, <span class="hljs-string">&#x27;skills&#x27;</span>:skills, <span class="hljs-string">&#x27;lists&#x27;</span>:lists&#125;)<br></code></pre></td></tr></table></figure>
+
+
+
+<ol start="4">
+<li>前端样式：</li>
+</ol>
+<figure class="highlight django"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs django"><span class="language-xml">// 使用双花括号接收数据</span><br><span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span></span><span class="hljs-template-variable">&#123;&#123; name &#125;&#125;</span><span class="language-xml"><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span><br><span class="language-xml"></span><br><span class="language-xml">// 使用花括号+百分号，进行判断或循环遍历</span><br><span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span></span><br><span class="language-xml">    </span><span class="hljs-template-tag">&#123;% <span class="hljs-name"><span class="hljs-name">for</span></span> skill <span class="hljs-keyword">in</span> skills %&#125;</span><span class="language-xml"></span><br><span class="language-xml">    	<span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span></span><span class="hljs-template-variable">&#123;&#123; skill &#125;&#125;</span><span class="language-xml"><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span></span><br><span class="language-xml">    </span><span class="hljs-template-tag">&#123;% <span class="hljs-name"><span class="hljs-name">endfor</span></span> %&#125;</span><span class="language-xml"></span><br><span class="language-xml"><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span><br><span class="language-xml"></span><br><span class="language-xml">// 使用小数点调用数据</span><br><span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span></span><span class="hljs-template-variable">&#123;&#123; lists.0 &#125;&#125;</span><span class="language-xml"><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span><br></code></pre></td></tr></table></figure>
+
+
+
+<h2 id="2-父模版的继承"><a href="#2-父模版的继承" class="headerlink" title="2. 父模版的继承"></a><font color=#1E90FF>2. 父模版的继承</font></h2><ol>
+<li>各子模版公用一套父模版，修改一处即可修改全部，具体代码如下：</li>
+<li>在templates文件夹下，新建layout.html文件，将父模板中的固定内容填入模板中，并留下占位符</li>
+</ol>
+<p><code>layout.html --- 父模板</code></p>
+<figure class="highlight django"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs django"><span class="language-xml"># 此处为父模板统一固定的内容</span><br><span class="language-xml"></span><br><span class="language-xml"># 为填入灵活内容部分，预留占位符</span><br><span class="language-xml"># 若有多处修改，可预留多个占位符，占位符名称不能相同</span><br><span class="language-xml"></span><span class="hljs-template-tag">&#123;% <span class="hljs-name"><span class="hljs-name">block</span></span> content_style %&#125;</span><span class="language-xml"> </span><span class="hljs-template-tag">&#123;% <span class="hljs-name"><span class="hljs-name">endblock</span></span> %&#125;</span><span class="language-xml"></span><br><span class="language-xml"></span><br><span class="language-xml"># 此处为父模板统一固定的内容</span><br><span class="language-xml"></span><span class="hljs-template-tag">&#123;% <span class="hljs-name"><span class="hljs-name">block</span></span> content_body %&#125;</span><span class="language-xml"> </span><span class="hljs-template-tag">&#123;% <span class="hljs-name"><span class="hljs-name">endblock</span></span> %&#125;</span><br></code></pre></td></tr></table></figure>
+
+<p><code>子模板.html</code></p>
+<figure class="highlight django"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs django"><span class="language-xml"># 导入模板</span><br><span class="language-xml"></span><span class="hljs-template-tag">&#123;% <span class="hljs-name"><span class="hljs-name">extends</span></span> &#x27;layout.html&#x27; %&#125;</span><span class="language-xml"></span><br><span class="language-xml"></span><br><span class="language-xml"></span><span class="hljs-template-tag">&#123;% <span class="hljs-name"><span class="hljs-name">block</span></span> content_style %&#125;</span><span class="language-xml"> 此处为子模板中的内容 </span><span class="hljs-template-tag">&#123;% <span class="hljs-name"><span class="hljs-name">endblock</span></span> %&#125;</span><span class="language-xml"></span><br><span class="language-xml"></span><span class="hljs-template-tag">&#123;% <span class="hljs-name"><span class="hljs-name">block</span></span> content_body %&#125;</span><span class="language-xml"> 此处为子模板中的内容 </span><span class="hljs-template-tag">&#123;% <span class="hljs-name"><span class="hljs-name">endblock</span></span> %&#125;</span><br></code></pre></td></tr></table></figure>
+
+<h1 id="四、请求"><a href="#四、请求" class="headerlink" title="四、请求"></a><font color=#1E90FF>四、请求</font></h1><h2 id="1-json请求"><a href="#1-json请求" class="headerlink" title="1. json请求"></a><font color=#1E90FF>1. json请求</font></h2><ol>
+<li><p>发送请求</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> requests<br><span class="hljs-keyword">import</span> json<br><br>url = <span class="hljs-string">&#x27;http://10.221.113.135:8000/Web_API/log_auto_analysis&#x27;</span><br>data = &#123;<span class="hljs-string">&#x27;name&#x27;</span>: <span class="hljs-string">&#x27;John&#x27;</span>, <span class="hljs-string">&#x27;age&#x27;</span>: <span class="hljs-number">30</span>&#125;<br><br>headers = &#123;<span class="hljs-string">&#x27;Content-Type&#x27;</span>: <span class="hljs-string">&#x27;application/json&#x27;</span>&#125;<br><br>response = requests.post(url, data=json.dumps(data), headers=headers)<br><br><span class="hljs-built_in">print</span>(response.text)<br></code></pre></td></tr></table></figure>
+</li>
+<li><p>获取参数</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> json<br><span class="hljs-keyword">from</span> django.http <span class="hljs-keyword">import</span> JsonResponse<br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">my_view</span>(<span class="hljs-params">request</span>):<br>    <span class="hljs-keyword">if</span> request.method == <span class="hljs-string">&#x27;POST&#x27;</span>:<br>        data = json.loads(request.body)<br>        name = data.get(<span class="hljs-string">&#x27;name&#x27;</span>)<br>        age = data.get(<span class="hljs-string">&#x27;age&#x27;</span>)<br>        <br>        <span class="hljs-keyword">if</span> <span class="hljs-built_in">type</span>(data) == <span class="hljs-built_in">dict</span>:<br>            <span class="hljs-keyword">return</span> HttpResponse(<span class="hljs-string">&#x27;传输成功&#x27;</span>)<br><br>        <span class="hljs-keyword">else</span>:<br>            <span class="hljs-keyword">return</span> HttpResponse(<span class="hljs-string">&#x27;传输失败&#x27;</span>)<br></code></pre></td></tr></table></figure></li>
+</ol>
+<h2 id="2-post请求"><a href="#2-post请求" class="headerlink" title="2. post请求"></a><font color=#1E90FF>2. post请求</font></h2><ol>
+<li><p>请求特点</p>
+<ol>
+<li><p>浏览器向网站发送请求时，页面自动刷新</p>
+</li>
+<li><p>post请求提交的数据不会在url中体现，只能使用表单提交方式</p>
+</li>
+<li><p>后端拿到请求后，得到的数据是字符串类型的</p>
+</li>
+<li><p>在前端界面中，对于post请求，需要添加<code>&#123;% csrf_token %&#125;</code></p>
+</li>
+</ol>
+</li>
+<li><p>发送请求</p>
+</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> requests<br><br>url = <span class="hljs-string">&quot;http://10.221.118.6:8000/logtest/&quot;</span><br>payload = &#123;<span class="hljs-string">&#x27;classification&#x27;</span>: <span class="hljs-string">&#x27;1&#x27;</span>,<br><span class="hljs-string">&#x27;branch&#x27;</span>: <span class="hljs-string">&#x27;2&#x27;</span>,<br><span class="hljs-string">&#x27;time&#x27;</span>: <span class="hljs-string">&#x27;3&#x27;</span>&#125;<br><br>headers = &#123;&#125;<br>response = requests.request(<span class="hljs-string">&quot;POST&quot;</span>, url, headers=headers, data=payload)<br><span class="hljs-built_in">print</span>(response.text)<br></code></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>获取请求</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> json<br><span class="hljs-keyword">from</span> django.http <span class="hljs-keyword">import</span> JsonResponse<br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">my_view</span>(<span class="hljs-params">request</span>):<br>    <span class="hljs-keyword">if</span> request.method == <span class="hljs-string">&#x27;POST&#x27;</span>:<br><br>        classification = request.POST.get(<span class="hljs-string">&#x27;classification&#x27;</span>)<br>        branch = request.POST.get(<span class="hljs-string">&#x27;branch&#x27;</span>)<br>        time = request.POST.get(<span class="hljs-string">&#x27;time&#x27;</span>)<br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;拿到用户信息&#x27;</span>, classification, <span class="hljs-string">&#x27;branch:&#x27;</span>, branch, <span class="hljs-string">&#x27;time:&#x27;</span>, time)<br><br>      <br>        <span class="hljs-keyword">return</span> render(request, <span class="hljs-string">&quot;wnn_test01.html&quot;</span>, &#123;<span class="hljs-string">&#x27;classification&#x27;</span>: classification&#125;)<br></code></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>前端代码</li>
+</ol>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">form</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;form-inline&quot;</span> <span class="hljs-attr">name</span> = <span class="hljs-string">&quot;team_name_form&quot;</span> <span class="hljs-attr">method</span>=<span class="hljs-string">&quot;post&quot;</span>&gt;</span><br><br>    &#123;% csrf_token %&#125;<br>      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;form-group&quot;</span>&gt;</span><br>          <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">for</span>=<span class="hljs-string">&quot;exampleInputEmail2&quot;</span>&gt;</span>您想要查询的小组名称为：<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span><br><br>        <span class="hljs-tag">&lt;<span class="hljs-name">select</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;form-control&quot;</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;team_name&quot;</span> &gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">selected</span>=<span class="hljs-string">&quot;selected&quot;</span> <span class="hljs-attr">disabled</span>=<span class="hljs-string">&quot;disabled&quot;</span>  <span class="hljs-attr">style</span>=<span class="hljs-string">&#x27;display: none&#x27;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&#x27;&#x27;</span>&gt;</span>请选择<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">option</span>&gt;</span>PPC<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">option</span>&gt;</span>BT<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">option</span>&gt;</span>System<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">option</span>&gt;</span>Multimedia<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span><br><br>      <span class="hljs-tag">&lt;/<span class="hljs-name">select</span>&gt;</span><br>      <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br><br>      <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;submit&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;btn btn-default&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;确认&quot;</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+
+
+<h2 id="3-get请求"><a href="#3-get请求" class="headerlink" title="3. get请求"></a><font color=#1E90FF>3. get请求</font></h2><ol>
+<li><p>请求特点</p>
+<ol>
+<li><p>浏览器向网站发送请求时，页面自动刷新</p>
+</li>
+<li><p>请求、跳转、像后台传入数据，数据会拼接在url上。可以使用url方式或表单提交方式</p>
+</li>
+<li><p>后端拿到请求后，得到的数据是字符串类型的</p>
+</li>
+</ol>
+</li>
+<li><p>携带参数</p>
+<ol>
+<li>在url中添加参数之前需要添加<code>？</code>号</li>
+<li>在不同参数之间需要添加<code>&amp;</code>号</li>
+</ol>
+<ul>
+<li>例：<code>http://127.0.0.1:8000/get_message/?username=11&amp;mobile=22</code></li>
+</ul>
+</li>
+<li><p>获取请求</p>
+</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">jira_message_reminder</span>(<span class="hljs-params">request</span>):<br>    <span class="hljs-keyword">if</span> request.method == <span class="hljs-string">&quot;GET&quot;</span>:  <span class="hljs-comment"># 获取判断请求方式</span><br>        team_name = request.GET.get(<span class="hljs-string">&quot;team_name&quot;</span>)<br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;team_name&#x27;</span>, team_name)<br>        <span class="hljs-keyword">return</span> render(request, <span class="hljs-string">&quot;xxx.html&quot;</span>)<br></code></pre></td></tr></table></figure>
+
+
+
+<h2 id="4-Ajax请求"><a href="#4-Ajax请求" class="headerlink" title="4. Ajax请求*"></a><font color=#1E90FF>4. Ajax请求*</font></h2><h3 id="1-特点"><a href="#1-特点" class="headerlink" title="1. 特点"></a>1. 特点</h3><ol>
+<li>偷偷的向后台发送请求，页面不会做任何刷新</li>
+<li><mark>依赖jQuery</mark>，需要编写ajax代码</li>
+<li>返回值为JSON格式</li>
+</ol>
+<h3 id="2-前端"><a href="#2-前端" class="headerlink" title="2. 前端"></a>2. 前端</h3><ol>
+<li>ajax请求记得携带参数<code>data: $(&quot;#form&quot;).serialize(),</code></li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><code class="hljs javascript">&#123;% extend <span class="hljs-string">&#x27;layout.html&#x27;</span> %&#125;<br><br>&#123;% block countent %&#125;<br>    &lt;div <span class="hljs-keyword">class</span>=<span class="hljs-string">&#x27;container&#x27;</span>&gt;<br>        <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">h3</span>&gt;</span>将前端输入的数据传递给后端<span class="hljs-tag">&lt;/<span class="hljs-name">h3</span>&gt;</span></span><br>        &lt;form id=&quot;form&quot;&gt;<br>            &lt;input type=&quot;text&quot; name=&quot;user&quot; placeholder=&quot;姓名&quot;&gt;<br>            &lt;input type=&quot;text&quot; name=&quot;age&quot; placeholder=&quot;年龄&quot;&gt;<br>        &lt;/form&gt;<br>        &lt;input id=&quot;btn1&quot; type=&quot;button&quot; class=&quot;btn btn-primary&quot; value=&quot;点击&quot;&gt;<br>    &lt;/div&gt;<br>&#123;% endblock %&#125;<br><br>&#123;% block js %&#125;<br>    &lt;script type=&quot;text/javascript&quot;&gt;<br>        $(function() &#123;<br>            // 页面框架加载完成之后代码自动执行<br>            bindBtn1Event();<br>        &#125;)<br>        <br>        function bindBtnEvent()&#123;<br>            $(&quot;#btn1&quot;).click(function () &#123;<br>                // 当点击btn按钮时，会向后台自动发送ajax请求<br>                $.ajax(&#123;<br>                    url: &#x27;/task/ajax/&#x27;,<br>                    type: &#x27;post&#x27;,<br>                    data: $(&quot;#form&quot;).serialize(),<br>                    <br>                    //将前端返回的值进行反序列化，转为JSON格式<br>                    dataType:&quot;JSON&quot;,<br>                    success: function (res) &#123;<br>                        console.log(res):<br>                    &#125;<br>                &#125;)<br>            &#125;)<br>        &#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="3-后端"><a href="#3-后端" class="headerlink" title="3. 后端"></a>3. 后端</h3><ol>
+<li>若直接参考上图的get请求，则会报错forbidden。需要在views.py文件中添加，去除post请求的csrf认证部分<mark>@csrf_exempt</mark></li>
+<li>将字符串形式数据转为JSON形式数据</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> django.shortcuts <span class="hljs-keyword">import</span> render, HttpResponse, redirect<br><span class="hljs-keyword">from</span> django.http <span class="hljs-keyword">import</span> JsonResponse  <span class="hljs-comment"># 接口返回的是json，需要引入的信息</span><br><span class="hljs-keyword">from</span> django.views.decorators.csrf <span class="hljs-keyword">import</span> csrf_exempt <span class="hljs-comment"># 免除csrf认证</span><br><br><span class="hljs-meta">@csrf_exempt</span><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">task_ajax</span>(<span class="hljs-params">request</span>):<br>    <span class="hljs-comment"># data_dict = request.GET</span><br>    data_dict = request.POST<br>    <span class="hljs-built_in">print</span>(data_dict[<span class="hljs-string">&#x27;user&#x27;</span>])<br>    <span class="hljs-built_in">print</span>(data_dict[<span class="hljs-string">&#x27;age&#x27;</span>])<br>    <br>    <span class="hljs-keyword">return</span> JsonResponse(data_dict)<br></code></pre></td></tr></table></figure>
+
+
+
+
+
+<h2 id="5-返回值"><a href="#5-返回值" class="headerlink" title="5. 返回值"></a><font color=#1E90FF>5. 返回值</font></h2><ol>
+<li><code>return HttpResponse</code>：返回具体内容，将字符串返回给请求者</li>
+<li><code>return render(request,&#39;someting.html&#39;,&#123;&quot;title&quot;:&quot;xxx&quot;&#125;)</code>：读取HTML中内容 + 渲染（替换），生成字符串并返回给用户浏览器</li>
+<li><code>return redirect(&quot;http://xxx.xxx&quot;)</code>：让浏览器重定向到其他页面<div style="text-align:center">
+ <img src="/img/django_pic/18.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
+</div></li>
+</ol>
+<h1 id="五、用户登录案例"><a href="#五、用户登录案例" class="headerlink" title="五、用户登录案例"></a>五、用户登录案例</h1><ol>
+<li><p>用户get请求访问页面，浏览器post请求返回账户和密码</p>
+</li>
+<li><p>如果账户密码正确，则重定向到新的url</p>
+</li>
+<li><p>如果不正确，则返回html + 额外渲染的内容</p>
+<div style="text-align:center">
+ <img src="/img/django_pic/20.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
+</div>
+
+
+</li>
+<li><p>需要在html的form表单中添加<code>&#123;% csrf_token %&#125;</code>，否则会出现csrf缺失</p>
+<div style="text-align:center">
+ <img src="/img/django_pic/21.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
+</div></li>
+</ol>
+<h1 id="六、MySQL-Django"><a href="#六、MySQL-Django" class="headerlink" title="六、MySQL+Django"></a>六、MySQL+Django</h1><h2 id="1-介绍"><a href="#1-介绍" class="headerlink" title="1. 介绍"></a>1. 介绍</h2><div style="text-align:center">
+    <img src="/img/django_pic/22.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
+</div>
+
+
+
+<ol>
+<li><p>Django内部提供了ORM框架，可以帮我们更好的操作MySQL</p>
+</li>
+<li><p>安装第三方模块：pip install mysqlclient</p>
+</li>
+<li><p>orm可以帮我们创建、删除、修改数据库的表，以及操作数据，<mark>无法创建数据库</mark></p>
+</li>
+</ol>
+<h2 id="4-链接数据库"><a href="#4-链接数据库" class="headerlink" title="4. 链接数据库"></a>4. 链接数据库</h2><ol>
+<li>在settings.py文件中进行配置与修改，连接MySQL<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs python">DATABASES = &#123;<br>    <span class="hljs-string">&#x27;default&#x27;</span>: &#123;<br>        <span class="hljs-string">&#x27;ENGINE&#x27;</span>: <span class="hljs-string">&#x27;django.db.backends.mysql&#x27;</span>, <span class="hljs-comment"># 链接mysql数据库</span><br>        <span class="hljs-string">&#x27;NAME&#x27;</span>: <span class="hljs-string">&#x27;mysqltest&#x27;</span>,  <span class="hljs-comment"># 数据库名字</span><br>        <span class="hljs-string">&#x27;USER&#x27;</span>: <span class="hljs-string">&#x27;root&#x27;</span>,      <span class="hljs-comment"># 用户名字，默认是root</span><br>        <span class="hljs-string">&#x27;PASSWORD&#x27;</span>: <span class="hljs-string">&#x27;Pooh_0505&#x27;</span>,    <span class="hljs-comment"># 用户密码</span><br>        <span class="hljs-string">&#x27;HOST&#x27;</span>: <span class="hljs-string">&#x27;127.0.0.1&#x27;</span>,    <span class="hljs-comment"># 那台机器安装了MySQL</span><br>        <span class="hljs-string">&#x27;PORT&#x27;</span>: <span class="hljs-string">&#x27;3306&#x27;</span>,   <span class="hljs-comment"># 端口含默认3306</span><br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure></li>
+</ol>
+<h2 id="5-操作数据表"><a href="#5-操作数据表" class="headerlink" title="5. 操作数据表"></a>5. 操作数据表</h2><h3 id="1-创建表"><a href="#1-创建表" class="headerlink" title="1. 创建表"></a>1. 创建表</h3><ol>
+<li>app.【models】文件夹书写，确定表的格式<ol>
+<li>此时数据库表的名称为数据库的名称 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-string">&#x27;&#x27;&#x27;打分表 - 触控&#x27;&#x27;&#x27;</span><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">touch_score_list</span>(models.Model):<br>    touch_project_name = models.CharField(verbose_name=<span class="hljs-string">&#x27;项目名称&#x27;</span>, max_length=<span class="hljs-number">64</span>)<br>    touch_test_rounds_choices = (<br>        (<span class="hljs-string">&#x27;ST1&#x27;</span>, <span class="hljs-string">&#x27;ST1&#x27;</span>),<br>        (<span class="hljs-string">&#x27;ST2&#x27;</span>, <span class="hljs-string">&#x27;ST2&#x27;</span>),<br>        (<span class="hljs-string">&#x27;ST3&#x27;</span>, <span class="hljs-string">&#x27;ST3&#x27;</span>),<br>        (<span class="hljs-string">&#x27;ST4&#x27;</span>, <span class="hljs-string">&#x27;ST4&#x27;</span>),<br>    )<br>    touch_test_rounds = models.CharField(verbose_name=<span class="hljs-string">&#x27;测试轮次&#x27;</span>, max_length=<span class="hljs-number">32</span>, choices=touch_test_rounds_choices)<br>    touch_objective = models.CharField(verbose_name=<span class="hljs-string">&#x27;硬件客观&#x27;</span>, max_length=<span class="hljs-number">16</span>)<br>    touch_subject = models.CharField(verbose_name=<span class="hljs-string">&#x27;主观专项&#x27;</span>, max_length=<span class="hljs-number">16</span>)<br></code></pre></td></tr></table></figure></li>
+</ol>
+</li>
+</ol>
+<div style="text-align:center">
+    <img src="/img/django_pic/24.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
+</div>
+
+
+
+<ol start="2">
+<li>在pycharm终端解释器执行，余MySQL中生成对应的表<ol>
+<li><p>方法1：</p>
+ <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python">python manage.py makemigrations<br>python manage.py migrate<br></code></pre></td></tr></table></figure>
+</li>
+<li><p>方法2：</p>
+</li>
+</ol>
+<ul>
+<li>Tools - Run manage.py Task</li>
+</ul>
+</li>
+</ol>
+<div style="text-align:center">
+    <img src="/img/django_pic/25.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
+</div>
+
+
+
+<h3 id="2-删除-修改表"><a href="#2-删除-修改表" class="headerlink" title="2. 删除&#x2F;修改表"></a>2. 删除&#x2F;修改表</h3><ol>
+<li>在<code>models.py</code>中，对数据表进行删除&#x2F;修改</li>
+<li>在pycharm终端解释器重新执行<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell">python manage.py makemigrations<br>python manage.py migrate<br></code></pre></td></tr></table></figure></li>
+</ol>
+<h3 id="4-查询表"><a href="#4-查询表" class="headerlink" title="4. 查询表"></a>4. 查询表</h3><ol>
+<li><p>app.【models.py】写入数据库相关内容</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> django.db <span class="hljs-keyword">import</span> models<br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">数据表名</span>(models.Model):<br>    name = models.CharField(max_length=<span class="hljs-number">32</span>)<br>    password = models.CharField(max_length=<span class="hljs-number">64</span>)<br>    age = models.IntegerField()<br></code></pre></td></tr></table></figure>
+</li>
+<li><p>app.【views.py】写入表相关内容</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">orm</span>(<span class="hljs-params">request</span>):<br>    <span class="hljs-comment"># 新建</span><br>    数据表名.objects.create(title=<span class="hljs-string">&quot;销售部&quot;</span>)<br>    <br>    <span class="hljs-comment"># 删除</span><br>    数据表名.objects.<span class="hljs-built_in">filter</span>(<span class="hljs-built_in">id</span>=<span class="hljs-number">3</span>).delete()<br>    数据表名.objects.<span class="hljs-built_in">all</span>().delete()<br>    <br>    <span class="hljs-comment"># 查找</span><br>    <span class="hljs-comment"># 获取符合条件的所有数据</span><br>    data_list = [对象，对象，对象] QuerySet类型<br>    data_list = 数据表名.objects.<span class="hljs-built_in">all</span>()<br>    <span class="hljs-keyword">for</span> obj <span class="hljs-keyword">in</span> data_list:<br>        <span class="hljs-built_in">print</span>(obj.<span class="hljs-built_in">id</span>, obj.name)<br>        <br>    <span class="hljs-comment"># 获取符合条件的第一条数据【对象】</span><br>    row_obj = 数据表名.objects.<span class="hljs-built_in">filter</span>(<span class="hljs-built_in">id</span>=<span class="hljs-number">1</span>).first<br>    <span class="hljs-built_in">print</span>(row_obj.<span class="hljs-built_in">id</span>, row_obj.name)<br>    <br>    <span class="hljs-comment"># 更新数据</span><br>    数据表名.objects.<span class="hljs-built_in">filter</span>(<span class="hljs-built_in">id</span>=<span class="hljs-number">3</span>).update(age=<span class="hljs-number">999</span>)<br>    数据表名.objects.<span class="hljs-built_in">all</span>().update(age=<span class="hljs-number">999</span>)<br>    <br>    <span class="hljs-keyword">return</span> HttpResponse(<span class="hljs-string">&quot;成功&quot;</span>)<br></code></pre></td></tr></table></figure></li>
+</ol>
+<h2 id="6-后台文件中可选择的数据信息"><a href="#6-后台文件中可选择的数据信息" class="headerlink" title="6. 后台文件中可选择的数据信息"></a>6. 后台文件中可选择的数据信息</h2><ol>
+<li><p><code>models.py</code></p>
+<ol>
+<li>下拉选择：<code>choices=level_choices</code></li>
+<li>默认结果为…：<code>default=1</code></li>
+</ol>
+ <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> django.db <span class="hljs-keyword">import</span> models<br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">PrettyNum</span>(models.Model):<br>    <br>    level_choices = (<br>        (<span class="hljs-string">&#x27;1&#x27;</span>, <span class="hljs-string">&#x27;一级&#x27;</span>),<br>        (<span class="hljs-string">&#x27;2&#x27;</span>, <span class="hljs-string">&#x27;二级&#x27;</span>),<br>        (<span class="hljs-string">&#x27;3&#x27;</span>, <span class="hljs-string">&#x27;三级&#x27;</span>),<br>    )<br>    level = models.CharField(verbose_name=<span class="hljs-string">&#x27;级别&#x27;</span>, choices=level_choices, default=<span class="hljs-number">1</span>)<br></code></pre></td></tr></table></figure></li>
+</ol>
+<div style="text-align:center">
+    <img src="/img/django_pic/28.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
+</div>
+
+
+
+<h1 id="七、表单内容的增删改查"><a href="#七、表单内容的增删改查" class="headerlink" title="七、表单内容的增删改查"></a>七、表单内容的增删改查</h1><h2 id="1-新建按钮"><a href="#1-新建按钮" class="headerlink" title="1. 新建按钮"></a>1. 新建按钮</h2><ol>
+<li><code>按钮js文件</code></li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-comment">// 新建按钮</span><br><span class="hljs-keyword">function</span> <span class="hljs-title function_">bindBtnAddEvent</span>(<span class="hljs-params"></span>) &#123;<br>    $(<span class="hljs-string">&quot;#btnadd&quot;</span>).<span class="hljs-title function_">click</span>(<span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) &#123;<br>        <span class="hljs-comment">//将正在编辑的ID设置为空</span><br>        <span class="hljs-variable constant_">EDIT_ID</span> = <span class="hljs-literal">undefined</span>;<br>        <span class="hljs-comment">// 清空对话框中的数据</span><br>        $(<span class="hljs-string">&quot;#formAdd&quot;</span>)[<span class="hljs-number">0</span>].<span class="hljs-title function_">reset</span>();<br>        <span class="hljs-comment">// 设置对话框的标题</span><br>        $(<span class="hljs-string">&quot;#myModalLabel&quot;</span>).<span class="hljs-title function_">text</span>(<span class="hljs-string">&quot;新建项目&quot;</span>)<br>        <span class="hljs-comment">// 点击按钮，显示添加项目的对话框</span><br>        $(<span class="hljs-string">&quot;#myModal&quot;</span>).<span class="hljs-title function_">modal</span>(<span class="hljs-string">&quot;show&quot;</span>);<br>    &#125;)<br>&#125;<br><br><span class="hljs-comment">// 新建按钮/编辑按钮 - 的确认保存按钮</span><br><span class="hljs-keyword">function</span> <span class="hljs-title function_">bindBtnConfirmAddEvent</span>(<span class="hljs-params"></span>) &#123;<br>    $(<span class="hljs-string">&quot;#btnConfirmSave&quot;</span>).<span class="hljs-title function_">click</span>(<span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) &#123;<br>        <span class="hljs-comment">// 判断是新建信息还是编辑信息</span><br>        <span class="hljs-keyword">if</span> (<span class="hljs-variable constant_">EDIT_ID</span>) &#123;<br>            <span class="hljs-comment">// 编辑</span><br>            $.<span class="hljs-title function_">ajax</span>(&#123;<br>                <span class="hljs-attr">url</span>: <span class="hljs-variable constant_">EDIT_ID</span> + <span class="hljs-string">&quot;/edit&quot;</span>,   <span class="hljs-comment">// =&gt; /order/delete/?uid=123</span><br>                <span class="hljs-attr">type</span>: <span class="hljs-string">&quot;POST&quot;</span>,<br>                <span class="hljs-attr">data</span>: $(<span class="hljs-string">&quot;#formAdd&quot;</span>).<span class="hljs-title function_">serialize</span>(),<br>                <span class="hljs-attr">datatype</span>: <span class="hljs-string">&quot;Json&quot;</span>,<br>                <span class="hljs-attr">success</span>: <span class="hljs-keyword">function</span> (<span class="hljs-params">response</span>) &#123;<br>                    <span class="hljs-comment">// 获取后端返回的数据</span><br>                    <span class="hljs-keyword">var</span> row_dict = response.<span class="hljs-property">row_dict</span><br>                    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(row_dict)<br><br>                    <span class="hljs-comment">// 将获得的数据赋值到对话框的标签中</span><br>                    $.<span class="hljs-title function_">each</span>(response.<span class="hljs-property">row_dict</span>, <span class="hljs-keyword">function</span> (<span class="hljs-params">name, value</span>) &#123;<br>                        <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(name, value);<br>                        $(<span class="hljs-string">&quot;#id_&quot;</span> + name).<span class="hljs-title function_">val</span>(value);<br>                        location.<span class="hljs-title function_">reload</span>();<br>                    &#125;)<br>                &#125;<br>            &#125;)<br>        &#125; <span class="hljs-keyword">else</span> &#123;<br>            <span class="hljs-comment">// 新建</span><br>            $.<span class="hljs-title function_">ajax</span>(&#123;<br>                <span class="hljs-attr">url</span>: <span class="hljs-string">&quot;new_built&quot;</span>,   <span class="hljs-comment">// =&gt; /order/delete/?uid=123</span><br>                <span class="hljs-attr">type</span>: <span class="hljs-string">&quot;POST&quot;</span>,<br>                <span class="hljs-attr">data</span>: $(<span class="hljs-string">&quot;#formAdd&quot;</span>).<span class="hljs-title function_">serialize</span>(),<br>                <span class="hljs-attr">datatype</span>: <span class="hljs-string">&quot;Json&quot;</span>,<br>                <span class="hljs-attr">success</span>: <span class="hljs-keyword">function</span> (<span class="hljs-params">response</span>) &#123;<br>                    <span class="hljs-comment">// 打印返回值</span><br>                    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(response)<br>                    <span class="hljs-comment">// 删除成功后，将页面进行刷新</span><br>                    location.<span class="hljs-title function_">reload</span>();<br>                &#125;<br>            &#125;)<br>        &#125;<br>    &#125;)<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<ol start="2">
+<li><p><code>主界面views.py</code></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">ppc_DOU</span>(<span class="hljs-params">request</span>):<br><br>    <span class="hljs-string">&#x27;&#x27;&#x27; 连接数据库,获取所有记录 &#x27;&#x27;&#x27;</span><br>    data_list = DOU_project_basic_information_list.objects.<span class="hljs-built_in">all</span>()<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;data_list&#x27;</span>, data_list)<br><br>    <span class="hljs-string">&#x27;&#x27;&#x27;打印每个记录的字段值&#x27;&#x27;&#x27;</span><br>    <span class="hljs-keyword">for</span> singo_data_list <span class="hljs-keyword">in</span> data_list:<br>        <span class="hljs-built_in">print</span>(singo_data_list.project_name, singo_data_list.test_rounds, singo_data_list.test_time, singo_data_list.hardware_version,<br>              singo_data_list.firmware_version, singo_data_list.app_version, singo_data_list.battery_capacity)<br><br>    <span class="hljs-string">&#x27;&#x27;&#x27; 于前端展示数据库中的信息 &#x27;&#x27;&#x27;</span><br><br>    <span class="hljs-comment"># 将数据传递给html，进行前端展示</span><br>    dou_form = UserModelForm()<br>    <span class="hljs-comment"># print(&#x27;###&#x27;, dou_form)</span><br>    <span class="hljs-keyword">return</span> render(request, <span class="hljs-string">&quot;ppc_DOU.html&quot;</span>, &#123;<span class="hljs-string">&quot;data_list&quot;</span>: data_list, <span class="hljs-string">&#x27;dou_form&#x27;</span>: dou_form&#125;)<br></code></pre></td></tr></table></figure>
+</li>
+<li><p>添加界面view.py</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-string">&#x27;&#x27;&#x27; 向数据库中添加，新建信息 &#x27;&#x27;&#x27;</span><br><span class="hljs-meta">@csrf_exempt</span><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">ppc_DOU_new_built</span>(<span class="hljs-params">request</span>):<br>    add_base_message = request.POST<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;add_base_message&#x27;</span>, add_base_message)<br>    <span class="hljs-comment"># &lt;QueryDict: &#123;&#x27;csrfmiddlewaretoken&#x27;: [&#x27;EUKzWjAWcZCrcVu5uoZN1UBFnwtFgyQadssjEXMIGc7CEad6f1xzGBHlBqF0KkVJ&#x27;], &#x27;project_name&#x27;: [&#x27;b&#x27;], &#x27;test_rounds&#x27;: [&#x27;ST1&#x27;], &#x27;test_time&#x27;: [&#x27;b&#x27;], &#x27;hardware_version&#x27;: [&#x27;b&#x27;], &#x27;firmware_version&#x27;: [&#x27;b&#x27;], &#x27;app_version&#x27;: [&#x27;b&#x27;], &#x27;battery_capacity&#x27;: [&#x27;b&#x27;]&#125;&gt;</span><br><br>    <span class="hljs-string">&#x27;&#x27;&#x27;向页面中添加数据信息&#x27;&#x27;&#x27;</span><br>    <span class="hljs-keyword">if</span> <span class="hljs-string">&#x27;csrfmiddlewaretoken&#x27;</span> <span class="hljs-keyword">in</span> add_base_message.keys() <span class="hljs-keyword">and</span> [<span class="hljs-string">&#x27;&#x27;</span>] <span class="hljs-keyword">not</span> <span class="hljs-keyword">in</span> add_base_message.values():<br>        form = UserModelForm(data=request.POST)<br><br>        <span class="hljs-keyword">if</span> form.is_valid():<br>            form.save()<br>            <span class="hljs-keyword">return</span> redirect(<span class="hljs-string">&#x27;/ppc_test_center/DOU/&#x27;</span>)<br>    <span class="hljs-keyword">return</span> redirect(<span class="hljs-string">&quot;/ppc_test_center/DOU/&quot;</span>)<br></code></pre></td></tr></table></figure></li>
+</ol>
+<h2 id="2-针对每行表单的按钮，设置对应的弹出框的删除按钮"><a href="#2-针对每行表单的按钮，设置对应的弹出框的删除按钮" class="headerlink" title="2. 针对每行表单的按钮，设置对应的弹出框的删除按钮"></a>2. 针对每行表单的按钮，设置对应的弹出框的删除按钮</h2><ol>
+<li><p><code>删除按钮 html文件：</code></p>
+<ol>
+<li><p><code>原始“删除”按钮 html文件：</code></p>
+ <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;btn btn-danger btn-xs&quot;</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;&#123;&#123; singo_data_list.id &#125;&#125;/delete&quot;</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">i</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;fa fa-trash-o&quot;</span> <span class="hljs-attr">aria-hidden</span>=<span class="hljs-string">&quot;true&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">i</span>&gt;</span>删除<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><br></code></pre></td></tr></table></figure>
+</li>
+<li><p><code>变更后的“删除”按钮 html文件：</code></p>
+<ol>
+<li><p>以删除按钮为例，不采用为每个按钮赋值对应的id，而是为所有删除按钮设置一个样式<code>btn-delete</code>，通过样式绑定按钮的事件</p>
+</li>
+<li><p>定义uid关键词，获取所点击行对应的uid值</p>
+</li>
+</ol>
+ <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">uid</span>=<span class="hljs-string">&quot;&#123;&#123; singo_data_list.id &#125;&#125;&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;btn btn-danger btn-xs btn-delete&quot;</span> &gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">i</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;fa fa-trash-o&quot;</span> <span class="hljs-attr">aria-hidden</span>=<span class="hljs-string">&quot;true&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">i</span>&gt;</span> 删除<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>        <br></code></pre></td></tr></table></figure></li>
+</ol>
+</li>
+<li><p><code>弹出框html文件：</code></p>
+<ol>
+<li><code>data-dismiss=&quot;modal&quot;</code>赋值给取消按钮后，点击后会返回原始页面 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-comment">&lt;!-- 删除项目 - 弹出框  --&gt;</span><br><span class="hljs-comment">&lt;!-- Modal --&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;modal fade&quot;</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;deleteModal&quot;</span> <span class="hljs-attr">tabindex</span>=<span class="hljs-string">&quot;-1&quot;</span> <span class="hljs-attr">role</span>=<span class="hljs-string">&quot;dialog&quot;</span> <span class="hljs-attr">aria-labelledby</span>=<span class="hljs-string">&quot;myModalLabel&quot;</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;modal-dialog&quot;</span> <span class="hljs-attr">role</span>=<span class="hljs-string">&quot;document&quot;</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;alert alert-danger alert-dismissible fade in&quot;</span> <span class="hljs-attr">role</span>=<span class="hljs-string">&quot;alert&quot;</span>&gt;</span><br><br>            <span class="hljs-tag">&lt;<span class="hljs-name">h4</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">i</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;fa fa-exclamation-triangle&quot;</span> <span class="hljs-attr">aria-hidden</span>=<span class="hljs-string">&quot;true&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">i</span>&gt;</span> 是否确定删除？<span class="hljs-tag">&lt;/<span class="hljs-name">h4</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">style</span>=<span class="hljs-string">&quot;margin: 20px 0;&quot;</span>&gt;</span> 删除后所有关联数据都会被删除<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">style</span>=<span class="hljs-string">&quot;text-align: right;&quot;</span>&gt;</span><br>                <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;button&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;btn btn-default&quot;</span> <span class="hljs-attr">data-dismiss</span>=<span class="hljs-string">&quot;modal&quot;</span>&gt;</span>取 消<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span><br>                <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;button&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;btn btn-danger&quot;</span> &gt;</span>删 除<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span><br>            <span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span><br>        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br></code></pre></td></tr></table></figure></li>
+</ol>
+</li>
+<li><p>设置点击的js文件：</p>
+<ol>
+<li>删除按钮：设置全局变量，点击后将按钮此行对应的id转递给后端</li>
+<li>删除确认按钮：ajax请求，向删除url发起请求 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><code class="hljs javascript">&lt;!-- 点击事件js  --&gt;<br>&#123;% block js %&#125;<br>    &lt;script type=<span class="hljs-string">&quot;text/javascript&quot;</span>&gt;<br><br>        <span class="hljs-keyword">var</span> <span class="hljs-variable constant_">DELETE_ID</span>;<br><br>        $(<span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) &#123;<br>            <span class="hljs-title function_">bindBtnAddEvent</span>();<br>            <span class="hljs-comment">// 删除事件</span><br>            <span class="hljs-title function_">bindBtnDeleteEvent</span>();<br>            <span class="hljs-comment">// 删除-确认事件</span><br>            <span class="hljs-title function_">bindBtnConfirmDeleteEvent</span>();<br>        &#125;)<br><br>        <span class="hljs-keyword">function</span> <span class="hljs-title function_">bindBtnAddEvent</span>(<span class="hljs-params"></span>) &#123;<br>            $(<span class="hljs-string">&quot;#btnadd&quot;</span>).<span class="hljs-title function_">click</span>(<span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) &#123;<br>                <span class="hljs-comment">// 点击按钮，显示添加项目的对话框</span><br>                $(<span class="hljs-string">&quot;#myModal&quot;</span>).<span class="hljs-title function_">modal</span>(<span class="hljs-string">&quot;show&quot;</span>);<br>            &#125;)<br>        &#125;<br><br>        <span class="hljs-comment">// 删除按钮</span><br>        <span class="hljs-keyword">function</span> <span class="hljs-title function_">bindBtnDeleteEvent</span>(<span class="hljs-params"></span>) &#123;<br>            $(<span class="hljs-string">&quot;.btn-delete&quot;</span>).<span class="hljs-title function_">click</span>(<span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) &#123;<br>                <span class="hljs-comment">// 点击按钮，显示删除项目的对话框</span><br>                $(<span class="hljs-string">&quot;#deleteModal&quot;</span>).<span class="hljs-title function_">modal</span>(<span class="hljs-string">&quot;show&quot;</span>);<br><br>                <span class="hljs-comment">// 获取当前行的ID并赋值给全部变量</span><br>                <span class="hljs-variable constant_">DELETE_ID</span> = $(<span class="hljs-variable language_">this</span>).<span class="hljs-title function_">attr</span>(<span class="hljs-string">&quot;uid&quot;</span>);<br>            &#125;)<br>        &#125;<br><br>        <span class="hljs-comment">// 删除按钮 - 的确认产出按钮</span><br>        <span class="hljs-keyword">function</span> <span class="hljs-title function_">bindBtnConfirmDeleteEvent</span>(<span class="hljs-params"></span>) &#123;<br>            $(<span class="hljs-string">&quot;#btnConfirmDelete&quot;</span>).<span class="hljs-title function_">click</span>(<span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) &#123;<br>                <span class="hljs-comment">// 点击删除按钮后的确认按钮，将全局变量中要删除的id发送给后台</span><br>                $.<span class="hljs-title function_">ajax</span>(&#123;<br>                    <span class="hljs-attr">url</span>: <span class="hljs-variable constant_">DELETE_ID</span> + <span class="hljs-string">&quot;/delete&quot;</span>,   <span class="hljs-comment">// =&gt; /123/delete</span><br>                    <span class="hljs-attr">type</span>: <span class="hljs-string">&quot;GET&quot;</span>,<br>                    <span class="hljs-comment">//data:&#123;</span><br>                    <span class="hljs-comment">//    uid:DELETE_ID</span><br>                    <span class="hljs-comment">//&#125;,</span><br>                    <span class="hljs-attr">datatype</span>:<span class="hljs-string">&quot;Json&quot;</span>,<br>                    <span class="hljs-attr">success</span>:<span class="hljs-keyword">function</span> (<span class="hljs-params">res</span>) &#123;<br>                        <span class="hljs-comment">// 删除成功后，将页面进行刷新</span><br>                        location.<span class="hljs-title function_">reload</span>();<br>                    &#125;<br>                &#125;)<br>            &#125;)<br>        &#125;<br>    &lt;/script&gt;<br>&#123;% endblock %&#125;<br>&lt;!-- 以上 --&gt;<br></code></pre></td></tr></table></figure></li>
+</ol>
+</li>
+<li><p>其他 py文件：</p>
+<ol>
+<li><p><code>urls.py</code>文件</p>
+ <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python">path(<span class="hljs-string">&#x27;ppc_test_center/DOU/&lt;int:nid&gt;/delete&#x27;</span>, views.ppc_DOU_delete),<br></code></pre></td></tr></table></figure>
+</li>
+<li><p><code>views.py</code>文件</p>
+ <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">ppc_DOU_delete</span>(<span class="hljs-params">request, nid</span>):<br>    <span class="hljs-comment"># nid = request.GET.get(&#x27;nid&#x27;)</span><br>    DOU_project_basic_information_list.objects.<span class="hljs-built_in">filter</span>(<span class="hljs-built_in">id</span>=nid).delete()<br>    <span class="hljs-keyword">return</span> redirect(<span class="hljs-string">&quot;/ppc_test_center/DOU/&quot;</span>)<br></code></pre></td></tr></table></figure></li>
+</ol>
+</li>
+</ol>
+<h2 id="3-弹出框的编辑按钮"><a href="#3-弹出框的编辑按钮" class="headerlink" title="3. 弹出框的编辑按钮"></a>3. 弹出框的编辑按钮</h2><ul>
+<li>与删除按钮区别</li>
+</ul>
+<ol>
+<li><p>弹出框.py</p>
+<ol>
+<li>编辑按钮 和 新建按钮公用同一个弹出框 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><code class="hljs python">&lt;!-- 新建/编辑项目 - 弹出框  --&gt;<br>&lt;!-- Modal --&gt;<br>&lt;div <span class="hljs-keyword">class</span>=<span class="hljs-string">&quot;modal fade&quot;</span> <span class="hljs-built_in">id</span>=<span class="hljs-string">&quot;myModal&quot;</span> tabindex=<span class="hljs-string">&quot;-1&quot;</span> role=<span class="hljs-string">&quot;dialog&quot;</span> aria-labelledby=<span class="hljs-string">&quot;myModalLabel&quot;</span>&gt;<br>    &lt;div <span class="hljs-keyword">class</span>=<span class="hljs-string">&quot;modal-dialog&quot;</span> role=<span class="hljs-string">&quot;document&quot;</span>&gt;<br>        &lt;div <span class="hljs-keyword">class</span>=<span class="hljs-string">&quot;modal-content&quot;</span>&gt;<br>            &lt;div <span class="hljs-keyword">class</span>=<span class="hljs-string">&quot;modal-header&quot;</span>&gt;<br>                &lt;button <span class="hljs-built_in">type</span>=<span class="hljs-string">&quot;button&quot;</span> <span class="hljs-keyword">class</span>=<span class="hljs-string">&quot;close&quot;</span> data-dismiss=<span class="hljs-string">&quot;modal&quot;</span> aria-label=<span class="hljs-string">&quot;Close&quot;</span>&gt;&lt;span aria-hidden=<span class="hljs-string">&quot;true&quot;</span>&gt;&amp;times;&lt;/span&gt;&lt;/button&gt;<br>                &lt;h4 <span class="hljs-keyword">class</span>=<span class="hljs-string">&quot;modal-title&quot;</span> <span class="hljs-built_in">id</span>=<span class="hljs-string">&quot;myModalLabel&quot;</span>&gt;新建项目&lt;/h4&gt;<br>            &lt;/div&gt;<br>            &lt;div <span class="hljs-keyword">class</span>=<span class="hljs-string">&quot;modal-body&quot;</span>&gt;<br>                &lt;form <span class="hljs-built_in">id</span>=<span class="hljs-string">&quot;formAdd&quot;</span> method=<span class="hljs-string">&quot;post&quot;</span> novalidate&gt;<br>                    &#123;% csrf_token %&#125;<br>                    &#123;% <span class="hljs-keyword">for</span> singo_dou_form <span class="hljs-keyword">in</span> dou_form %&#125;<br>                        &lt;div <span class="hljs-keyword">class</span>=<span class="hljs-string">&quot;form-group&quot;</span>&gt;<br>                            &lt;label <span class="hljs-keyword">for</span>=<span class="hljs-string">&quot;exampleInputPassword1&quot;</span>&gt;&#123;&#123; singo_dou_form.label &#125;&#125; : &#123;&#123; singo_dou_form &#125;&#125; &lt;/label&gt;<br>                            &lt;span style=<span class="hljs-string">&quot;color: red&quot;</span>&gt;&#123;&#123; field.errors<span class="hljs-number">.0</span> &#125;&#125;&lt;/span&gt;<br>                        &lt;/div&gt;<br>                    &#123;% endfor %&#125;<br><br>                    &lt;div <span class="hljs-keyword">class</span>=<span class="hljs-string">&quot;modal-footer&quot;</span>&gt;<br>                        &lt;button <span class="hljs-built_in">type</span>=<span class="hljs-string">&quot;button&quot;</span> <span class="hljs-keyword">class</span>=<span class="hljs-string">&quot;btn btn-default&quot;</span> data-dismiss=<span class="hljs-string">&quot;modal&quot;</span>&gt;取消&lt;/button&gt;<br>                        &lt;button <span class="hljs-built_in">type</span>=<span class="hljs-string">&quot;submit&quot;</span> <span class="hljs-keyword">class</span>=<span class="hljs-string">&quot;btn btn-primary&quot;</span>&gt;提交&lt;/button&gt;<br>                    &lt;/div&gt;<br>                &lt;/form&gt;<br>            &lt;/div&gt;<br>        &lt;/div&gt;<br>    &lt;/div&gt;<br>&lt;/div&gt;<br></code></pre></td></tr></table></figure></li>
+</ol>
+</li>
+<li><p><code>后端编辑views.py文件：</code></p>
+<ol>
+<li>ajax请求只能读取字典或列表，无法读取对象<ol>
+<li>从数据库中取一个对象:<code>forms.objects.filter(id=nid).first()</code></li>
+<li>从数据库的某一个对象中，取其对应元素的字典:<code>forms.objects.filter(id=nid).values(&quot;project_name&quot;, &quot;test_rounds&quot;).first()</code><ol>
+<li>否则会弹出次错误：<code>ValueError: The view app01.views.ppc_DOU_base_model didn&#39;t return an HttpResponse object. It returned None instead.</code></li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+ <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-meta">@csrf_exempt</span><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">ppc_DOU_edit</span>(<span class="hljs-params">request, nid</span>):<br>    <span class="hljs-comment"># nid = request.GET.get(&#x27;nid&#x27;)</span><br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;nid:&quot;</span>, nid)<br><br>    <span class="hljs-comment"># 从数据库中取一个对象</span><br>    row_object = DOU_project_basic_information_list.objects.<span class="hljs-built_in">filter</span>(<span class="hljs-built_in">id</span>=nid).first()<br><br>    <span class="hljs-comment"># 从数据库的某一个对象中，取其对应元素的字典</span><br>    row_dict = DOU_project_basic_information_list.objects.<span class="hljs-built_in">filter</span>(<span class="hljs-built_in">id</span>=nid).values(<span class="hljs-string">&#x27;parent_id&#x27;</span>, <span class="hljs-string">&quot;project_name&quot;</span>, <span class="hljs-string">&quot;test_rounds&quot;</span>, <span class="hljs-string">&quot;test_time&quot;</span>,<span class="hljs-string">&quot;hardware_version&quot;</span>,<span class="hljs-string">&quot;firmware_version&quot;</span>, <span class="hljs-string">&quot;app_version&quot;</span>, <span class="hljs-string">&quot;battery_capacity&quot;</span>).first()<br><br>    <span class="hljs-string">&#x27;&#x27;&#x27;  编辑用户 &#x27;&#x27;&#x27;</span><br>    <span class="hljs-keyword">if</span> request.method == <span class="hljs-string">&quot;GET&quot;</span>:<br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;get请求&quot;</span>)<br>        <span class="hljs-comment"># 根据ID去数据库获取要编译的那一行数据（对象）</span><br>        form = UserModelForm(instance=row_object)<br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;form&#x27;</span>, form)<br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;row_dict&#x27;</span>, row_dict)<br>        <span class="hljs-keyword">return</span> JsonResponse(&#123;<span class="hljs-string">&#x27;row_dict&#x27;</span>: row_dict&#125;)<br><br>    <span class="hljs-keyword">if</span> request.method == <span class="hljs-string">&quot;POST&quot;</span>:<br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;post请求&quot;</span>)<br>        form = UserModelForm(data=request.POST, instance=row_object)<br>        <span class="hljs-keyword">if</span> form.is_valid():<br>            form.save()<br>            <br>            <span class="hljs-string">&#x27;&#x27;&#x27; 两次返回，使点击确定后，顺利刷新并返回页面 &#x27;&#x27;&#x27;</span><br>            <span class="hljs-keyword">return</span> JsonResponse(&#123;<span class="hljs-string">&#x27;row_dict&#x27;</span>: row_dict&#125;)<br>    <span class="hljs-keyword">return</span> redirect(<span class="hljs-string">&#x27;/ppc_test_center/DOU/&#x27;</span>)<br></code></pre></td></tr></table></figure>
+</li>
+<li><p>设置点击的js文件：</p>
+<ol>
+<li>清空对话框中的数据：<code>$(&quot;#formAdd&quot;)[0].reset();</code></li>
+<li>设置对话框的标题：<code>$(&quot;#myModalLabel&quot;).text(&quot;编辑项目&quot;)</code></li>
+<li>新建 和 编辑 公用同一个弹出框的确认按钮会出现问题，”新建“不会携带id，”编辑“会携带id，利用返回值是否携带id来判断是新建操作还是编辑操作<ol>
+<li><p><code>全局变量js</code></p>
+ <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">var</span> <span class="hljs-variable constant_">DELETE_ID</span>;<br><span class="hljs-keyword">var</span> <span class="hljs-variable constant_">EDIT_ID</span>;<br></code></pre></td></tr></table></figure>
+</li>
+<li><p><code>编辑js</code></p>
+ <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-comment">// 编辑按钮</span><br><span class="hljs-keyword">function</span> <span class="hljs-title function_">bindBtnEditEvent</span>(<span class="hljs-params"></span>) &#123;<br>    $(<span class="hljs-string">&quot;.btn-edit&quot;</span>).<span class="hljs-title function_">click</span>(<span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) &#123;<br>        <span class="hljs-comment">// 编辑弹出框 和 新建弹出框公用一个</span><br>        <span class="hljs-comment">// 清空对话框中的数据</span><br>        $(<span class="hljs-string">&quot;#formAdd&quot;</span>)[<span class="hljs-number">0</span>].<span class="hljs-title function_">reset</span>();<br>        <span class="hljs-comment">// 设置对话框的标题</span><br>        $(<span class="hljs-string">&quot;#myModalLabel&quot;</span>).<span class="hljs-title function_">text</span>(<span class="hljs-string">&quot;编辑项目&quot;</span>)<br>        <span class="hljs-comment">// 点击按钮，显示编辑项目的对话框</span><br>        $(<span class="hljs-string">&quot;#myModal&quot;</span>).<span class="hljs-title function_">modal</span>(<span class="hljs-string">&quot;show&quot;</span>);<br><br>        <span class="hljs-comment">// 获取当前行的ID并赋值给全部变量</span><br>        <span class="hljs-keyword">var</span> <span class="hljs-title class_">Edit</span>_ID = $(<span class="hljs-variable language_">this</span>).<span class="hljs-title function_">attr</span>(<span class="hljs-string">&quot;uid&quot;</span>);<br><br>        <span class="hljs-comment">// 点击编辑钮后，会向编辑url发出ajax请求，并获取此行id对应在数据库中的所有信息，并在前端进行展示</span><br>        $.<span class="hljs-title function_">ajax</span>(&#123;<br>            <span class="hljs-attr">url</span>: <span class="hljs-title class_">Edit</span>_ID + <span class="hljs-string">&quot;/edit&quot;</span>,   <span class="hljs-comment">// =&gt; /order/delete/?uid=123</span><br>            <span class="hljs-attr">type</span>: <span class="hljs-string">&quot;GET&quot;</span>,<br>            <span class="hljs-attr">datatype</span>:<span class="hljs-string">&quot;Json&quot;</span>,<br>            <span class="hljs-attr">success</span>:<span class="hljs-keyword">function</span> (<span class="hljs-params">response</span>) &#123;<br>                <span class="hljs-comment">// 获取后端返回的数据</span><br>                <span class="hljs-keyword">var</span> row_dict = response.<span class="hljs-property">row_dict</span><br>                <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(row_dict)<br><br>                <span class="hljs-comment">// 将获得的数据赋值到对话框的标签中</span><br>                $.<span class="hljs-title function_">each</span>(response.<span class="hljs-property">row_dict</span>, <span class="hljs-keyword">function</span> (<span class="hljs-params">name, value</span>) &#123;<br>                    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(name, value);<br>                    $(<span class="hljs-string">&quot;#id_&quot;</span> + name).<span class="hljs-title function_">val</span>(value);<br>                &#125;)<br>            &#125;<br>        &#125;)<br>    &#125;)<br>&#125;<br></code></pre></td></tr></table></figure>
+</li>
+<li><p><code>新建js</code></p>
+ <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-comment">// 新建按钮</span><br><span class="hljs-keyword">function</span> <span class="hljs-title function_">bindBtnAddEvent</span>(<span class="hljs-params"></span>) &#123;<br>    $(<span class="hljs-string">&quot;#btnadd&quot;</span>).<span class="hljs-title function_">click</span>(<span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) &#123;<br>        <span class="hljs-comment">//将正在编辑的ID设置为空</span><br>        <span class="hljs-variable constant_">EDIT_ID</span> = <span class="hljs-literal">undefined</span>;<br>        <span class="hljs-comment">// 清空对话框中的数据</span><br>        $(<span class="hljs-string">&quot;#formAdd&quot;</span>)[<span class="hljs-number">0</span>].<span class="hljs-title function_">reset</span>();<br>        <span class="hljs-comment">// 设置对话框的标题</span><br>        $(<span class="hljs-string">&quot;#myModalLabel&quot;</span>).<span class="hljs-title function_">text</span>(<span class="hljs-string">&quot;新建项目&quot;</span>)<br>        <span class="hljs-comment">// 点击按钮，显示添加项目的对话框</span><br>        $(<span class="hljs-string">&quot;#myModal&quot;</span>).<span class="hljs-title function_">modal</span>(<span class="hljs-string">&quot;show&quot;</span>);<br>    &#125;)<br>&#125;<br></code></pre></td></tr></table></figure></li>
+</ol>
+</li>
+</ol>
+</li>
+<li><p>编辑views.py</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-meta">@csrf_exempt</span><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">ppc_DOU_edit</span>(<span class="hljs-params">request, nid</span>):<br>    <span class="hljs-comment"># nid = request.GET.get(&#x27;nid&#x27;)</span><br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;nid:&quot;</span>, nid)<br><br>    <span class="hljs-comment"># 从数据库中取一个对象</span><br>    row_object = DOU_project_basic_information_list.objects.<span class="hljs-built_in">filter</span>(<span class="hljs-built_in">id</span>=nid).first()<br><br>    <span class="hljs-comment"># 从数据库的某一个对象中，取其对应元素的字典</span><br>    row_dict = DOU_project_basic_information_list.objects.<span class="hljs-built_in">filter</span>(<span class="hljs-built_in">id</span>=nid).values(<span class="hljs-string">&quot;project_name&quot;</span>, <span class="hljs-string">&quot;test_rounds&quot;</span>, <span class="hljs-string">&quot;test_time&quot;</span>,<span class="hljs-string">&quot;hardware_version&quot;</span>,<br>                                                                                <span class="hljs-string">&quot;firmware_version&quot;</span>, <span class="hljs-string">&quot;app_version&quot;</span>, <span class="hljs-string">&quot;battery_capacity&quot;</span>).first()<br><br>    <span class="hljs-string">&#x27;&#x27;&#x27;  编辑用户 &#x27;&#x27;&#x27;</span><br>    <span class="hljs-keyword">if</span> request.method == <span class="hljs-string">&quot;GET&quot;</span>:<br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;get请求&quot;</span>)<br>        <span class="hljs-comment"># 根据ID去数据库获取要编译的那一行数据（对象）</span><br>        form = UserModelForm(instance=row_object)<br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;form&#x27;</span>, form)<br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;row_dict&#x27;</span>, row_dict)<br><br>        <span class="hljs-comment"># return redirect(&#x27;/ppc_test_center/DOU/&#x27;)</span><br>        <span class="hljs-keyword">return</span> JsonResponse(&#123;<span class="hljs-string">&#x27;row_dict&#x27;</span>: row_dict&#125;)<br><br><br>    <span class="hljs-keyword">if</span> request.method == <span class="hljs-string">&quot;POST&quot;</span>:<br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;post请求&quot;</span>)<br>        form = UserModelForm(data=request.POST, instance=row_object)<br>        <span class="hljs-keyword">if</span> form.is_valid():<br>            form.save()<br>            <span class="hljs-keyword">return</span> JsonResponse(&#123;<span class="hljs-string">&#x27;row_dict&#x27;</span>: row_dict&#125;)<br>        <span class="hljs-comment"># return redirect(&#x27;/ppc_test_center/DOU/&#x27;)</span><br>    <span class="hljs-keyword">return</span> redirect(<span class="hljs-string">&#x27;/ppc_test_center/DOU/&#x27;</span>)<br></code></pre></td></tr></table></figure></li>
+</ol>
+<h1 id="八、一次性配置"><a href="#八、一次性配置" class="headerlink" title="八、一次性配置"></a><font color=#1E90FF>八、一次性配置</font></h1><h2 id="1-web项目访问"><a href="#1-web项目访问" class="headerlink" title="1. web项目访问"></a><font color=#1E90FF>1. web项目访问</font></h2><ol>
+<li><code>ifconfig | grep &quot;inet&quot;</code>查看Mac电脑ip</li>
+</ol>
+<div style="text-align:center;gap:5px">
+    <img src="/img/django_pic/61.jpg" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:35%;">
+</div>
+
+<ol>
+<li>想让同局域网下的其他电脑访问本机的项目，需在右上角项目配置中，修改host和post值，分别为0.0.0.0和任意值（这里是7000）</li>
+<li>并在“setting.py”文件中，配置“ALLOWED_HOSTS”，将本机的IP地址添加进去，（终端输入ifconfig -a）实例代码如下<code>ALLOWED_HOSTS=[&#39;192.168.0.103&#39;]</code><br>  注：要关闭自己的防火墙才行</li>
+</ol>
+<div style="text-align:center;gap:5px">
+    <img src="/img/django_pic/29.jpg" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:35%;">
+    <img src="/img/django_pic/30.jpg" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:35%;">
+</div>
+
+
+
+<ol start="4">
+<li>示例：<ol>
+<li>本机ip：10.221.113.135</li>
+<li>端口号：8000 <div style="text-align:center">
+ <img src="/img/django_pic/31.jpg" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:50%;">
+ </div></li>
+</ol>
+</li>
+</ol>
+<h2 id="2-django引入静态文件img、css、js"><a href="#2-django引入静态文件img、css、js" class="headerlink" title="2. django引入静态文件img、css、js"></a>2. django引入静态文件img、css、js</h2><ol>
+<li><p>setting.py</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 注：务必设置DEBUG = TRUE， 否则完全不响应</span><br>DEBUG = <span class="hljs-literal">True</span><br><br><span class="hljs-comment"># 注: 这里保存的是个元组, 一定要加逗号</span><br>STATIC_URL = <span class="hljs-string">&#x27;/static/&#x27;</span><br>STATICFILES_DIRS = [<br>    os.path.join(BASE_DIR, <span class="hljs-string">&#x27;static&#x27;</span>),<br>]<br></code></pre></td></tr></table></figure>
+</li>
+<li><p>html</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs html">&#123;% load staticfiles %&#125;<br><span class="hljs-meta">&lt;!DOCTYPE <span class="hljs-keyword">html</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">html</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">&quot;en&quot;</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">&quot;UTF-8&quot;</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>Title<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span><br>    <br>    # 导入bootstrap<br>    <span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">&quot;stylesheet&quot;</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text/css&quot;</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&#x27;&#123;% static &quot;plugins/bootstrap-3.4.1/css/bootstrap.css&quot; %&#125;&#x27;</span>&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span><br>    <br>    # 导入图片<br>    <span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;&#123;% static &#x27;img/111.jpg&#x27; %&#125;&quot;</span>&gt;</span><br></code></pre></td></tr></table></figure></li>
+</ol>
+<h2 id="3-表单样式继承与美化"><a href="#3-表单样式继承与美化" class="headerlink" title="3. 表单样式继承与美化*"></a>3. 表单样式继承与美化*</h2><h3 id="1-ModelForm"><a href="#1-ModelForm" class="headerlink" title="1. ModelForm"></a>1. ModelForm</h3><ol>
+<li>ModelForm可以帮助我们生成HTML标签，但是不携带样式<div style="text-align:center">
+ <img src="/img/django_pic/33.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
+</div></li>
+</ol>
+<h3 id="2-Bootstrap"><a href="#2-Bootstrap" class="headerlink" title="2. Bootstrap"></a>2. Bootstrap</h3><div style="text-align:center">
+    <img src="/img/django_pic/34.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
+</div>
+
+
+
+<ol>
+<li>在目录中新建<code>app-utils-bootstrap.py</code>文件，封装<code>BootStrapModelForm</code>功能，用于美化<code>ModelForm</code>样式</li>
+</ol>
+<div style="text-align:center">
+    <img src="/img/django_pic/35.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
+</div>
+
+
+
+<ol start="2">
+<li><p>views.py文件</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> app01.utils.bootstrap <span class="hljs-keyword">import</span> BootStrapModelForm<br><span class="hljs-keyword">from</span> app01 <span class="hljs-keyword">import</span> models<br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">UserModelForm1</span>(<span class="hljs-title class_ inherited__">BootStrapModelForm</span>):<br>    <span class="hljs-keyword">class</span> <span class="hljs-title class_">Meta</span>:<br>        model = models.DOU_project_basic_information_list<br>        <span class="hljs-comment"># 选择数据库中的所有字段</span><br>        fields = <span class="hljs-string">&quot;__all__&quot;</span><br></code></pre></td></tr></table></figure>
+</li>
+<li><p>表单.html文件</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">ppc_DOU</span>(<span class="hljs-params">request</span>):<br>    <span class="hljs-string">&#x27;&#x27;&#x27; 连接数据库,获取所有记录 &#x27;&#x27;&#x27;</span><br>    data_list = DOU_project_basic_information_list.objects.<span class="hljs-built_in">all</span>()<br></code></pre></td></tr></table></figure></li>
+</ol>
+<h2 id="4-美化views-py结构"><a href="#4-美化views-py结构" class="headerlink" title="4. 美化views.py结构"></a>4. 美化views.py结构</h2><h3 id="1-将MySQL中的所有库，对应views-py中所有class文件导入"><a href="#1-将MySQL中的所有库，对应views-py中所有class文件导入" class="headerlink" title="1. 将MySQL中的所有库，对应views.py中所有class文件导入"></a>1. 将MySQL中的所有库，对应views.py中所有class文件导入</h3><ol>
+<li><p><code>utils-form.py</code></p>
+<div style="text-align:center">
+ <img src="/img/django_pic/36.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
+</div>
+
+
+</li>
+<li><p><code>views.py</code></p>
+<div style="text-align:center">
+ <img src="/img/django_pic/37.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
+</div></li>
+</ol>
+<h3 id="2-将各模块进行拆分"><a href="#2-将各模块进行拆分" class="headerlink" title="2. 将各模块进行拆分"></a>2. 将各模块进行拆分</h3><ol>
+<li>删除原有的view.py文件，新建views文件夹</li>
+<li>将<code>urls.py</code>中的<code>from app import views</code>删除后，重新导入新包</li>
+<li>将原有的路径在<code>urls.py</code>中进行拆分，将html文件在<code>views.py</code>中进行拆分</li>
+</ol>
+<div style="text-align:center">
+    <img src="/img/django_pic/56.jpg" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:38%;">
+    <img src="/img/django_pic/38.jpg" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:35%;">
+</div>
+
+
+
+
+<h2 id="5-前后端数据传递"><a href="#5-前后端数据传递" class="headerlink" title="5. 前后端数据传递"></a>5. 前后端数据传递</h2><ol>
+<li><p>后端a传给前端</p>
+<div style="text-align:center">
+ <img src="/img/django_pic/40.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
+</div>
+
+
+</li>
+<li><p>前端传给后端b</p>
+<div style="text-align:center">
+ <img src="/img/django_pic/41.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
+</div></li>
+</ol>
+<div style="text-align:center">
+    <img src="/img/django_pic/42.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
+</div>
+
+
+
+<ol start="3">
+<li>后端b接收，及数据处理<div style="text-align:center">
+ <img src="/img/django_pic/43.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
+</div></li>
+</ol>
+<h2 id="7-整体导入自己创建的css样式"><a href="#7-整体导入自己创建的css样式" class="headerlink" title="7. 整体导入自己创建的css样式"></a>7. 整体导入自己创建的css样式</h2><ol>
+<li>在<code>static</code>文件夹中，创建对应的样式文件，用于存放自己设计的css样式</li>
+</ol>
+<div style="text-align:center">
+    <img src="/img/django_pic/57.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
+</div>
+
+<ol start="2">
+<li>设置静态文件访问地址</li>
+</ol>
+<div style="text-align:center">
+    <img src="/img/django_pic/58.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
+</div>
+
+<ol start="3">
+<li>将<code>css</code>样式导入前端<code>html</code></li>
+</ol>
+<div style="text-align:center">
+    <img src="/img/django_pic/59.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
+</div>
+
+<ol start="4">
+<li>其他问题</li>
+</ol>
+<ul>
+<li>如果自建的<code>css</code>样式文件，起名为<code>style</code>等特殊名，会出现错误</li>
+</ul>
+<h1 id="九、使用Tips"><a href="#九、使用Tips" class="headerlink" title="九、使用Tips"></a>九、使用Tips</h1><h2 id="3-获取当前用户前端界面的url"><a href="#3-获取当前用户前端界面的url" class="headerlink" title="3. 获取当前用户前端界面的url"></a>3. 获取当前用户前端界面的url</h2><ol>
+<li><p>方法1</p>
+<ol>
+<li><mark>获取主机地址：</mark> <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python">request.get_host()<br></code></pre></td></tr></table></figure></li>
+<li>获取访问路径： <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python">request.get_full_path()<br></code></pre></td></tr></table></figure>
+ 拼接即可得到用户当前完整url</li>
+</ol>
+</li>
+<li><p>方法2<br>通过查看requests源码，直接可得到用户当前完整url</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python">request.get_raw_uri()<br></code></pre></td></tr></table></figure></li>
+</ol>
+<h2 id="6-获取POST请求"><a href="#6-获取POST请求" class="headerlink" title="6. 获取POST请求"></a>6. 获取POST请求</h2><ol>
+<li><p>将settings.py中注释csrf，下方200成功</p>
+<div style="text-align:center">
+ <img src="/img/django_pic/47.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
+</div>
+
+
+</li>
+<li><p>在views.py中写入请求方式</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs python">result = &#123;&#125;<br>project_name = request.POST.get(<span class="hljs-string">&#x27;project_name&#x27;</span>)<br>result[<span class="hljs-string">&#x27;project_name&#x27;</span>] = project_name<br></code></pre></td></tr></table></figure>
+<div style="text-align:center">
+ <img src="/img/django_pic/48.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
+</div>
+</li>
+<li><p>使用postman传入数据时，get请求选择params，post请求选择body，依旧需要将URL用&#x2F;收尾</p>
+<div style="text-align:center">
+ <img src="/img/django_pic/50.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
+</div></li>
+</ol>
+<h2 id="10-后端生成的标签传到前端无法显示"><a href="#10-后端生成的标签传到前端无法显示" class="headerlink" title="10. 后端生成的标签传到前端无法显示"></a>10. 后端生成的<a>标签传到前端无法显示</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> django.utils.safestring <span class="hljs-keyword">import</span> mark_safe<br><br><span class="hljs-comment"># 使用mark_safe将html包裹</span><br>mark_safe（<span class="hljs-string">&quot;&lt;a&gt;**&lt;/a&gt;&quot;</span>）<br></code></pre></td></tr></table></figure>
+
+<h2 id="11-基础表单"><a href="#11-基础表单" class="headerlink" title="11. 基础表单"></a>11. 基础表单</h2><p><code>views.py</code></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">ppc_test_center_jira</span>(<span class="hljs-params">request</span>):<br>    result = &#123;&#125;<br>    <span class="hljs-keyword">if</span> request.method == <span class="hljs-string">&quot;POST&quot;</span>: <span class="hljs-comment">#获取判断请求方式</span><br><br>        group_id = request.POST.get(<span class="hljs-string">&#x27;group_id&#x27;</span>)<br>        result[<span class="hljs-string">&#x27;group_id&#x27;</span>] = group_id<br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;group_id&#x27;</span>, group_id)<br>        project_name = request.POST.get(<span class="hljs-string">&#x27;project_name&#x27;</span>)<br>        result[<span class="hljs-string">&#x27;project_name&#x27;</span>] = project_name<br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;project_name&#x27;</span>, project_name)<br>    <span class="hljs-keyword">return</span> render(request, <span class="hljs-string">&quot;ppc_test_center_jira.html&quot;</span>)<br></code></pre></td></tr></table></figure>
+
+<p><code>html</code></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;c1&quot;</span> &gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">form</span> <span class="hljs-attr">method</span>=<span class="hljs-string">&quot;post&quot;</span> <span class="hljs-attr">novalidate</span>&gt;</span><br>        &#123;% csrf_token %&#125;<br>        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;form-group&quot;</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">for</span>=<span class="hljs-string">&quot;exampleInputEmail1&quot;</span>&gt;</span>所发送飞书群id<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;form-control&quot;</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;group_id&quot;</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;group_id&quot;</span> <span class="hljs-attr">placeholder</span>=<span class="hljs-string">&quot;group_id&quot;</span>&gt;</span><br>        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;form-group&quot;</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">for</span>=<span class="hljs-string">&quot;exampleInputPassword1&quot;</span>&gt;</span>项目filter<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;form-control&quot;</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;project_name&quot;</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;project_name&quot;</span> <span class="hljs-attr">placeholder</span>=<span class="hljs-string">&quot;project_name&quot;</span>&gt;</span><br>        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br><br>        <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;submit&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;btn btn-default&quot;</span>&gt;</span>发送<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+
+
+
+<h2 id="13-组态框示例（弹出框）"><a href="#13-组态框示例（弹出框）" class="headerlink" title="13. 组态框示例（弹出框）"></a>13. 组态框示例（弹出框）</h2><p><code>html</code></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><code class="hljs python">&lt;button <span class="hljs-built_in">type</span>=<span class="hljs-string">&quot;button&quot;</span> <span class="hljs-built_in">id</span>=<span class="hljs-string">&quot;btnadd&quot;</span> <span class="hljs-keyword">class</span>=<span class="hljs-string">&quot;btn btn-primary btn-lg&quot;</span>&gt;<br>  Launch demo modal<br>&lt;/button&gt;<br><br>&lt;!-- Modal --&gt;<br>&lt;div <span class="hljs-keyword">class</span>=<span class="hljs-string">&quot;modal fade&quot;</span> <span class="hljs-built_in">id</span>=<span class="hljs-string">&quot;myModal&quot;</span> tabindex=<span class="hljs-string">&quot;-1&quot;</span> role=<span class="hljs-string">&quot;dialog&quot;</span> aria-labelledby=<span class="hljs-string">&quot;myModalLabel&quot;</span>&gt;<br>  &lt;div <span class="hljs-keyword">class</span>=<span class="hljs-string">&quot;modal-dialog&quot;</span> role=<span class="hljs-string">&quot;document&quot;</span>&gt;<br>    &lt;div <span class="hljs-keyword">class</span>=<span class="hljs-string">&quot;modal-content&quot;</span>&gt;<br>      &lt;div <span class="hljs-keyword">class</span>=<span class="hljs-string">&quot;modal-header&quot;</span>&gt;<br>        &lt;button <span class="hljs-built_in">type</span>=<span class="hljs-string">&quot;button&quot;</span> <span class="hljs-keyword">class</span>=<span class="hljs-string">&quot;close&quot;</span> data-dismiss=<span class="hljs-string">&quot;modal&quot;</span> aria-label=<span class="hljs-string">&quot;Close&quot;</span>&gt;&lt;span aria-hidden=<span class="hljs-string">&quot;true&quot;</span>&gt;&amp;times;&lt;/span&gt;&lt;/button&gt;<br>        &lt;h4 <span class="hljs-keyword">class</span>=<span class="hljs-string">&quot;modal-title&quot;</span> <span class="hljs-built_in">id</span>=<span class="hljs-string">&quot;myModalLabel&quot;</span>&gt;Modal title&lt;/h4&gt;<br>      &lt;/div&gt;<br>      &lt;div <span class="hljs-keyword">class</span>=<span class="hljs-string">&quot;modal-body&quot;</span>&gt;<br>        ...<br>      &lt;/div&gt;<br>      &lt;div <span class="hljs-keyword">class</span>=<span class="hljs-string">&quot;modal-footer&quot;</span>&gt;<br>        &lt;button <span class="hljs-built_in">type</span>=<span class="hljs-string">&quot;button&quot;</span> <span class="hljs-keyword">class</span>=<span class="hljs-string">&quot;btn btn-default&quot;</span> data-dismiss=<span class="hljs-string">&quot;modal&quot;</span>&gt;Close&lt;/button&gt;<br>        &lt;button <span class="hljs-built_in">type</span>=<span class="hljs-string">&quot;button&quot;</span> <span class="hljs-keyword">class</span>=<span class="hljs-string">&quot;btn btn-primary&quot;</span>&gt;Save changes&lt;/button&gt;<br>      &lt;/div&gt;<br>    &lt;/div&gt;<br>  &lt;/div&gt;<br>&lt;/div&gt;<br><br><br>&#123;% block js %&#125;<br>    &lt;script <span class="hljs-built_in">type</span>=<span class="hljs-string">&quot;text/javascript&quot;</span>&gt;<br>    $(function () &#123;<br>        bindBtnAddEvent();<br>    &#125;)<br><br>    function bindBtnAddEvent()&#123;<br>        $(<span class="hljs-string">&quot;#btnadd&quot;</span>).click(function () &#123;<br>            //点击按钮，显示对话框<br>            $(<span class="hljs-string">&quot;#myModal&quot;</span>).modal(<span class="hljs-string">&quot;show&quot;</span>);<br>        &#125;)<br>    &#125;<br>    &lt;/script&gt;<br>&#123;% endblock %&#125;<br></code></pre></td></tr></table></figure>
+
+
+<h2 id="14-表单编辑-删除过程中，传递uid"><a href="#14-表单编辑-删除过程中，传递uid" class="headerlink" title="14. 表单编辑&#x2F;删除过程中，传递uid *"></a>14. 表单编辑&#x2F;删除过程中，传递uid *</h2><ol>
+<li><p><code>urls.py</code></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python">path(<span class="hljs-string">&#x27;ppc_test_center/DOU/&lt;int:nid&gt;/edit&#x27;</span>, views.ppc_DOU_edit_basic_information),<br></code></pre></td></tr></table></figure>
+</li>
+<li><p><code>views.py</code></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">ppc_DOU_edit_basic_information</span>(<span class="hljs-params">request, nid</span>):<br>    row_object = DOU_project_basic_information_list.objects.<span class="hljs-built_in">filter</span>(<span class="hljs-built_in">id</span>=nid).first()<br><br>    <span class="hljs-string">&#x27;&#x27;&#x27;  编辑用户 &#x27;&#x27;&#x27;</span><br>    <span class="hljs-keyword">if</span> request.method == <span class="hljs-string">&quot;GET&quot;</span>:<br>        <span class="hljs-comment"># 根据ID去数据库获取要编译的那一行数据（对象）</span><br>        form = UserModelForm(instance=row_object)<br>        <span class="hljs-keyword">return</span> render(request, <span class="hljs-string">&#x27;ppc_DOU_edit_basic_information.html&#x27;</span>, &#123;<span class="hljs-string">&#x27;form&#x27;</span>: form&#125;)<br><br>    <span class="hljs-keyword">if</span> request.method == <span class="hljs-string">&quot;POST&quot;</span>:<br>        form = UserModelForm(data=request.POST, instance=row_object)<br>        <span class="hljs-keyword">if</span> form.is_valid():<br>            form.save()<br>            <span class="hljs-keyword">return</span> redirect(<span class="hljs-string">&#x27;/ppc_test_center/DOU/&#x27;</span>)<br><br>    <span class="hljs-keyword">return</span> redirect(<span class="hljs-string">&quot;/ppc_test_center/DOU/&quot;</span>)<br></code></pre></td></tr></table></figure>
+</li>
+<li><p><code>html</code></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs python">&lt;td&gt;<br>    &lt;a <span class="hljs-keyword">class</span>=<span class="hljs-string">&quot;btn btn-primary btn-xs&quot;</span> href=<span class="hljs-string">&quot;M61_ST3/&quot;</span>&gt;&lt;i <span class="hljs-keyword">class</span>=<span class="hljs-string">&quot;fa fa-search&quot;</span> aria-hidden=<span class="hljs-string">&quot;true&quot;</span>&gt;&lt;/i&gt;查询&lt;/a&gt;<br>    &lt;a <span class="hljs-keyword">class</span>=<span class="hljs-string">&quot;btn btn-primary btn-xs&quot;</span> href=<span class="hljs-string">&quot;&#123;&#123; singo_data_list.id &#125;&#125;/edit&quot;</span>&gt;<br>        &lt;i <span class="hljs-keyword">class</span>=<span class="hljs-string">&quot;fa fa-edit&quot;</span> aria-hidden=<span class="hljs-string">&quot;true&quot;</span>&gt;&lt;/i&gt;编辑&lt;/a&gt;<br>     <br>    <span class="hljs-comment"># 对比老方法</span><br>    &lt;a <span class="hljs-keyword">class</span>=<span class="hljs-string">&quot;btn btn-danger btn-xs&quot;</span> href=<span class="hljs-string">&quot;delete_project_basic_information/?nid=&#123;&#123; singo_data_list.id &#125;&#125;&quot;</span>&gt;<br>        &lt;i <span class="hljs-keyword">class</span>=<span class="hljs-string">&quot;fa fa-trash-o&quot;</span> aria-hidden=<span class="hljs-string">&quot;true&quot;</span>&gt;&lt;/i&gt;删除&lt;/a&gt;<br>&lt;/td&gt;<br></code></pre></td></tr></table></figure></li>
+</ol>
+<h2 id="15-更改所打开页面的标签名称"><a href="#15-更改所打开页面的标签名称" class="headerlink" title="15. 更改所打开页面的标签名称"></a>15. 更改所打开页面的标签名称</h2><h3 id="1-方法1"><a href="#1-方法1" class="headerlink" title="1. 方法1"></a>1. 方法1</h3><p>在视图函数中设置 <code>context[&#39;title&#39;]</code> 的值</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">my_view</span>(<span class="hljs-params">request</span>):<br>    context = &#123;<span class="hljs-string">&#x27;title&#x27;</span>: <span class="hljs-string">&#x27;My Page Title&#x27;</span>&#125;        <br>    <span class="hljs-keyword">return</span> render(request, <span class="hljs-string">&#x27;my_template.html&#x27;</span>, context)<br></code></pre></td></tr></table></figure>
+
+<h3 id="2-方法2"><a href="#2-方法2" class="headerlink" title="2. 方法2"></a>2. 方法2</h3><p>在模板文件中使用 <code>&#123;&#123; title &#125;&#125;</code> 变量来显示页面标题</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">html</span>&gt;</span>    <br>    <span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>        <br>        <span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>&#123;&#123; title &#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span>    <br>    <span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span>    <br>    <span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>        <br>        <span class="hljs-comment">&lt;!-- 页面内容 --&gt;</span>    <br>    <span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>    <br><span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+
+
+<h2 id="16-HTML-页面中获取-1、2、3用于制作假id"><a href="#16-HTML-页面中获取-1、2、3用于制作假id" class="headerlink" title="16. HTML 页面中获取 1、2、3用于制作假id"></a>16. HTML 页面中获取 1、2、3用于制作假id</h2><ol>
+<li>在 Django 中，可以使用 <code>&#123;% for %&#125;</code> 标签来循环遍历项目列表，并使用 <code>forloop.counter</code> 变量来获取循环的计数器。</li>
+<li>最终，我们将所有项目渲染为一个有序列表，其中每个项目都有一个数字前缀。</li>
+</ol>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">ul</span>&gt;</span> <br>    &#123;% for project in projects %&#125;     <br>        <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>&#123;&#123; forloop.counter &#125;&#125;. &#123;&#123; project &#125;&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span> <br>    &#123;% endfor %&#125; <br><span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+
+
+
+<h2 id="18-models中不同不同数据表中的关键词不要取一样的值"><a href="#18-models中不同不同数据表中的关键词不要取一样的值" class="headerlink" title="18. models中不同不同数据表中的关键词不要取一样的值*"></a>18. models中不同不同数据表中的关键词不要取一样的值*</h2><div style="text-align:center;gap:5px">
+    <img src="/img/django_pic/53.jpg" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:35%;">
+    <img src="/img/django_pic/54.jpg" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:35%;">
+</div>
+
+
+
+<h2 id="19-多模块页面汇总跳转"><a href="#19-多模块页面汇总跳转" class="headerlink" title="19. 多模块页面汇总跳转*"></a>19. 多模块页面汇总跳转*</h2><div style="text-align:center">
+    <img src="/img/django_pic/55.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
+</div>
+
+
+
+<ol>
+<li><p><code>html</code></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;container&quot;</span> <span class="hljs-attr">style</span>=<span class="hljs-string">&quot;width: 1368px&quot;</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;row&quot;</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;col-lg-6&quot;</span> <span class="hljs-attr">style</span>=<span class="hljs-string">&quot;margin-left: 0;padding-left: 0&quot;</span>&gt;</span><br>            &#123;#触控模块#&#125;<br>            <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;http://10.221.113.135:8000/basic_score/audio&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><br>        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br></code></pre></td></tr></table></figure>
+</li>
+<li><p><code>urls.py</code></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python">path(<span class="hljs-string">&#x27;basic_score/&lt;str:modelName&gt;&#x27;</span>, views.singo_model_basic_score),<br></code></pre></td></tr></table></figure>
+</li>
+<li><p><code>views.py</code></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs python">pydef singo_model_basic_score(request,modelName):<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;modelName&#x27;</span>, modelName)<br>    <span class="hljs-keyword">return</span> render(request, <span class="hljs-string">&quot;basic_score.html&quot;</span>)<br></code></pre></td></tr></table></figure></li>
+</ol>
+<h2 id="20-后端向前端父类模板传值，且不通过子类模板"><a href="#20-后端向前端父类模板传值，且不通过子类模板" class="headerlink" title="20. 后端向前端父类模板传值，且不通过子类模板"></a>20. 后端向前端父类模板传值，且不通过子类模板</h2><ol>
+<li><code>settings.py</code>：<mark>在 Django 项目的配置文件中，将该上下文处理器添加到 <code>TEMPLATES</code> 设置中的 <code>context_processors</code> 列表中</mark></li>
+<li><code>xx.py</code>：在 Django 项目中的某个应用中创建一个上下文处理器</li>
+<li><code>xx.html</code>：将后端的值传给父类模版</li>
+</ol>
+<div style="text-align:center">
+    <img src="/img/django_pic/60.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
+</div>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/Web%E5%BC%80%E5%8F%91/" class="category-chain-item">Web开发</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/Web%E5%BC%80%E5%8F%91/%E6%A1%86%E6%9E%B6/" class="category-chain-item">框架</a>
+  
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/Web%E5%BC%80%E5%8F%91/" class="print-no-link">#Web开发</a>
+      
+        <a href="/tags/Python/" class="print-no-link">#Python</a>
+      
+        <a href="/tags/%E6%A1%86%E6%9E%B6/" class="print-no-link">#框架</a>
+      
+        <a href="/tags/Django/" class="print-no-link">#Django</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>Django Web框架</div>
+      <div>http://example.com/2023/11/29/Django Web框架/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>张辰</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2023年11月29日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2023/11/30/%E5%8A%9F%E8%80%97%E6%B5%8B%E8%AF%95/" title="功耗测试方法">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">功耗测试方法</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2023/11/29/Jenkins/" title="Jenkins">
+                        <span class="hidden-mobile">Jenkins</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  <script>
+  Fluid.utils.createScript('https://lib.baomitu.com/mermaid/8.14.0/mermaid.min.js', function() {
+    mermaid.initialize({"theme":"default"});
+
+    Fluid.utils.listenDOMLoaded(function() {
+      Fluid.events.registerRefreshCallback(function() {
+        if ('mermaid' in window) {
+          mermaid.init();
+        }
+      });
+    });
+  });
+</script>
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="busuanzi_container_site_pv" style="display: none">
+        总访问量
+        <span id="busuanzi_value_site_pv"></span>
+        次
+      </span>
+    
+    
+      <span id="busuanzi_container_site_uv" style="display: none">
+        总访客数
+        <span id="busuanzi_value_site_uv"></span>
+        人
+      </span>
+    
+    
+  
+</div>
+
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

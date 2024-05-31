@@ -1,0 +1,1036 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="张辰">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="记录下牛客网上刷过的题。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="做道小题">
+<meta property="og:url" content="http://example.com/2023/11/20/%E5%81%9A%E9%81%93%E5%B0%8F%E9%A2%98/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="记录下牛客网上刷过的题。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/img/do_exercise_pic/1.jpg">
+<meta property="article:published_time" content="2023-11-20T12:00:00.000Z">
+<meta property="article:modified_time" content="2024-04-22T09:12:53.865Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="Python">
+<meta property="article:tag" content="刷题">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://example.com/img/do_exercise_pic/1.jpg">
+  
+  
+    <meta name="referrer" content="no-referrer-when-downgrade">
+  
+  
+  <title>做道小题 - Hexo</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.6","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 7.0.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Blog</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/banner_hexo.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="做道小题"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2023-11-20 20:00" pubdate>
+          2023年11月20日 晚上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          1.4k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          12 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">做道小题</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h2 id="1-Easy"><a href="#1-Easy" class="headerlink" title="1. Easy"></a>1. Easy</h2><h3 id="1-字符串最后一个单词的长度"><a href="#1-字符串最后一个单词的长度" class="headerlink" title="1. 字符串最后一个单词的长度"></a>1. 字符串最后一个单词的长度</h3><div style="text-align:center">
+    <img src="/img/do_exercise_pic/2.png" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:40%">
+</div>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs python">s = <span class="hljs-built_in">input</span>().split(<span class="hljs-string">&#x27; &#x27;</span>)[-<span class="hljs-number">1</span>]<br>s_len = <span class="hljs-built_in">len</span>(s)<br><span class="hljs-built_in">print</span>(s_len)<br></code></pre></td></tr></table></figure>
+
+
+
+<h3 id="2-计算某字符出现次数"><a href="#2-计算某字符出现次数" class="headerlink" title="2. 计算某字符出现次数"></a>2. 计算某字符出现次数</h3><div style="text-align:center">
+    <img src="/img/do_exercise_pic/3.png" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:40%">
+</div>
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> re <span class="hljs-keyword">import</span> search<br>s1 = <span class="hljs-built_in">input</span>().lower()<br>s2 = <span class="hljs-built_in">input</span>().lower()<br><br>i = <span class="hljs-number">0</span><br><span class="hljs-keyword">for</span> singo_s1 <span class="hljs-keyword">in</span> s1:<br>    <span class="hljs-keyword">if</span> singo_s1 == s2:<br>        i += <span class="hljs-number">1</span><br><span class="hljs-built_in">print</span>(i)<br></code></pre></td></tr></table></figure>
+
+
+
+<h3 id="3-明明的随机数"><a href="#3-明明的随机数" class="headerlink" title="3. 明明的随机数"></a>3. 明明的随机数</h3><div style="text-align:center">
+    <img src="/img/do_exercise_pic/4.png" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:40%">
+</div>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs python">input_n = <span class="hljs-built_in">int</span>(<span class="hljs-built_in">input</span>())<br>input_list = []<br><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(input_n):<br>    input1 = <span class="hljs-built_in">int</span>(<span class="hljs-built_in">input</span>())<br>    <span class="hljs-comment"># print(&#x27;input1&#x27;, input1)</span><br>    input_list.append(input1)<br><br>input_list_clean = <span class="hljs-built_in">list</span>(<span class="hljs-built_in">set</span>(input_list))<br>input_list_clean.sort()<br><br><span class="hljs-keyword">for</span> singo_i <span class="hljs-keyword">in</span> input_list_clean:<br>    <span class="hljs-built_in">print</span>(singo_i)<br></code></pre></td></tr></table></figure>
+
+<h3 id="4-字符串分隔"><a href="#4-字符串分隔" class="headerlink" title="4. 字符串分隔"></a>4. 字符串分隔</h3><div style="text-align:center">
+    <img src="/img/do_exercise_pic/5.png" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:40%">
+</div>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs python">s = <span class="hljs-built_in">input</span>()<br><span class="hljs-keyword">if</span> <span class="hljs-built_in">len</span>(s)%<span class="hljs-number">8</span> != <span class="hljs-number">0</span>:<br>    s = s + <span class="hljs-string">&#x27;0&#x27;</span>*(<span class="hljs-number">8</span>-<span class="hljs-built_in">len</span>(s)%<span class="hljs-number">8</span>)<br><br><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">0</span>,<span class="hljs-built_in">len</span>(s),<span class="hljs-number">8</span>):<br>    <span class="hljs-built_in">print</span>(s[i:i+<span class="hljs-number">8</span>])<br></code></pre></td></tr></table></figure>
+
+<h3 id="5-进制转换"><a href="#5-进制转换" class="headerlink" title="5. 进制转换"></a>5. 进制转换</h3><div style="text-align:center">
+    <img src="/img/do_exercise_pic/6.png" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:40%">
+</div>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python">n = <span class="hljs-built_in">input</span>()<br><span class="hljs-built_in">print</span>(<span class="hljs-built_in">int</span>(n,<span class="hljs-number">16</span>))<br></code></pre></td></tr></table></figure>
+
+
+
+<h3 id="6-质数因子"><a href="#6-质数因子" class="headerlink" title="6. 质数因子"></a>6. 质数因子</h3><div style="text-align:center">
+    <img src="/img/do_exercise_pic/7.png" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:40%">
+</div>
+
+<ul>
+<li>利用长除法进行计算</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs python">num = <span class="hljs-built_in">int</span>(<span class="hljs-built_in">input</span>())   <span class="hljs-comment"># 要分解的数</span><br><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">2</span>,<span class="hljs-built_in">int</span>(num**<span class="hljs-number">0.5</span>)+<span class="hljs-number">1</span>):<br>	<span class="hljs-keyword">while</span> num%i==<span class="hljs-number">0</span>:<br>        <span class="hljs-comment"># //计算为整除，/计算会出现小数</span><br>		num = num // i<br>		<span class="hljs-built_in">print</span>(i,end=<span class="hljs-string">&#x27; &#x27;</span>)<br>	<span class="hljs-keyword">if</span> num == <span class="hljs-number">1</span>:<br>		<span class="hljs-keyword">break</span><br><span class="hljs-keyword">if</span> num &gt; <span class="hljs-number">2</span>:<br>	<span class="hljs-built_in">print</span>(num)<br></code></pre></td></tr></table></figure>
+
+
+
+<h3 id="7-取近似值"><a href="#7-取近似值" class="headerlink" title="7. 取近似值"></a>7. 取近似值</h3><div style="text-align:center">
+    <img src="/img/do_exercise_pic/8.png" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:40%">
+</div>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs python">a=<span class="hljs-built_in">float</span>(<span class="hljs-built_in">input</span>())<br>a_int = a // <span class="hljs-number">1</span><br><br><span class="hljs-keyword">if</span> a-a_int&gt;=<span class="hljs-number">0.5</span>:<br>    a = <span class="hljs-built_in">int</span>(a_int + <span class="hljs-number">1</span>)<br><span class="hljs-keyword">else</span>:<br>    a = a_int<br><span class="hljs-built_in">print</span>(a)<br></code></pre></td></tr></table></figure>
+
+
+
+<h3 id="8-合并表记录"><a href="#8-合并表记录" class="headerlink" title="8. 合并表记录"></a>8. 合并表记录</h3><div style="text-align:center">
+    <img src="/img/do_exercise_pic/9.png" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:40%">
+</div>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-built_in">round</span> = <span class="hljs-built_in">input</span>()<br>nums_dict = &#123;&#125;<br><br><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-built_in">int</span>(<span class="hljs-built_in">round</span>)):<br>    nums = <span class="hljs-built_in">input</span>()<br>    k, v = nums.split(<span class="hljs-string">&#x27; &#x27;</span>)<br>    k = <span class="hljs-built_in">int</span>(k)<br>    v = <span class="hljs-built_in">int</span>(v)<br>    <span class="hljs-keyword">if</span> k <span class="hljs-keyword">not</span> <span class="hljs-keyword">in</span> nums_dict:<br>        nums_dict[k] = v<br>    <span class="hljs-keyword">else</span>:<br>        nums_dict[k] += v<br><span class="hljs-comment"># print(nums_dict)</span><br>nums_dict_sort = <span class="hljs-built_in">sorted</span>(nums_dict.items())<br><span class="hljs-comment"># print(nums_dict_sort)</span><br><span class="hljs-keyword">for</span> k, v <span class="hljs-keyword">in</span> nums_dict_sort:<br>    <span class="hljs-built_in">print</span>(<span class="hljs-built_in">str</span>(k) + <span class="hljs-string">&#x27; &#x27;</span> + <span class="hljs-built_in">str</span>(v))<br></code></pre></td></tr></table></figure>
+
+
+
+<h3 id="9-提取不重复的整数"><a href="#9-提取不重复的整数" class="headerlink" title="9. 提取不重复的整数"></a>9. 提取不重复的整数</h3><div style="text-align:center">
+    <img src="/img/do_exercise_pic/10.png" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:40%">
+</div>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs python">li = <span class="hljs-built_in">input</span>()<br>li_str = <span class="hljs-string">&#x27;&#x27;</span><br><span class="hljs-comment"># 字符串倒序</span><br><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> li[：：-<span class="hljs-number">1</span>]:<br>    <span class="hljs-comment"># print(li[i])</span><br>    <span class="hljs-keyword">if</span> li[i] <span class="hljs-keyword">not</span> <span class="hljs-keyword">in</span> li_str:<br>        li_str += li[i]<br><br><span class="hljs-built_in">print</span>(li_str)<br></code></pre></td></tr></table></figure>
+
+
+
+<h3 id="10-求int类型正整数在内存中存储时1的个数"><a href="#10-求int类型正整数在内存中存储时1的个数" class="headerlink" title="10. 求int类型正整数在内存中存储时1的个数 *"></a>10. 求int类型正整数在内存中存储时1的个数 *</h3><div style="text-align:center">
+    <img src="/img/do_exercise_pic/11.png" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:40%">
+</div>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python">n = <span class="hljs-built_in">int</span>(<span class="hljs-built_in">input</span>())<br><span class="hljs-built_in">print</span>(<span class="hljs-built_in">bin</span>(n).count(<span class="hljs-string">&#x27;1&#x27;</span>))<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>知识点<ul>
+<li><code>bin()</code> 将数据转为二进制类型</li>
+<li><code>.count(&quot;元素&quot;)</code>  统计字符串中元素的个数</li>
+</ul>
+</li>
+</ul>
+<h3 id="11-统计列表中出现一次的数"><a href="#11-统计列表中出现一次的数" class="headerlink" title="11. 统计列表中出现一次的数"></a>11. 统计列表中出现一次的数</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs python">nums = [<span class="hljs-number">4</span>,<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">2</span>]<br>num_dict = &#123;&#125;<br><span class="hljs-keyword">for</span> num <span class="hljs-keyword">in</span> nums:<br>    <span class="hljs-keyword">if</span> num <span class="hljs-keyword">in</span> num_dict:<br>        num_dict[num] += <span class="hljs-number">1</span><br>    <span class="hljs-keyword">else</span>:<br>        num_dict[num] = <span class="hljs-number">1</span><br><span class="hljs-built_in">print</span>(num_dict)<br><br>result = []<br><span class="hljs-keyword">for</span> k, v <span class="hljs-keyword">in</span> num_dict.items():<br>    <span class="hljs-keyword">if</span> v == <span class="hljs-number">1</span>:<br>        result.append(k)<br><span class="hljs-built_in">print</span>(result)<br></code></pre></td></tr></table></figure>
+
+
+
+
+
+<h3 id="13-字母异位词文组"><a href="#13-字母异位词文组" class="headerlink" title="13. 字母异位词文组"></a>13. 字母异位词文组</h3><p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/group-anagrams/description/?envType=study-plan-v2&envId=top-100-liked">https://leetcode.cn/problems/group-anagrams/description/?</a></p>
+<ul>
+<li><p>需求：将一个字符串数组，重新排列源单词的所有字母得到一个新单词，返回结果列表</p>
+<ul>
+<li>输入：<code>strs = [&quot;eat&quot;, &quot;tea&quot;, &quot;tan&quot;, &quot;ate&quot;, &quot;nat&quot;, &quot;bat&quot;]</code></li>
+<li>输出：<code>[[&#39;eat&#39;, &#39;tea&#39;, &#39;ate&#39;], [&#39;tan&#39;, &#39;nat&#39;], [&#39;bat&#39;]]</code></li>
+</ul>
+</li>
+<li><p>思路：</p>
+<ul>
+<li>将数组中的每一个字符串，根据单词顺序进行排列</li>
+</ul>
+</li>
+<li><p>代码</p>
+</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs python">strs = [<span class="hljs-string">&quot;eat&quot;</span>, <span class="hljs-string">&quot;tea&quot;</span>, <span class="hljs-string">&quot;tan&quot;</span>, <span class="hljs-string">&quot;ate&quot;</span>, <span class="hljs-string">&quot;nat&quot;</span>, <span class="hljs-string">&quot;bat&quot;</span>]<br>dic = &#123;&#125;<br><span class="hljs-keyword">for</span> one_str <span class="hljs-keyword">in</span> strs:<br>    one_str_clean =<span class="hljs-string">&#x27;&#x27;</span>.join(<span class="hljs-built_in">sorted</span>(one_str))<br><br>    <span class="hljs-keyword">if</span> one_str_clean <span class="hljs-keyword">in</span> dic:<br>        dic[one_str_clean].append(one_str)<br>    <span class="hljs-keyword">else</span>:<br>        dic[one_str_clean] = [one_str]<br>            <br><span class="hljs-built_in">print</span>(dic)       <span class="hljs-comment"># &#123;&#x27;aet&#x27;: [&#x27;eat&#x27;, &#x27;tea&#x27;, &#x27;ate&#x27;], &#x27;ant&#x27;: [&#x27;tan&#x27;, &#x27;nat&#x27;], &#x27;abt&#x27;: [&#x27;bat&#x27;]&#125;</span><br>result = [v <span class="hljs-keyword">for</span> k,v <span class="hljs-keyword">in</span> dic.items()]<br><span class="hljs-built_in">print</span>(result)    <span class="hljs-comment"># [[&#x27;eat&#x27;, &#x27;tea&#x27;, &#x27;ate&#x27;], [&#x27;tan&#x27;, &#x27;nat&#x27;], [&#x27;bat&#x27;]]</span><br></code></pre></td></tr></table></figure>
+
+
+
+<h2 id="2-Leetcode"><a href="#2-Leetcode" class="headerlink" title="2. Leetcode"></a>2. Leetcode</h2><h3 id="1-两数之和"><a href="#1-两数之和" class="headerlink" title="1. 两数之和"></a>1. 两数之和</h3><ul>
+<li><p>链接：<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1AN4y137uT/?p=4&vd_source=4cf7b60c223a665538a4d958765c91a5">https://www.bilibili.com/video/BV1AN4y137uT/?</a></p>
+</li>
+<li><p>关键词：【简单】【字典创建查询】</p>
+</li>
+<li><p>需求：查找数组<code>nums</code>中，和为目标值<code>target</code>的那两个整数，并返回他们的数组下标</p>
+<ul>
+<li>输入：<code>nums = [2,7,11,15], target = 9</code></li>
+<li>输出：<code>[0,1]</code></li>
+<li>解析：因为<code>nums[0]+nums[1]==9,返回[0,1]</code></li>
+</ul>
+</li>
+<li><p>思路：</p>
+<ul>
+<li>将数组通过<code>enumerate()</code>，转为哈希表</li>
+<li>查找第二个元素，并要求其索引值大于第一个元素的索引值（防止取重复数据）</li>
+</ul>
+</li>
+<li><p>代码</p>
+</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs python">dic = &#123;&#125;<br>nums = [<span class="hljs-number">2</span>, <span class="hljs-number">7</span>, <span class="hljs-number">11</span>, <span class="hljs-number">15</span>]<br>target = <span class="hljs-number">9</span><br><span class="hljs-built_in">sum</span> = []<br><span class="hljs-keyword">for</span> i, v <span class="hljs-keyword">in</span> <span class="hljs-built_in">enumerate</span>(nums):<br>    dic[v] = i<br><span class="hljs-built_in">print</span>(dic)    <span class="hljs-comment"># &#123;2: 0, 7: 1, 11: 2, 15: 3&#125;</span><br><br><span class="hljs-keyword">for</span> i, v <span class="hljs-keyword">in</span> <span class="hljs-built_in">enumerate</span>(nums):<br>    <span class="hljs-keyword">if</span> target-v <span class="hljs-keyword">in</span> dic <span class="hljs-keyword">and</span> i&lt;dic[target-v]:<br>        <span class="hljs-built_in">print</span>([i, dic[target-v]])        <span class="hljs-comment"># [0, 1]</span><br></code></pre></td></tr></table></figure>
+
+
+
+<h3 id="2-两链表数字相加"><a href="#2-两链表数字相加" class="headerlink" title="2. 两链表数字相加 *"></a>2. 两链表数字相加 *</h3><ul>
+<li>链接：<a target="_blank" rel="noopener" href="https://leetcode.cn/problems/add-two-numbers/">https://leetcode.cn/problems/add-two-numbers/</a></li>
+<li>关键词：【中等】【链表crud】</li>
+<li>需求：两个非空的链表，表示两个非负的整数。它们每位数字都是按照 <strong>逆序</strong> 的方式存储的。将两个数相加，并以相同形式返回一个表示和的链表。<ul>
+<li>输入：l1 &#x3D; [2,4,3], l2 &#x3D; [5,6,4]</li>
+<li>输出：[7,0,8]</li>
+<li>解释：342 + 465 &#x3D; 807</li>
+</ul>
+</li>
+<li>思路：<ul>
+<li>python实现链表的构造</li>
+<li>读取链表中的数据转为int类型进行计算</li>
+<li>对于结果再次转为链表类型</li>
+</ul>
+</li>
+<li>代码：</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Node</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__init__</span>(<span class="hljs-params">self, item</span>):<br>        self.item = item<br>        self.<span class="hljs-built_in">next</span> = <span class="hljs-literal">None</span><br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">get_linkList_head</span>(<span class="hljs-params">li</span>):<br>    head = Node(li[<span class="hljs-number">0</span>])<br>    <span class="hljs-keyword">for</span> element <span class="hljs-keyword">in</span> li[<span class="hljs-number">1</span>:]:<br>        node = Node(element)<br>        node.<span class="hljs-built_in">next</span> = head<br>        head = node<br>    <span class="hljs-keyword">return</span> head<br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">print_int_linkList</span>(<span class="hljs-params">lk</span>):<br>    lk_str = <span class="hljs-string">&#x27;&#x27;</span><br>    <span class="hljs-keyword">while</span> lk:<br>        <span class="hljs-built_in">print</span>(lk.item, end=<span class="hljs-string">&#x27;,&#x27;</span>)<br>        lk_str += <span class="hljs-built_in">str</span>(lk.item)<br>        lk = lk.<span class="hljs-built_in">next</span><br>    lk_int = <span class="hljs-built_in">int</span>(lk_str)<br>    <span class="hljs-built_in">print</span>(lk_int)<br>    <span class="hljs-keyword">return</span> lk_int<br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">get_linkList_tail</span>(<span class="hljs-params">sum_num</span>):<br>    head = Node(sum_num[<span class="hljs-number">0</span>])<br>    tail = head<br>    <span class="hljs-keyword">for</span> element <span class="hljs-keyword">in</span> sum_num[<span class="hljs-number">1</span>:]:<br>        node = Node(element)<br>        tail.<span class="hljs-built_in">next</span> = node<br>        tail = node<br>    <span class="hljs-built_in">print</span>(head)<br>    <span class="hljs-keyword">return</span> head<br><br>num1 = get_linkList_head([<span class="hljs-number">2</span>,<span class="hljs-number">4</span>,<span class="hljs-number">3</span>])<br>num2 = get_linkList_head([<span class="hljs-number">5</span>,<span class="hljs-number">6</span>,<span class="hljs-number">4</span>])<br>num1_int = print_int_linkList(num1)<br>num2_int = print_int_linkList(num2)<br>sum_num = <span class="hljs-built_in">str</span>(num1_int + num2_int)<br>get_linkList_tail(sum_num)<br></code></pre></td></tr></table></figure>
+
+
+
+<h3 id="3-无重复的最长子串"><a href="#3-无重复的最长子串" class="headerlink" title="3. 无重复的最长子串 *"></a>3. 无重复的最长子串 *</h3><ul>
+<li><p>链接：<a target="_blank" rel="noopener" href="https://leetcode.cn/problems/longest-substring-without-repeating-characters/description/">https://leetcode.cn/problems/longest-substring-without-repeating-characters/description/</a></p>
+</li>
+<li><p>关键词：【中等】【字典变更】【列表增删】</p>
+</li>
+<li><p>需求：给定一个字符串 <code>s</code> ，找出其中不含有重复字符的最长子串的长度。</p>
+<ul>
+<li>输入: s &#x3D; “abcabcbb”</li>
+<li>输出: 3</li>
+<li>解释: 因为无重复字符的最长子串是 “abc”，所以其长度为 3</li>
+</ul>
+</li>
+<li><p>方法1：</p>
+<ul>
+<li><p>思路：</p>
+<ul>
+<li>循环字符串，将每个字符添加到新的列表中</li>
+<li><mark>如果列表中已存在新的字符，循环删除列表的第一个元素，直到不存在新元素</mark></li>
+</ul>
+</li>
+<li><p>代码：</p>
+</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs python">s = <span class="hljs-string">&#x27;abcabcbb&#x27;</span><br>max_len = <span class="hljs-number">0</span><br>arr = []<br>max_list = <span class="hljs-string">&#x27;&#x27;</span><br><br><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> s:<br>    <span class="hljs-keyword">while</span> i <span class="hljs-keyword">in</span> arr:<br>        <span class="hljs-comment"># 删除列表中的第一个元素，后续元素自动补齐</span><br>        arr.pop(<span class="hljs-number">0</span>)<br><br>    arr.append(i)<br>    <span class="hljs-keyword">if</span> <span class="hljs-built_in">len</span>(arr) &gt; max_len:<br>        max_len = <span class="hljs-built_in">len</span>(arr)<br>        max_list = <span class="hljs-string">&#x27;&#x27;</span>.join(arr)<br><br><span class="hljs-built_in">print</span>(max_len)    <span class="hljs-comment"># 3</span><br><span class="hljs-built_in">print</span>(max_list)   <span class="hljs-comment"># abc</span><br></code></pre></td></tr></table></figure>
+</li>
+<li><p>方法2：</p>
+<ul>
+<li><p>思路：</p>
+<ul>
+<li>利用滑动窗口法</li>
+<li>建立左右两个指针，遍历字符串</li>
+<li>将第一次出现的字符，以及其的索引，记录在字典中</li>
+</ul>
+</li>
+<li><p>代码：</p>
+</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs python">s = <span class="hljs-string">&quot;abcabcbb&quot;</span><br>s_dict = &#123;&#125;<br>max_len = right = left = <span class="hljs-number">0</span><br><br><span class="hljs-keyword">for</span> right <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-built_in">len</span>(s)):<br>    <span class="hljs-keyword">if</span> s[right] <span class="hljs-keyword">in</span> s_dict <span class="hljs-keyword">and</span> s_dict[s[right]] &gt;= left:<br>        left = s_dict[s[right]] + <span class="hljs-number">1</span><br>        s_dict[s[right]] = right<br>        str_len = right - left + <span class="hljs-number">1</span><br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;$$&#x27;</span>, right, s[right], s_dict, str_len)<br>    <span class="hljs-keyword">else</span>:<br>        s_dict[s[right]] = right<br>        str_len = right - left + <span class="hljs-number">1</span><br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;@@&#x27;</span>, right, s[right], s_dict, str_len)<br>    max_len = <span class="hljs-built_in">max</span>(max_len, str_len)<br><br><span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;max_len&#x27;</span>, max_len)<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight gams"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs gams">@@ <span class="hljs-number">0</span> a &#123;<span class="hljs-string">&#x27;a&#x27;</span>: <span class="hljs-number">0</span>&#125; <span class="hljs-number">1</span><br>@@ <span class="hljs-number">1</span> b &#123;<span class="hljs-string">&#x27;a&#x27;</span>: <span class="hljs-number">0</span>, <span class="hljs-string">&#x27;b&#x27;</span>: <span class="hljs-number">1</span>&#125; <span class="hljs-number">2</span><br>@@ <span class="hljs-number">2</span> c &#123;<span class="hljs-string">&#x27;a&#x27;</span>: <span class="hljs-number">0</span>, <span class="hljs-string">&#x27;b&#x27;</span>: <span class="hljs-number">1</span>, <span class="hljs-string">&#x27;c&#x27;</span>: <span class="hljs-number">2</span>&#125; <span class="hljs-number">3</span><br><span class="hljs-symbol">$</span><span class="hljs-symbol">$</span> <span class="hljs-number">3</span> a &#123;<span class="hljs-string">&#x27;a&#x27;</span>: <span class="hljs-number">3</span>, <span class="hljs-string">&#x27;b&#x27;</span>: <span class="hljs-number">1</span>, <span class="hljs-string">&#x27;c&#x27;</span>: <span class="hljs-number">2</span>&#125; <span class="hljs-number">3</span><br><span class="hljs-symbol">$</span><span class="hljs-symbol">$</span> <span class="hljs-number">4</span> b &#123;<span class="hljs-string">&#x27;a&#x27;</span>: <span class="hljs-number">3</span>, <span class="hljs-string">&#x27;b&#x27;</span>: <span class="hljs-number">4</span>, <span class="hljs-string">&#x27;c&#x27;</span>: <span class="hljs-number">2</span>&#125; <span class="hljs-number">3</span><br><span class="hljs-symbol">$</span><span class="hljs-symbol">$</span> <span class="hljs-number">5</span> c &#123;<span class="hljs-string">&#x27;a&#x27;</span>: <span class="hljs-number">3</span>, <span class="hljs-string">&#x27;b&#x27;</span>: <span class="hljs-number">4</span>, <span class="hljs-string">&#x27;c&#x27;</span>: <span class="hljs-number">5</span>&#125; <span class="hljs-number">3</span><br><span class="hljs-symbol">$</span><span class="hljs-symbol">$</span> <span class="hljs-number">6</span> b &#123;<span class="hljs-string">&#x27;a&#x27;</span>: <span class="hljs-number">3</span>, <span class="hljs-string">&#x27;b&#x27;</span>: <span class="hljs-number">6</span>, <span class="hljs-string">&#x27;c&#x27;</span>: <span class="hljs-number">5</span>&#125; <span class="hljs-number">2</span><br><span class="hljs-symbol">$</span><span class="hljs-symbol">$</span> <span class="hljs-number">7</span> b &#123;<span class="hljs-string">&#x27;a&#x27;</span>: <span class="hljs-number">3</span>, <span class="hljs-string">&#x27;b&#x27;</span>: <span class="hljs-number">7</span>, <span class="hljs-string">&#x27;c&#x27;</span>: <span class="hljs-number">5</span>&#125; <span class="hljs-number">1</span><br>max_len <span class="hljs-number">3</span><br></code></pre></td></tr></table></figure>
+
+
+
+<h3 id="4-寻找两个正序数组的中位数"><a href="#4-寻找两个正序数组的中位数" class="headerlink" title="4. 寻找两个正序数组的中位数"></a>4. 寻找两个正序数组的中位数</h3><ul>
+<li>链接：<a target="_blank" rel="noopener" href="https://leetcode.cn/problems/median-of-two-sorted-arrays/description/">https://leetcode.cn/problems/median-of-two-sorted-arrays/description/</a></li>
+<li>关键词：【困难】【列表合并】【数字计算】</li>
+<li>需求：给定两个大小分别为 <code>m</code> 和 <code>n</code> 的正序（从小到大）数组 <code>nums1</code> 和 <code>nums2</code>。找出这两个正序数组的 <strong>中位数</strong> <ul>
+<li>输入：nums1 &#x3D; [1,2], nums2 &#x3D; [3,4]</li>
+<li>输出：2.5</li>
+<li>解释：合并数组 &#x3D; [1,2,3,4] ，中位数 (2 + 3) &#x2F; 2 &#x3D; 2.5</li>
+</ul>
+</li>
+<li>思路：<ul>
+<li>将两个列表进行合并，并更新顺序</li>
+<li>寻找中位数的索引</li>
+</ul>
+</li>
+<li>代码：</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs python">nums1 = [<span class="hljs-number">1</span>,<span class="hljs-number">2</span>]<br>nums2 = [<span class="hljs-number">3</span>,<span class="hljs-number">4</span>]<br>num3 = <span class="hljs-built_in">sorted</span>(nums1+nums2)<br><br><span class="hljs-comment"># 判断列表的奇偶性</span><br>num_kind = <span class="hljs-built_in">len</span>(num3) % <span class="hljs-number">2</span><br><span class="hljs-comment"># 取列表的中间索引</span><br>num_middle = <span class="hljs-built_in">len</span>(num3) // <span class="hljs-number">2</span><br><br><span class="hljs-keyword">if</span> num_kind == <span class="hljs-number">1</span>:<br>    <span class="hljs-built_in">print</span>(num3[num_middle])<br><span class="hljs-keyword">else</span>:<br>    avg = (<span class="hljs-built_in">float</span>(num3[num_middle]) + <span class="hljs-built_in">float</span>(num3[num_middle-<span class="hljs-number">1</span>]))/<span class="hljs-number">2</span><br>    <span class="hljs-built_in">print</span>(avg)<br></code></pre></td></tr></table></figure>
+
+
+
+<h3 id="5-最长回文子串"><a href="#5-最长回文子串" class="headerlink" title="5. 最长回文子串 *"></a>5. 最长回文子串 *</h3><ul>
+<li>链接：<a target="_blank" rel="noopener" href="https://leetcode.cn/problems/longest-palindromic-substring/">https://leetcode.cn/problems/longest-palindromic-substring/</a></li>
+<li>关键词：【中等】</li>
+<li>需求：一个字符串 <code>s</code>，找到 <code>s</code> 中最长的回文子串。如果字符串的反序与原始字符串相同，则该字符串称为回文字符串<ul>
+<li>输入：csabba</li>
+<li>输出：abba</li>
+</ul>
+</li>
+<li>思路：<ul>
+<li>创建左右两个指针，如果索引内容相同，继续向外扩</li>
+</ul>
+</li>
+<li>代码：</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs python">s = <span class="hljs-string">&#x27;csabba&#x27;</span><br>res = right = left = <span class="hljs-number">0</span><br><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-built_in">len</span>(s) - <span class="hljs-number">1</span>):<br>    <span class="hljs-keyword">if</span> s[i] == s[i + <span class="hljs-number">1</span>]:  <span class="hljs-comment"># 偶数长度</span><br>        left = i<br>        right = i + <span class="hljs-number">1</span><br>        <span class="hljs-keyword">while</span> left &gt;= <span class="hljs-number">0</span> <span class="hljs-keyword">and</span> right &lt; <span class="hljs-built_in">len</span>(s) <span class="hljs-keyword">and</span> s[left] == s[right]:<br>            <span class="hljs-comment"># 满足条件就向两边扩展</span><br>            left -= <span class="hljs-number">1</span><br>            right += <span class="hljs-number">1</span><br>        res = <span class="hljs-built_in">max</span>(res, right - left - <span class="hljs-number">1</span>)<br><br>    <span class="hljs-keyword">if</span> s[i - <span class="hljs-number">1</span>] == s[i + <span class="hljs-number">1</span>]:  <span class="hljs-comment"># 奇数长度</span><br>        left = i - <span class="hljs-number">1</span><br>        right = i + <span class="hljs-number">1</span><br>        <span class="hljs-keyword">while</span> left &gt;= <span class="hljs-number">0</span> <span class="hljs-keyword">and</span> right &lt; <span class="hljs-built_in">len</span>(s) <span class="hljs-keyword">and</span> s[left] == s[right]:<br>            left -= <span class="hljs-number">1</span><br>            right += <span class="hljs-number">1</span><br>        res = <span class="hljs-built_in">max</span>(res, right - left - <span class="hljs-number">1</span>)<br><span class="hljs-built_in">print</span>(res)<br><span class="hljs-built_in">print</span>(s[left+<span class="hljs-number">1</span>:right])<br></code></pre></td></tr></table></figure>
+
+
+
+<h3 id="6-Z字形变化"><a href="#6-Z字形变化" class="headerlink" title="6. Z字形变化"></a>6. Z字形变化</h3><ul>
+<li><p>链接：<a target="_blank" rel="noopener" href="https://leetcode.cn/problems/zigzag-conversion/description/">https://leetcode.cn/problems/zigzag-conversion/description/</a></p>
+</li>
+<li><p>关键词：【中等】</p>
+</li>
+<li><p>需求：将一个给定字符串 <code>s</code> 根据给定的行数 <code>numRows</code> ，以从上往下、从左到右进行 Z 字形排列。之后，你的输出需要从左往右逐行读取，产生出一个新的字符串。</p>
+<ul>
+<li><p>输入：s &#x3D; “PAYPALISHIRING”, numRows &#x3D; 4</p>
+</li>
+<li><p>输出：”PINALSIGYAHRPI”</p>
+</li>
+<li><p>解释：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs css"><span class="hljs-selector-tag">P</span>     <span class="hljs-selector-tag">I</span>     N<br><span class="hljs-selector-tag">A</span>   L S   <span class="hljs-selector-tag">I</span> G<br>Y <span class="hljs-selector-tag">A</span>   H R<br><span class="hljs-selector-tag">P</span>     <span class="hljs-selector-tag">I</span><br></code></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>思路：</p>
+<ul>
+<li><p>将Z字符进行拆解为最小单元，以上述示例为例，最小单元为下图</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs css"><span class="hljs-selector-tag">P</span>     <br><span class="hljs-selector-tag">A</span>   L <br>Y <span class="hljs-selector-tag">A</span>   <br><span class="hljs-selector-tag">P</span> <br></code></pre></td></tr></table></figure>
+</li>
+<li><p>建立符合Z字符长度的列表，用于存储Z字符每一行的字符串</p>
+</li>
+<li><p>循环字符串，根据索引和最小单元的余，填入列表中</p>
+</li>
+</ul>
+</li>
+<li><p>代码：</p>
+</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs python">s = <span class="hljs-string">&quot;PAYPALISHIRING&quot;</span><br>numRows = <span class="hljs-number">4</span><br>n = <span class="hljs-number">2</span>*numRows -<span class="hljs-number">2</span><br><span class="hljs-comment"># 建立符合Z字符长度的列表，用于存储Z字符每一行的字符串</span><br>res = [<span class="hljs-string">&quot;&quot;</span>] * numRows<br><span class="hljs-keyword">for</span> i,char <span class="hljs-keyword">in</span> <span class="hljs-built_in">enumerate</span>(s):<br>    x = i%n<br>    res[<span class="hljs-built_in">min</span>(x,n-x)]+=char<br>    <span class="hljs-built_in">print</span>(res)<br><span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;&quot;</span>.join(res))<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs css"><span class="hljs-selector-attr">[<span class="hljs-string">&#x27;P&#x27;</span>, <span class="hljs-string">&#x27;&#x27;</span>, <span class="hljs-string">&#x27;&#x27;</span>, <span class="hljs-string">&#x27;&#x27;</span>]</span><br><span class="hljs-selector-attr">[<span class="hljs-string">&#x27;P&#x27;</span>, <span class="hljs-string">&#x27;A&#x27;</span>, <span class="hljs-string">&#x27;&#x27;</span>, <span class="hljs-string">&#x27;&#x27;</span>]</span><br><span class="hljs-selector-attr">[<span class="hljs-string">&#x27;P&#x27;</span>, <span class="hljs-string">&#x27;A&#x27;</span>, <span class="hljs-string">&#x27;Y&#x27;</span>, <span class="hljs-string">&#x27;&#x27;</span>]</span><br><span class="hljs-selector-attr">[<span class="hljs-string">&#x27;P&#x27;</span>, <span class="hljs-string">&#x27;A&#x27;</span>, <span class="hljs-string">&#x27;Y&#x27;</span>, <span class="hljs-string">&#x27;P&#x27;</span>]</span><br><span class="hljs-selector-attr">[<span class="hljs-string">&#x27;P&#x27;</span>, <span class="hljs-string">&#x27;A&#x27;</span>, <span class="hljs-string">&#x27;YA&#x27;</span>, <span class="hljs-string">&#x27;P&#x27;</span>]</span><br><span class="hljs-selector-attr">[<span class="hljs-string">&#x27;P&#x27;</span>, <span class="hljs-string">&#x27;AL&#x27;</span>, <span class="hljs-string">&#x27;YA&#x27;</span>, <span class="hljs-string">&#x27;P&#x27;</span>]</span><br><span class="hljs-selector-attr">[<span class="hljs-string">&#x27;PI&#x27;</span>, <span class="hljs-string">&#x27;AL&#x27;</span>, <span class="hljs-string">&#x27;YA&#x27;</span>, <span class="hljs-string">&#x27;P&#x27;</span>]</span><br><span class="hljs-selector-attr">[<span class="hljs-string">&#x27;PI&#x27;</span>, <span class="hljs-string">&#x27;ALS&#x27;</span>, <span class="hljs-string">&#x27;YA&#x27;</span>, <span class="hljs-string">&#x27;P&#x27;</span>]</span><br><span class="hljs-selector-attr">[<span class="hljs-string">&#x27;PI&#x27;</span>, <span class="hljs-string">&#x27;ALS&#x27;</span>, <span class="hljs-string">&#x27;YAH&#x27;</span>, <span class="hljs-string">&#x27;P&#x27;</span>]</span><br><span class="hljs-selector-attr">[<span class="hljs-string">&#x27;PI&#x27;</span>, <span class="hljs-string">&#x27;ALS&#x27;</span>, <span class="hljs-string">&#x27;YAH&#x27;</span>, <span class="hljs-string">&#x27;PI&#x27;</span>]</span><br><span class="hljs-selector-attr">[<span class="hljs-string">&#x27;PI&#x27;</span>, <span class="hljs-string">&#x27;ALS&#x27;</span>, <span class="hljs-string">&#x27;YAHR&#x27;</span>, <span class="hljs-string">&#x27;PI&#x27;</span>]</span><br><span class="hljs-selector-attr">[<span class="hljs-string">&#x27;PI&#x27;</span>, <span class="hljs-string">&#x27;ALSI&#x27;</span>, <span class="hljs-string">&#x27;YAHR&#x27;</span>, <span class="hljs-string">&#x27;PI&#x27;</span>]</span><br><span class="hljs-selector-attr">[<span class="hljs-string">&#x27;PIN&#x27;</span>, <span class="hljs-string">&#x27;ALSI&#x27;</span>, <span class="hljs-string">&#x27;YAHR&#x27;</span>, <span class="hljs-string">&#x27;PI&#x27;</span>]</span><br><span class="hljs-selector-attr">[<span class="hljs-string">&#x27;PIN&#x27;</span>, <span class="hljs-string">&#x27;ALSIG&#x27;</span>, <span class="hljs-string">&#x27;YAHR&#x27;</span>, <span class="hljs-string">&#x27;PI&#x27;</span>]</span><br>PINALSIGYAHRPI<br></code></pre></td></tr></table></figure>
+
+
+
+<h3 id="7-整数反转"><a href="#7-整数反转" class="headerlink" title="7. 整数反转"></a>7. 整数反转</h3><ul>
+<li>链接：<a target="_blank" rel="noopener" href="https://leetcode.cn/problems/reverse-integer/description/">https://leetcode.cn/problems/reverse-integer/description/</a></li>
+<li>关键词：【中等】</li>
+<li>需求：返回将 <code>x</code> 中的数字部分反转后的结果<ul>
+<li>输入1：x &#x3D; 123</li>
+<li>输出1：321</li>
+<li>输入2：x &#x3D; -123</li>
+<li>输出2：-321</li>
+</ul>
+</li>
+<li>代码</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs python">x=-<span class="hljs-number">123</span><br><span class="hljs-keyword">if</span> x&gt;<span class="hljs-number">0</span>:<br>    x_str = <span class="hljs-built_in">str</span>(x)<br>    x_change = x_str[::-<span class="hljs-number">1</span>]<br>    <span class="hljs-built_in">print</span>(x_change)<br><span class="hljs-keyword">if</span> x&lt;<span class="hljs-number">0</span>:<br>    x_str = <span class="hljs-built_in">str</span>(x)<br>    x_change = <span class="hljs-built_in">int</span>(<span class="hljs-string">&quot;-&quot;</span>+x_str[:-<span class="hljs-built_in">len</span>(x_str):-<span class="hljs-number">1</span>])<br>    <span class="hljs-built_in">print</span>(x_change, <span class="hljs-built_in">type</span>(x_change))<br><span class="hljs-keyword">if</span> x == <span class="hljs-number">0</span>:<br>    <span class="hljs-built_in">print</span>(x)<br></code></pre></td></tr></table></figure>
+
+
+
+<h2 id="3-Leetcode-SQL"><a href="#3-Leetcode-SQL" class="headerlink" title="3. Leetcode SQL"></a>3. Leetcode SQL</h2><ul>
+<li>刷题链接：<a target="_blank" rel="noopener" href="https://leetcode.cn/studyplan/sql-free-50/">https://leetcode.cn/studyplan/sql-free-50/</a></li>
+</ul>
+<h3 id="1-寻找用户推荐人"><a href="#1-寻找用户推荐人" class="headerlink" title="1. 寻找用户推荐人"></a>1. 寻找用户推荐人</h3><ul>
+<li>链接：<a target="_blank" rel="noopener" href="https://leetcode.cn/problems/find-customer-referee/description/?envType=study-plan-v2&envId=sql-free-50">https://leetcode.cn/problems/find-customer-referee/description/?envType=study-plan-v2&envId=sql-free-50</a></li>
+<li>关键词：【简单】</li>
+<li>注：<mark>数据库为空需要用<code>is null</code>进行判断</mark></li>
+<li>需求：找出那些 <strong>没有被</strong> <code>id = 2</code> 的客户 <strong>推荐</strong> 的客户的姓名。</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs mysql">输入： <br>Customer 表:<br>+----+------+------------+<br>| id | name | referee_id |<br>+----+------+------------+<br>| 1  | Will | null       |<br>| 2  | Jane | null       |<br>| 3  | Alex | 2          |<br>| 4  | Bill | null       |<br>| 5  | Zack | 1          |<br>| 6  | Mark | 2          |<br>+----+------+------------+<br>输出：<br>+------+<br>| name |<br>+------+<br>| Will |<br>| Jane |<br>| Bill |<br>| Zack |<br>+------+<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>代码</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs mysql">select name from Customer where referee_id != 2 or referee_id is NULL;<br></code></pre></td></tr></table></figure>
+
+
+
+<h3 id="2-文章浏览"><a href="#2-文章浏览" class="headerlink" title="2. 文章浏览"></a>2. 文章浏览</h3><ul>
+<li>链接：<a target="_blank" rel="noopener" href="https://leetcode.cn/problems/article-views-i/description/?envType=study-plan-v2&envId=sql-free-50">https://leetcode.cn/problems/article-views-i/description/?envType=study-plan-v2&envId=sql-free-50</a></li>
+<li>关键词：【简单】</li>
+<li>注：<mark><code>distinct</code>用于清除重复元素</mark></li>
+<li>需求：查询出所有author_id和viewer_id相同的作者，结果按照 <code>id</code> 升序排列。</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs mysql">输入：<br>Views 表：<br>+------------+-----------+-----------+------------+<br>| article_id | author_id | viewer_id | view_date  |<br>+------------+-----------+-----------+------------+<br>| 1          | 3         | 5         | 2019-08-01 |<br>| 1          | 3         | 6         | 2019-08-02 |<br>| 2          | 7         | 7         | 2019-08-01 |<br>| 2          | 7         | 6         | 2019-08-02 |<br>| 4          | 7         | 1         | 2019-07-22 |<br>| 3          | 4         | 4         | 2019-07-21 |<br>| 3          | 4         | 4         | 2019-07-21 |<br>+------------+-----------+-----------+------------+<br><br>输出：<br>+------+<br>| id   |<br>+------+<br>| 4    |<br>| 7    |<br>+------+<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>代码</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs mysql">select distinct author_id as id from Views where author_id = viewer_id order by id;<br></code></pre></td></tr></table></figure>
+
+
+
+<h3 id="3-无效推文"><a href="#3-无效推文" class="headerlink" title="3. 无效推文"></a>3. 无效推文</h3><ul>
+<li>链接：<a target="_blank" rel="noopener" href="https://leetcode.cn/problems/invalid-tweets/description/?envType=study-plan-v2&envId=sql-free-50">https://leetcode.cn/problems/invalid-tweets/description/?envType=study-plan-v2&envId=sql-free-50</a></li>
+<li>关键词：【简单】</li>
+<li>注：<mark><code>length()</code>判断数据库中，元素的长度</mark></li>
+<li>需求：查询所有无效推文的编号（ID）。当推文内容中的字符数<strong>大于</strong> <code>15</code> 时，该推文是无效的。以<strong>任意顺序</strong>返回结果表</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs mysql">Tweets 表：<br>+----------+----------------------------------+<br>| tweet_id | content                          |<br>+----------+----------------------------------+<br>| 1        | Vote for Biden                   |<br>| 2        | Let us make America great again! |<br>+----------+----------------------------------+<br><br>输出：<br>+----------+<br>| tweet_id |<br>+----------+<br>| 2        |<br>+----------+<br>解释：<br>推文 1 的长度 length = 14。该推文是有效的。<br>推文 2 的长度 length = 32。该推文是无效的。<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>代码</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs mysql">select tweet_id from Tweets where length(content)&gt;15;<br></code></pre></td></tr></table></figure>
+
+
+
+<h3 id="4-使用唯一标识码替换员工ID"><a href="#4-使用唯一标识码替换员工ID" class="headerlink" title="4. 使用唯一标识码替换员工ID"></a>4. 使用唯一标识码替换员工ID</h3><ul>
+<li>链接：<a target="_blank" rel="noopener" href="https://leetcode.cn/problems/replace-employee-id-with-the-unique-identifier/description/?envType=study-plan-v2&envId=sql-free-50">https://leetcode.cn/problems/replace-employee-id-with-the-unique-identifier/description/?envType=study-plan-v2&envId=sql-free-50</a></li>
+<li>关键词：【简单】</li>
+<li>注：</li>
+<li>需求：展示每位用户的 <strong>唯一标识码（unique ID ）</strong>；如果某位员工没有唯一标识码，使用 null 填充即可。</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><code class="hljs mysql">输入：<br>Employees 表:<br>+----+----------+<br>| id | name     |<br>+----+----------+<br>| 1  | Alice    |<br>| 7  | Bob      |<br>| 11 | Meir     |<br>| 90 | Winston  |<br>| 3  | Jonathan |<br>+----+----------+<br>EmployeeUNI 表:<br>+----+-----------+<br>| id | unique_id |<br>+----+-----------+<br>| 3  | 1         |<br>| 11 | 2         |<br>| 90 | 3         |<br>+----+-----------+<br>输出：<br>+-----------+----------+<br>| unique_id | name     |<br>+-----------+----------+<br>| null      | Alice    |<br>| null      | Bob      |<br>| 2         | Meir     |<br>| 3         | Winston  |<br>| 1         | Jonathan |<br>+-----------+----------+<br>解释：<br>Alice and Bob 没有唯一标识码, 因此我们使用 null 替代。<br>Meir 的唯一标识码是 2 。<br>Winston 的唯一标识码是 3 。<br>Jonathan 唯一标识码是 1 <br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>代码：</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs mysql">select EmployeeUNI.unique_id, Employees.name from Employees left join EmployeeUNI on EmployeeUNI.id = Employees.id;<br></code></pre></td></tr></table></figure>
+
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E6%9D%82%E8%B0%88/" class="category-chain-item">杂谈</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/Python/" class="print-no-link">#Python</a>
+      
+        <a href="/tags/%E5%88%B7%E9%A2%98/" class="print-no-link">#刷题</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>做道小题</div>
+      <div>http://example.com/2023/11/20/做道小题/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>张辰</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2023年11月20日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2023/11/20/blog%E6%95%B4%E4%BD%93%E8%A7%84%E5%88%92/" title="Blog整体规划">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Blog整体规划</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  <script>
+  Fluid.utils.createScript('https://lib.baomitu.com/mermaid/8.14.0/mermaid.min.js', function() {
+    mermaid.initialize({"theme":"default"});
+
+    Fluid.utils.listenDOMLoaded(function() {
+      Fluid.events.registerRefreshCallback(function() {
+        if ('mermaid' in window) {
+          mermaid.init();
+        }
+      });
+    });
+  });
+</script>
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="busuanzi_container_site_pv" style="display: none">
+        总访问量
+        <span id="busuanzi_value_site_pv"></span>
+        次
+      </span>
+    
+    
+      <span id="busuanzi_container_site_uv" style="display: none">
+        总访客数
+        <span id="busuanzi_value_site_uv"></span>
+        人
+      </span>
+    
+    
+  
+</div>
+
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

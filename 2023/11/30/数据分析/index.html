@@ -1,0 +1,763 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="张辰">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="用适当的方法对收集来的大量数据进行分析">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Matplotlib+Numpy+Pandas数据分析">
+<meta property="og:url" content="http://example.com/2023/11/30/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="用适当的方法对收集来的大量数据进行分析">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/img/data_analysis_pic/1.jpg">
+<meta property="article:published_time" content="2023-11-30T12:00:00.000Z">
+<meta property="article:modified_time" content="2024-03-05T01:59:35.676Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="Python">
+<meta property="article:tag" content="数据分析">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://example.com/img/data_analysis_pic/1.jpg">
+  
+  
+    <meta name="referrer" content="no-referrer-when-downgrade">
+  
+  
+  <title>Matplotlib+Numpy+Pandas数据分析 - Hexo</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.6","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 7.0.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Blog</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/banner_hexo.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="Matplotlib+Numpy+Pandas数据分析"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2023-11-30 20:00" pubdate>
+          2023年11月30日 晚上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          535 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          5 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">Matplotlib+Numpy+Pandas数据分析</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="一、Matplotlib"><a href="#一、Matplotlib" class="headerlink" title="一、Matplotlib"></a>一、Matplotlib</h1><p>介绍：最流行的Python底层会图库，主要做数据可视化图表，名字取材于Matlab</p>
+<p>***图例复用地址：<a target="_blank" rel="noopener" href="https://matplotlib.org/stable/gallery/index.html">图例复用地址</a></p>
+<p>学习链接: <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1hx411d7jb?p=8&vd_source=4cf7b60c223a665538a4d958765c91a5">学习链接</a></p>
+<h2 id="1-基本要点"><a href="#1-基本要点" class="headerlink" title="1. 基本要点"></a>1. 基本要点</h2><h3 id="1-导入pyplot"><a href="#1-导入pyplot" class="headerlink" title="1. 导入pyplot"></a>1. 导入<code>pyplot</code></h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> matplotlib <span class="hljs-keyword">import</span> pyplot <span class="hljs-keyword">as</span> plt<br></code></pre></td></tr></table></figure>
+
+<h3 id="2-创建可迭代对象"><a href="#2-创建可迭代对象" class="headerlink" title="2. 创建可迭代对象"></a>2. 创建可迭代对象</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python">x = <span class="hljs-built_in">range</span>(<span class="hljs-number">2</span>,<span class="hljs-number">26</span>,<span class="hljs-number">2</span>)<br><span class="hljs-comment"># [2,4,6,8...22,24] 包头不包尾</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="4-展示图形"><a href="#4-展示图形" class="headerlink" title="4. 展示图形"></a>4. 展示图形</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python">pit.show()<br></code></pre></td></tr></table></figure>
+
+<h3 id="5-设置图片大小"><a href="#5-设置图片大小" class="headerlink" title="5. 设置图片大小"></a>5. 设置图片大小</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># figure指我们画的图，宽20px，高8px</span><br><span class="hljs-comment"># 在图片模糊的时候可以穿入dpi参数，让图片更加清晰</span><br>fig = plt.figure(figsize=(<span class="hljs-number">20</span>,<span class="hljs-number">8</span>),dpi=<span class="hljs-number">80</span>)<br><br><span class="hljs-comment"># 设置画布大小和边距</span><br>fig, ax = plt.subplots(figsize=(<span class="hljs-number">10</span>, <span class="hljs-number">6</span>)) <span class="hljs-comment">#根据自身的需要调整相应的参数</span><br>fig.subplots_adjust(left=<span class="hljs-number">0.1</span>, right=<span class="hljs-number">0.9</span>, bottom=<span class="hljs-number">0.11</span>, top=<span class="hljs-number">0.9</span>)<br></code></pre></td></tr></table></figure>
+
+<h3 id="6-设置图片标题名称"><a href="#6-设置图片标题名称" class="headerlink" title="6.设置图片标题名称"></a>6.设置图片标题名称</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs python">plt.title(<span class="hljs-string">&quot;xx折线图&quot;</span>)<br><br>plt.title(<span class="hljs-string">&quot;xx折线图&quot;</span>, fontsize=<span class="hljs-number">12</span>)  <span class="hljs-comment">#设置标题大小</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="7-保存图片"><a href="#7-保存图片" class="headerlink" title="7. 保存图片"></a>7. 保存图片</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 保存为svg这种矢量图的格式，放大不会有锯齿</span><br>plt.savefig(<span class="hljs-string">&quot;./sig_size.svg&quot;</span>)<br></code></pre></td></tr></table></figure>
+
+<h3 id="8-设置坐标刻度"><a href="#8-设置坐标刻度" class="headerlink" title="8.设置坐标刻度"></a>8.设置坐标刻度</h3><h4 id="1-基础坐标"><a href="#1-基础坐标" class="headerlink" title="1. 基础坐标"></a>1. 基础坐标</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python">x = <span class="hljs-built_in">range</span>(<span class="hljs-number">2</span>,<span class="hljs-number">26</span>,<span class="hljs-number">2</span>)<br>plt.xticks(x)       <span class="hljs-comment"># 刻度为2,4,6,8...22,24 包头不包尾</span><br></code></pre></td></tr></table></figure>
+
+<h4 id="2-步长坐标"><a href="#2-步长坐标" class="headerlink" title="2. 步长坐标*"></a>2. 步长坐标*</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs python">x = <span class="hljs-built_in">range</span>(<span class="hljs-number">2</span>,<span class="hljs-number">26</span>,<span class="hljs-number">2</span>)<br><br><span class="hljs-comment"># 当刻度过于密集的时候，可以再使用列表的步长（间隔取值）来解决</span><br>plt.xticks(x[::<span class="hljs-number">2</span>])  <span class="hljs-comment"># 刻度为2，8，14...</span><br></code></pre></td></tr></table></figure>
+
+<h4 id="3-y轴最值坐标"><a href="#3-y轴最值坐标" class="headerlink" title="3. y轴最值坐标"></a>3. y轴最值坐标</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs python">y = [<span class="hljs-number">15</span>,<span class="hljs-number">13</span>,<span class="hljs-number">14.5</span>]<br><span class="hljs-comment"># 包头不包尾，顾+1</span><br>plt.yticks(<span class="hljs-built_in">range</span>[<span class="hljs-built_in">min</span>(y),<span class="hljs-built_in">max</span>(y)+<span class="hljs-number">1</span>])<br></code></pre></td></tr></table></figure>
+
+<h4 id="4-字符串坐标"><a href="#4-字符串坐标" class="headerlink" title="4. 字符串坐标*"></a>4. 字符串坐标*</h4><p>​	数字和字符串一一对应，对整体的坐标进行替换</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 元素数据</span><br>x = <span class="hljs-built_in">range</span>(<span class="hljs-number">0.120</span>)<br><span class="hljs-comment"># 设计坐标步长</span><br>_x = <span class="hljs-built_in">list</span>(x)[::<span class="hljs-number">10</span>]<br><span class="hljs-comment"># int坐标变为str坐标</span><br>_xtick_labels = [<span class="hljs-string">&quot;hi&#123;&#125;&quot;</span>.<span class="hljs-built_in">format</span>(i) <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> _x]<br><span class="hljs-comment"># 数字坐标的值和字符串一一对应</span><br>plt.xticks(_x,_xtick_labels)   <span class="hljs-comment"># hi0, hi10, hi20...</span><br><span class="hljs-comment"># plt.xticks(_x,labels=_xtick_labels)   # hi0, hi10, hi20...</span><br></code></pre></td></tr></table></figure>
+
+<h4 id="5-旋转坐标值"><a href="#5-旋转坐标值" class="headerlink" title="5.旋转坐标值"></a>5.旋转坐标值</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python">x = <span class="hljs-built_in">range</span>(<span class="hljs-number">2</span>,<span class="hljs-number">26</span>,<span class="hljs-number">2</span>)<br>plt.xticks(x,rotation=<span class="hljs-number">45</span>) <br></code></pre></td></tr></table></figure>
+
+<h3 id="9-显示中文和符号"><a href="#9-显示中文和符号" class="headerlink" title="9. 显示中文和符号"></a>9. 显示中文和符号</h3><h4 id="1-前期一次性配置"><a href="#1-前期一次性配置" class="headerlink" title="1. 前期一次性配置"></a>1. 前期一次性配置</h4><p>软件包下载地址：<a target="_blank" rel="noopener" href="https://blog.csdn.net/jlb1024/article/details/98037525/?ops_request_misc=&request_id=&biz_id=102&utm_term=%E4%B8%8B%E8%BD%BDSimHei%E5%AD%97%E4%BD%93&utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduweb~default-0-98037525.142">下载地址</a></p>
+<p>配置文档：<a target="_blank" rel="noopener" href="https://blog.csdn.net/sinat_40875078/article/details/104326855?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522170599703416800213039292%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&request_id=170599703416800213039292&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduend~default-1-104326855-null-null.142">文档链接</a></p>
+<h4 id="2-日常使用"><a href="#2-日常使用" class="headerlink" title="2.日常使用"></a>2.日常使用</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python">plt.rcParams[<span class="hljs-string">&#x27;font.sans-serif&#x27;</span>] = [<span class="hljs-string">&#x27;SimHei&#x27;</span>]  <span class="hljs-comment"># 设置显示中文字体</span><br>plt.rcParams[<span class="hljs-string">&#x27;axes.unicode_minus&#x27;</span>] = <span class="hljs-literal">False</span>    <span class="hljs-comment"># 设置正常显示符号</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="10-x轴和y轴名称"><a href="#10-x轴和y轴名称" class="headerlink" title="10. x轴和y轴名称"></a>10. x轴和y轴名称</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python">plt.xlabel(<span class="hljs-string">&quot;x轴&quot;</span>)<br>plt.ylabel(<span class="hljs-string">&quot;y轴&quot;</span>, fontsize=<span class="hljs-number">12</span>)  <span class="hljs-comment"># 设置轴名称的大小</span><br></code></pre></td></tr></table></figure>
+
+
+
+<h3 id="11-添加图例"><a href="#11-添加图例" class="headerlink" title="11. 添加图例 *"></a>11. 添加图例 *</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs python">plt.plot(x,y1,label=<span class="hljs-string">&quot;自己&quot;</span>)<br>plt.plot(x,y1,label=<span class="hljs-string">&quot;同桌&quot;</span>)<br><br><span class="hljs-comment"># 添加图例</span><br>plt.legend()<br>plt.legend(loc=<span class="hljs-string">&quot;upper left&quot;</span>)   <span class="hljs-comment"># 设置图例位置</span><br></code></pre></td></tr></table></figure>
+
+
+
+<h2 id="2-线性图表"><a href="#2-线性图表" class="headerlink" title="2. 线性图表"></a>2. 线性图表</h2><h3 id="1-绘制线性图表"><a href="#1-绘制线性图表" class="headerlink" title="1. 绘制线性图表"></a>1. 绘制线性图表</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs python">x = <span class="hljs-built_in">range</span>(<span class="hljs-number">2</span>,<span class="hljs-number">8</span>,<span class="hljs-number">2</span>)<br>y = [<span class="hljs-number">15</span>,<span class="hljs-number">13</span>,<span class="hljs-number">14.5</span>]<br><br>plt.plot(x,y)   <span class="hljs-comment"># 绘制线性图表</span><br>plt.plot(x,y,linewidth=<span class="hljs-number">5</span>)  <span class="hljs-comment">#设置线条粗细</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="2-绘制网格"><a href="#2-绘制网格" class="headerlink" title="2. 绘制网格"></a>2. 绘制网格</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python">plt.grid()     <span class="hljs-comment"># 绘制网格</span><br>plt.grid(alpha=<span class="hljs-number">0.4</span>)   <span class="hljs-comment"># 设置网格透明度</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="3-示例"><a href="#3-示例" class="headerlink" title="3.示例"></a>3.示例</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> matplotlib <span class="hljs-keyword">import</span> pyplot <span class="hljs-keyword">as</span> plt<br><br>plt.rcParams[<span class="hljs-string">&#x27;font.sans-serif&#x27;</span>] = [<span class="hljs-string">&#x27;SimHei&#x27;</span>]  <span class="hljs-comment"># 设置显示中文字体</span><br>plt.rcParams[<span class="hljs-string">&#x27;axes.unicode_minus&#x27;</span>] = <span class="hljs-literal">False</span>    <span class="hljs-comment"># 设置正常显示符号</span><br><br>x = <span class="hljs-built_in">range</span>(<span class="hljs-number">11</span>, <span class="hljs-number">31</span>)<br>y1 = [<span class="hljs-number">1</span>,<span class="hljs-number">0</span>,<span class="hljs-number">1</span>,<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">4</span>,<span class="hljs-number">3</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>,<span class="hljs-number">4</span>,<span class="hljs-number">5</span>,<span class="hljs-number">6</span>,<span class="hljs-number">5</span>,<span class="hljs-number">4</span>,<span class="hljs-number">3</span>,<span class="hljs-number">3</span>,<span class="hljs-number">1</span>,<span class="hljs-number">1</span>,<span class="hljs-number">1</span>]<br>y2 = [<span class="hljs-number">1</span>,<span class="hljs-number">0</span>,<span class="hljs-number">3</span>,<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">3</span>,<span class="hljs-number">2</span>,<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">1</span>,<span class="hljs-number">1</span>,<span class="hljs-number">1</span>,<span class="hljs-number">1</span>,<span class="hljs-number">1</span>,<span class="hljs-number">1</span>,<span class="hljs-number">1</span>,<span class="hljs-number">1</span>,<span class="hljs-number">2</span>]<br><br><span class="hljs-comment"># 设置图形大小</span><br>plt.figure(figsize=(<span class="hljs-number">20</span>, <span class="hljs-number">8</span>), dpi=<span class="hljs-number">80</span>)<br><br><span class="hljs-comment"># 绘制两条线</span><br>plt.plot(x, y1, label=<span class="hljs-string">&quot;自己&quot;</span>, color=<span class="hljs-string">&quot;orange&quot;</span>, linestyle=<span class="hljs-string">&quot;:&quot;</span>)<br>plt.plot(x, y2, label=<span class="hljs-string">&quot;同桌&quot;</span>, color=<span class="hljs-string">&quot;cyan&quot;</span>, linestyle=<span class="hljs-string">&quot;--&quot;</span>)<br><br><span class="hljs-comment"># 设置x轴刻度</span><br>_xtick_labels = [<span class="hljs-string">&quot;&#123;&#125;岁&quot;</span>.<span class="hljs-built_in">format</span>(i) <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> x]<br>plt.xticks(x, _xtick_labels)<br><br><span class="hljs-comment"># 绘制网格</span><br>plt.grid(alpha=<span class="hljs-number">0.4</span>, linestyle=<span class="hljs-string">&quot;:&quot;</span>)<br><br><span class="hljs-comment"># 添加图例</span><br>plt.legend()<br><br><span class="hljs-comment"># 展示</span><br>plt.show()<br></code></pre></td></tr></table></figure>
+
+<div style="text-align:center;gap:5px">
+    <img src="/img/data_analysis_pic/2.png" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:60%;">
+</div>
+
+
+
+<h1 id="二、Numpy"><a href="#二、Numpy" class="headerlink" title="二、Numpy"></a>二、Numpy</h1><h2 id="1-介绍"><a href="#1-介绍" class="headerlink" title="1. 介绍"></a>1. 介绍</h2><ol>
+<li>一个开源的python科学计算库</li>
+<li>使用Numpy可以方便的使用数组、矩阵进行计算</li>
+<li>包含线性代数、傅立叶变换、随机数生成等大量函数</li>
+</ol>
+<h2 id="2-基本要点"><a href="#2-基本要点" class="headerlink" title="2. 基本要点"></a>2. 基本要点</h2><h3 id="1-创建数组"><a href="#1-创建数组" class="headerlink" title="1.创建数组"></a>1.创建数组</h3><ul>
+<li>3种创建数组的方法</li>
+</ul>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">import</span> numpy as np<br><span class="hljs-attribute">a</span> = np.array([<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>,<span class="hljs-number">5</span>])<br><span class="hljs-attribute">b</span> = np.array(range(<span class="hljs-number">1</span>,<span class="hljs-number">6</span>))<br><span class="hljs-attribute">c</span> = np.arange(<span class="hljs-number">1</span>,<span class="hljs-number">6</span>)<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li><code>np.arange</code>的用法：<code>arange(start, stop, step)</code></li>
+</ul>
+<h1 id="三、Pandas"><a href="#三、Pandas" class="headerlink" title="三、Pandas"></a>三、Pandas</h1>
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E5%BC%80%E5%8F%91/" class="category-chain-item">开发</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E5%BC%80%E5%8F%91/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/" class="category-chain-item">数据分析</a>
+  
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/Python/" class="print-no-link">#Python</a>
+      
+        <a href="/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/" class="print-no-link">#数据分析</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>Matplotlib+Numpy+Pandas数据分析</div>
+      <div>http://example.com/2023/11/30/数据分析/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>张辰</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2023年11月30日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2023/11/30/%E5%85%85%E7%94%B5%E6%B5%8B%E8%AF%95/" title="电源测试方法">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">电源测试方法</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2023/11/30/%E5%8A%9E%E5%85%AC%E5%BF%AB%E6%8D%B7%E9%94%AE%E6%B1%87%E6%80%BB/" title="办公快捷键汇总">
+                        <span class="hidden-mobile">办公快捷键汇总</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  <script>
+  Fluid.utils.createScript('https://lib.baomitu.com/mermaid/8.14.0/mermaid.min.js', function() {
+    mermaid.initialize({"theme":"default"});
+
+    Fluid.utils.listenDOMLoaded(function() {
+      Fluid.events.registerRefreshCallback(function() {
+        if ('mermaid' in window) {
+          mermaid.init();
+        }
+      });
+    });
+  });
+</script>
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="busuanzi_container_site_pv" style="display: none">
+        总访问量
+        <span id="busuanzi_value_site_pv"></span>
+        次
+      </span>
+    
+    
+      <span id="busuanzi_container_site_uv" style="display: none">
+        总访客数
+        <span id="busuanzi_value_site_uv"></span>
+        人
+      </span>
+    
+    
+  
+</div>
+
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
