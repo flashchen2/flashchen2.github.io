@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://example.com/img/shell_instruction_pic/1.jpg">
 <meta property="article:published_time" content="2023-11-29T12:00:00.000Z">
-<meta property="article:modified_time" content="2024-05-11T09:41:54.481Z">
+<meta property="article:modified_time" content="2024-06-17T18:42:13.945Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="开发">
 <meta property="article:tag" content="操作系统">
@@ -229,7 +229,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.4k 字
+          1.8k 字
         
       </span>
     
@@ -240,7 +240,7 @@
         
         
         
-          12 分钟
+          15 分钟
         
       </span>
     
@@ -299,40 +299,64 @@
 <div style="text-align:center">
     <img src="/img/shell_instruction_pic/2.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
 </div>
+* 注：个人Mac电脑对应得ip为10.220.164.103
 
 
 
-
-<ul>
-<li>注：个人Mac电脑对应得ip为10.220.164.103</li>
-</ul>
 <h2 id="3-查找xx文件夹，并将路径输出到终端"><a href="#3-查找xx文件夹，并将路径输出到终端" class="headerlink" title="3. 查找xx文件夹，并将路径输出到终端"></a>3. 查找xx文件夹，并将路径输出到终端</h2><figure class="highlight sqf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sqf"><span class="hljs-built_in">find</span> . -<span class="hljs-built_in">type</span> d -<span class="hljs-built_in">name</span> my_folder<br></code></pre></td></tr></table></figure>
 
 
 
-<h2 id="4-新建分屏终端页面"><a href="#4-新建分屏终端页面" class="headerlink" title="4. 新建分屏终端页面"></a>4. 新建分屏终端页面</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">command</span> + d<br></code></pre></td></tr></table></figure>
+<h2 id="4-分屏"><a href="#4-分屏" class="headerlink" title="4. 分屏"></a>4. 分屏</h2><ol>
+<li>新建分屏</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">command</span> + d<br></code></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>取消分屏</li>
+</ol>
+<figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs lsl"><span class="hljs-section">control</span> + d<br></code></pre></td></tr></table></figure>
 
 
 
-<h2 id="5-取消分屏"><a href="#5-取消分屏" class="headerlink" title="5. 取消分屏"></a>5. 取消分屏</h2><figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs lsl"><span class="hljs-section">control</span> + d<br></code></pre></td></tr></table></figure>
+<h2 id="6-配置环境变量"><a href="#6-配置环境变量" class="headerlink" title="6. 配置环境变量 *"></a>6. 配置环境变量 *</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">进入配置环境变量</span><br>vim ~/.zshrc<br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">退出</span><br>esc后，:wq! <br></code></pre></td></tr></table></figure>
 
 
 
-<h2 id="6-MAC配置环境变量"><a href="#6-MAC配置环境变量" class="headerlink" title="6. MAC配置环境变量 ***"></a>6. MAC配置环境变量 ***</h2><p>vi ~&#x2F;.zshrc 进入配置环境变量<br>i&amp;a 开始编辑，添加路径（i：在光标前追加；a：在光标后追加）<br>export PATH&#x3D;${PATH}:&#x2F;user&#x2F;local&#x2F;mysql&#x2F;bin 以配置mysql为例<br>esc后，:wq! 退出当前添加<br>source ~&#x2F;.zshrc 生效所配置的内容<br>mysql -u root -p 确认安装成功</p>
-<div style="text-align:center">
-    <img src="/img/shell_instruction_pic/3.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
-</div>
-
-<div style="text-align:center">
-    <img src="/img/shell_instruction_pic/4.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
-</div>
-
-<div style="text-align:center">
-    <img src="/img/shell_instruction_pic/5.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
-</div>
-
-
+<h2 id="7-zshrc-和-bash-profile"><a href="#7-zshrc-和-bash-profile" class="headerlink" title="7..zshrc 和.bash_profile"></a>7.<code>.zshrc</code> 和<code>.bash_profile</code></h2><p>.bash_profile 和 .zshrc 均在～目录下</p>
+<p>.bash_profile，source ~&#x2F;.bash_profile，只在当前窗口生效</p>
+<p>.zshrc ，source ~&#x2F;.zshrc，永久生效；计算机每次启动自动执行source ~&#x2F;.zshrc</p>
+<p>一般会在~&#x2F;.zshrc中添加source ~&#x2F;.bash_profile，以确保.bash_profile中的修改永久生效。</p>
+<ul>
+<li>总结：推荐使用<code>vim ~/.zshrc</code></li>
+</ul>
 <h2 id="7-Mac系统中的pip用作pip3"><a href="#7-Mac系统中的pip用作pip3" class="headerlink" title="7. Mac系统中的pip用作pip3"></a>7. Mac系统中的<mark>pip用作pip3</mark></h2><p>如：<code>pip3 install --upgrade Django==2.1</code> 将Django版本升级为2.1版本</p>
+<h2 id="8-git相关操作"><a href="#8-git相关操作" class="headerlink" title="8. git相关操作"></a>8. git相关操作</h2><h3 id="1-拉取代码"><a href="#1-拉取代码" class="headerlink" title="1. 拉取代码"></a>1. 拉取代码</h3><p><mark>先cd到想要存储文件的位置，再进行代码拉取</mark></p>
+<ol>
+<li><code>git clone</code></li>
+</ol>
+<ul>
+<li><p>使用场景：通常在你第一次获取某个项目的代码时使用。</p>
+</li>
+<li><p>命令示例</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell">git clone https://github.com/user/repo.git<br>git clone git@git.corp.kuaishou.com:adqa/kuaishou-adqa-ui-testcase.git<br></code></pre></td></tr></table></figure></li>
+</ul>
+<ol start="2">
+<li><code>git pull</code></li>
+</ol>
+<ul>
+<li><p>使用场景：用于更新已有的本地仓，获取远程仓库的最新更改时使用。</p>
+</li>
+<li><p>命令示例</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">git pull origin main<br></code></pre></td></tr></table></figure></li>
+</ul>
+<ol start="3">
+<li>示例</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">来到想要存储文件的地方，拉取代码</span><br>cd java_project<br>git clone git@git.corp.kuaishou.com:adqa/kuaishou-adqa-ui-testcase.git<br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">当云端代码有更新时间，进入所拉取代码的位置，进行更新</span><br>cd java_project/kuaishou-adqa-ui-testcase<br>git pull origin main<br></code></pre></td></tr></table></figure>
+
+
+
 <h1 id="二、Windows终端"><a href="#二、Windows终端" class="headerlink" title="二、Windows终端"></a>二、Windows终端</h1><h2 id="1-显示当前文件夹下所有的文件"><a href="#1-显示当前文件夹下所有的文件" class="headerlink" title="1. 显示当前文件夹下所有的文件"></a>1. 显示当前文件夹下所有的文件</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">dir</span><br></code></pre></td></tr></table></figure>
 
 <h2 id="2-在终端中切换磁盘"><a href="#2-在终端中切换磁盘" class="headerlink" title="2. 在终端中切换磁盘"></a>2. 在终端中切换磁盘</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">cd</span> /d 想要进入的盘符:<br></code></pre></td></tr></table></figure>
@@ -502,7 +526,84 @@
 <ul>
 <li>也常用于cd路径时，补全路径</li>
 </ul>
-<h1 id="四、手表手环终端"><a href="#四、手表手环终端" class="headerlink" title="四、手表手环终端"></a>四、手表手环终端</h1><h2 id="1-向固件中推入apk"><a href="#1-向固件中推入apk" class="headerlink" title="1. 向固件中推入apk"></a>1. 向固件中推入apk</h2><ol>
+<h1 id="四、Git"><a href="#四、Git" class="headerlink" title="四、Git"></a>四、Git</h1><h2 id="1-创建仓库"><a href="#1-创建仓库" class="headerlink" title="1. 创建仓库"></a>1. 创建仓库</h2><ol>
+<li>创建github仓库</li>
+</ol>
+<p>github网址：<a target="_blank" rel="noopener" href="https://github.com/flashchen2">https://github.com/flashchen2</a></p>
+<div style="text-align:center;gap:5px">
+    <img src="/img/shell_instruction_pic/12.png" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:18%;">
+    <img src="/img/shell_instruction_pic/13.png" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:18%;">
+</div>
+
+<div style="text-align:center;gap:5px">
+    <img src="/img/shell_instruction_pic/14.png" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:18%;">
+</div>
+
+<ol start="2">
+<li>创建想要上传的项目</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs shell">cd 到对应文件夹<br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">初始化</span><br>git init<br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">将本地项目中的全部文件添加至git中，命令中.的含义就是“全部文件”</span><br>git add .<br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">添加项目的描述文字</span><br>git commit -m &quot;description&quot;<br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">添加本地文件与github仓库之间的联系</span><br>git remote add origin git@github.com:flashchen2/github_test.git<br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">上传代码</span><br>git push -f origin main/master<br></code></pre></td></tr></table></figure>
+
+
+
+<h2 id="2-新建分支"><a href="#2-新建分支" class="headerlink" title="2. 新建分支"></a>2. 新建分支</h2><ol>
+<li>基于远程所给定的分支，拉取自己的分支，用于开发</li>
+</ol>
+<div style="text-align:center;gap:5px">
+    <img src="/img/shell_instruction_pic/15.png" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:18%;">
+</div>
+
+<ol start="2">
+<li>新建dev分支，进行代码改动，查询分支改动内容的两种方法</li>
+</ol>
+<div style="text-align:center;gap:5px">
+    <img src="/img/shell_instruction_pic/16.png" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:15%;">
+    <img src="/img/shell_instruction_pic/17.png" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:15%;">
+</div>
+
+<ol start="3">
+<li>代码提交并推送，推送成功后，会用新的远程分支</li>
+</ol>
+<div style="text-align:center;gap:5px">
+    <img src="/img/shell_instruction_pic/18.png" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:15%;">
+    <img src="/img/shell_instruction_pic/19.png" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:15%;">
+</div>
+
+<div style="text-align:center;gap:5px">
+    <img src="/img/shell_instruction_pic/20.png" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:18%;">
+</div>
+
+<ol start="4">
+<li>更新当前远程主分支的最新状态</li>
+</ol>
+<div style="text-align:center;gap:5px">
+    <img src="/img/shell_instruction_pic/21.png" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:18%;">
+</div>
+
+<h2 id="3-分支合并"><a href="#3-分支合并" class="headerlink" title="3. 分支合并"></a>3. 分支合并</h2><ol>
+<li>将带有改动项的线下dev分支，合并到线上分支中</li>
+</ol>
+<div style="text-align:center;gap:5px">
+    <img src="/img/shell_instruction_pic/22.png" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:15%;">
+    <img src="/img/shell_instruction_pic/23.png" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:15%;">
+</div>
+
+<ol start="2">
+<li>将带有改动项的线下dev分支，合并到线下main分支</li>
+</ol>
+<div style="text-align:center;gap:5px">
+    <img src="/img/shell_instruction_pic/24.png" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:15%;">
+</div>
+
+<ol start="3">
+<li>将线下main分支，合并到线上origin&#x2F;main分支中</li>
+</ol>
+<div style="text-align:center;gap:5px">
+    <img src="/img/shell_instruction_pic/25.png" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:15%;">
+    <img src="/img/shell_instruction_pic/26.png" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:18%;">
+</div>
+
+<h1 id="五、手表手环终端"><a href="#五、手表手环终端" class="headerlink" title="五、手表手环终端"></a>五、手表手环终端</h1><h2 id="1-向固件中推入apk"><a href="#1-向固件中推入apk" class="headerlink" title="1. 向固件中推入apk"></a>1. 向固件中推入apk</h2><ol>
 <li>adb devices   # pc是否通过usb检测到固件</li>
 <li>adb root </li>
 <li>adb remount</li>
@@ -620,9 +721,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2023/11/29/Lambda%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B/" title="函数式表达式">
+                      <a href="/2023/11/29/Jenkins/" title="Jenkins">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">函数式表达式</span>
+                        <span class="hidden-mobile">Jenkins</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -630,8 +731,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2023/11/29/jQuery/" title="JavaScript之jQuery">
-                        <span class="hidden-mobile">JavaScript之jQuery</span>
+                      <a href="/2023/11/29/Lambda%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B/" title="函数式表达式">
+                        <span class="hidden-mobile">函数式表达式</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
