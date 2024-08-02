@@ -25,10 +25,10 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://example.com/img/java_pic/1.jpg">
 <meta property="article:published_time" content="2023-11-30T12:00:00.000Z">
-<meta property="article:modified_time" content="2024-06-29T16:09:22.902Z">
+<meta property="article:modified_time" content="2024-08-01T13:39:03.605Z">
 <meta property="article:author" content="John Doe">
-<meta property="article:tag" content="开发">
 <meta property="article:tag" content="语言">
+<meta property="article:tag" content="开发">
 <meta property="article:tag" content="Java">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="http://example.com/img/java_pic/1.jpg">
@@ -237,7 +237,7 @@
         
         
         
-          138 分钟
+          141 分钟
         
       </span>
     
@@ -330,7 +330,7 @@
 <li>格式化代码</li>
 </ol>
 <p><code>command + option + L</code></p>
-<h3 id="3-IDEA与Git"><a href="#3-IDEA与Git" class="headerlink" title="3. IDEA与Git"></a>3. IDEA与Git</h3><ol>
+<h3 id="3-IDEA与Git"><a href="#3-IDEA与Git" class="headerlink" title="3. IDEA与Git"></a>3. IDEA与Git</h3><h4 id="1-拉取代码-新建分支"><a href="#1-拉取代码-新建分支" class="headerlink" title="1. 拉取代码 新建分支"></a>1. 拉取代码 新建分支</h4><ol>
 <li>在终端中拉取项目代码</li>
 </ol>
 <figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs crmsh">cd 项目存放地<br>git <span class="hljs-keyword">clone</span> <span class="hljs-title">git</span>@git.xxx<br></code></pre></td></tr></table></figure>
@@ -339,7 +339,30 @@
 <li>切换项目分支</li>
 </ol>
 <div style="text-align:center;gap:5px">
-    <img src="/img/java_pic/48.png" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:50%">
+    <img src="/img/java_pic/48.png" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:20%">
+</div>
+
+
+
+<h4 id="2-提交代码"><a href="#2-提交代码" class="headerlink" title="2. 提交代码"></a>2. 提交代码</h4><ol>
+<li>当在本地代码进行修改后，对应文件变为蓝色，右键文件选择Git - 提交文件</li>
+</ol>
+<div style="text-align:center;gap:5px">
+    <img src="/img/java_pic/53.png" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:20%">
+</div>
+
+<ol start="2">
+<li>全选已经改动的文件，编写修改描述，点击提交</li>
+</ol>
+<div style="text-align:center;gap:5px">
+    <img src="/img/java_pic/54.png" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:20%">
+</div>
+
+<ol start="3">
+<li>选择Git-推送，选择上文提交的文件，进行推送</li>
+</ol>
+<div style="text-align:center;gap:5px">
+    <img src="/img/java_pic/55.png" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:20%">
 </div>
 
 <h3 id="4-命名方法"><a href="#4-命名方法" class="headerlink" title="4. 命名方法"></a>4. 命名方法</h3><ol>
@@ -646,6 +669,32 @@
 <li>开发中经常需要处理一类业务，提供多种解决方案，此时使用方法重载来设计是很专业的</li>
 </ul>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">test15</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> &#123;<br>        fire();<br>        fire(<span class="hljs-string">&quot;米国&quot;</span>,<span class="hljs-number">999</span>);<br>    &#125;<br><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">fire</span><span class="hljs-params">()</span>&#123; <br>        fire(<span class="hljs-string">&quot;岛国&quot;</span>);<br>    &#125;<br><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">fire</span><span class="hljs-params">(String country)</span>&#123;<br>        fire(country, <span class="hljs-number">1</span>);<br>    &#125;<br><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">fire</span><span class="hljs-params">(String country,<span class="hljs-type">int</span> number)</span>&#123;<br>        System.out.println(<span class="hljs-string">&quot;发射了&quot;</span>+number+<span class="hljs-string">&quot;枚武器给&quot;</span>+country);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+
+
+<h3 id="5-多返回值"><a href="#5-多返回值" class="headerlink" title="5. 多返回值"></a>5. 多返回值</h3><p>在Java中，方法不能直接返回多个值，但你可以通过以下几种方式实现类似的效果：</p>
+<ol>
+<li><strong>使用自定义类</strong>：创建一个包含多个字段的类，并返回该类的实例。</li>
+<li><strong>使用数组或集合</strong>：将多个值放入数组或集合中返回。</li>
+<li>**使用<code>Map</code>**：将多个值放入一个<code>Map</code>中返回。</li>
+</ol>
+<p>下面是使用自定义类的方法：</p>
+<ol>
+<li>首先，创建一个包含两个字段的类，例如<code>DaysGapAndEndOfMonth</code>：</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">DaysGapAndEndOfMonth</span> &#123;<br>    <span class="hljs-keyword">private</span> Integer daysGap;<br>    <span class="hljs-keyword">private</span> LocalDate endOfMonth;<br><br>    <span class="hljs-keyword">public</span> <span class="hljs-title function_">DaysGapAndEndOfMonth</span><span class="hljs-params">(Integer daysGap, LocalDate endOfMonth)</span> &#123;<br>        <span class="hljs-built_in">this</span>.daysGap = daysGap;<br>        <span class="hljs-built_in">this</span>.endOfMonth = endOfMonth;<br>    &#125;<br><br>    <span class="hljs-keyword">public</span> Integer <span class="hljs-title function_">getDaysGap</span><span class="hljs-params">()</span> &#123;<br>        <span class="hljs-keyword">return</span> daysGap;<br>    &#125;<br><br>    <span class="hljs-keyword">public</span> LocalDate <span class="hljs-title function_">getEndOfMonth</span><span class="hljs-params">()</span> &#123;<br>        <span class="hljs-keyword">return</span> endOfMonth;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>修改方法以返回自定义类(<code>DaysGapAndEndOfMonth</code>)的实例</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> DaysGapAndEndOfMonth <span class="hljs-title function_">gapDayToEndOfMonth</span><span class="hljs-params">()</span> &#123;<br><br>    <span class="hljs-comment">// 获取当前日期</span><br>    <span class="hljs-type">LocalDate</span> <span class="hljs-variable">today</span> <span class="hljs-operator">=</span> LocalDate.now();<br>    System.out.println(<span class="hljs-string">&quot;当前的日期是: &quot;</span> + today);<br><br>    <span class="hljs-comment">// 获取当前年月</span><br>    <span class="hljs-type">YearMonth</span> <span class="hljs-variable">currentYearMonth</span> <span class="hljs-operator">=</span> YearMonth.of(today.getYear(), today.getMonth());<br><br>    <span class="hljs-comment">// 获取本月的最后一天</span><br>    <span class="hljs-type">LocalDate</span> <span class="hljs-variable">endOfMonth</span> <span class="hljs-operator">=</span> currentYearMonth.atEndOfMonth();<br>    System.out.println(<span class="hljs-string">&quot;本月月底的日期是: &quot;</span> + endOfMonth);<br><br>    <span class="hljs-comment">// 计算从今天到本月底的相隔时间</span><br>    <span class="hljs-type">Integer</span> <span class="hljs-variable">daysGap</span> <span class="hljs-operator">=</span> Math.toIntExact(ChronoUnit.DAYS.between(today, endOfMonth));<br>    System.out.println(<span class="hljs-string">&quot;从当前至本月月底还有 &quot;</span> + daysGap + <span class="hljs-string">&quot;天&quot;</span>);<br><br>    <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">DaysGapAndEndOfMonth</span>(daysGap, endOfMonth);<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>调用该方法并获取返回的值：</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> &#123;<br>    <span class="hljs-type">DaysGapAndEndOfMonth</span> <span class="hljs-variable">result</span> <span class="hljs-operator">=</span> gapDayToEndOfMonth();<br>    System.out.println(<span class="hljs-string">&quot;从当前至本月月底还有 &quot;</span> + result.getDaysGap() + <span class="hljs-string">&quot;天&quot;</span>);<br>    System.out.println(<span class="hljs-string">&quot;本月月底的日期是: &quot;</span> + result.getEndOfMonth());<br>&#125;<br></code></pre></td></tr></table></figure>
+
+
 
 
 
@@ -1097,22 +1146,31 @@
 
 
 
-<h3 id="3-静态方法-与-示例方法"><a href="#3-静态方法-与-示例方法" class="headerlink" title="3. 静态方法 与 示例方法 *"></a><font color=#1E90FF>3. 静态方法 与 示例方法 *</font></h3><ol>
-<li>用途：创建工作类，<mark>无需创建对象，可以直接通过类名进行调用</mark></li>
-<li>静态方法：有static修饰的方法，可以直接通过<mark><code>类名.类方法</code></mark>进行调用，常用于<mark>方法类</mark>中使用</li>
+<h3 id="3-静态方法-与-实例方法"><a href="#3-静态方法-与-实例方法" class="headerlink" title="3. 静态方法 与 实例方法 *"></a><font color=#1E90FF>3. 静态方法 与 实例方法 *</font></h3><ol>
+<li>静态方法<ol>
+<li>有static修饰的方法</li>
+<li><mark>无需创建对象</mark>，可以直接通过<mark>类名.类方法</mark>进行调用</li>
+<li>常用于<mark>方法类</mark>中使用</li>
 </ol>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Student</span>&#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">printHello</span><span class="hljs-params">()</span>&#123;<br>		System.out.println(<span class="hljs-string">&quot;Hello&quot;</span>);  <br>	&#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Student</span>&#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">printHello</span><span class="hljs-params">()</span>&#123;<br>			System.out.println(<span class="hljs-string">&quot;Hello&quot;</span>);  <br>	&#125;<br>&#125;<br></code></pre></td></tr></table></figure>
 
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs java">Student.printHello();<br></code></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Main</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> &#123;<br>			Student.printHello();<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
 
 
 
 <ol start="3">
-<li>实例方法：无static修饰的方法，需要<mark>新建对象</mark>，然后通过<mark><code>对象.实例方法</code></mark>进行调用，常用于<mark>javabean</mark>中使用</li>
+<li>实例方法<ol>
+<li>无static修饰的方法</li>
+<li>需要<mark>新建对象</mark>，然后通过<mark>对象.实例方法</mark>进行调用</li>
+<li>常用于<mark>javabean</mark>中使用</li>
 </ol>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Student</span>&#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">printHello</span><span class="hljs-params">()</span>&#123;<br>        ...<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Student</span>&#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">printHello</span><span class="hljs-params">()</span>&#123;<br>        System.out.println(<span class="hljs-string">&quot;Hello&quot;</span>); <br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
 
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-type">Student</span> <span class="hljs-variable">s1</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Student</span>();<br>s1.printHello();<br></code></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Main</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> &#123;<br>      <span class="hljs-type">Student</span> <span class="hljs-variable">s1</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Student</span>();<br>      s1.printHello();<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
 
 
 
@@ -2792,6 +2850,8 @@
 <ul>
 <li>当打印的内容为地址值时，可以使用<code>Arrays.toString</code>打印具体内容</li>
 </ul>
+<h2 id="4-结果保留两位小数"><a href="#4-结果保留两位小数" class="headerlink" title="4. 结果保留两位小数"></a><font color=#1E90FF>4. 结果保留两位小数</font></h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">import</span> java.text.DecimalFormat;<br><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Main</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> &#123;<br>        <span class="hljs-type">double</span> <span class="hljs-variable">qualityScore</span> <span class="hljs-operator">=</span> <span class="hljs-number">85.6789</span>;<br><br>        <span class="hljs-comment">// 创建一个DecimalFormat实例，指定格式为保留两位小数</span><br>        <span class="hljs-type">DecimalFormat</span> <span class="hljs-variable">df</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">DecimalFormat</span>(<span class="hljs-string">&quot;#.00&quot;</span>);<br><br>        <span class="hljs-comment">// 格式化qualityScore</span><br>        <span class="hljs-type">String</span> <span class="hljs-variable">formattedQualityScore</span> <span class="hljs-operator">=</span> df.format(qualityScore);<br><br>        System.out.println(<span class="hljs-string">&quot;Quality Score: &quot;</span> + formattedQualityScore);   <span class="hljs-comment">// 85.68</span><br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
 
                 
               </div>
@@ -2832,9 +2892,9 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/%E5%BC%80%E5%8F%91/" class="print-no-link">#开发</a>
-      
         <a href="/tags/%E8%AF%AD%E8%A8%80/" class="print-no-link">#语言</a>
+      
+        <a href="/tags/%E5%BC%80%E5%8F%91/" class="print-no-link">#开发</a>
       
         <a href="/tags/Java/" class="print-no-link">#Java</a>
       
