@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://example.com/img/blog_based_on_hexo_pic/1.jpg">
 <meta property="article:published_time" content="2023-11-30T12:00:00.000Z">
-<meta property="article:modified_time" content="2024-05-31T09:38:15.000Z">
+<meta property="article:modified_time" content="2024-08-06T07:13:29.829Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="开发">
 <meta property="article:tag" content="博客">
@@ -227,7 +227,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          609 字
+          769 字
         
       </span>
     
@@ -238,7 +238,7 @@
         
         
         
-          6 分钟
+          7 分钟
         
       </span>
     
@@ -365,10 +365,21 @@
 
 
 
-<h2 id="5-如何新建一个markdown文本"><a href="#5-如何新建一个markdown文本" class="headerlink" title="5. 如何新建一个markdown文本 *"></a>5. 如何新建一个markdown文本 *</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs shell">cd ./Documents/flashchen2blog<br><br>hexo new post &quot;文件名称&quot;<br></code></pre></td></tr></table></figure>
+<h2 id="5-如何新建一个markdown文本"><a href="#5-如何新建一个markdown文本" class="headerlink" title="5. 如何新建一个markdown文本 *"></a>5. 如何新建一个markdown文本 *</h2><ol>
+<li>方法1 - 不推荐</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs shell">cd ./Documents/flashchen2blog<br><br>hexo new post &quot;文件名称&quot;<br></code></pre></td></tr></table></figure>
 
-
-
+<ol start="2">
+<li><p>方法2 - 推荐</p>
+<ol>
+<li>用Typora打开_posts文件夹</li>
+<li>右键_posts文件-新建文件-新建.md文件</li>
+</ol>
+<div style="text-align:center;gap:5px">
+    <img src="/img/blog_based_on_hexo_pic/19.png" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:50%;">
+</div></li>
+</ol>
 <h2 id="6-本地修改后，本地运行未生效"><a href="#6-本地修改后，本地运行未生效" class="headerlink" title="6. 本地修改后，本地运行未生效"></a>6. 本地修改后，本地运行未生效</h2><ul>
 <li>清除一下缓存</li>
 </ul>
@@ -441,8 +452,9 @@
 
 <h2 id="2-便签"><a href="#2-便签" class="headerlink" title="2. 便签"></a>2. 便签</h2><p><code>&lt;p class=&quot;note note-primary&quot;&gt; &lt;/p&gt;</code></p>
 <div style="text-align:center;gap:5px">
-    <img src="/img/blog_based_on_hexo_pic/17.png" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:40%;">
+    <img src="/img/blog_based_on_hexo_pic/17.png" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:50%;">
 </div>
+
 
 
 
@@ -455,7 +467,7 @@
 
 
 
-<h2 id="3-在Typora和hexo中都能正确显示图片的方式-非常牛逼"><a href="#3-在Typora和hexo中都能正确显示图片的方式-非常牛逼" class="headerlink" title="3. 在Typora和hexo中都能正确显示图片的方式  非常牛逼*"></a>3. 在Typora和hexo中都能正确显示图片的方式  非常牛逼*</h2><ol>
+<h2 id="3-在Typora和hexo中都能正确显示图片的方式"><a href="#3-在Typora和hexo中都能正确显示图片的方式" class="headerlink" title="3. 在Typora和hexo中都能正确显示图片的方式"></a>3. 在Typora和hexo中都能正确显示图片的方式</h2><ol>
 <li>在front-matter中设置Typora中的根目录</li>
 </ol>
 <figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs awk"><span class="hljs-comment"># 图片根目录</span><br>typora-root-url: <span class="hljs-regexp">/Users/</span>zhangchen<span class="hljs-regexp">/Documents/</span>flashchen2blog<span class="hljs-regexp">/source/</span><br></code></pre></td></tr></table></figure>
@@ -475,6 +487,36 @@
 <div style="text-align:center;gap:5px">
     <img src="/img/blog_based_on_hexo_pic/18.png" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:60%;">
 </div>
+
+
+<h2 id="4-更换电脑后继续使用hexo博客"><a href="#4-更换电脑后继续使用hexo博客" class="headerlink" title="4. 更换电脑后继续使用hexo博客"></a>4. 更换电脑后继续使用hexo博客</h2><ol>
+<li>将原电脑中的flashchen2blog文件，压缩发送至新电脑中</li>
+</ol>
+<div style="text-align:center;gap:5px">
+    <img src="/img/blog_based_on_hexo_pic/20.png" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:40%;">
+</div>
+
+<ol start="2">
+<li><p>给新电脑添加hexo框架</p>
+</li>
+<li><p>给新电脑添加git权限</p>
+<ol>
+<li><p>生成ssh秘钥，并将公钥添加至Github账户中</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">ls</span> ~/.ssh<br></code></pre></td></tr></table></figure>
+</li>
+<li><p><mark>如果没有看到<code>id_rsa</code>和<code>id_rsa.pub</code>文件</mark>，可以通过以下命令生成：</p>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">ssh</span>-keygen -t rsa -b <span class="hljs-number">4096</span> -C <span class="hljs-string">&quot;your_email@example.com&quot;</span><br></code></pre></td></tr></table></figure>
+</li>
+<li><p>生成公钥，并将其添加到GitHub账户-Settings-左侧SSH and GPG keys</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">cat</span> ~/.ssh/id_rsa.pub<br></code></pre></td></tr></table></figure>
+</li>
+<li><p>上述完成后，本地连接github，检查是否成功</p>
+<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs applescript">ssh -T git@github.com<br><br><span class="hljs-comment"># 运行上述代码，若链接成功，存在以下提示</span><br>Hi username! You&#x27;ve successfully authenticated, <span class="hljs-keyword">but</span> GitHub <span class="hljs-keyword">does</span> <span class="hljs-keyword">not</span> provide shell access.<br></code></pre></td></tr></table></figure></li>
+</ol>
+</li>
+<li><p>新电脑试运行，上传修改后的md文件</p>
+<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs ebnf"><span class="hljs-attribute">hexo clean</span><br><span class="hljs-attribute">hexo g</span><br><span class="hljs-attribute">hexo d</span><br></code></pre></td></tr></table></figure></li>
+</ol>
 
                 
               </div>
@@ -578,9 +620,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2023/11/30/Java/" title="Java基础">
+                      <a href="/2023/11/30/Maven/" title="Maven项目管理">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Java基础</span>
+                        <span class="hidden-mobile">Maven项目管理</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
