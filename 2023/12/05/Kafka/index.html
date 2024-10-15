@@ -1,0 +1,851 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="张辰">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="Kafka是一个分布式流处理平台，实现高吞吐量、低延迟、可扩展性和高容错性的，处理实时数据流">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Kafka">
+<meta property="og:url" content="http://example.com/2023/12/05/Kafka/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="Kafka是一个分布式流处理平台，实现高吞吐量、低延迟、可扩展性和高容错性的，处理实时数据流">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/img/kafka_pic/1.png">
+<meta property="article:published_time" content="2023-12-05T12:00:00.000Z">
+<meta property="article:modified_time" content="2024-10-10T08:06:09.453Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="Web开发">
+<meta property="article:tag" content="中间件">
+<meta property="article:tag" content="Kafka">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://example.com/img/kafka_pic/1.png">
+  
+  
+    <meta name="referrer" content="no-referrer-when-downgrade">
+  
+  
+  <title>Kafka - Hexo</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.6","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 7.0.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Blog</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/banner_hexo.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="Kafka"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2023-12-05 20:00" pubdate>
+          2023年12月5日 晚上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          1.3k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          12 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">Kafka</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <ul>
+<li>学习链接：<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Kwx1e8E1C/?spm_id_from=333.337.search-card.all.click&vd_source=4cf7b60c223a665538a4d958765c91a5">https://www.bilibili.com/video/BV1Kwx1e8E1C/</a></li>
+</ul>
+<h1 id="一、Kafka快速上手"><a href="#一、Kafka快速上手" class="headerlink" title="一、Kafka快速上手"></a>一、Kafka快速上手</h1><h2 id="1-MQ的作用"><a href="#1-MQ的作用" class="headerlink" title="1.MQ的作用"></a>1.MQ的作用</h2><ol>
+<li><p>MQ：MessageQueue，消息队列是一种FIFO先进先出的数据结构。一个典型的MQ系统，会将消息由生产者发送到MQ进行排队，然后根据一定的顺序交由消息的消费者进行处理</p>
+<blockquote>
+<p>[!NOTE]</p>
+<p>QQ和微信就是典型的MQ。只不过他对接的使用对象是人，而Kafka需要对接的使用对象是应用程序</p>
+</blockquote>
+</li>
+<li><p>MQ的作用：</p>
+<ol>
+<li><p>异步，提高系统的响应速度、吞吐量</p>
+</li>
+<li><p>解耦，用作消息队列，帮助解耦系统的生产者和消费者</p>
+</li>
+<li><p>削峰，以稳定的系统资源对应突发的流量冲击</p>
+</li>
+</ol>
+</li>
+<li><p>kafka是目前最具有影响力的开源MQ产品，官网地址：<a target="_blank" rel="noopener" href="https://kafka.apache.org/">https://kafka.apache.org/</a></p>
+</li>
+</ol>
+<h2 id="2-搭建单机服务"><a href="#2-搭建单机服务" class="headerlink" title="2.搭建单机服务"></a>2.搭建单机服务</h2><ol>
+<li><p>下载Kafka：<a target="_blank" rel="noopener" href="https://kafka.apache.org/downloads">https://kafka.apache.org/downloads</a> </p>
+</li>
+<li><p>下载Zookeeper：<a target="_blank" rel="noopener" href="https://zookeeper.apache.org/releases.html">https://zookeeper.apache.org/releases.html</a></p>
+</li>
+<li><p>将上述两个压缩包，分别解压至<code>cd Documents/apps/kafka</code>文件夹和<code>cd Documents/apps/zookeeper</code>文件夹</p>
+</li>
+<li><p>启动Kafka⾃带的Zookeeper脚本</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs shell">// 来到kafka所在路径<br>cd $KAKFKA_HOME<br>// 对于本机电脑为：cd Documents/apps/kafka/kafka_2.13-3.8.0<br><br>// 启动Zookeeper脚本<br>nohup bin/zookeeper-server-start.sh config/zookeeper.properties &amp;<br><br>jps  // 查看zookeeper配置的进程<br></code></pre></td></tr></table></figure>
+
+<div style="text-align:center;gap:5px">
+    <img src="/img/kafka_pic/2.png" srcset="/img/loading.gif" lazyload alt="图片描述">
+</div>
+
+<blockquote>
+<p>[!NOTE]</p>
+<p>从nohup.out中可以看到zookeeper默认会在2181端⼝启动</p>
+<p>通过jps指令看到⼀个QuorumPeerMain进程，确定服务启动成功</p>
+</blockquote>
+</li>
+<li><p>启动kafka</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs shell">// 来到kafka所在路径<br>cd $KAKFKA_HOME<br><br>// 启动kafka脚本<br>nohup bin/kafka-server-start.sh config/server.properties &amp;<br><br>jps  // 查看kafka进程<br></code></pre></td></tr></table></figure>
+
+<div style="text-align:center;gap:5px">
+    <img src="/img/kafka_pic/3.png" srcset="/img/loading.gif" lazyload alt="图片描述">
+</div>
+
+<blockquote>
+<p>[!NOTE]</p>
+<p>启动完成后，使⽤jps指令，看到⼀个kafka进程，确定服务启动成功</p>
+<p>服务会默认在9092端⼝启动</p>
+</blockquote>
+</li>
+</ol>
+<h2 id="3-简单收发消息"><a href="#3-简单收发消息" class="headerlink" title="3.简单收发消息"></a>3.简单收发消息</h2><ul>
+<li>Kafka的基础⼯作机制是消息发送者可以将消息发送到kafka上指定的topic，⽽消息消费者，可以从指定的topic上消费消息</li>
+</ul>
+<div style="text-align:center;gap:5px">
+    <img src="/img/kafka_pic/4.png" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:60%">
+</div>
+
+<ol>
+<li>使⽤Kafka提供的客户端脚本创建Topic</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs shell">cd $KAKFKA_HOME<br><span class="hljs-meta prompt_"># </span><span class="language-bash">创建Topic</span><br>bin/kafka-topics.sh --create --topic zctest --bootstrap-server localhost:9092<br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">查看Topic</span><br>bin/kafka-topics.sh --describe --topic zctest --bootstrap-server localhost:9092<br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>[!NOTE]</p>
+<p><code>--bootstrap-server</code> 用于指定服务端</p>
+</blockquote>
+<div style="text-align:center;gap:5px">
+    <img src="/img/kafka_pic/5.png" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:60%">
+</div>
+
+<ol start="2">
+<li><p>启动⼀个消息发送者端。向名为zctest的Topic发送消息。当命令⾏出现&gt;符号后，随意输⼊⼀些字符。Ctrl+C退出命令⾏。这样就完成了往kafka发消息的操作。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs shell">cd $KAKFKA_HOME<br>bin/kafka-console-producer.sh --broker-list localhost:9092 --topic zctest<br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_">&gt; </span><span class="language-bash">xxx</span><br></code></pre></td></tr></table></figure>
+</li>
+<li><p>启动⼀个消息消费端，从名为zctest的Topic上接收消息</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs shell">cd $KAKFKA_HOME<br>bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic zctest<br><br>xxx<br></code></pre></td></tr></table></figure>
+
+<div style="text-align:center;gap:5px">
+    <img src="/img/kafka_pic/6.png" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:60%">
+</div>
+
+
+</li>
+<li><p>其他消费模式</p>
+<ol>
+<li><p><mark>上述消费者只能获得创建消费者之后的消息</mark>。如果想要<mark>消费之前发送的消息</mark>，可以通过添加–from-begining参数指定</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell">cd $KAKFKA_HOME<br>bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --from-beginning --topictest<br></code></pre></td></tr></table></figure>
+</li>
+<li><p>如果需要更精确的消费消息，可以指定从哪⼀条消息开始消费</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell">cd $KAKFKA_HOME bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --partition 0 --offset 4 --topic test<br>// 这表示从第0号Partition上的第四个消息开始读起。<br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>[!NOTE]</p>
+<ol>
+<li><code>--partition</code>：实际存储消息的队列</li>
+<li><code>--offset</code>：<code>--partition</code>的内部编号</li>
+</ol>
+</blockquote>
+</li>
+</ol>
+</li>
+</ol>
+<h2 id="4-消费者组"><a href="#4-消费者组" class="headerlink" title="4.消费者组"></a>4.消费者组</h2><ol>
+<li><p>对于每个消费者，可以指定⼀个消费者组。<mark>kafka中的同⼀条消息，只能被同⼀个消费者组下的第⼀个消费者消费；或不属于同⼀个消费者组的其他消费者来消费</mark>。在kafka-console-consumer.sh脚本中，可以通过–consumer-propertygroup.id&#x3D;testGroup来指定所属的消费者组。例如，可以启动三个消费者组，来验证⼀下分组消费机制：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">两个消费者实例属于同⼀个消费者组</span><br>bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --consumer-property group.id=testGroup --topic zctest    // 可以消费<br><br>bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --consumer-property group.id=testGroup --topic zctest    // 不可以消费<br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">这个消费者实例属于不同的消费者组</span><br>bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --consumer-property group.id=testGroup2 --topic zctest   // 可以消费<br></code></pre></td></tr></table></figure>
+</li>
+<li><p>接下来，还可以使⽤kafka-consumer-groups.sh观测消费者组的情况。包括他们的消费进度。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">bin/kafka-consumer-groups.sh --bootstrap-server localhost:9092 --describe --group testGroup<br></code></pre></td></tr></table></figure>
+
+<div style="text-align:center;gap:5px">
+    <img src="/img/kafka_pic/7.png" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:60%">
+</div>
+
+<p>Kafka是以消费者组为单位来分别记录每个Partition上的消息偏移量的。⽽增加新的消费者组，并不会影响Kafka的消息数据，只是需要新增⼀条偏移量记录就可以了。所以，Kafka的消息复读效率是很⾼的。</p>
+</li>
+</ol>
+<h2 id="5-kafka的消息传递机制"><a href="#5-kafka的消息传递机制" class="headerlink" title="5.kafka的消息传递机制"></a>5.kafka的消息传递机制</h2><p>从之前的实验可以看到，Kafka的消息发送者和消息消费者通过Topic这样⼀个逻辑概念来进⾏业务沟通。但是实际上，所有的消息是存在服务端的Partition这样⼀个数据结构当中的</p>
+<div style="text-align:center;gap:5px">
+    <img src="/img/kafka_pic/8.png" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:50%">
+</div>
+
+<ul>
+<li>服务端Broker：⼀个Kafka服务器就是⼀个Broker</li>
+<li>话题Topic：这是⼀个逻辑概念，⼀个Topic被认为是业务含义相同的⼀组消息。客户端都通过绑定Topic来⽣产或者消费⾃⼰感兴趣的话题</li>
+<li>分区Partition：Topic只是⼀个逻辑概念，⽽Partition就是实际存储消息的组件。每个Partiton就是⼀个queue队列结构。所有消息以FIFO先进先出的顺序保存在这些Partition分区中</li>
+</ul>
+<h1 id="二、Kafka集群"><a href="#二、Kafka集群" class="headerlink" title="二、Kafka集群"></a>二、Kafka集群</h1><ol>
+<li><p>集群架构</p>
+<div style="text-align:center;gap:5px">
+    <img src="/img/kafka_pic/9.png" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:50%">
+</div>
+</li>
+<li><p>为什么要⽤集群？</p>
+<ol>
+<li>机服务下，Kafka已经具备了⾮常⾼的性能。TPS能够达到百万级别。但是，在实际⼯作中使⽤时，单机搭建的Kafka会有很⼤的局限性。</li>
+<li>消息太多，需要分开保存。Kafka是⾯向海量消息设计的，⼀个Topic下的消息会⾮常多，单机服务很难存得下来。这些消息就需要分成不同的Partition，分布到多个不同的Broker上。这样每个Broker就只需要保存⼀部分数据。这些分区的个数就称为分区数。</li>
+<li>服务不稳定，数据容易丢失。单机服务下，如果服务崩溃，数据就丢失了。为了保证数据安全，就需要给每个Partition配置⼀个或多个备份，保证数据不丢失。Kafka的集群模式下，每个Partition都有⼀个或多个备份。Kafka会通过⼀个统⼀的Zookeeper集群作为选举中⼼，给每个Partition选举出⼀个主节点Leader，其他节点就是从节点Follower。主节点负责响应客户端的具体业务请求，并保存消息。⽽从节点则负责同步主节点的数据。当主节点发⽣故障时，Kafka会选举出⼀个从节点成为新的主节点。</li>
+<li>Kafka集群中的这些Broker信息，包括Partition的选举信息，都会保存在额外部署的Zookeeper集群当中，这样，kafka集群就不会因为某⼀些Broker服务崩溃⽽中断。</li>
+</ol>
+</li>
+</ol>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/Web%E5%BC%80%E5%8F%91/" class="category-chain-item">Web开发</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/Web%E5%BC%80%E5%8F%91/%E4%B8%AD%E9%97%B4%E4%BB%B6/" class="category-chain-item">中间件</a>
+  
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/Web%E5%BC%80%E5%8F%91/" class="print-no-link">#Web开发</a>
+      
+        <a href="/tags/%E4%B8%AD%E9%97%B4%E4%BB%B6/" class="print-no-link">#中间件</a>
+      
+        <a href="/tags/Kafka/" class="print-no-link">#Kafka</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>Kafka</div>
+      <div>http://example.com/2023/12/05/Kafka/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>张辰</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2023年12月5日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2023/12/05/MySQL/" title="MySQL">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">MySQL</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2023/12/03/Flask%20Web%E6%A1%86%E6%9E%B6/" title="Flask Web框架">
+                        <span class="hidden-mobile">Flask Web框架</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  <script>
+  Fluid.utils.createScript('https://lib.baomitu.com/mermaid/8.14.0/mermaid.min.js', function() {
+    mermaid.initialize({"theme":"default"});
+
+    Fluid.utils.listenDOMLoaded(function() {
+      Fluid.events.registerRefreshCallback(function() {
+        if ('mermaid' in window) {
+          mermaid.init();
+        }
+      });
+    });
+  });
+</script>
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="busuanzi_container_site_pv" style="display: none">
+        总访问量
+        <span id="busuanzi_value_site_pv"></span>
+        次
+      </span>
+    
+    
+      <span id="busuanzi_container_site_uv" style="display: none">
+        总访客数
+        <span id="busuanzi_value_site_uv"></span>
+        人
+      </span>
+    
+    
+  
+</div>
+
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

@@ -16,16 +16,16 @@
   <meta name="author" content="张辰">
   <meta name="keywords" content="">
   
-    <meta name="description" content="记录Spring Boot框架">
+    <meta name="description" content="Spring Boot框架，用于简化Spring应用的初始搭建，以及开发过程">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Spring Web框架">
+<meta property="og:title" content="Spring Boot框架">
 <meta property="og:url" content="http://example.com/2023/12/01/Spring%20Boot%E6%A1%86%E6%9E%B6/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="记录Spring Boot框架">
+<meta property="og:description" content="Spring Boot框架，用于简化Spring应用的初始搭建，以及开发过程">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://example.com/img/spring_boot_pic/1.png">
 <meta property="article:published_time" content="2023-12-01T12:00:00.000Z">
-<meta property="article:modified_time" content="2024-09-02T13:44:52.090Z">
+<meta property="article:modified_time" content="2024-10-12T10:01:51.142Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="Web开发">
 <meta property="article:tag" content="框架">
@@ -38,7 +38,7 @@
     <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-  <title>Spring Web框架 - Hexo</title>
+  <title>Spring Boot框架 - Hexo</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -204,7 +204,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="Spring Web框架"></span>
+            <span id="subtitle" data-typed-text="Spring Boot框架"></span>
           
         </div>
 
@@ -227,7 +227,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          549 字
+          2.6k 字
         
       </span>
     
@@ -238,7 +238,7 @@
         
         
         
-          5 分钟
+          22 分钟
         
       </span>
     
@@ -275,23 +275,13 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">Spring Web框架</h1>
+            <h1 id="seo-header">Spring Boot框架</h1>
             
             
               <div class="markdown-body">
                 
                 <h1 id="一、前言"><a href="#一、前言" class="headerlink" title="一、前言"></a>一、前言</h1><ol>
 <li><p>背景：JavaEE的开发一般涉及三个框架（SSM）Spring、Spring MVC、Mybatis，开发时需要配置大量xml文件，非常繁琐</p>
-</li>
-<li><p>SpringBoot介绍</p>
-<ol>
-<li><p>SpringBoot是基于Spring的全新框架，旨在简化Spring应用的初始化搭建和开发过程</p>
-</li>
-<li><p>SpringBoot是所有基于Spring开发项目的起点</p>
-</li>
-<li><p>SpringBoot会尽可能的简化应用开发的门槛，让应用开发、测试、部署变得更加简单</p>
-</li>
-</ol>
 </li>
 <li><p>SpringBoot特点</p>
 <ol>
@@ -303,27 +293,162 @@
 </ol>
 </li>
 </ol>
-<h1 id="二、第一个项目"><a href="#二、第一个项目" class="headerlink" title="二、第一个项目"></a>二、第一个项目</h1><h2 id="1-创建"><a href="#1-创建" class="headerlink" title="1. 创建"></a>1. 创建</h2><ol>
-<li><p>创建SpringBoot项目，使用IDEA中的Spring Initializr生成器快捷创建</p>
 <div style="text-align:center;gap:5px">
-    <img src="/img/spring_boot_pic/2.png" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:40%;">
+    <img src="/img/spring_boot_pic/40.png" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:40%;">
+</div>
+
+<h1 id="二、第一个项目"><a href="#二、第一个项目" class="headerlink" title="二、第一个项目"></a>二、第一个项目</h1><h2 id="1-创建"><a href="#1-创建" class="headerlink" title="1. 创建"></a>1. 创建</h2><ol>
+<li><p>创建SpringBoot项目，使用IDEA中的Spring Initializr生成器快捷创建，Maven类型</p>
+<div style="text-align:center;gap:5px">
+    <img src="/img/spring_boot_pic/2.png" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:20%;">
 </div>
 </li>
-<li><p>添加Spring Web依赖项</p>
+<li><p>添加Spring Web、MySQL Driver和Spring Data JPA依赖项</p>
+<blockquote>
+<p>[!NOTE]</p>
+<ul>
+<li>创建SpringBoot项目勾选Spring Web选项后，会自动将spring-boot-starter-web组件加入到项目中</li>
+</ul>
+</blockquote>
 <div style="text-align:center;gap:5px">
-    <img src="/img/spring_boot_pic/3.png" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:40%;">
+    <img src="/img/spring_boot_pic/3.png" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:30%;">
 </div></li>
 </ol>
-<h2 id="2-控制器-controller"><a href="#2-控制器-controller" class="headerlink" title="2. 控制器 - controller"></a>2. 控制器 - controller</h2><p>需要手动创建<code>controller</code>软件包，以及启动器的类</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@RestController</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">HelloController</span> &#123;<br>    <span class="hljs-meta">@GetMapping(&quot;/hello&quot;)</span><br>    <span class="hljs-keyword">public</span> String <span class="hljs-title function_">hello</span><span class="hljs-params">()</span>&#123;<br>        <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;hello word&quot;</span>;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<h2 id="2-MVC设计模式"><a href="#2-MVC设计模式" class="headerlink" title="2. MVC设计模式"></a>2. MVC设计模式</h2><div style="text-align:center;gap:5px">
+    <img src="/img/spring_boot_pic/11.png" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:50%;">
+</div>
+
+<ul>
+<li>M：model，用于存储&#x2F;封装数据</li>
+<li>V：View，视图，用于显示数据</li>
+<li>C：Controller，控制器</li>
+</ul>
+<h2 id="3-控制器-RestController"><a href="#3-控制器-RestController" class="headerlink" title="3. 控制器 - @RestController"></a>3. 控制器 - @RestController</h2><ul>
+<li>Spring Boot提供@Controller和@RestController两种注释来标识此类负责接收和处理HTTP请求</li>
+<li>@Controller：可用于请求的是页面和数据</li>
+<li><mark>@RestController：可用于只请求的是数据</mark>，主要使用此方法</li>
+</ul>
+<h4 id="1-具体用法"><a href="#1-具体用法" class="headerlink" title="1. 具体用法"></a>1. 具体用法</h4><blockquote>
+<p>[!NOTE]</p>
+<ol>
+<li>需要手动<mark>创建<code>controller</code>软件包</mark>，以及启动器的类</li>
+<li>@RestController会将返回的对象数据转换为json格式</li>
+</ol>
+</blockquote>
+<h5 id="1-示例1"><a href="#1-示例1" class="headerlink" title="1. 示例1"></a>1. 示例1</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@RestController</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">HelloController</span> &#123;<br><br>    <span class="hljs-meta">@RequestMapping(&quot;/hello1&quot;)</span><br>    <span class="hljs-keyword">public</span> User <span class="hljs-title function_">getUser</span><span class="hljs-params">()</span>&#123;<br>        <span class="hljs-type">User</span> <span class="hljs-variable">user</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">User</span>()<br>        user.setUsername(<span class="hljs-string">&quot;zhangchen&quot;</span>);<br>        user.setPassword(<span class="hljs-string">&quot;123&quot;</span>);<br>        <span class="hljs-keyword">return</span> user;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<div style="text-align:center;gap:5px">
+    <img src="/img/spring_boot_pic/12.png" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:35%;">
+</div>
+
+<h5 id="2-示例2"><a href="#2-示例2" class="headerlink" title="2. 示例2"></a>2. 示例2</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@RestController</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">HelloController</span> &#123;<br>    <span class="hljs-meta">@GetMapping(&quot;/hello&quot;)</span><br>    <span class="hljs-keyword">public</span> String <span class="hljs-title function_">hello</span><span class="hljs-params">()</span>&#123;<br>        <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;hello word&quot;</span>;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
 
 <div style="text-align:center;gap:5px">
     <img src="/img/spring_boot_pic/5.png" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:20%;">
 </div>
 
 
+<h4 id="2-请求方法RequestMapping-GetMapping-PostMapping"><a href="#2-请求方法RequestMapping-GetMapping-PostMapping" class="headerlink" title="2. 请求方法RequestMapping&#x2F;GetMapping&#x2F;PostMapping"></a>2. 请求方法RequestMapping&#x2F;GetMapping&#x2F;PostMapping</h4><ul>
+<li>@RequestMapping提供制定请求的Method类型，包括RequestMethod.GET、RequestMethod.POST、RequestMethod.DELETE、RequestMethod.PUT等值，分别对应HTTP请求的Method</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@RestController</span><br><span class="hljs-meta">@RequestMapping(&quot;/stability/drill/&quot;)</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">XController</span> &#123;<br><br>    <span class="hljs-meta">@RequestMapping(&quot;/insert&quot;, method = RequestMethod.POST)</span><br>    <span class="hljs-keyword">public</span> String <span class="hljs-title function_">getData</span><span class="hljs-params">()</span> &#123;<br>        <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;hello&quot;</span>;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
 
-<h2 id="3-启动类-application"><a href="#3-启动类-application" class="headerlink" title="3. 启动类 - application"></a>3. 启动类 - application</h2><ol>
+<ul>
+<li>Method匹配也可以使用@GetMapping、@PostMapping</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@RestController</span><br><span class="hljs-meta">@RequestMapping(&quot;/stability/drill/&quot;)</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">XController</span> &#123;<br><br>    <span class="hljs-meta">@PostMapping(&quot;/insert&quot;)</span><br>    <span class="hljs-keyword">public</span> String <span class="hljs-title function_">getData</span><span class="hljs-params">()</span> &#123;<br>        <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;hello&quot;</span>;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>[!NOTE]</p>
+<p>Post请求除了可以接收隐性请求体，也可以接收写在url中明文的请求体</p>
+</blockquote>
+<h4 id="3-实体entity"><a href="#3-实体entity" class="headerlink" title="3. 实体entity"></a>3. 实体<code>entity</code></h4><ul>
+<li>当传入的参数为对象时</li>
+</ul>
+<ol>
+<li>控制器 - 新建controller软件包</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@RestController</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">HelloController</span> &#123;<br><br>    <span class="hljs-meta">@PostMapping(&quot;/hello1&quot;)</span><br>    <span class="hljs-keyword">public</span> UserEntity <span class="hljs-title function_">getUser</span><span class="hljs-params">(UserEntity userEntity)</span>&#123;<br>      <br>      	System.out.println(userEntity.getUsername());   <span class="hljs-comment">// zhangchen</span><br>        System.out.println(userEntity.getPassword());   <span class="hljs-comment">// 123</span><br>      <br>        <span class="hljs-keyword">return</span> userEntity;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>对象类 - 新建entity软件包</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">UserEntity</span> &#123;<br>    <span class="hljs-keyword">private</span> String Username;<br>    <span class="hljs-keyword">private</span> String password;<br>    <br>    自动生成javaBean get、set方法<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>项目结构</li>
+</ol>
+<div style="text-align:center;gap:5px">
+      <img src="/img/spring_boot_pic/14.png" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:23%;">
+</div>
+
+<ol start="4">
+<li>测试请求</li>
+</ol>
+<ul>
+<li>请求格式为form-data</li>
+</ul>
+<div style="text-align:center;gap:5px">
+      <img src="/img/spring_boot_pic/15.png" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:53%;">
+</div>
+
+<ul>
+<li>请求内容</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs curl">curl --location --request POST &#x27;http://localhost:8080/hello1&#x27; \<br>--form &#x27;Username=&quot;zhangchen&quot;&#x27; \<br>--form &#x27;Password=&quot;123&quot;&#x27;<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>返回结果</li>
+</ul>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs json"><span class="hljs-punctuation">&#123;</span><br>    <span class="hljs-attr">&quot;password&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;123&quot;</span><span class="hljs-punctuation">,</span><br>    <span class="hljs-attr">&quot;username&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;zhangchen&quot;</span><br><span class="hljs-punctuation">&#125;</span><br></code></pre></td></tr></table></figure>
+
+
+
+<h4 id="4-请求体为Body-raw-json-高频"><a href="#4-请求体为Body-raw-json-高频" class="headerlink" title="4. 请求体为Body - raw (json) *高频"></a>4. 请求体为Body - raw (json) *高频</h4><ol>
+<li>请求内容</li>
+</ol>
+<div style="text-align:center;gap:5px">
+      <img src="/img/spring_boot_pic/16.png" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:60%;">
+</div>
+
+<ol start="2">
+<li>控制器 + <mark>@RequestBody</mark></li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@RestController</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">HelloController</span> &#123;<br><br>    <span class="hljs-meta">@PostMapping(&quot;/hello2&quot;)</span><br>    <span class="hljs-keyword">public</span> UserEntity <span class="hljs-title function_">getUser2</span><span class="hljs-params">(<span class="hljs-meta">@RequestBody</span> UserEntity userEntity)</span>&#123;<br>        System.out.println(userEntity.getUsername());   <span class="hljs-comment">// zhangchen</span><br>        System.out.println(userEntity.getPassword());   <span class="hljs-comment">// 123json</span><br>        <span class="hljs-keyword">return</span> userEntity;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+
+
+<h4 id="5-请求体为Body-form-data"><a href="#5-请求体为Body-form-data" class="headerlink" title="5. 请求体为Body - form-data"></a>5. 请求体为Body - form-data</h4><ol>
+<li>请求内容</li>
+</ol>
+<div style="text-align:center;gap:5px">
+      <img src="/img/spring_boot_pic/17.png" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:60%;">
+</div>
+
+<ol start="2">
+<li>控制器</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@RestController</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">HelloController</span> &#123;<br><br>    <span class="hljs-meta">@PostMapping(&quot;/hello1&quot;)</span><br>    <span class="hljs-keyword">public</span> UserEntity <span class="hljs-title function_">getUser</span><span class="hljs-params">(UserEntity userEntity)</span>&#123;<br>        System.out.println(userEntity.getUsername());   <span class="hljs-comment">// zhangchen</span><br>        System.out.println(userEntity.getPassword());   <span class="hljs-comment">// 123form-data</span><br>        <span class="hljs-keyword">return</span> userEntity;<br>    &#125;    <br>&#125;<br></code></pre></td></tr></table></figure>
+
+
+
+<h4 id="6-请求体为params"><a href="#6-请求体为params" class="headerlink" title="6. 请求体为params"></a>6. 请求体为params</h4><ol>
+<li>请求内容</li>
+</ol>
+<div style="text-align:center;gap:5px">
+      <img src="/img/spring_boot_pic/18.png" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:60%;">
+</div>
+
+
+
+<ol start="2">
+<li>控制器 + <mark>@RequestParam</mark></li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@RestController</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">HelloController</span> &#123;<br><br>    <span class="hljs-meta">@PostMapping(&quot;/hello3&quot;)</span><br>    <span class="hljs-keyword">public</span> String <span class="hljs-title function_">getUser3</span><span class="hljs-params">(<span class="hljs-meta">@RequestParam</span> String username)</span>&#123;<br>        System.out.println(username);   <span class="hljs-comment">// 111</span><br>        <span class="hljs-keyword">return</span> username;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+
+
+<h2 id="4-启动类-application"><a href="#4-启动类-application" class="headerlink" title="4. 启动类 - application"></a>4. 启动类 - application</h2><ol>
 <li>启动运行项目</li>
 </ol>
 <div style="text-align:center;gap:5px">
@@ -338,8 +463,164 @@
     <img src="/img/spring_boot_pic/7.png" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:40%;">
 </div>
 
+
+
+
+<h1 id="三、配置"><a href="#三、配置" class="headerlink" title="三、配置"></a>三、配置</h1><h2 id="1-yml"><a href="#1-yml" class="headerlink" title="1.yml"></a>1.yml</h2><h3 id="1-介绍"><a href="#1-介绍" class="headerlink" title="1. 介绍"></a>1. 介绍</h3><ol>
+<li>介绍：YML&#x2F;YAML是一种直观的能够被电脑识别的数据序列化格式，并且容易被阅读</li>
+<li>xml、yml、properties之间的比较，设置服务器的ip以及端口号</li>
+</ol>
+<div style="text-align:center;gap:5px">
+      <img src="/img/spring_boot_pic/19.png" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:50%;">
+</div>
+
+
+<h3 id="2-设置端口号及ip"><a href="#2-设置端口号及ip" class="headerlink" title="2. 设置端口号及ip"></a>2. 设置端口号及ip</h3><ol>
+<li><p>介绍</p>
+<ol>
+<li>在resources文件中，新建application.yml文件，设计项目ip及端口号，整体样式如下：</li>
+<li>项目运行后，访问链接为：<code>http://127.0.0.1:8088</code></li>
+<li>对于本机电脑，也可访问：<code>http://localhost:8088</code></li>
+</ol>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-attr">server:</span><br>  <span class="hljs-attr">port:</span> <span class="hljs-number">8080</span><br>  <span class="hljs-attr">address:</span> <span class="hljs-number">127.0</span><span class="hljs-number">.0</span><span class="hljs-number">.1</span><br></code></pre></td></tr></table></figure></li>
+</ol>
+<div style="text-align:center;gap:5px">
+      <img src="/img/spring_boot_pic/21.png" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:20%;">
+</div>
+
+
+<ol start="2">
+<li><p>端口号</p>
+<ol>
+<li>在<code>application.yml</code>中配置，默认情况为8080，可自行修改端口号</li>
+</ol>
+</li>
+<li><p>ip</p>
+<ol>
+<li><p>无法更改本机电脑ip，在<code>application.yml</code>中配置，仅是作为自我记录</p>
+</li>
+<li><p><code>ifconfig</code>查询本机ip</p>
+<div style="text-align:center;gap:5px">
+    <img src="/img/spring_boot_pic/20.png" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:35%;">
+</div></li>
+</ol>
+</li>
+</ol>
+<h3 id="3-注意事项"><a href="#3-注意事项" class="headerlink" title="3.注意事项"></a>3.注意事项</h3><ol>
+<li><p>数据值前边必须有空格，作为分隔符</p>
+</li>
+<li><p>缩进的空格数目不重要，只要相同层级的元素左侧对其即可</p>
+</li>
+</ol>
+<h3 id="4-数据格式"><a href="#4-数据格式" class="headerlink" title="4.数据格式"></a>4.数据格式</h3><ul>
+<li><p>对象：键值对的集合</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-attr">person:</span><br>	<span class="hljs-attr">name:</span> <span class="hljs-string">zhangchen</span><br>	<br><span class="hljs-comment"># 行内写法</span><br><span class="hljs-attr">person:</span> &#123;<span class="hljs-attr">name:</span> <span class="hljs-string">zhangchen</span>&#125;<br></code></pre></td></tr></table></figure>
+</li>
+<li><p>数组：一组按次序排列的值</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-attr">address:</span><br>	<span class="hljs-bullet">-</span> <span class="hljs-string">beijing</span><br>	<span class="hljs-bullet">-</span> <span class="hljs-string">shanghai</span><br><span class="hljs-comment"># 行内写法</span><br><span class="hljs-attr">address:</span> [<span class="hljs-string">beijing</span>,<span class="hljs-string">shanghai</span>]<br></code></pre></td></tr></table></figure>
+</li>
+<li><p>纯量：单个的，不可再分的值</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-string">mag1:&#x27;hello</span> <span class="hljs-string">\n</span> <span class="hljs-string">world&#x27;</span>  <span class="hljs-comment"># 单引号，忽略转义字符</span><br><span class="hljs-string">mag2:&quot;hello</span> <span class="hljs-string">\n</span> <span class="hljs-string">world&quot;</span>  <span class="hljs-comment"># 双引号，识别转义字符</span><br></code></pre></td></tr></table></figure>
+</li>
+<li><p>参数引用</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-attr">name:</span> <span class="hljs-string">zhangchen</span><br><br><span class="hljs-attr">person:</span><br>	<span class="hljs-string">name:$&#123;name&#125;</span>   <span class="hljs-comment"># 引用上边定义的name值</span><br></code></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="2-读取配置文件内容"><a href="#2-读取配置文件内容" class="headerlink" title="2.读取配置文件内容"></a>2.读取配置文件内容</h2><h3 id="1-Value"><a href="#1-Value" class="headerlink" title="1.@Value"></a>1.@Value</h3><ul>
+<li>将配置内容挨个进行导入，适用于文件配置较少时</li>
+</ul>
+<ol>
+<li><code>.yml</code></li>
+</ol>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-attr">name:</span> <span class="hljs-string">abc</span><br><br><span class="hljs-comment"># 对象</span><br><span class="hljs-attr">person:</span><br>  <span class="hljs-attr">name:</span> <span class="hljs-string">zhangchen</span><br>  <span class="hljs-attr">age:</span> <span class="hljs-number">24</span><br></code></pre></td></tr></table></figure>
+
+<div style="text-align:center;gap:5px">
+    <img src="/img/spring_boot_pic/24.png" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:35%;">
+</div>
+
+<ol start="2">
+<li><code>.controller</code></li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@RestController</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">YmlController</span> &#123;<br><br>    <span class="hljs-meta">@Value(&quot;$&#123;name&#125;&quot;)</span><br>    <span class="hljs-keyword">private</span> String name;<br><br>    <span class="hljs-meta">@Value(&quot;$&#123;person.age&#125;&quot;)</span><br>    <span class="hljs-keyword">private</span> Integer age;<br><br>    <span class="hljs-meta">@GetMapping(&quot;/yml1&quot;)</span><br>    <span class="hljs-keyword">public</span> Map&lt;String, String&gt; <span class="hljs-title function_">yml1</span><span class="hljs-params">()</span>&#123;<br>        Map&lt;String, String&gt; m = <span class="hljs-keyword">new</span> <span class="hljs-title class_">HashMap</span>&lt;&gt;();<br>        m.put(<span class="hljs-string">&quot;name&quot;</span>, name);<br>        m.put(<span class="hljs-string">&quot;age&quot;</span>, String.valueOf(age));<br>        <span class="hljs-keyword">return</span> m;       <span class="hljs-comment">// &#123;&quot;name&quot;:&quot;abc&quot;,&quot;age&quot;:&quot;24&quot;&#125;</span><br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<div style="text-align:center;gap:5px">
+    <img src="/img/spring_boot_pic/25.png" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:35%;">
+</div>
+
+<h3 id="2-Environment"><a href="#2-Environment" class="headerlink" title="2.Environment"></a>2.Environment</h3><ul>
+<li>将配置内容整体进行导入，适用于文件配置较多时</li>
+</ul>
+<ol>
+<li><code>.yml</code></li>
+</ol>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-attr">name:</span> <span class="hljs-string">abc</span><br><br><span class="hljs-comment"># 对象</span><br><span class="hljs-attr">person:</span><br>  <span class="hljs-attr">name:</span> <span class="hljs-string">zhangchen</span><br>  <span class="hljs-attr">age:</span> <span class="hljs-number">24</span><br></code></pre></td></tr></table></figure>
+
+<ol start="2">
+<li><code>.controller</code></li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@RestController</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">YmlController</span> &#123;<br>		<br>  	# 初始化环境变量<br>		<span class="hljs-meta">@Autowired</span><br>    <span class="hljs-keyword">private</span> Environment env;<br><br>    <span class="hljs-meta">@GetMapping(&quot;/yml2&quot;)</span><br>    <span class="hljs-keyword">public</span> String <span class="hljs-title function_">yml2</span><span class="hljs-params">()</span>&#123;<br>        System.out.println(env.getProperty(<span class="hljs-string">&quot;person.name&quot;</span>));  <span class="hljs-comment">// zhangchen</span><br>        <span class="hljs-keyword">return</span> env.getProperty(<span class="hljs-string">&quot;person.name&quot;</span>);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<div style="text-align:center;gap:5px">
+    <img src="/img/spring_boot_pic/26.png" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:35%;">
+</div>
+
+<h3 id="3-ConfigurationProperties"><a href="#3-ConfigurationProperties" class="headerlink" title="3.@ConfigurationProperties"></a>3.@ConfigurationProperties</h3><ul>
+<li>将配置内容封装成对象，再进行导入</li>
+</ul>
+<ol>
+<li><code>.yml</code></li>
+</ol>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-attr">name:</span> <span class="hljs-string">abc</span><br><br><span class="hljs-comment"># 对象</span><br><span class="hljs-attr">person:</span><br>  <span class="hljs-attr">name:</span> <span class="hljs-string">zhangchen</span><br>  <span class="hljs-attr">age:</span> <span class="hljs-number">24</span><br></code></pre></td></tr></table></figure>
+
+<ol start="2">
+<li><code>entity</code></li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">// 表达这个类是bean</span><br><span class="hljs-meta">@Component</span><br><span class="hljs-comment">// 将配置文件注入到这个bean中，其中前缀是person</span><br><span class="hljs-meta">@ConfigurationProperties(prefix = &quot;person&quot;)</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">PersonEntity</span> &#123;<br>    <span class="hljs-keyword">private</span> String name;<br>    <span class="hljs-keyword">private</span> Integer age;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<ol start="3">
+<li><code>.controller</code></li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@RestController</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">YmlController</span> &#123;<br>    <span class="hljs-meta">@Autowired</span><br>    <span class="hljs-keyword">private</span> PersonEntity personEntity;<br>    <br>    <span class="hljs-meta">@GetMapping(&quot;/yml3&quot;)</span><br>    <span class="hljs-keyword">public</span> String <span class="hljs-title function_">yml3</span><span class="hljs-params">()</span>&#123;<br>        System.out.println(personEntity.getName());  <span class="hljs-comment">// zhangchen</span><br>        <span class="hljs-keyword">return</span> personEntity.getName();<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<div style="text-align:center;gap:5px">
+    <img src="/img/spring_boot_pic/27.png" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:35%;">
+</div>
+
+
+<h2 id="3-不同环境文件配置方式-profile"><a href="#3-不同环境文件配置方式-profile" class="headerlink" title="3.不同环境文件配置方式 profile"></a>3.不同环境文件配置方式 profile</h2><h3 id="1-介绍-1"><a href="#1-介绍-1" class="headerlink" title="1.介绍"></a>1.介绍</h3><p>开发时，通常同一套程序会被安装到不同环境，比如开发、测试、生产等。其中数据库地址、服务器端口等配置都不同，如果每次打包时，都修改配置文件将非常麻烦，使用profile功能来动态配置切换</p>
+<h3 id="2-不同环境文件配置方式"><a href="#2-不同环境文件配置方式" class="headerlink" title="2.不同环境文件配置方式"></a>2.不同环境文件配置方式</h3><h4 id="1-多properties文件方式"><a href="#1-多properties文件方式" class="headerlink" title="1.多properties文件方式"></a>1.多properties文件方式</h4><ol>
+<li>设置<code>application-dev.properties</code>，开发环境端口号</li>
+</ol>
+<div style="text-align:center;gap:5px">
+    <img src="/img/spring_boot_pic/22.png" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:35%;">
+</div>
+
+<ol start="2">
+<li>设置<code>application-dev.properties</code>，测试环境端口号</li>
+</ol>
+<div style="text-align:center;gap:5px">
+    <img src="/img/spring_boot_pic/23.png" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:35%;">
+</div>
+
+<ol start="3">
+<li><code>application.properties</code><mark>进行激活</mark>，使用开发环境端口号（8081）</li>
+</ol>
+<div style="text-align:center;gap:5px">
+    <img src="/img/spring_boot_pic/28.png" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:35%;">
+</div>
+
+<h4 id="2-yml单文档方式"><a href="#2-yml单文档方式" class="headerlink" title="2.yml单文档方式"></a>2.yml单文档方式</h4><ol>
+<li>将dev、test、pro环境所需要的配置写在同一个yml文件中，<mark>中间用<code>---</code>来进行分割</mark></li>
+<li>选择所需要的环境配置，<mark>进行激活</mark></li>
+</ol>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-meta">---</span><br><span class="hljs-attr">server:</span><br>  <span class="hljs-attr">port:</span> <span class="hljs-number">8081</span><br><span class="hljs-attr">spring:</span><br>  <span class="hljs-attr">config:</span><br>    <span class="hljs-attr">activate:</span><br>      <span class="hljs-attr">on-profile:</span> <span class="hljs-string">dev</span><br><span class="hljs-meta">---</span><br><span class="hljs-attr">server:</span><br>  <span class="hljs-attr">port:</span> <span class="hljs-number">8082</span><br><span class="hljs-attr">spring:</span><br>  <span class="hljs-attr">config:</span><br>    <span class="hljs-attr">activate:</span><br>      <span class="hljs-attr">on-profile:</span> <span class="hljs-string">test</span><br><span class="hljs-meta">---</span><br><span class="hljs-attr">server:</span><br>  <span class="hljs-attr">port:</span> <span class="hljs-number">8083</span><br><span class="hljs-attr">spring:</span><br>  <span class="hljs-attr">config:</span><br>    <span class="hljs-attr">activate:</span><br>      <span class="hljs-attr">on-profile:</span> <span class="hljs-string">pro</span><br><span class="hljs-meta">---</span><br><span class="hljs-meta"></span><br><span class="hljs-comment"># 激活开发环境的配置文件</span><br><span class="hljs-attr">spring:</span><br>  <span class="hljs-attr">profiles:</span><br>    <span class="hljs-attr">active:</span> <span class="hljs-string">pro</span><br></code></pre></td></tr></table></figure>
+
+<div style="text-align:center;gap:5px">
+    <img src="/img/spring_boot_pic/29.png" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:35%;">
+</div>
+
+
 <h2 id="4-开发环境热部署"><a href="#4-开发环境热部署" class="headerlink" title="4. 开发环境热部署"></a>4. 开发环境热部署</h2><ul>
-<li>在实际的项目开发调试过程中，会频繁地修改后台类文件，导致需要重新编译、重新启动，铮哥过程非常麻烦，影响开发效率</li>
+<li>在实际的项目开发调试过程中，会频繁地修改后台类文件，导致需要重新编译、重新启动，整个过程非常麻烦，影响开发效率</li>
 <li>Spring Boot提供了spring-boot-devtools组件，使得无需动手重启Spring Boot应用即可重新编译、启动项目，大大缩短编译启动时间</li>
 <li>devtools会监听classpath下的文件变动，触发Restart类加载器重新加载该类，从而实现类文件和属性文件的热部署</li>
 <li>并不是所有的更改都需要重启应用（如静态资源，视图模板），可以通过设置spring.devtools.restart.exclude属性，来指定一些文件或目录的修改，不用重启应用</li>
@@ -372,7 +653,174 @@
 </div></li>
 </ol>
 </li>
+<li><p>以上完成热部署所需的所有配置。后续完成代码修改后，<code>command+s</code>进行保存，平台再次访问内容已经发生了修改，即热部署</p>
+</li>
 </ol>
+<h1 id="四、整合其他框架"><a href="#四、整合其他框架" class="headerlink" title="四、整合其他框架 *"></a>四、整合其他框架 *</h1><h2 id="1-测试-Junit"><a href="#1-测试-Junit" class="headerlink" title="1.测试 Junit"></a>1.测试 <code>Junit</code></h2><h3 id="1-搭建SpringBoot工程"><a href="#1-搭建SpringBoot工程" class="headerlink" title="1.搭建SpringBoot工程"></a>1.搭建SpringBoot工程</h3><h3 id="2-引入依赖"><a href="#2-引入依赖" class="headerlink" title="2.引入依赖"></a>2.引入依赖</h3><p>创建SpringBoot工程后，会自动导入start-test依赖</p>
+<div style="text-align:center;gap:5px">
+    <img src="/img/spring_boot_pic/31.png" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:35%;">
+</div>
+
+<h3 id="3-编写测试类-Service"><a href="#3-编写测试类-Service" class="headerlink" title="3.编写测试类 @Service"></a>3.编写测试类 <code>@Service</code></h3><blockquote>
+<p>[!NOTE]</p>
+<ol>
+<li><mark>@Service 标识了这个类是一个业务逻辑层的服务 Bean</mark>。这意味着当 Spring 应用启动时，该 Bean 会被自动创建并加入到 Spring 应用上下文中</li>
+<li><mark>在控制器类中，通过注入该组件的实例，即可调用其中的方法</mark></li>
+</ol>
+</blockquote>
+<div style="text-align:center;gap:5px">
+    <img src="/img/spring_boot_pic/32.png" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:35%;">
+</div>
+
+<h3 id="4-添加测试相关注释"><a href="#4-添加测试相关注释" class="headerlink" title="4.添加测试相关注释"></a>4.添加测试相关注释</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@SpringBootTest(classes = Application.class)</span><br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>其中<code>Application.class</code>方法，为启动器中的方法</li>
+</ul>
+<div style="text-align:center;gap:5px">
+    <img src="/img/spring_boot_pic/33.png" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:35%;">
+</div>
+
+<h3 id="5-编写测试用例方法"><a href="#5-编写测试用例方法" class="headerlink" title="5.编写测试用例方法"></a>5.编写测试用例方法</h3><blockquote>
+<p>[!NOTE]</p>
+<ol>
+<li><mark>@Autowired</mark>：注入实例</li>
+<li><mark>@Test</mark>：标记测试方法</li>
+</ol>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@SpringBootTest(classes = Application.class)</span><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">SpringBootDemoApplicationTests</span> &#123;<br>    <span class="hljs-meta">@Autowired</span><br>    <span class="hljs-keyword">private</span> HelloService helloService;<br><br>    <span class="hljs-meta">@Test</span><br>    <span class="hljs-keyword">void</span> <span class="hljs-title function_">contextLoads</span><span class="hljs-params">()</span> &#123;<br>        System.out.println(<span class="hljs-string">&quot;1&quot;</span>);       <span class="hljs-comment">// 1</span><br>        helloService.helloService();   <span class="hljs-comment">// hello</span><br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<div style="text-align:center;gap:5px">
+    <img src="/img/spring_boot_pic/34.png" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:35%;">
+</div>
+
+
+
+<h2 id="2-数据库MyBatis"><a href="#2-数据库MyBatis" class="headerlink" title="2.数据库MyBatis"></a>2.数据库<code>MyBatis</code></h2><h3 id="1-搭建SpringBoot工程-1"><a href="#1-搭建SpringBoot工程-1" class="headerlink" title="1.搭建SpringBoot工程"></a>1.搭建SpringBoot工程</h3><h3 id="2-引入依赖-1"><a href="#2-引入依赖-1" class="headerlink" title="2.引入依赖"></a>2.引入依赖</h3><ul>
+<li>引入mybatis起步依赖，添加mysql驱动</li>
+<li><mark>需要注意<code>Spring Boot</code>和<code>MyBatis</code>的版本是否兼容</mark></li>
+</ul>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-comment">&lt;!-- pom.xml --&gt;</span><br><br><span class="hljs-comment">&lt;!-- MyBatis --&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.mybatis.spring.boot<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>mybatis-spring-boot-starter<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>3.0.0<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br><br><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>mysql<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>mysql-connector-java<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>8.0.26<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+
+
+<h3 id="3-编写配置"><a href="#3-编写配置" class="headerlink" title="3.编写配置"></a>3.编写配置</h3><ul>
+<li>编写DataSource和MyBatis相关配置</li>
+</ul>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-comment">#application.yml</span><br><br><span class="hljs-comment">#配置本地Mysql数据源信息</span><br><span class="hljs-attr">spring:</span><br>  <span class="hljs-attr">datasource:</span><br>    <span class="hljs-attr">url:</span> <span class="hljs-string">jdbc:mysql://localhost:3306/test01</span><br>    <span class="hljs-attr">username:</span> <span class="hljs-string">root</span><br>    <span class="hljs-attr">password:</span> <span class="hljs-string">Pooh_0505</span><br>    <span class="hljs-attr">driver-class-name:</span> <span class="hljs-string">com.mysql.cj.jdbc.Driver</span><br><br><span class="hljs-attr">mybatis:</span><br>  <span class="hljs-attr">mapper-locations:</span> <span class="hljs-string">classpath:mapper/*.xml</span><br></code></pre></td></tr></table></figure>
+
+
+
+<h3 id="4-定义实体类"><a href="#4-定义实体类" class="headerlink" title="4.定义实体类"></a>4.定义实体类</h3><ul>
+<li><mark>创建<code>domain</code>软件包</mark>，定义表和实体类</li>
+<li><code>User.java</code></li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Service</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">User</span> &#123;<br>    <span class="hljs-keyword">private</span> String name;<br>    <span class="hljs-keyword">private</span> Integer age;<br>    <span class="hljs-keyword">private</span> String gender;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<div style="text-align:center;gap:5px">
+    <img src="/img/spring_boot_pic/35.png" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:35%;">
+</div>
+
+
+<h3 id="5-数据库查询"><a href="#5-数据库查询" class="headerlink" title="5.数据库查询"></a>5.数据库查询</h3><ul>
+<li>创建<code>mapper</code>软件包，编写dao和mapper文件，进行数据库查询</li>
+<li><code>UserMapper.java</code></li>
+</ul>
+<h4 id="1-纯注解模式-Select"><a href="#1-纯注解模式-Select" class="headerlink" title="1.纯注解模式@Select"></a>1.纯注解模式<code>@Select</code></h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Mapper</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">interface</span> <span class="hljs-title class_">UserMapper</span> &#123;<br>    <span class="hljs-meta">@Select(&quot;select * from test001&quot;)</span><br>    List&lt;User&gt; <span class="hljs-title function_">findAll</span><span class="hljs-params">()</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<div style="text-align:center;gap:5px">
+    <img src="/img/spring_boot_pic/36.png" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:35%;">
+</div>
+#### 2.`Xml`配置文件映射模式 *
+
+<h5 id="1-创建xml配置文件"><a href="#1-创建xml配置文件" class="headerlink" title="1.创建xml配置文件"></a>1.创建xml配置文件</h5><ol>
+<li><p>resources下，新建 mappers 软件包，以及<code>UserMapper</code>配置文件</p>
+</li>
+<li><p>添加<code>UserMapper</code>配置文件的配置头</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-meta">&lt;?xml version=<span class="hljs-string">&quot;1.0&quot;</span> encoding=<span class="hljs-string">&quot;UTF-8&quot;</span>?&gt;</span><br><span class="hljs-meta">&lt;!DOCTYPE <span class="hljs-keyword">mapper</span> <span class="hljs-keyword">PUBLIC</span> <span class="hljs-string">&quot;-//mybatis.org//DTD Mapper 3.0//EN&quot;</span> <span class="hljs-string">&quot;http://mybatis.org/dtd/mybatis-3-mapper.dtd&quot;</span>&gt;</span><br></code></pre></td></tr></table></figure>
+</li>
+<li><p>编写查询语句</p>
+<div style="text-align:center;gap:5px">
+    <img src="/img/spring_boot_pic/38.png" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:35%;">
+</div></li>
+</ol>
+<h5 id="2-创建项目运行配置文件"><a href="#2-创建项目运行配置文件" class="headerlink" title="2.创建项目运行配置文件"></a>2.创建项目运行配置文件</h5><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-attr">mybatis:</span><br>  <span class="hljs-attr">mapper-locations:</span> <span class="hljs-string">classpath:mappers/*.xml</span>   <span class="hljs-comment"># mapper映射文件路径</span><br>  <span class="hljs-attr">type-aliases-package:</span> <span class="hljs-string">com.example.springbootdemo.domain</span>  <span class="hljs-comment">#包扫描，用于查找别名</span><br></code></pre></td></tr></table></figure>
+
+<div style="text-align:center;gap:5px">
+    <img src="/img/spring_boot_pic/37.png" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:35%;">
+</div>
+
+<h5 id="3-创建mapper调用xml配置文件"><a href="#3-创建mapper调用xml配置文件" class="headerlink" title="3.创建mapper调用xml配置文件"></a>3.创建mapper调用xml配置文件</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Mapper</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">interface</span> <span class="hljs-title class_">UserXmlMapper</span> &#123;<br>    List&lt;User&gt; <span class="hljs-title function_">findAll2</span><span class="hljs-params">()</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<div style="text-align:center;gap:5px">
+    <img src="/img/spring_boot_pic/39.png" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:35%;">
+</div>
+
+
+
+<h3 id="6-测试"><a href="#6-测试" class="headerlink" title="6.测试"></a>6.测试</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@SpringBootTest(classes = Application.class)</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">MybatisTest</span> &#123;<br>    <span class="hljs-meta">@Autowired</span><br>    <span class="hljs-keyword">private</span> UserMapper userMapper;<br><br>    <span class="hljs-meta">@Test</span><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">testFindAll</span><span class="hljs-params">()</span> &#123;<br>        List&lt;User&gt; all = userMapper.findAll();<br>        System.out.println(all);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+<h1 id="六、软件包"><a href="#六、软件包" class="headerlink" title="六、软件包"></a>六、软件包</h1><h2 id="1-java"><a href="#1-java" class="headerlink" title="1. java"></a>1. java</h2><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs awk">|- java              <span class="hljs-regexp">//</span> 源码<br>  |- com<br>		|- controller     <span class="hljs-regexp">//</span> 控制层、web层<br>		<br>		|- service        <span class="hljs-regexp">//</span> 服务层接口<br>        |- impl       <span class="hljs-regexp">//</span> 服务层实现<br>        <br>    |- mapper<span class="hljs-regexp">/dao/</span>repository <span class="hljs-regexp">//</span> 数据访问层，与数据库交互为service提供接口<br>    <br>    |- pojo<span class="hljs-regexp">/entity/</span>domain     <span class="hljs-regexp">//</span> 实体对象<br>        |- dto <span class="hljs-regexp">//</span> 持久层需要的实体对象(用于服务层与持久层之间的数据传输对象)<br>        |- vo <span class="hljs-regexp">//</span> 视图层需要的实体对象(用于服务层与视图层之间的数据传输对象)<br><br>    |- constant       <span class="hljs-regexp">//</span> 存放常量<br>    |- utils          <span class="hljs-regexp">//</span> 工具<br>    |- *Application.java  <span class="hljs-regexp">//</span> 入口启动类<br></code></pre></td></tr></table></figure>
+
+<h3 id="1-控制层"><a href="#1-控制层" class="headerlink" title="1.控制层"></a>1.控制层</h3><ol>
+<li><p>controller</p>
+<p>用途：具体模块的业务流程控制，需要调用service逻辑设计层的接口来控制业务流程。因为service中的方法是我们使用到的，controller通过接收前端H5或者App传过来的参数进行业务操作，再将处理结果返回到前端</p>
+</li>
+</ol>
+<h3 id="2-服务层"><a href="#2-服务层" class="headerlink" title="2.服务层"></a>2.服务层</h3><ol>
+<li><p>service</p>
+<p>用途：业务service层，给controller层的类提供接口进行调用。一般就是自己写的方法封装起来，就是声明一下</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">interface</span> <span class="hljs-title class_">UserService</span> <span class="hljs-keyword">extends</span> <span class="hljs-title class_">Service</span> &#123;<br><br>&#125;<br></code></pre></td></tr></table></figure>
+</li>
+<li><p>serviceImpl</p>
+<p>用途：方法的具体实现</p>
+</li>
+</ol>
+<h3 id="3-数据访问层"><a href="#3-数据访问层" class="headerlink" title="3.数据访问层"></a>3.数据访问层</h3><ol>
+<li><p>mapper&#x2F;dao&#x2F;repository</p>
+<p>用途：对数据库进行数据持久化操作，他的方法语句是直接针对数据库操作的，主要实现一些增删改查操作，在mybatis中方法主要与与xxx.xml内相互一一映射</p>
+</li>
+</ol>
+<h3 id="4-实体层"><a href="#4-实体层" class="headerlink" title="4.实体层"></a>4.实体层</h3><ol>
+<li><p><mark>pojo</mark>&#x2F;entity&#x2F;domin</p>
+<p>用途：用于存放我们的实体类，与数据库中的属性值基本保持一致，实现set和get的方法</p>
+</li>
+<li><p><mark>DTO</mark>（Data Transfer Object）</p>
+</li>
+</ol>
+<p>DTO通常用于在应用程序的各层之间传输数据。<mark>通常不包含任何业务逻辑，只是用来承载数据</mark>。DTO的主要目的是将数据从一层传递到另一层，同时减少层与层之间的耦合度</p>
+<ul>
+<li>示例：有一个用户服务，需要从数据库获取用户信息并将其传输到前端。我们可以创建一个UserDTO来承载这些信息。</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">UserDTO</span> &#123;<br>    <span class="hljs-keyword">private</span> String id;<br>    <span class="hljs-keyword">private</span> String username;<br>    <span class="hljs-keyword">private</span> String email;<br>    <span class="hljs-comment">// 省略getter和setter方法...</span><br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>这个例子中，UserDTO只是一个简单的Java类，包含了用户的ID、用户名和电子邮件地址。它没有包含任何与用户相关的业务逻辑，只是用来在不同的层之间传输数据</p>
+<ol start="3">
+<li><mark>VO</mark>（Value Object）</li>
+</ol>
+<p>VO是一个用来封装业务逻辑处理后的数据。与DTO不同，<mark>VO通常会包含一些业务逻辑</mark>，比如计算、校验等。VO更注重于业务领域，它是对某个业务实体的抽象表示。</p>
+<ul>
+<li>示例：需要对用户进行一些业务处理，比如计算用户的积分。我们可以创建一个UserVO来承载这些信息。</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">UserVO</span> &#123;<br>    <span class="hljs-keyword">private</span> String id;<br>    <span class="hljs-keyword">private</span> String username;<br>    <span class="hljs-keyword">private</span> <span class="hljs-type">int</span> points; <span class="hljs-comment">// 用户的积分</span><br>    <span class="hljs-comment">// 省略getter和setter方法...</span><br>    <br>    <span class="hljs-comment">// 业务处理方法，比如计算积分</span><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">calculatePoints</span><span class="hljs-params">()</span> &#123;<br>        <span class="hljs-comment">// 计算积分的逻辑...</span><br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>在这个例子中，UserVO不仅包含了用户的基本信息，还包含了用户的积分信息，并且提供了一个计算积分的方法。这样，我们就可以在业务处理层使用UserVO来进行一些与用户相关的业务操作</p>
+<h2 id="2-resource"><a href="#2-resource" class="headerlink" title="2.resource"></a>2.resource</h2><figure class="highlight lasso"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs lasso">|- resources         <span class="hljs-comment">// 资源</span><br> |- static        <span class="hljs-comment">// 静态资源(html、css、js、图片等)</span><br> |- templates     <span class="hljs-comment">// 视图模板(jsp、thymeleaf等)</span><br> |- mapper        <span class="hljs-comment">// 存放数据访问层对应的XML配置</span><br>     |- *Mapper.<span class="hljs-built_in">xml</span><br>     |- <span class="hljs-params">...</span><br> |- application.yml        <span class="hljs-comment">// 公共配置</span><br> |- application<span class="hljs-params">-dev.yml</span>    <span class="hljs-comment">// 开发环境配置</span><br> |- application<span class="hljs-params">-prod.yml</span>   <span class="hljs-comment">// 生产环境配置 </span><br> |- logback.<span class="hljs-built_in">xml</span>            <span class="hljs-comment">// 日志配置</span><br></code></pre></td></tr></table></figure>
+
+<h2 id="3-test"><a href="#3-test" class="headerlink" title="3.test"></a>3.test</h2><figure class="highlight 1c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs 1c"><span class="hljs-string">|- test                  // 测试源码</span><br>  <span class="hljs-string">|- java               </span><br>   <span class="hljs-string">|- com</span><br>     <span class="hljs-string">|- 根据具体情况按源码目录结构存放编写的测试用例</span><br></code></pre></td></tr></table></figure>
+
+
+
+<p>1.Mapper文件：通常是指MyBatis框架中的XML文件，用于定义SQL语句和映射关系。它的主要用途包括，定义SQL语句、结果映射、参数映射、动态SQL</p>
+<p>2.DAO（Data Access Object）文件：是Java类，用于定义数据访问接口和实现类，调用Mapper文件中的SQL语句。它的主要用途包括，定义数据访问接口、实现数据访问逻辑</p>
+<h1 id="七、其他"><a href="#七、其他" class="headerlink" title="七、其他"></a>七、其他</h1><h2 id="1-本机端口号被占，无法启动web程序"><a href="#1-本机端口号被占，无法启动web程序" class="headerlink" title="1.本机端口号被占，无法启动web程序"></a>1.本机端口号被占，无法启动web程序</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs shell">// 找到使用端口的进程<br>sudo lsof -i :PortNum   // 将PortNum替换为要查询的端口号（注意端口号前面不要空格）<br>// 关闭进程<br>sudo kill -9 PID        // 将PID替换为相应的进程号<br></code></pre></td></tr></table></figure>
+
 
                 
               </div>
@@ -431,7 +879,7 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>Spring Web框架</div>
+      <div>Spring Boot框架</div>
       <div>http://example.com/2023/12/01/Spring Boot框架/</div>
     </div>
     <div class="license-meta">
@@ -486,8 +934,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2023/12/01/Python/" title="Python基础">
-                        <span class="hidden-mobile">Python基础</span>
+                      <a href="/2023/12/01/Spring%E6%A1%86%E6%9E%B6/" title="Spring Web框架">
+                        <span class="hidden-mobile">Spring Web框架</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

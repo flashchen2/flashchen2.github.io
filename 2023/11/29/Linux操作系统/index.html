@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://example.com/img/shell_instruction_pic/1.jpg">
 <meta property="article:published_time" content="2023-11-29T12:00:00.000Z">
-<meta property="article:modified_time" content="2024-08-01T09:46:26.114Z">
+<meta property="article:modified_time" content="2024-10-09T10:56:23.372Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="开发">
 <meta property="article:tag" content="操作系统">
@@ -229,7 +229,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.8k 字
+          1.6k 字
         
       </span>
     
@@ -240,7 +240,7 @@
         
         
         
-          15 分钟
+          14 分钟
         
       </span>
     
@@ -283,17 +283,29 @@
               <div class="markdown-body">
                 
                 <h1 id="一、MacOS"><a href="#一、MacOS" class="headerlink" title="一、MacOS"></a>一、MacOS</h1><h2 id="1-高频命令"><a href="#1-高频命令" class="headerlink" title="1. 高频命令"></a>1. 高频命令</h2><ol>
-<li><code>ls</code> 显示当前文件夹下所有的文件<br> <code>ls -al</code> 显示当前页面下的所有文件，可用于检测首页面所有隐藏文件夹，如配置环境变量的最终位置<code>.bash_profile</code></li>
-<li><code>open .bash_profile</code> 打开<code>.bash_profile</code>文件夹<br> <code>export PATH=&#123;PATH&#125;:/文件路径（这是是mysql路径）/bin</code>  配置路径</li>
-<li><code>cd /user/local/bin</code>  进去mac配置环境的路径<br> <code>cd /</code> 回到根目录</li>
-<li><code>mv chromedriver  /user/local/bin</code> 将chromedriver移动到<code>/user/local/bin</code>下，删除原位置文件</li>
-<li><code>ps -ef | grep mysq</code>l 全局查找“mysql”文件位置<br> <code>ls | grep mysql</code> 当前路径查找“mysql”文件位置</li>
-<li><code>pwd</code> 查看当前所在目录</li>
-<li><code>touch abcd</code> 新建abcd文件</li>
-<li><code>rm abcd</code>  删除abcd文件<br> <code>rm -rf abcd</code> 强制删除abcd文件 （-r是递归处理，就是一层一层的删，-f是强制删除）<br> <code>sudo rm -drf</code> 最高级别删除</li>
-<li><code>which virtualenvwrapper.sh</code> 查找virtualenvwrapper所在位置</li>
-<li><code>mkdir ~/pyEnv</code> 创建一个pyEnv目录</li>
-<li><code>java -v</code> 不支持<br><code>java -version</code> 支持</li>
+<li><p><code>ls</code> 显示当前文件夹下所有的文件<br> <code>ls -al</code> 显示当前页面下的所有文件，可用于检测首页面所有隐藏文件夹，如配置环境变量的最终位置<code>.bash_profile</code></p>
+<p> <code>ll</code> 等价于<code>ls -l</code>以长格式列出目录内容</p>
+</li>
+<li><p><code>open .bash_profile</code> 打开<code>.bash_profile</code>文件夹<br> <code>export PATH=&#123;PATH&#125;:/文件路径（这是是mysql路径）/bin</code>  配置路径</p>
+</li>
+<li><p><code>cd /user/local/bin</code>  进去mac配置环境的路径<br> <code>cd /</code> 回到根目录</p>
+</li>
+<li><p><code>mv chromedriver  /user/local/bin</code> 将chromedriver移动到<code>/user/local/bin</code>下，删除原位置文件</p>
+</li>
+<li><p><code>ps -ef | grep mysq</code>l 全局查找“mysql”文件位置<br> <code>ls | grep mysql</code> 当前路径查找“mysql”文件位置</p>
+</li>
+<li><p><code>pwd</code> 查看当前所在目录</p>
+</li>
+<li><p><code>touch abcd</code> 新建abcd文件</p>
+</li>
+<li><p><code>rm abcd</code>  删除abcd文件<br> <code>rm -rf abcd</code> 强制删除abcd文件 （-r是递归处理，就是一层一层的删，-f是强制删除）<br> <code>sudo rm -drf</code> 最高级别删除</p>
+</li>
+<li><p><code>which virtualenvwrapper.sh</code> 查找virtualenvwrapper所在位置</p>
+</li>
+<li><p><code>mkdir ~/pyEnv</code> 创建一个pyEnv目录</p>
+</li>
+<li><p><code>java -v</code> 不支持<br> <code>java -version</code> 支持</p>
+</li>
 </ol>
 <h2 id="2-查看本机ip"><a href="#2-查看本机ip" class="headerlink" title="2. 查看本机ip"></a>2. 查看本机ip</h2><figure class="highlight 1c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs 1c">ifconfig <span class="hljs-string">| grep &quot;</span>inet<span class="hljs-string">&quot;</span><br></code></pre></td></tr></table></figure>
 <div style="text-align:center">
@@ -310,12 +322,12 @@
 <h2 id="4-分屏"><a href="#4-分屏" class="headerlink" title="4. 分屏"></a>4. 分屏</h2><ol>
 <li>新建分屏</li>
 </ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">command</span> + d<br></code></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">command + d<br></code></pre></td></tr></table></figure>
 
 <ol start="2">
-<li>取消分屏</li>
+<li><mark>取消分屏</mark></li>
 </ol>
-<figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs lsl"><span class="hljs-section">control</span> + d<br></code></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">control + d<br></code></pre></td></tr></table></figure>
 
 
 
@@ -526,86 +538,6 @@
 <ul>
 <li>也常用于cd路径时，补全路径</li>
 </ul>
-<h1 id="四、Git"><a href="#四、Git" class="headerlink" title="四、Git"></a>四、Git</h1><h2 id="1-创建仓库"><a href="#1-创建仓库" class="headerlink" title="1. 创建仓库"></a>1. 创建仓库</h2><ol>
-<li>创建github仓库</li>
-</ol>
-<p>github网址：<a target="_blank" rel="noopener" href="https://github.com/flashchen2">https://github.com/flashchen2</a></p>
-<div style="text-align:center;gap:5px">
-    <img src="/img/shell_instruction_pic/12.png" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:18%;">
-    <img src="/img/shell_instruction_pic/13.png" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:18%;">
-</div>
-
-<div style="text-align:center;gap:5px">
-    <img src="/img/shell_instruction_pic/14.png" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:18%;">
-</div>
-
-<ol start="2">
-<li>创建想要上传的项目</li>
-</ol>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs shell">cd 到对应文件夹<br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">初始化</span><br>git init<br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">将本地项目中的全部文件添加至git中，命令中.的含义就是“全部文件”</span><br>git add .<br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">添加项目的描述文字</span><br>git commit -m &quot;description&quot;<br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">添加本地文件与github仓库之间的联系</span><br>git remote add origin git@github.com:flashchen2/github_test.git<br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">上传代码</span><br>git push -f origin main/master<br></code></pre></td></tr></table></figure>
-
-
-
-<h2 id="2-新建分支"><a href="#2-新建分支" class="headerlink" title="2. 新建分支"></a>2. 新建分支</h2><ol>
-<li>基于远程所给定的分支，拉取自己的分支，用于开发</li>
-</ol>
-<div style="text-align:center;gap:5px">
-    <img src="/img/shell_instruction_pic/15.png" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:18%;">
-</div>
-
-<ol start="2">
-<li>新建dev分支，进行代码改动，查询分支改动内容的两种方法</li>
-</ol>
-<div style="text-align:center;gap:5px">
-    <img src="/img/shell_instruction_pic/16.png" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:15%;">
-    <img src="/img/shell_instruction_pic/17.png" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:15%;">
-</div>
-
-<ol start="3">
-<li>代码提交并推送，推送成功后，会用新的远程分支</li>
-</ol>
-<div style="text-align:center;gap:5px">
-    <img src="/img/shell_instruction_pic/18.png" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:15%;">
-    <img src="/img/shell_instruction_pic/19.png" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:15%;">
-</div>
-
-<div style="text-align:center;gap:5px">
-    <img src="/img/shell_instruction_pic/20.png" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:18%;">
-</div>
-
-<ol start="4">
-<li>更新当前远程主分支的最新状态</li>
-</ol>
-<div style="text-align:center;gap:5px">
-    <img src="/img/shell_instruction_pic/21.png" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:18%;">
-</div>
-
-<h2 id="3-分支合并"><a href="#3-分支合并" class="headerlink" title="3. 分支合并"></a>3. 分支合并</h2><ol>
-<li>将带有改动项的线下dev分支，合并到线上分支中</li>
-</ol>
-<div style="text-align:center;gap:5px">
-    <img src="/img/shell_instruction_pic/22.png" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:15%;">
-    <img src="/img/shell_instruction_pic/23.png" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:15%;">
-</div>
-
-<ol start="2">
-<li>将带有改动项的线下dev分支，合并到线下main分支</li>
-</ol>
-<div style="text-align:center;gap:5px">
-    <img src="/img/shell_instruction_pic/24.png" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:15%;">
-</div>
-
-<ol start="3">
-<li>将线下main分支，合并到线上origin&#x2F;main分支中</li>
-</ol>
-<div style="text-align:center;gap:5px">
-    <img src="/img/shell_instruction_pic/25.png" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:15%;">
-    <img src="/img/shell_instruction_pic/26.png" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:18%;">
-</div>
-## 4. 提交代码
-
-
-
 <h1 id="五、手表手环终端"><a href="#五、手表手环终端" class="headerlink" title="五、手表手环终端"></a>五、手表手环终端</h1><h2 id="1-向固件中推入apk"><a href="#1-向固件中推入apk" class="headerlink" title="1. 向固件中推入apk"></a>1. 向固件中推入apk</h2><ol>
 <li>adb devices   # pc是否通过usb检测到固件</li>
 <li>adb root </li>
@@ -734,8 +666,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2023/11/29/jQuery/" title="JavaScript之jQuery">
-                        <span class="hidden-mobile">JavaScript之jQuery</span>
+                      <a href="/2023/11/29/Git/" title="Git">
+                        <span class="hidden-mobile">Git</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
