@@ -1,0 +1,923 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="张辰">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="React是一个用于构建Web和原生交互界面的库">
+<meta property="og:type" content="article">
+<meta property="og:title" content="React">
+<meta property="og:url" content="http://example.com/2024/12/05/React/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="React是一个用于构建Web和原生交互界面的库">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/img/react_pic/1.png">
+<meta property="article:published_time" content="2024-12-05T12:00:00.000Z">
+<meta property="article:modified_time" content="2024-12-12T11:30:21.792Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="Web开发">
+<meta property="article:tag" content="前端">
+<meta property="article:tag" content="React">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://example.com/img/react_pic/1.png">
+  
+  
+    <meta name="referrer" content="no-referrer-when-downgrade">
+  
+  
+  <title>React - Hexo</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.6","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 7.0.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Blog</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/banner_hexo.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="React"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2024-12-05 20:00" pubdate>
+          2024年12月5日 晚上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          851 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          8 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">React</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <ul>
+<li>学习链接：<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1ZB4y1Z7o8?spm_id_from=333.788.videopod.episodes&vd_source=4cf7b60c223a665538a4d958765c91a5&p=2">https://www.bilibili.com/video/BV1ZB4y1Z7o8</a></li>
+</ul>
+<h1 id="一、搭建开发环境"><a href="#一、搭建开发环境" class="headerlink" title="一、搭建开发环境"></a>一、搭建开发环境</h1><ol>
+<li><p>安装前端IDE：VsCode</p>
+</li>
+<li><p>快搭建开发环境</p>
+<ol>
+<li><p>npx Node.js工具，查找并执行后续的包命令</p>
+</li>
+<li><p>create-react-app 核心包（固定写法），用于创建React项目</p>
+</li>
+<li><p>react-basic React项目的名称（可以自定义）</p>
+</li>
+</ol>
+</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">npx create-react-app react-basic<br></code></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>启动服务</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">cd</span> react-basic<br><br>// 启动服务<br>npm start<br></code></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>成功标志</li>
+</ol>
+<div style="text-align:center;gap:5px">
+    <img src="/img/react_pic/2.png" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:13%;">
+    <img src="/img/react_pic/3.png" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:30%;">
+</div>
+
+<ol start="4">
+<li><p>包结构</p>
+<ol>
+<li><p><code>package.json</code></p>
+<ol>
+<li>dependencies存储核心依赖，如：react，react-dom</li>
+<li>scripts存储核心命令，如：start，build</li>
+</ol>
+<div style="text-align:center;gap:5px">
+    <img src="/img/react_pic/4.png" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:13%;">
+</div>
+</li>
+<li><p>核心项目代码：</p>
+<ol>
+<li><p>项目入口： <code>src/index.js</code></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-comment">// 项目的入口，从这里开始运行</span><br><br><span class="hljs-comment">// React必要的两个核心包</span><br><span class="hljs-keyword">import</span> <span class="hljs-title class_">React</span> <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;react&#x27;</span>;<br><span class="hljs-keyword">import</span> <span class="hljs-title class_">ReactDOM</span> <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;react-dom/client&#x27;</span>;<br><br><span class="hljs-comment">// 导入项目的根组件</span><br><span class="hljs-keyword">import</span> <span class="hljs-title class_">App</span> <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;./App&#x27;</span>;<br><span class="hljs-keyword">import</span> reportWebVitals <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;./reportWebVitals&#x27;</span>;<br><br><span class="hljs-comment">// 把App根组件渲染到id为root的dom节点上</span><br><span class="hljs-keyword">const</span> root = <span class="hljs-title class_">ReactDOM</span>.<span class="hljs-title function_">createRoot</span>(<span class="hljs-variable language_">document</span>.<span class="hljs-title function_">getElementById</span>(<span class="hljs-string">&#x27;root&#x27;</span>));<br>root.<span class="hljs-title function_">render</span>(<br>    <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">App</span> /&gt;</span></span><br>);<br><br><span class="hljs-title function_">reportWebVitals</span>();<br></code></pre></td></tr></table></figure></li>
+</ol>
+<div style="text-align:center;gap:5px">
+    <img src="/img/react_pic/6.png" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:22%;">
+</div>
+</li>
+<li><p><code>src/App.js</code></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-comment">// 项目的根组件</span><br><span class="hljs-comment">// App.js -&gt; index.js -&gt;public/index.html(root)</span><br><br><span class="hljs-keyword">function</span> <span class="hljs-title function_">App</span>(<span class="hljs-params"></span>) &#123;<br>  <span class="hljs-keyword">return</span> (<br>    <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">className</span>=<span class="hljs-string">&quot;App&quot;</span>&gt;</span></span><br><span class="language-xml">          Learn React</span><br><span class="language-xml">    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span><br>  );<br>&#125;<br><br><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-title class_">App</span>;<br></code></pre></td></tr></table></figure></li>
+</ol>
+</li>
+</ol>
+<div style="text-align:center;gap:5px">
+    <img src="/img/react_pic/5.png" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:22%;">
+</div>
+
+<h1 id="二、JSX"><a href="#二、JSX" class="headerlink" title="二、JSX"></a>二、JSX</h1><h2 id="1-什么是JSX"><a href="#1-什么是JSX" class="headerlink" title="1. 什么是JSX"></a>1. 什么是JSX</h2><ol>
+<li><p>概念：JSX是JavaScript和XML（HTML）的缩写，表示在JS代码中编写HTML模板结构，它是React中编写UI模板的方式</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">const</span> message = <span class="hljs-string">&#x27;this is message&#x27;</span><br><span class="hljs-keyword">function</span> <span class="hljs-title function_">App</span>(<span class="hljs-params"></span>) &#123;<br>  <span class="hljs-keyword">return</span> (<br>    <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span></span><br><span class="language-xml">    	<span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>this is title<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span></span><br><span class="language-xml">    	&#123;message&#125;</span><br><span class="language-xml">		<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span><br>	)<br>&#125;<br></code></pre></td></tr></table></figure>
+</li>
+<li><p>优势</p>
+<ol>
+<li>HTML的声明式模版写法</li>
+<li>JS的可编程能力</li>
+</ol>
+</li>
+<li><p>本质：JSX并不是标准的JS语法，它是JS的语法扩展，浏览器本身不能识别，需要通过解析工具做解析之后，才能在浏览器中运行</p>
+</li>
+</ol>
+<h2 id="2-识别JS表达式"><a href="#2-识别JS表达式" class="headerlink" title="2.识别JS表达式"></a>2.识别JS表达式</h2><ol>
+<li>在JSX中可以通过<mark>大括号语法{}</mark>，识别JavaScript中的表达式，比如字符串，变量，函数调用，方法调用，js对象等</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">const</span> count = <span class="hljs-number">100</span><br><br><span class="hljs-keyword">function</span> <span class="hljs-title function_">getName</span>(<span class="hljs-params"></span>)&#123;<br>  <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;flashechen&quot;</span><br>&#125;<br><br><span class="hljs-keyword">function</span> <span class="hljs-title function_">App</span>(<span class="hljs-params"></span>) &#123;<br>  <span class="hljs-keyword">return</span> (<br>    <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">className</span>=<span class="hljs-string">&quot;App&quot;</span>&gt;</span></span><br><span class="language-xml">      this is App</span><br><span class="language-xml">      &#123;/* 使用引号，传递字符串 */&#125;</span><br><span class="language-xml">      &#123;&#x27;,this is message,&#x27;&#125;</span><br><span class="language-xml"></span><br><span class="language-xml">      &#123;/* 识别js变量 */&#125;</span><br><span class="language-xml">      &#123;count&#125;</span><br><span class="language-xml"></span><br><span class="language-xml">      &#123;/* 函数调用 */&#125;</span><br><span class="language-xml">      &#123;&quot;,&quot; + getName() + &quot;,&quot;&#125;</span><br><span class="language-xml"></span><br><span class="language-xml">      &#123;/* 方法调用 */&#125;</span><br><span class="language-xml">      &#123;new Date().getDate()&#125;</span><br><span class="language-xml"></span><br><span class="language-xml">      &#123;/* 使用js对象 */&#125;</span><br><span class="language-xml">      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">style</span>=<span class="hljs-string">&#123;&#123;color:</span>&#x27;<span class="hljs-attr">red</span>&#x27;&#125;&#125;&gt;</span>this is div<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span><br><span class="language-xml"></span><br><span class="language-xml">    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span><br>  );<br>&#125;<br><br><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-title class_">App</span>;<br></code></pre></td></tr></table></figure>
+
+<div style="text-align:center;gap:5px">
+    <img src="/img/react_pic/7.png" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:60%;">
+</div>
+
+
+
+<h2 id="3-列表渲染"><a href="#3-列表渲染" class="headerlink" title="3.列表渲染"></a>3.列表渲染</h2><ol>
+<li>使用原生JS中的map方法遍历渲染列表：<code>list.map(item =&gt; abc)</code></li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">const</span> list = [<br>  &#123; <span class="hljs-attr">id</span>: <span class="hljs-number">1001</span>, <span class="hljs-attr">name</span>: <span class="hljs-string">&quot;Vue&quot;</span> &#125;,<br>  &#123; <span class="hljs-attr">id</span>: <span class="hljs-number">1002</span>, <span class="hljs-attr">name</span>: <span class="hljs-string">&quot;React&quot;</span> &#125;,<br>  &#123; <span class="hljs-attr">id</span>: <span class="hljs-number">1003</span>, <span class="hljs-attr">name</span>: <span class="hljs-string">&quot;Angular&quot;</span> &#125;,<br>]<br><br><span class="hljs-keyword">function</span> <span class="hljs-title function_">App</span>(<span class="hljs-params"></span>) &#123;<br>  <span class="hljs-keyword">return</span> (<br>    <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">className</span>=<span class="hljs-string">&quot;App&quot;</span>&gt;</span></span><br><span class="language-xml">      this is App</span><br><span class="language-xml">      &#123;/* 渲染列表 */&#125;</span><br><span class="language-xml">      <span class="hljs-tag">&lt;<span class="hljs-name">ul</span>&gt;</span></span><br><span class="language-xml">        &#123;list.map(item =&gt; <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">key</span>=<span class="hljs-string">&#123;item.id&#125;</span>&gt;</span>&#123;item.name&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>)&#125;</span><br><span class="language-xml">      <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span></span><br><span class="language-xml">    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span><br>  );<br>&#125;<br><br><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-title class_">App</span>;<br></code></pre></td></tr></table></figure>
+
+<div style="text-align:center;gap:5px">
+    <img src="/img/react_pic/8.png" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:60%;">
+</div>
+
+
+
+<h2 id="4-条件渲染"><a href="#4-条件渲染" class="headerlink" title="4.条件渲染"></a>4.条件渲染</h2><ol>
+<li><p>可以通过<mark>逻辑与运算符&amp;&amp;</mark>、<mark>三元表达式(?:)</mark>，来实现条件渲染</p>
+<ol>
+<li><code>&#123;flag &amp;&amp; &lt;span&gt;this is span&lt;/span&gt;&#125;</code>：若flag为true则显示，若为false则不显示</li>
+<li><code>&#123;loading ? &lt;span&gt;loading&lt;/span&gt; : &lt;span&gt;this is span&lt;/span&gt;&#125;</code></li>
+</ol>
+</li>
+<li><p>对于多条件渲染，可以使用自定义函数+if判断语句</p>
+</li>
+</ol>
+<div style="text-align:center;gap:5px">
+    <img src="/img/react_pic/9.png" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:50%;">
+</div>
+
+
+
+<h2 id="5-事件绑定"><a href="#5-事件绑定" class="headerlink" title="5.事件绑定"></a>5.事件绑定</h2><ol>
+<li>语法：<code>on + 事件名称 = &#123; 事件处理程序 &#125;</code>，整体上遵循驼峰命名法</li>
+</ol>
+<div style="text-align:center;gap:5px">
+    <img src="/img/react_pic/10.png" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:50%;">
+</div>
+
+<ol start="2">
+<li><p>传递自定义参数</p>
+<ol>
+<li>事件绑定的位置改造成箭头函数的写法，在执行实际处理业务函数的时候，传递实参</li>
+<li>注意：<mark>不能直接写函数调用，这里事件绑定需要一个函数引用</mark></li>
+</ol>
+<div style="text-align:center;gap:5px">
+    <img src="/img/react_pic/11.png" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:50%;">
+</div></li>
+</ol>
+<h2 id="6-组件"><a href="#6-组件" class="headerlink" title="6.组件"></a>6.组件</h2><ol>
+<li>在React中，一个组件就是<mark>首字母大写的函数</mark>，内部存放量组件的逻辑和视图UI，渲染组件只需要把组件，当成标签书写即可<ol>
+<li>自闭合，如：<code>&lt;Button /&gt;</code></li>
+<li>成对标签，如：<code>&lt;Button&gt;&lt;/Button&gt;</code></li>
+</ol>
+</li>
+<li>自定义组件示例</li>
+</ol>
+<div style="text-align:center;gap:5px">
+    <img src="/img/react_pic/12.png" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:50%;">
+</div>
+
+<ol start="3">
+<li>箭头函数写法</li>
+</ol>
+<div style="text-align:center;gap:5px">
+    <img src="/img/react_pic/13.png" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:50%;">
+</div>
+
+
+
+<h2 id="7-useState"><a href="#7-useState" class="headerlink" title="7.useState"></a>7.useState</h2><h3 id="1-基本使用"><a href="#1-基本使用" class="headerlink" title="1.基本使用"></a>1.基本使用</h3><ol>
+<li>useState是一个React Hook函数，它允许我们向组件添加一个状态变量，从而控制影响组件的渲染结果</li>
+<li>本质：和普通JS变量不同的是，<mark>状态变量一旦发生变化，组件的视图UI也会跟着变化</mark>（数据驱动视图）</li>
+<li>写法：<code>const [count, setCount] = useState(0)</code><ol>
+<li>useState是一个函数，返回值是一个数组</li>
+<li>数组中的<mark>第一个参数是状态变量</mark>，<mark>第二个参数是set函数用来修改状态变量</mark></li>
+<li>useState的参数将作为count的初始值</li>
+</ol>
+</li>
+</ol>
+<div style="text-align:center;gap:5px">
+    <img src="/img/react_pic/14.png" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:50%;">
+</div>
+
+<h3 id="2-状态不可变"><a href="#2-状态不可变" class="headerlink" title="2.状态不可变"></a>2.状态不可变</h3><ol>
+<li>状态被认为是只读的，<mark>只能进行替换，不能进行修改</mark>，直接修改状态不能引发视图更新</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">const</span> [count, setCount] = <span class="hljs-title function_">useState</span>(<span class="hljs-number">0</span>)<br></code></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>错误</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">const</span> <span class="hljs-title function_">handleClick</span> = (<span class="hljs-params"></span>) =&gt; &#123;<br>	<span class="hljs-comment">// 直接修改 无法引发视图更新</span><br>	count++<br>	<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(count)<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>正确</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">const</span> <span class="hljs-title function_">handleClick</span> = (<span class="hljs-params"></span>) =&gt; &#123;<br>	<span class="hljs-comment">// 1. 用传入的新增值修改count</span><br>  <span class="hljs-comment">// 2. 重新使用心得count渲染UI</span><br>	<span class="hljs-title function_">setCount</span>(count + <span class="hljs-number">1</span>)<br>&#125;<br></code></pre></td></tr></table></figure>
+
+
+
+<h3 id="3-修改对象状态"><a href="#3-修改对象状态" class="headerlink" title="3.修改对象状态"></a>3.修改对象状态</h3><ol>
+<li>规则：对于对象类型的状态变量，应该始终传给set方法一个全新的对象来进行修改</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">const</span> [form, setForm] = <span class="hljs-title function_">useState</span>(&#123;<br>  <span class="hljs-attr">name</span>:<span class="hljs-string">&#x27;jack&#x27;</span>,<br>&#125;)<br></code></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>直接修改原对象，不引发视图变化</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">const</span> <span class="hljs-title function_">handleChangeName</span> = (<span class="hljs-params"></span>) =&gt; &#123;<br>	form.<span class="hljs-property">name</span> = <span class="hljs-string">&#x27;john&#x27;</span><br>&#125;<br></code></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>调用set传入新对象用于修改</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">const</span> <span class="hljs-title function_">handleChangeName</span> = (<span class="hljs-params"></span>) =&gt; &#123;<br>	<span class="hljs-title function_">setForm</span>(&#123;<br>    ...form,<br>    <span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;john&#x27;</span>,<br>  &#125;)<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<ol start="4">
+<li>示例</li>
+</ol>
+<div style="text-align:center;gap:5px">
+    <img src="/img/react_pic/15.png" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:50%;">
+</div>
+
+
+
+<h1 id="三、组件样式"><a href="#三、组件样式" class="headerlink" title="三、组件样式"></a>三、组件样式</h1><h3 id="1-基础样式方案"><a href="#1-基础样式方案" class="headerlink" title="1.基础样式方案"></a>1.基础样式方案</h3><ol>
+<li><p>行内样式</p>
+<p>注：使用双大括号</p>
+</li>
+</ol>
+<div style="text-align:center;gap:5px">
+    <img src="/img/react_pic/16.png" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:50%;">
+</div>
+
+<ol start="2">
+<li>class类名控制</li>
+</ol>
+<p>​	注：需使用<code>className</code>标签</p>
+<div style="text-align:center;gap:5px">
+    <img src="/img/react_pic/17.png" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:50%;">
+</div>
+
+<div style="text-align:center;gap:5px">
+    <img src="/img/react_pic/18.png" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:50%;">
+</div>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/Web%E5%BC%80%E5%8F%91/" class="category-chain-item">Web开发</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/Web%E5%BC%80%E5%8F%91/%E5%89%8D%E7%AB%AF/" class="category-chain-item">前端</a>
+  
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/Web%E5%BC%80%E5%8F%91/" class="print-no-link">#Web开发</a>
+      
+        <a href="/tags/%E5%89%8D%E7%AB%AF/" class="print-no-link">#前端</a>
+      
+        <a href="/tags/React/" class="print-no-link">#React</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>React</div>
+      <div>http://example.com/2024/12/05/React/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>张辰</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2024年12月5日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2024/10/05/Redis/" title="Redis">
+                        <span class="hidden-mobile">Redis</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  <script>
+  Fluid.utils.createScript('https://lib.baomitu.com/mermaid/8.14.0/mermaid.min.js', function() {
+    mermaid.initialize({"theme":"default"});
+
+    Fluid.utils.listenDOMLoaded(function() {
+      Fluid.events.registerRefreshCallback(function() {
+        if ('mermaid' in window) {
+          mermaid.init();
+        }
+      });
+    });
+  });
+</script>
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="busuanzi_container_site_pv" style="display: none">
+        总访问量
+        <span id="busuanzi_value_site_pv"></span>
+        次
+      </span>
+    
+    
+      <span id="busuanzi_container_site_uv" style="display: none">
+        总访客数
+        <span id="busuanzi_value_site_uv"></span>
+        人
+      </span>
+    
+    
+  
+</div>
+
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
