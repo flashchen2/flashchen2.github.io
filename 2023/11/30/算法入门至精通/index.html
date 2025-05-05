@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://example.com/img/algorithm_pic/1.jpg">
 <meta property="article:published_time" content="2023-11-30T12:00:00.000Z">
-<meta property="article:modified_time" content="2024-12-15T13:27:49.007Z">
+<meta property="article:modified_time" content="2025-05-05T16:07:38.351Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="开发">
 <meta property="article:tag" content="算法">
@@ -225,7 +225,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          9.3k 字
+          12k 字
         
       </span>
     
@@ -236,7 +236,7 @@
         
         
         
-          78 分钟
+          97 分钟
         
       </span>
     
@@ -616,10 +616,9 @@
 <h1 id="三、数组与链表"><a href="#三、数组与链表" class="headerlink" title="三、数组与链表"></a>三、数组与链表</h1><h2 id="1-数组-int"><a href="#1-数组-int" class="headerlink" title="1. 数组 int[]"></a>1. 数组 int[]</h2><div style="text-align:center;gap:5px">
     <img src="/img/algorithm_pic/17.png" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:50%">
 </div>
+#### 1.  初始化数组
 
-
-
-<h3 id="1-数组常用操作"><a href="#1-数组常用操作" class="headerlink" title="1.  数组常用操作"></a>1.  数组常用操作</h3><h4 id="1-初始化数组"><a href="#1-初始化数组" class="headerlink" title="1.  初始化数组"></a>1.  初始化数组</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">// 无初始值，默认初始化为0</span><br><span class="hljs-type">int</span>[] arr = <span class="hljs-keyword">new</span> <span class="hljs-title class_">int</span>[<span class="hljs-number">5</span>]; <span class="hljs-comment">// &#123; 0, 0, 0, 0, 0 &#125;</span><br><span class="hljs-comment">// 给定初始值</span><br><span class="hljs-type">int</span>[] nums = &#123; <span class="hljs-number">1</span>, <span class="hljs-number">3</span>, <span class="hljs-number">2</span>, <span class="hljs-number">5</span>, <span class="hljs-number">4</span> &#125;;<br></code></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">// 无初始值，默认初始化为0</span><br><span class="hljs-type">int</span>[] arr = <span class="hljs-keyword">new</span> <span class="hljs-title class_">int</span>[<span class="hljs-number">5</span>]; <span class="hljs-comment">// &#123; 0, 0, 0, 0, 0 &#125;</span><br><span class="hljs-comment">// 给定初始值</span><br><span class="hljs-type">int</span>[] nums = &#123; <span class="hljs-number">1</span>, <span class="hljs-number">3</span>, <span class="hljs-number">2</span>, <span class="hljs-number">5</span>, <span class="hljs-number">4</span> &#125;;<br></code></pre></td></tr></table></figure>
 
 
 
@@ -673,52 +672,40 @@
 
 
 
-<h3 id="2-数组的优点与局限性"><a href="#2-数组的优点与局限性" class="headerlink" title="2. 数组的优点与局限性"></a>2. 数组的优点与局限性</h3><p>数组存储在连续的内存空间内，且元素类型相同。这种做法包含丰富的先验信息，系统可以利用这些信息来优化数据结构的操作效率。</p>
-<ul>
-<li><strong>空间效率高</strong>：数组为数据分配了连续的内存块，无须额外的结构开销。</li>
-<li><strong>支持随机访问</strong>：数组允许在 O(1) 时间内访问任何元素。</li>
-<li><strong>缓存局部性</strong>：当访问数组元素时，计算机不仅会加载它，还会缓存其周围的其他数据，从而借助高速缓存来提升后续操作的执行速度。</li>
-</ul>
-<p>连续空间存储是一把双刃剑，其存在以下局限性。</p>
-<ul>
-<li><strong>插入与删除效率低</strong>：当数组中元素较多时，插入与删除操作需要移动大量的元素。</li>
-<li><strong>长度不可变</strong>：数组在初始化后长度就固定了，扩容数组需要将所有数据复制到新数组，开销很大。</li>
-<li><strong>空间浪费</strong>：如果数组分配的大小超过实际所需，那么多余的空间就被浪费了。</li>
-</ul>
-<h2 id="2-链表-ListNode"><a href="#2-链表-ListNode" class="headerlink" title="2. 链表 ListNode"></a>2. 链表 ListNode</h2><p>内存空间是所有程序的公共资源，在一个复杂的系统运行环境下，空闲的内存空间可能散落在内存各处。我们知道，存储数组的内存空间必须是连续的，而当数组非常大时，内存可能无法提供如此大的连续空间。此时链表的灵活性优势就体现出来了。</p>
-<p>「链表 linked list」是一种线性数据结构，其中的每个元素都是一个节点对象，各个节点通过“引用”相连接。引用记录了下一个节点的内存地址，通过它可以从当前节点访问到下一个节点。</p>
-<p>链表的设计使得各个节点可以分散存储在内存各处，它们的内存地址无须连续。</p>
+<h2 id="2-链表"><a href="#2-链表" class="headerlink" title="2. 链表"></a>2. 链表</h2><h3 id="1-介绍"><a href="#1-介绍" class="headerlink" title="1.介绍"></a>1.介绍</h3><p>「链表 linked list」是一种线性数据结构，其中的每个元素都是一个节点对象，各个节点通过“引用”相连接。引用记录了下一个节点的内存地址，通过它可以从当前节点访问到下一个节点</p>
+<p>链表的设计使得各个节点可以分散存储在内存各处，它们的内存地址无须连续</p>
 <div style="text-align:center;gap:5px">
-    <img src="/img/algorithm_pic/21.png" srcset="/img/loading.gif" lazyload alt="图片描述">
+    <img src="/img/algorithm_pic/21.png" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:60%;">
 </div>
+
+
 
 <p>如上图所示，链表的组成单位是「节点 node」对象。每个节点都包含两项数据：节点的“值”和指向下一节点的“引用”。</p>
 <ul>
 <li>链表的首个节点被称为“头节点”，最后一个节点被称为“尾节点”。</li>
-<li>尾节点指向的是“空”，它在 Java、C++ 和 Python 中分别被记为 <code>null</code>、<code>nullptr</code> 和 <code>None</code> 。</li>
-<li>在 C、C++、Go 和 Rust 等支持指针的语言中，上述“引用”应被替换为“指针”。</li>
+<li>尾节点指向的是“空”，它在 Java 和 Python 中分别被记为 <code>null</code> 和 <code>None</code> 。</li>
 </ul>
-<p>如以下代码所示，链表节点 <code>ListNode</code> 除了包含值，还需额外保存一个引用（指针）。因此在相同数据量下，<strong>链表比数组占用更多的内存空间</strong>。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">/* 链表节点类 */</span><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">ListNode</span> &#123;<br>    <span class="hljs-type">int</span> val;        <span class="hljs-comment">// 节点值</span><br>    ListNode next;  <span class="hljs-comment">// 指向下一节点的引用</span><br>    ListNode(<span class="hljs-type">int</span> x) &#123; val = x; &#125;  <span class="hljs-comment">// 构造函数</span><br>&#125;<br></code></pre></td></tr></table></figure>
+<ul>
+<li><mark>java中没有现成的链表结构，所以链表结构需要手动构造</mark></li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">LinkList</span> &#123;<br>    <span class="hljs-type">int</span> value;  <span class="hljs-comment">// 值</span><br>    LinkList next;  <span class="hljs-comment">// 下一个节点指针</span><br><br>    <span class="hljs-keyword">public</span> <span class="hljs-title function_">LinkList</span><span class="hljs-params">(<span class="hljs-type">int</span> x)</span> &#123; value = x; &#125;  <span class="hljs-comment">// 构造函数</span><br>&#125;<br></code></pre></td></tr></table></figure>
 
 
 
-<h3 id="1-链表常用操作"><a href="#1-链表常用操作" class="headerlink" title="1.  链表常用操作"></a>1.  链表常用操作</h3><h4 id="1-初始化链表"><a href="#1-初始化链表" class="headerlink" title="1.  初始化链表"></a>1.  初始化链表</h4><p>建立链表分为两步，第一步是初始化各个节点对象，第二步是构建节点之间的引用关系。初始化完成后，我们就可以从链表的头节点出发，通过引用指向 <code>next</code> 依次访问所有节点。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">/* 初始化链表 1 -&gt; 3 -&gt; 2 -&gt; 5 -&gt; 4 */</span><br><span class="hljs-comment">// 初始化各个节点</span><br><span class="hljs-type">ListNode</span> <span class="hljs-variable">n0</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">ListNode</span>(<span class="hljs-number">1</span>);<br><span class="hljs-type">ListNode</span> <span class="hljs-variable">n1</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">ListNode</span>(<span class="hljs-number">3</span>);<br><span class="hljs-type">ListNode</span> <span class="hljs-variable">n2</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">ListNode</span>(<span class="hljs-number">2</span>);<br><span class="hljs-type">ListNode</span> <span class="hljs-variable">n3</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">ListNode</span>(<span class="hljs-number">5</span>);<br><span class="hljs-type">ListNode</span> <span class="hljs-variable">n4</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">ListNode</span>(<span class="hljs-number">4</span>);<br><span class="hljs-comment">// 构建节点之间的引用</span><br>n0.next = n1;<br>n1.next = n2;<br>n2.next = n3;<br>n3.next = n4;<br></code></pre></td></tr></table></figure>
+<h3 id="2-链表常用操作"><a href="#2-链表常用操作" class="headerlink" title="2.  链表常用操作"></a>2.  链表常用操作</h3><h4 id="1-初始化-打印链表"><a href="#1-初始化-打印链表" class="headerlink" title="1.  初始化 + 打印链表"></a>1.  初始化 + 打印链表</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">LinkListCrud</span> &#123;<br>  <br>    <span class="hljs-comment">// 逐级打印链表</span><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">printLinkedList</span><span class="hljs-params">(LinkList linkList)</span> &#123;<br>        <span class="hljs-type">LinkList</span> <span class="hljs-variable">current</span> <span class="hljs-operator">=</span> linkList;<br>        <span class="hljs-keyword">while</span> (current != <span class="hljs-literal">null</span>) &#123;<br>            System.out.print(current.value);<br>            current = current.next;<br>        &#125;<br>    &#125;<br>    <br>	  <span class="hljs-comment">// 构造链表</span><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> &#123;<br>        <span class="hljs-type">LinkList</span> <span class="hljs-variable">linkList1</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">LinkList</span>(<span class="hljs-number">11</span>);<br>        <span class="hljs-type">LinkList</span> <span class="hljs-variable">linkList2</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">LinkList</span>(<span class="hljs-number">22</span>);<br>        <span class="hljs-type">LinkList</span> <span class="hljs-variable">linkList3</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">LinkList</span>(<span class="hljs-number">33</span>);<br><br>        linkList1.next = linkList2;<br>        linkList2.next = linkList3;<br><br>        printLinkedList(linkList1);  <span class="hljs-comment">// 112233</span><br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
 
-<p>数组整体是一个变量，比如数组 <code>nums</code> 包含元素 <code>nums[0]</code> 和 <code>nums[1]</code> 等，而链表是由多个独立的节点对象组成的。<strong>我们通常将头节点当作链表的代称</strong>，比如以上代码中的链表可记作链表 <code>n0</code> 。</p>
-<h4 id="2-插入节点"><a href="#2-插入节点" class="headerlink" title="2.  插入节点"></a>2.  插入节点</h4><p>在链表中插入节点非常容易。如下图所示，假设我们想在相邻的两个节点 <code>n0</code> 和 <code>n1</code> 之间插入一个新节点 <code>P</code> ，<strong>则只需改变两个节点引用（指针）即可</strong>，时间复杂度为 O(1) 。</p>
-<p>相比之下，在数组中插入元素的时间复杂度为 O(n) ，在大数据量下的效率较低。</p>
-<div style="text-align:center;gap:5px">
-    <img src="/img/algorithm_pic/22.png" srcset="/img/loading.gif" lazyload alt="图片描述">
+
+
+<h4 id="2-插入节点"><a href="#2-插入节点" class="headerlink" title="2.  插入节点"></a>2.  插入节点</h4><div style="text-align:center;gap:5px">
+    <img src="/img/algorithm_pic/22.png" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:60%;">
 </div>
 
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">/* 在链表的节点 n0 之后插入节点 P */</span><br><span class="hljs-keyword">void</span> <span class="hljs-title function_">insert</span><span class="hljs-params">(ListNode n0, ListNode P)</span> &#123;<br>    <span class="hljs-type">ListNode</span> <span class="hljs-variable">n1</span> <span class="hljs-operator">=</span> n0.next;<br>    P.next = n1;<br>    n0.next = P;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">/* 在链表的节点 n0 之后插入节点 P ，只需要改变两个节点引用*/</span><br><span class="hljs-keyword">void</span> <span class="hljs-title function_">insert</span><span class="hljs-params">(ListNode n0, ListNode P)</span> &#123;<br>    <span class="hljs-type">ListNode</span> <span class="hljs-variable">n1</span> <span class="hljs-operator">=</span> n0.next;<br>    P.next = n1;<br>    n0.next = P;<br>&#125;<br></code></pre></td></tr></table></figure>
 
 
 
-<h4 id="3-删除节点"><a href="#3-删除节点" class="headerlink" title="3.  删除节点"></a>3.  删除节点</h4><p>如下图所示，在链表中删除节点也非常方便，<strong>只需改变一个节点的引用（指针）即可</strong>。</p>
-<p>请注意，尽管在删除操作完成后节点 <code>P</code> 仍然指向 <code>n1</code> ，但实际上遍历此链表已经无法访问到 <code>P</code> ，这意味着 <code>P</code> 已经不再属于该链表了。</p>
+<h4 id="3-删除节点"><a href="#3-删除节点" class="headerlink" title="3.  删除节点"></a>3.  删除节点</h4><p><strong>删除节点只需改变一个节点的引用（指针）即可</strong>。尽管在删除操作完成后节点 <code>P</code> 仍然指向 <code>n1</code> ，但实际上遍历此链表已经无法访问到 <code>P</code> ，这意味着 <code>P</code> 已经不再属于该链表了。</p>
 <div style="text-align:center;gap:5px">
     <img src="/img/algorithm_pic/23.png" srcset="/img/loading.gif" lazyload alt="图片描述">
 </div>
@@ -736,50 +723,7 @@
 
 
 
-<h3 id="2-数组-vs-链表"><a href="#2-数组-vs-链表" class="headerlink" title="2.  数组 vs. 链表"></a>2.  数组 vs. 链表</h3><p>下表总结了数组和链表的各项特点并对比了操作效率。由于它们采用两种相反的存储策略，因此各种性质和操作效率也呈现对立的特点。</p>
-<center>数组与链表的效率对比</center>
-
-<table>
-<thead>
-<tr>
-<th align="left"></th>
-<th align="left">数组</th>
-<th align="left">链表</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left">存储方式</td>
-<td align="left">连续内存空间</td>
-<td align="left">分散内存空间</td>
-</tr>
-<tr>
-<td align="left">容量扩展</td>
-<td align="left">长度不可变</td>
-<td align="left">可灵活扩展</td>
-</tr>
-<tr>
-<td align="left">内存效率</td>
-<td align="left">元素占用内存少、但可能浪费空间</td>
-<td align="left">元素占用内存多</td>
-</tr>
-<tr>
-<td align="left">访问元素</td>
-<td align="left">O(1)</td>
-<td align="left">O(n)</td>
-</tr>
-<tr>
-<td align="left">添加元素</td>
-<td align="left">O(n)</td>
-<td align="left">O(1)</td>
-</tr>
-<tr>
-<td align="left">删除元素</td>
-<td align="left">O(n)</td>
-<td align="left">O(1)</td>
-</tr>
-</tbody></table>
-<h3 id="3-常见链表类型"><a href="#3-常见链表类型" class="headerlink" title="3.  常见链表类型"></a>3.  常见链表类型</h3><p>如下图所示，常见的链表类型包括三种。</p>
-<ul>
+<h3 id="3-常见链表类型"><a href="#3-常见链表类型" class="headerlink" title="3.  常见链表类型"></a>3.  常见链表类型</h3><ul>
 <li><strong>单向链表</strong>：即前面介绍的普通链表。单向链表的节点包含值和指向下一节点的引用两项数据。我们将首个节点称为头节点，将最后一个节点称为尾节点，尾节点指向空 <code>None</code> 。</li>
 <li><strong>环形链表</strong>：如果我们令单向链表的尾节点指向头节点（首尾相接），则得到一个环形链表。在环形链表中，任意节点都可以视作头节点。</li>
 <li><strong>双向链表</strong>：与单向链表相比，双向链表记录了两个方向的引用。双向链表的节点定义同时包含指向后继节点（下一个节点）和前驱节点（上一个节点）的引用（指针）。相较于单向链表，双向链表更具灵活性，可以朝两个方向遍历链表，但相应地也需要占用更多的内存空间。</li>
@@ -804,14 +748,14 @@
 <li><strong>浏览器历史</strong>：在网页浏览器中，当用户点击前进或后退按钮时，浏览器需要知道用户访问过的前一个和后一个网页。双向链表的特性使得这种操作变得简单。</li>
 <li><strong>LRU 算法</strong>：在缓存淘汰（LRU）算法中，我们需要快速找到最近最少使用的数据，以及支持快速添加和删除节点。这时候使用双向链表就非常合适。</li>
 </ul>
-<h2 id="3-列表-ArrayList"><a href="#3-列表-ArrayList" class="headerlink" title="3.列表 ArrayList&lt;&gt;"></a>3.列表 ArrayList&lt;&gt;</h2><p>列表表示元素的有序集合，支持元素访问、修改、添加、删除和遍历等操作，无须使用者考虑容量限制的问题。列表可以基于链表或数组实现。</p>
+<h2 id="3-列表-ArrayList"><a href="#3-列表-ArrayList" class="headerlink" title="3. 列表 ArrayList&lt;&gt;"></a>3. 列表 ArrayList&lt;&gt;</h2><p>列表表示元素的有序集合，支持元素访问、修改、添加、删除和遍历等操作，无须使用者考虑容量限制的问题。列表可以基于链表或数组实现。</p>
 <ul>
 <li>链表天然可以看作一个列表，其支持元素增删查改操作，并且可以灵活动态扩容。</li>
 <li>数组也支持元素增删查改，但由于其长度不可变，因此只能看作一个具有长度限制的列表。</li>
 </ul>
 <p>当使用数组实现列表时，<strong>长度不可变的性质会导致列表的实用性降低</strong>。这是因为我们通常无法事先确定需要存储多少数据，从而难以选择合适的列表长度。</p>
 <p><mark>列表的概念相当于动态数组，需要先创建数组，然后在将其动态化</mark></p>
-<h3 id="1-列表常用操作"><a href="#1-列表常用操作" class="headerlink" title="1.  列表常用操作"></a>1.  列表常用操作</h3><h4 id="1-初始化列表"><a href="#1-初始化列表" class="headerlink" title="1.  初始化列表"></a>1.  初始化列表</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">/* 初始化列表 */</span><br><span class="hljs-comment">// 无初始值</span><br>List&lt;Integer&gt; nums1 = <span class="hljs-keyword">new</span> <span class="hljs-title class_">ArrayList</span>&lt;&gt;();<br><br><span class="hljs-comment">// 有初始值（注意数组的元素类型需为 int[] 的包装类 Integer[]）</span><br>Integer[] numbers = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Integer</span>[] &#123; <span class="hljs-number">1</span>, <span class="hljs-number">3</span>, <span class="hljs-number">2</span>, <span class="hljs-number">5</span>, <span class="hljs-number">4</span> &#125;;<br>List&lt;Integer&gt; nums = <span class="hljs-keyword">new</span> <span class="hljs-title class_">ArrayList</span>&lt;&gt;(Arrays.asList(numbers));<br></code></pre></td></tr></table></figure>
+<h3 id="1-列表常用操作"><a href="#1-列表常用操作" class="headerlink" title="1.  列表常用操作"></a>1.  列表常用操作</h3><h4 id="1-初始化列表"><a href="#1-初始化列表" class="headerlink" title="1.  初始化列表"></a>1.  初始化列表</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">/* 初始化列表 */</span><br><span class="hljs-comment">// 无初始值</span><br>List&lt;Integer&gt; nums1 = <span class="hljs-keyword">new</span> <span class="hljs-title class_">ArrayList</span>&lt;&gt;();<br><br><span class="hljs-comment">// 有初始值（注意数组的元素类型需为 int[] 的包装类 Integer[]）</span><br><span class="hljs-comment">// 先创建数组</span><br>Integer[] numbers = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Integer</span>[] &#123; <span class="hljs-number">1</span>, <span class="hljs-number">3</span>, <span class="hljs-number">2</span>, <span class="hljs-number">5</span>, <span class="hljs-number">4</span> &#125;;<br><span class="hljs-comment">// 再将数组动态化</span><br>List&lt;Integer&gt; nums = <span class="hljs-keyword">new</span> <span class="hljs-title class_">ArrayList</span>&lt;&gt;(Arrays.asList(numbers));<br></code></pre></td></tr></table></figure>
 
 
 
@@ -838,8 +782,356 @@
 <h3 id="6-排序列表"><a href="#6-排序列表" class="headerlink" title="6.  排序列表"></a>6.  排序列表</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">/* 排序列表 */</span><br>Collections.sort(nums);  <span class="hljs-comment">// 排序后，列表元素从小到大排列</span><br></code></pre></td></tr></table></figure>
 
 <div style="text-align:center;gap:5px">
-    <img src="/img/algorithm_pic/25.png" srcset="/img/loading.gif" lazyload alt="图片描述">
+    <img src="/img/algorithm_pic/25.png" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:35%;">
 </div>
+
+
+
+<h1 id="四、栈与队列"><a href="#四、栈与队列" class="headerlink" title="四、栈与队列"></a>四、栈与队列</h1><h2 id="1-栈-stack"><a href="#1-栈-stack" class="headerlink" title="1. 栈 stack"></a>1. 栈 stack</h2><div style="text-align:center;gap:5px">
+    <img src="/img/algorithm_pic/26.png" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:60%;">
+</div>
+
+
+<h3 id="1-栈的常用操作"><a href="#1-栈的常用操作" class="headerlink" title="1.栈的常用操作"></a>1.栈的常用操作</h3><table>
+<thead>
+<tr>
+<th>方法</th>
+<th>描述</th>
+<th>时间复杂度</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>push()</code></td>
+<td>元素入栈（添加至栈顶）</td>
+<td><code>O(1)</code></td>
+</tr>
+<tr>
+<td><code>pop()</code></td>
+<td>栈顶元素出栈</td>
+<td><code>O(1)</code></td>
+</tr>
+<tr>
+<td><code>peek()</code></td>
+<td>访问栈顶元素</td>
+<td><code>O(1)</code></td>
+</tr>
+</tbody></table>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">/* 初始化栈 */</span><br>Stack&lt;Integer&gt; stack = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Stack</span>&lt;&gt;();<br><br><span class="hljs-comment">/* 元素入栈 */</span><br>stack.push(<span class="hljs-number">1</span>);<br>stack.push(<span class="hljs-number">3</span>);<br>stack.push(<span class="hljs-number">2</span>);<br>stack.push(<span class="hljs-number">5</span>);<br>stack.push(<span class="hljs-number">4</span>);<br><br><span class="hljs-comment">/* 访问栈顶元素 */</span><br><span class="hljs-type">int</span> <span class="hljs-variable">peek</span> <span class="hljs-operator">=</span> stack.peek();<br><br><span class="hljs-comment">/* 元素出栈 */</span><br><span class="hljs-type">int</span> <span class="hljs-variable">pop</span> <span class="hljs-operator">=</span> stack.pop();<br><br><span class="hljs-comment">/* 获取栈的长度 */</span><br><span class="hljs-type">int</span> <span class="hljs-variable">size</span> <span class="hljs-operator">=</span> stack.size();<br><br><span class="hljs-comment">/* 判断是否为空 */</span><br><span class="hljs-type">boolean</span> <span class="hljs-variable">isEmpty</span> <span class="hljs-operator">=</span> stack.isEmpty();<br></code></pre></td></tr></table></figure>
+
+
+
+<h3 id="2-栈的典型应用"><a href="#2-栈的典型应用" class="headerlink" title="2.栈的典型应用"></a>2.栈的典型应用</h3><ul>
+<li><strong>浏览器中的后退与前进、软件中的撤销与反撤销</strong>。每当我们打开新的网页，浏览器就会对上一个网页执行入栈，这样我们就可以通过后退操作回到上一个网页。后退操作实际上是在执行出栈。如果要同时支持后退和前进，那么需要两个栈来配合实现。</li>
+<li><strong>程序内存管理</strong>。每次调用函数时，系统都会在栈顶添加一个栈帧，用于记录函数的上下文信息。在递归函数中，向下递推阶段会不断执行入栈操作，而向上回溯阶段则会不断执行出栈操作。</li>
+</ul>
+<h2 id="2-队列-LinkedList"><a href="#2-队列-LinkedList" class="headerlink" title="2. 队列 LinkedList"></a>2. 队列 LinkedList</h2><div style="text-align:center;gap:5px">
+    <img src="/img/algorithm_pic/27.png" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:100%;">
+</div>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">/* 初始化队列 */</span><br>Queue&lt;Integer&gt; queue = <span class="hljs-keyword">new</span> <span class="hljs-title class_">LinkedList</span>&lt;&gt;();<br><br><span class="hljs-comment">/* 元素入队 */</span><br>queue.offer(<span class="hljs-number">1</span>);<br>queue.offer(<span class="hljs-number">3</span>);<br>queue.offer(<span class="hljs-number">2</span>);<br>queue.offer(<span class="hljs-number">5</span>);<br>queue.offer(<span class="hljs-number">4</span>);<br><br><span class="hljs-comment">/* 访问队首元素 */</span><br><span class="hljs-type">int</span> <span class="hljs-variable">peek</span> <span class="hljs-operator">=</span> queue.peek();<br><br><span class="hljs-comment">/* 元素出队 */</span><br><span class="hljs-type">int</span> <span class="hljs-variable">pop</span> <span class="hljs-operator">=</span> queue.poll();<br><br><span class="hljs-comment">/* 获取队列的长度 */</span><br><span class="hljs-type">int</span> <span class="hljs-variable">size</span> <span class="hljs-operator">=</span> queue.size();<br><br><span class="hljs-comment">/* 判断队列是否为空 */</span><br><span class="hljs-type">boolean</span> <span class="hljs-variable">isEmpty</span> <span class="hljs-operator">=</span> queue.isEmpty();<br></code></pre></td></tr></table></figure>
+
+
+
+<h3 id="1-队列的常用操作"><a href="#1-队列的常用操作" class="headerlink" title="1.队列的常用操作"></a>1.队列的常用操作</h3><table>
+<thead>
+<tr>
+<th>方法</th>
+<th>描述</th>
+<th>时间复杂度</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>offer()</code></td>
+<td>元素入队，即将元素添加至队尾</td>
+<td><code>O(1)</code></td>
+</tr>
+<tr>
+<td><code>poll()</code></td>
+<td>队首元素出队</td>
+<td><code>O(1)</code></td>
+</tr>
+<tr>
+<td><code>peek()</code></td>
+<td>访问队首元素</td>
+<td><code>O(1)</code></td>
+</tr>
+</tbody></table>
+<h3 id="2-队列典型应用"><a href="#2-队列典型应用" class="headerlink" title="2.  队列典型应用"></a>2.  队列典型应用</h3><ul>
+<li><strong>淘宝订单</strong>。购物者下单后，订单将加入队列中，系统随后会根据顺序处理队列中的订单。在双十一期间，短时间内会产生海量订单，高并发成为工程师们需要重点攻克的问题。</li>
+<li><strong>各类待办事项</strong>。任何需要实现“先来后到”功能的场景，例如打印机的任务队列、餐厅的出餐队列等，队列在这些场景中可以有效地维护处理顺序。</li>
+</ul>
+<h2 id="3-双向队列"><a href="#3-双向队列" class="headerlink" title="3.双向队列"></a>3.双向队列</h2><div style="text-align:center;gap:5px">
+    <img src="/img/algorithm_pic/28.png" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:100%;">
+</div>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">/* 初始化双向队列 */</span><br>Deque&lt;Integer&gt; deque = <span class="hljs-keyword">new</span> <span class="hljs-title class_">LinkedList</span>&lt;&gt;();<br><br><span class="hljs-comment">/* 元素入队 */</span><br>deque.offerLast(<span class="hljs-number">2</span>);   <span class="hljs-comment">// 添加至队尾</span><br>deque.offerLast(<span class="hljs-number">5</span>);<br>deque.offerLast(<span class="hljs-number">4</span>);<br>deque.offerFirst(<span class="hljs-number">3</span>);  <span class="hljs-comment">// 添加至队首</span><br>deque.offerFirst(<span class="hljs-number">1</span>);<br><br><span class="hljs-comment">/* 访问元素 */</span><br><span class="hljs-type">int</span> <span class="hljs-variable">peekFirst</span> <span class="hljs-operator">=</span> deque.peekFirst();  <span class="hljs-comment">// 队首元素</span><br><span class="hljs-type">int</span> <span class="hljs-variable">peekLast</span> <span class="hljs-operator">=</span> deque.peekLast();    <span class="hljs-comment">// 队尾元素</span><br><br><span class="hljs-comment">/* 元素出队 */</span><br><span class="hljs-type">int</span> <span class="hljs-variable">popFirst</span> <span class="hljs-operator">=</span> deque.pollFirst();  <span class="hljs-comment">// 队首元素出队</span><br><span class="hljs-type">int</span> <span class="hljs-variable">popLast</span> <span class="hljs-operator">=</span> deque.pollLast();    <span class="hljs-comment">// 队尾元素出队</span><br><br><span class="hljs-comment">/* 获取双向队列的长度 */</span><br><span class="hljs-type">int</span> <span class="hljs-variable">size</span> <span class="hljs-operator">=</span> deque.size();<br><br><span class="hljs-comment">/* 判断双向队列是否为空 */</span><br><span class="hljs-type">boolean</span> <span class="hljs-variable">isEmpty</span> <span class="hljs-operator">=</span> deque.isEmpty();<br></code></pre></td></tr></table></figure>
+
+
+
+<h3 id="1-双向队列的常用操作"><a href="#1-双向队列的常用操作" class="headerlink" title="1.双向队列的常用操作"></a>1.双向队列的常用操作</h3><table>
+<thead>
+<tr>
+<th>方法</th>
+<th>描述</th>
+<th>时间复杂度</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>push_first()</code></td>
+<td>将元素添加至队首</td>
+<td><code>O(1)</code></td>
+</tr>
+<tr>
+<td><code>push_last()</code></td>
+<td>将元素添加至队尾</td>
+<td><code>O(1)</code></td>
+</tr>
+<tr>
+<td><code>pop_first()</code></td>
+<td>删除队首元素</td>
+<td><code>O(1)</code></td>
+</tr>
+<tr>
+<td><code>pop_last()</code></td>
+<td>删除队尾元素</td>
+<td><code>O(1)</code></td>
+</tr>
+<tr>
+<td><code>peek_first()</code></td>
+<td>访问队首元素</td>
+<td><code>O(1)</code></td>
+</tr>
+<tr>
+<td><code>peek_last()</code></td>
+<td>访问队尾元素</td>
+<td><code>O(1)</code></td>
+</tr>
+</tbody></table>
+<h3 id="2-双向队列的典型应用"><a href="#2-双向队列的典型应用" class="headerlink" title="2.双向队列的典型应用"></a>2.双向队列的典型应用</h3><p>双向队列兼具栈与队列的逻辑，<strong>因此它可以实现这两者的所有应用场景，同时提供更高的自由度</strong>。</p>
+<p>我们知道，软件的“撤销”功能通常使用栈来实现：系统将每次更改操作 <code>push</code> 到栈中，然后通过 <code>pop</code> 实现撤销。然而，考虑到系统资源的限制，软件通常会限制撤销的步数（例如仅允许保存 50 步）。当栈的长度超过 50 时，软件需要在栈底（队首）执行删除操作。<strong>但栈无法实现该功能，此时就需要使用双向队列来替代栈</strong>。请注意，“撤销”的核心逻辑仍然遵循栈的先入后出原则，只是双向队列能够更加灵活地实现一些额外逻辑。</p>
+<h1 id="五、哈希表"><a href="#五、哈希表" class="headerlink" title="五、哈希表"></a>五、哈希表</h1><div style="text-align:center;gap:5px">
+    <img src="/img/algorithm_pic/29.png" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:60%;">
+</div>
+
+
+<ul>
+<li><strong>添加元素</strong>：仅需将元素添加至数组（链表）的尾部即可，使用 O(1) 时间。</li>
+<li><strong>查询元素</strong>：由于数组（链表）是乱序的，因此需要遍历其中的所有元素，使用 O(n) 时间。</li>
+<li><strong>删除元素</strong>：需要先查询到元素，再从数组（链表）中删除，使用 O(n) 时间。</li>
+</ul>
+<p>表 6-1  元素查询效率对比</p>
+<table>
+<thead>
+<tr>
+<th align="left"></th>
+<th align="left">数组</th>
+<th align="left">链表</th>
+<th align="left">哈希表</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">查找元素</td>
+<td align="left">O(n)</td>
+<td align="left">O(n)</td>
+<td align="left">O(1)</td>
+</tr>
+<tr>
+<td align="left">添加元素</td>
+<td align="left">O(1)</td>
+<td align="left">O(1)</td>
+<td align="left">O(1)</td>
+</tr>
+<tr>
+<td align="left">删除元素</td>
+<td align="left">O(n)</td>
+<td align="left">O(n)</td>
+<td align="left">O(1)</td>
+</tr>
+</tbody></table>
+<p><strong>在哈希表中进行增删查改的时间复杂度都是 O(1)</strong> ，非常高效</p>
+<p>1.哈希表的常用操作：初始化、查询操作、添加键值对和删除键值对等：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">/* 初始化哈希表 */</span><br>Map&lt;Integer, String&gt; map = <span class="hljs-keyword">new</span> <span class="hljs-title class_">HashMap</span>&lt;&gt;();<br><br><span class="hljs-comment">/* 添加操作 */</span><br><span class="hljs-comment">// 在哈希表中添加键值对 (key, value)</span><br>map.put(<span class="hljs-number">12836</span>, <span class="hljs-string">&quot;小哈&quot;</span>);<br>map.put(<span class="hljs-number">15937</span>, <span class="hljs-string">&quot;小啰&quot;</span>);<br>map.put(<span class="hljs-number">16750</span>, <span class="hljs-string">&quot;小算&quot;</span>);<br>map.put(<span class="hljs-number">13276</span>, <span class="hljs-string">&quot;小法&quot;</span>);<br>map.put(<span class="hljs-number">10583</span>, <span class="hljs-string">&quot;小鸭&quot;</span>);<br><br><span class="hljs-comment">/* 查询操作 */</span><br><span class="hljs-comment">// 向哈希表中输入键 key ，得到值 value</span><br><span class="hljs-type">String</span> <span class="hljs-variable">name</span> <span class="hljs-operator">=</span> map.get(<span class="hljs-number">15937</span>);<br><br><span class="hljs-comment">/* 删除操作 */</span><br><span class="hljs-comment">// 在哈希表中删除键值对 (key, value)</span><br>map.remove(<span class="hljs-number">10583</span>);<br></code></pre></td></tr></table></figure>
+
+<p>哈希表有三种常用的遍历方式：遍历键值对、遍历键和遍历值。示例代码如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">/* 遍历哈希表 */</span><br><span class="hljs-comment">// 遍历键值对 key-&gt;value</span><br><span class="hljs-keyword">for</span> (Map.Entry &lt;Integer, String&gt; kv: map.entrySet()) &#123;<br>    System.out.println(kv.getKey() + <span class="hljs-string">&quot; -&gt; &quot;</span> + kv.getValue());<br>&#125;<br><span class="hljs-comment">// 单独遍历键 key</span><br><span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> key: map.keySet()) &#123;<br>    System.out.println(key);<br>&#125;<br><span class="hljs-comment">// 单独遍历值 value</span><br><span class="hljs-keyword">for</span> (String val: map.values()) &#123;<br>    System.out.println(val);<br>&#125;<br></code></pre></td></tr></table></figure>
+
+
+
+<h1 id="六、树"><a href="#六、树" class="headerlink" title="六、树"></a>六、树</h1><p>二叉树（binary tree）是一种非线性数据结构，代表“祖先”与“后代”之间的派生关系，体现了“一分为二”的分治逻辑。与链表类似，二叉树的基本单元是节点，每个节点包含值、左子节点引用和右子节点引用。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">/* 二叉树节点类 */</span><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">TreeNode</span> &#123;<br>    <span class="hljs-type">int</span> val;         <span class="hljs-comment">// 节点值</span><br>    TreeNode left;   <span class="hljs-comment">// 左子节点引用</span><br>    TreeNode right;  <span class="hljs-comment">// 右子节点引用</span><br>    TreeNode(<span class="hljs-type">int</span> x) &#123; val = x; &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>每个节点都有两个引用（指针），分别指向左子节点（left-child node）和右子节点（right-child node），该节点被称为这两个子节点的父节点（parent node）。当给定一个二叉树的节点时，我们将该节点的左子节点及其以下节点形成的树称为该节点的左子树（left subtree），同理可得右子树（right subtree）。</p>
+<p><strong>在二叉树中，除叶节点外，其他所有节点都包含子节点和非空子树</strong>。如图 7-1 所示，如果将“节点 2”视为父节点，则其左子节点和右子节点分别是“节点 4”和“节点 5”，左子树是“节点 4 及其以下节点形成的树”，右子树是“节点 5 及其以下节点形成的树”。</p>
+<div style="text-align:center;gap:5px">
+    <img src="/img/algorithm_pic/30.png" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:60%;">
+</div>
+
+<h2 id="1-二叉树"><a href="#1-二叉树" class="headerlink" title="1.二叉树"></a>1.二叉树</h2><h3 id="1-二叉树常见术语"><a href="#1-二叉树常见术语" class="headerlink" title="1.二叉树常见术语"></a>1.二叉树常见术语</h3><ul>
+<li>根节点（root node）：位于二叉树顶层的节点，没有父节点。</li>
+<li>叶节点（leaf node）：没有子节点的节点，其两个指针均指向 <code>None</code> 。</li>
+<li>边（edge）：连接两个节点的线段，即节点引用（指针）。</li>
+<li>节点所在的层（level）：从顶至底递增，根节点所在层为 1 。</li>
+<li>节点的度（degree）：节点的子节点的数量。在二叉树中，度的取值范围是 0、1、2 。</li>
+<li>二叉树的高度（height）：从根节点到最远叶节点所经过的边的数量。</li>
+<li>节点的深度（depth）：从根节点到该节点所经过的边的数量。</li>
+<li>节点的高度（height）：从距离该节点最远的叶节点到该节点所经过的边的数量。3</li>
+</ul>
+<div style="text-align:center;gap:5px">
+    <img src="/img/algorithm_pic/31.png" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:60%;">
+</div>
+
+
+
+<h3 id="2-二叉树基本操作"><a href="#2-二叉树基本操作" class="headerlink" title="2.二叉树基本操作"></a>2.二叉树基本操作</h3><h4 id="1-初始化二叉树"><a href="#1-初始化二叉树" class="headerlink" title="1. 初始化二叉树"></a>1. 初始化二叉树</h4><p>与链表类似，首先初始化节点，然后构建引用（指针）</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">// 初始化节点</span><br><span class="hljs-type">TreeNode</span> <span class="hljs-variable">n1</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">TreeNode</span>(<span class="hljs-number">1</span>);<br><span class="hljs-type">TreeNode</span> <span class="hljs-variable">n2</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">TreeNode</span>(<span class="hljs-number">2</span>);<br><span class="hljs-type">TreeNode</span> <span class="hljs-variable">n3</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">TreeNode</span>(<span class="hljs-number">3</span>);<br><span class="hljs-type">TreeNode</span> <span class="hljs-variable">n4</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">TreeNode</span>(<span class="hljs-number">4</span>);<br><span class="hljs-type">TreeNode</span> <span class="hljs-variable">n5</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">TreeNode</span>(<span class="hljs-number">5</span>);<br><span class="hljs-comment">// 构建节点之间的引用（指针）</span><br>n1.left = n2;<br>n1.right = n3;<br>n2.left = n4;<br>n2.right = n5;<br></code></pre></td></tr></table></figure>
+
+
+
+<h4 id="2-插入与删除节点"><a href="#2-插入与删除节点" class="headerlink" title="2.插入与删除节点"></a>2.插入与删除节点</h4><p>与链表类似，在二叉树中插入与删除节点可以通过修改指针来实现</p>
+<ul>
+<li>需要注意的是，插入节点可能会改变二叉树的原有逻辑结构，而删除节点通常意味着删除该节点及其所有子树。因此，在二叉树中，插入与删除通常是由一套操作配合完成的，以实现有实际意义的操作。</li>
+</ul>
+<div style="text-align:center;gap:5px">
+    <img src="/img/algorithm_pic/32.png" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:60%;">
+</div>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-type">TreeNode</span> <span class="hljs-variable">P</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">TreeNode</span>(<span class="hljs-number">0</span>);<br><span class="hljs-comment">// 在 n1 -&gt; n2 中间插入节点 P</span><br>n1.left = P;<br>P.left = n2;<br><span class="hljs-comment">// 删除节点 P</span><br>n1.left = n2;<br></code></pre></td></tr></table></figure>
+
+
+
+<h3 id="3-常见二叉树类型"><a href="#3-常见二叉树类型" class="headerlink" title="3.常见二叉树类型"></a>3.常见二叉树类型</h3><h4 id="1-完美二叉树"><a href="#1-完美二叉树" class="headerlink" title="1.完美二叉树"></a>1.完美二叉树</h4><p>完美二叉树（perfect binary tree）所有层的节点都被完全填满。在完美二叉树中，叶节点的度为 0 ，其余所有节点的度都为 2 ；若树的高度为 h ，则节点总数为 2h+1−1 ，呈现标准的指数级关系，反映了自然界中常见的细胞分裂现象</p>
+<div style="text-align:center;gap:5px">
+    <img src="/img/algorithm_pic/33.png" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:60%;">
+</div>
+
+<h4 id="2-完全二叉树"><a href="#2-完全二叉树" class="headerlink" title="2.  完全二叉树"></a>2.  完全二叉树</h4><p>完全二叉树（complete binary tree）仅允许最底层的节点不完全填满，且最底层的节点必须从左至右依次连续填充。请注意，完美二叉树也是一棵完全二叉树</p>
+<div style="text-align:center;gap:5px">
+    <img src="/img/algorithm_pic/34.png" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:60%;">
+</div>
+
+<h4 id="3-完满二叉树"><a href="#3-完满二叉树" class="headerlink" title="3.  完满二叉树"></a>3.  完满二叉树</h4><p>完满二叉树（full binary tree）除了叶节点之外，其余所有节点都有两个子节点</p>
+<div style="text-align:center;gap:5px">
+    <img src="/img/algorithm_pic/35.png" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:60%;">
+</div>
+
+<h4 id="4-平衡二叉树"><a href="#4-平衡二叉树" class="headerlink" title="4.  平衡二叉树"></a>4.  平衡二叉树</h4><p>平衡二叉树（balanced binary tree）中任意节点的左子树和右子树的高度之差的绝对值不超过 1</p>
+<div style="text-align:center;gap:5px">
+    <img src="/img/algorithm_pic/36.png" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:60%;">
+</div>
+
+
+
+<h2 id="2-二叉树遍历"><a href="#2-二叉树遍历" class="headerlink" title="2.二叉树遍历"></a>2.二叉树遍历</h2><p>从物理结构的角度来看，树是一种基于链表的数据结构，因此其遍历方式是通过指针逐个访问节点。然而，树是一种非线性数据结构，这使得遍历树比遍历链表更加复杂，需要借助搜索算法来实现。</p>
+<p>二叉树常见的遍历方式包括层序遍历、前序遍历、中序遍历和后序遍历等</p>
+<h3 id="1-层序遍历"><a href="#1-层序遍历" class="headerlink" title="1.层序遍历"></a>1.层序遍历</h3><p>层序遍历（level-order traversal）从顶部到底部逐层遍历二叉树，并在每一层按照从左到右的顺序访问节点。</p>
+<p>层序遍历本质上属于广度优先遍历（breadth-first traversal），也称广度优先搜索（breadth-first search, BFS），它体现了一种“一圈一圈向外扩展”的逐层遍历方式</p>
+<div style="text-align:center;gap:5px">
+    <img src="/img/algorithm_pic/37.png" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:60%;">
+</div>
+
+<p>广度优先遍历通常借助“队列”来实现。队列遵循“先进先出”的规则，而广度优先遍历则遵循“逐层推进”的规则，两者背后的思想是一致的。实现代码如下</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">/* 层序遍历 */</span><br>List&lt;Integer&gt; <span class="hljs-title function_">levelOrder</span><span class="hljs-params">(TreeNode root)</span> &#123;<br>    <span class="hljs-comment">// 初始化队列，加入根节点</span><br>    Queue&lt;TreeNode&gt; queue = <span class="hljs-keyword">new</span> <span class="hljs-title class_">LinkedList</span>&lt;&gt;();<br>    queue.add(root);<br>    <span class="hljs-comment">// 初始化一个列表，用于保存遍历序列</span><br>    List&lt;Integer&gt; list = <span class="hljs-keyword">new</span> <span class="hljs-title class_">ArrayList</span>&lt;&gt;();<br>    <span class="hljs-keyword">while</span> (!queue.isEmpty()) &#123;<br>        <span class="hljs-type">TreeNode</span> <span class="hljs-variable">node</span> <span class="hljs-operator">=</span> queue.poll(); <span class="hljs-comment">// 队列出队</span><br>        list.add(node.val);           <span class="hljs-comment">// 保存节点值</span><br>        <span class="hljs-keyword">if</span> (node.left != <span class="hljs-literal">null</span>)<br>            queue.offer(node.left);   <span class="hljs-comment">// 左子节点入队</span><br>        <span class="hljs-keyword">if</span> (node.right != <span class="hljs-literal">null</span>)<br>            queue.offer(node.right);  <span class="hljs-comment">// 右子节点入队</span><br>    &#125;<br>    <span class="hljs-keyword">return</span> list;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+
+
+<h3 id="2-前序、中序、后序遍历"><a href="#2-前序、中序、后序遍历" class="headerlink" title="2.前序、中序、后序遍历"></a>2.前序、中序、后序遍历</h3><p>相应地，前序、中序和后序遍历都属于深度优先遍历（depth-first traversal），也称深度优先搜索（depth-first search, DFS），它体现了一种“先走到尽头，再回溯继续”的遍历方式。</p>
+<p>图 7-10 展示了对二叉树进行深度优先遍历的工作原理。<strong>深度优先遍历就像是绕着整棵二叉树的外围“走”一圈</strong>，在每个节点都会遇到三个位置，分别对应前序遍历、中序遍历和后序遍历</p>
+<div style="text-align:center;gap:5px">
+    <img src="/img/algorithm_pic/38.png" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:60%;">
+</div>
+
+<p>深度优先搜索通常基于递归实现：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">/* 前序遍历 */</span><br><span class="hljs-keyword">void</span> <span class="hljs-title function_">preOrder</span><span class="hljs-params">(TreeNode root)</span> &#123;<br>    <span class="hljs-keyword">if</span> (root == <span class="hljs-literal">null</span>)<br>        <span class="hljs-keyword">return</span>;<br>    <span class="hljs-comment">// 访问优先级：根节点 -&gt; 左子树 -&gt; 右子树</span><br>    list.add(root.val);<br>    preOrder(root.left);<br>    preOrder(root.right);<br>&#125;<br><br><span class="hljs-comment">/* 中序遍历 */</span><br><span class="hljs-keyword">void</span> <span class="hljs-title function_">inOrder</span><span class="hljs-params">(TreeNode root)</span> &#123;<br>    <span class="hljs-keyword">if</span> (root == <span class="hljs-literal">null</span>)<br>        <span class="hljs-keyword">return</span>;<br>    <span class="hljs-comment">// 访问优先级：左子树 -&gt; 根节点 -&gt; 右子树</span><br>    inOrder(root.left);<br>    list.add(root.val);<br>    inOrder(root.right);<br>&#125;<br><br><span class="hljs-comment">/* 后序遍历 */</span><br><span class="hljs-keyword">void</span> <span class="hljs-title function_">postOrder</span><span class="hljs-params">(TreeNode root)</span> &#123;<br>    <span class="hljs-keyword">if</span> (root == <span class="hljs-literal">null</span>)<br>        <span class="hljs-keyword">return</span>;<br>    <span class="hljs-comment">// 访问优先级：左子树 -&gt; 右子树 -&gt; 根节点</span><br>    postOrder(root.left);<br>    postOrder(root.right);<br>    list.add(root.val);<br>&#125;<br></code></pre></td></tr></table></figure>
+
+
+
+<h1 id="七、堆"><a href="#七、堆" class="headerlink" title="七、堆"></a>七、堆</h1><h2 id="1-堆"><a href="#1-堆" class="headerlink" title="1.堆"></a>1.堆</h2><p><mark>堆（heap）是一种满足特定条件的完全二叉树</mark>，主要可分为两种类型</p>
+<ul>
+<li><mark>小顶堆</mark>（min heap）：任意节点的值 ≤ 其子节点的值，<mark>顶堆元素的值是最小的</mark></li>
+<li><mark>大顶堆</mark>（max heap）：任意节点的值 ≥ 其子节点的值，<mark>顶堆元素的值是最大的</mark></li>
+</ul>
+<div style="text-align:center;gap:5px">
+    <img src="/img/algorithm_pic/39.png" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:60%;">
+</div>
+
+<p>堆作为完全二叉树的一个特例，具有以下特性。</p>
+<ul>
+<li>最底层节点靠左填充，其他层的节点都被填满。</li>
+<li>我们将二叉树的根节点称为“堆顶”，将底层最靠右的节点称为“堆底”。</li>
+</ul>
+<h3 id="1-堆的常用操作"><a href="#1-堆的常用操作" class="headerlink" title="1. 堆的常用操作"></a>1. 堆的常用操作</h3><p>需要指出的是，许多编程语言提供的是优先队列（priority queue），这是一种抽象的数据结构，定义为具有优先级排序的队列。</p>
+<p>实际上，<strong>堆通常用于实现优先队列，大顶堆相当于元素按从大到小的顺序出队的优先队列</strong>。从使用角度来看，我们可以将“优先队列”和“堆”看作等价的数据结构。因此，本书对两者不做特别区分，统一称作“堆”。</p>
+<table>
+<thead>
+<tr>
+<th align="left">方法名</th>
+<th align="left">描述</th>
+<th align="left">时间复杂度</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><code>push()</code></td>
+<td align="left">元素入堆</td>
+<td align="left">O(log⁡n)</td>
+</tr>
+<tr>
+<td align="left"><code>pop()</code></td>
+<td align="left">堆顶元素出堆</td>
+<td align="left">O(log⁡n)</td>
+</tr>
+<tr>
+<td align="left"><code>peek()</code></td>
+<td align="left">访问堆顶元素（对于大 &#x2F; 小顶堆分别为最大 &#x2F; 小值）</td>
+<td align="left">O(1)</td>
+</tr>
+<tr>
+<td align="left"><code>size()</code></td>
+<td align="left">获取堆的元素数量</td>
+<td align="left">O(1)</td>
+</tr>
+<tr>
+<td align="left"><code>isEmpty()</code></td>
+<td align="left">判断堆是否为空</td>
+<td align="left">O(1)</td>
+</tr>
+</tbody></table>
+<p>类似于排序算法中的“从小到大排列”和“从大到小排列”，我们可以通过设置一个 <code>flag</code> 或修改 <code>Comparator</code> 实现“小顶堆”与“大顶堆”之间的转换。代码如下所示：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">/* 初始化堆 */</span><br><span class="hljs-comment">// 初始化小顶堆</span><br>Queue&lt;Integer&gt; minHeap = <span class="hljs-keyword">new</span> <span class="hljs-title class_">PriorityQueue</span>&lt;&gt;();<br><span class="hljs-comment">// 初始化大顶堆（使用 lambda 表达式修改 Comparator 即可）</span><br>Queue&lt;Integer&gt; maxHeap = <span class="hljs-keyword">new</span> <span class="hljs-title class_">PriorityQueue</span>&lt;&gt;((a, b) -&gt; b - a);<br><br><span class="hljs-comment">/* 元素入堆 */</span><br>maxHeap.offer(<span class="hljs-number">1</span>);<br>maxHeap.offer(<span class="hljs-number">3</span>);<br>maxHeap.offer(<span class="hljs-number">2</span>);<br>maxHeap.offer(<span class="hljs-number">5</span>);<br>maxHeap.offer(<span class="hljs-number">4</span>);<br><br><span class="hljs-comment">/* 获取堆顶元素 */</span><br><span class="hljs-type">int</span> <span class="hljs-variable">peek</span> <span class="hljs-operator">=</span> maxHeap.peek(); <span class="hljs-comment">// 5</span><br><br><span class="hljs-comment">/* 堆顶元素出堆 */</span><br><span class="hljs-comment">// 出堆元素会形成一个从大到小的序列</span><br>peek = maxHeap.poll(); <span class="hljs-comment">// 5</span><br>peek = maxHeap.poll(); <span class="hljs-comment">// 4</span><br>peek = maxHeap.poll(); <span class="hljs-comment">// 3</span><br>peek = maxHeap.poll(); <span class="hljs-comment">// 2</span><br>peek = maxHeap.poll(); <span class="hljs-comment">// 1</span><br><br><span class="hljs-comment">/* 获取堆大小 */</span><br><span class="hljs-type">int</span> <span class="hljs-variable">size</span> <span class="hljs-operator">=</span> maxHeap.size();<br><br><span class="hljs-comment">/* 判断堆是否为空 */</span><br><span class="hljs-type">boolean</span> <span class="hljs-variable">isEmpty</span> <span class="hljs-operator">=</span> maxHeap.isEmpty();<br><br><span class="hljs-comment">/* 输入列表并建堆 */</span><br>minHeap = <span class="hljs-keyword">new</span> <span class="hljs-title class_">PriorityQueue</span>&lt;&gt;(Arrays.asList(<span class="hljs-number">1</span>, <span class="hljs-number">3</span>, <span class="hljs-number">2</span>, <span class="hljs-number">5</span>, <span class="hljs-number">4</span>));<br></code></pre></td></tr></table></figure>
+
+
+
+<h2 id="2-Top-k问题"><a href="#2-Top-k问题" class="headerlink" title="2.Top-k问题"></a>2.Top-k问题</h2><blockquote>
+<p>[!NOTE]</p>
+<p>给定一个长度为 n 的无序数组 <code>nums</code> ，请返回数组中最大的 k 个元素</p>
+</blockquote>
+<h3 id="1-方法1：遍历选择"><a href="#1-方法1：遍历选择" class="headerlink" title="1.方法1：遍历选择"></a>1.方法1：遍历选择</h3><p>k 轮遍历，分别在每轮中提取第 1、2、…、k 大的元素，时间复杂度为 O(nk) </p>
+<div style="text-align:center;gap:5px">
+    <img src="/img/algorithm_pic/40.png" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:60%;">
+</div>
+
+<h3 id="2-方法2：排序"><a href="#2-方法2：排序" class="headerlink" title="2.方法2：排序"></a>2.方法2：排序</h3><p>我们可以先对数组 <code>nums</code> 进行排序，再返回最右边的 k 个元素，时间复杂度为 O(nlog⁡n) 。</p>
+<p>显然，该方法“超额”完成任务了，因为我们只需找出最大的 k 个元素即可，而不需要排序其他元素。</p>
+<div style="text-align:center;gap:5px">
+    <img src="/img/algorithm_pic/41.png" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:60%;">
+</div>
+
+<h3 id="3-方法三：堆"><a href="#3-方法三：堆" class="headerlink" title="3. 方法三：堆"></a>3. 方法三：堆</h3><ol>
+<li>初始化一个小顶堆，其堆顶元素最小。</li>
+<li>先将数组的前 k 个元素依次入堆。</li>
+<li>从第 k+1 个元素开始，若当前元素大于堆顶元素，则将堆顶元素出堆，并将当前元素入堆。</li>
+<li>遍历完成后，堆中保存的就是最大的 k 个元素。</li>
+</ol>
+<div style="text-align:center;gap:5px">
+    <img src="/img/algorithm_pic/42.png" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:35%;">
+  <img src="/img/algorithm_pic/43.png" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:35%;">
+</div>
+
+<div style="text-align:center;gap:5px">
+    <img src="/img/algorithm_pic/44.png" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:35%;">
+  <img src="/img/algorithm_pic/45.png" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:35%;">
+</div>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">/* 基于堆查找数组中最大的 k 个元素 */</span><br>Queue&lt;Integer&gt; <span class="hljs-title function_">topKHeap</span><span class="hljs-params">(<span class="hljs-type">int</span>[] nums, <span class="hljs-type">int</span> k)</span> &#123;<br>    <span class="hljs-comment">// 初始化小顶堆</span><br>    Queue&lt;Integer&gt; heap = <span class="hljs-keyword">new</span> <span class="hljs-title class_">PriorityQueue</span>&lt;Integer&gt;();<br>    <span class="hljs-comment">// 将数组的前 k 个元素入堆</span><br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; i &lt; k; i++) &#123;<br>        heap.offer(nums[i]);<br>    &#125;<br>    <span class="hljs-comment">// 从第 k+1 个元素开始，保持堆的长度为 k</span><br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> k; i &lt; nums.length; i++) &#123;<br>        <span class="hljs-comment">// 若当前元素大于堆顶元素，则将堆顶元素出堆、当前元素入堆</span><br>        <span class="hljs-keyword">if</span> (nums[i] &gt; heap.peek()) &#123;<br>            heap.poll();<br>            heap.offer(nums[i]);<br>        &#125;<br>    &#125;<br>    <span class="hljs-keyword">return</span> heap;<br>&#125;<br></code></pre></td></tr></table></figure>
 
 
 
@@ -978,9 +1270,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2023/11/30/%E7%BB%AD%E8%88%AA%E6%B5%8B%E8%AF%95/" title="续航测试方法">
+                      <a href="/2023/11/30/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/" title="Matplotlib+Numpy+Pandas数据分析">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">续航测试方法</span>
+                        <span class="hidden-mobile">Matplotlib+Numpy+Pandas数据分析</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -988,8 +1280,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2023/11/29/Django%20Web%E6%A1%86%E6%9E%B6/" title="Django Web框架">
-                        <span class="hidden-mobile">Django Web框架</span>
+                      <a href="/2023/11/30/%E7%BB%AD%E8%88%AA%E6%B5%8B%E8%AF%95/" title="续航测试方法">
+                        <span class="hidden-mobile">续航测试方法</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

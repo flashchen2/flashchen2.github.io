@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://example.com/img/kafka_pic/1.png">
 <meta property="article:published_time" content="2024-09-05T12:00:00.000Z">
-<meta property="article:modified_time" content="2024-10-21T08:15:12.957Z">
+<meta property="article:modified_time" content="2025-04-30T09:02:00.627Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="Web开发">
 <meta property="article:tag" content="中间件">
@@ -226,7 +226,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.3k 字
+          1.4k 字
         
       </span>
     
@@ -282,7 +282,57 @@
                 <ul>
 <li>学习链接：<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Kwx1e8E1C/?spm_id_from=333.337.search-card.all.click&vd_source=4cf7b60c223a665538a4d958765c91a5">https://www.bilibili.com/video/BV1Kwx1e8E1C/</a></li>
 </ul>
-<h1 id="一、Kafka快速上手"><a href="#一、Kafka快速上手" class="headerlink" title="一、Kafka快速上手"></a>一、Kafka快速上手</h1><h2 id="1-MQ的作用"><a href="#1-MQ的作用" class="headerlink" title="1.MQ的作用"></a>1.MQ的作用</h2><ol>
+<h1 id="一、介绍"><a href="#一、介绍" class="headerlink" title="一、介绍"></a>一、介绍</h1><ol>
+<li>Kafka可以用来传递业务的消息事件，是削峰填谷的利器</li>
+</ol>
+<h1 id="二、内部结构"><a href="#二、内部结构" class="headerlink" title="二、内部结构"></a>二、内部结构</h1><h2 id="1-主题-topic"><a href="#1-主题-topic" class="headerlink" title="1.主题 - topic"></a>1.主题 - topic</h2><div style="text-align:center;gap:5px">
+    <img src="/img/kafka_pic/10.png" srcset="/img/loading.gif" lazyload alt="图片描述">
+</div>
+
+<ol>
+<li>kafka的消息存储在topic中。topic类似db中的表，通常将类似的消息存储在同一个topic中</li>
+</ol>
+<h2 id="2-分区"><a href="#2-分区" class="headerlink" title="2.分区"></a>2.分区</h2><ol>
+<li><p>topic中可以包含多个分区（partition）。kafka可以将topic拆成不同的分区，不同分区存在不同服务器上</p>
+</li>
+<li><p>分区是一个线性增长的，不可变的，提交日志。kafka会为每条消息，分配一个偏移量（offset），用于记录每条消息的位置</p>
+<div style="text-align:center;gap:5px">
+    <img src="/img/kafka_pic/11.png" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:60%">
+    <img src="/img/kafka_pic/12.png" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:60%">
+</div>
+</li>
+<li><p>kafka中的消息，是以键值对的形式存储</p>
+<div style="text-align:center;gap:5px">
+    <img src="/img/kafka_pic/13.png" srcset="/img/loading.gif" lazyload alt="图片描述">
+</div></li>
+</ol>
+<h2 id="3-副本"><a href="#3-副本" class="headerlink" title="3.副本"></a>3.副本</h2><ol>
+<li>为防止分区数据损坏，引入副本机制，保障数据可靠性。replication-factor&#x3D;3，即包含主分区在内，一共存在3个副本</li>
+<li>kafka会选择一个副本作为主分区，称之为leader，所有的写入和读取都是对leader进行操作。其他两个副本称为follower，负责从leader中复制数据，保证数据的一致</li>
+<li>kafka会监控副本之间，数据同步的状态。维护一个ISR的集合，即正在同步的副本集</li>
+</ol>
+<div style="text-align:center;gap:5px">
+    <img src="/img/kafka_pic/14.png" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:60%">
+    <img src="/img/kafka_pic/15.png" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:60%">
+</div>
+
+
+
+<h2 id="4-消息代理-broker"><a href="#4-消息代理-broker" class="headerlink" title="4.消息代理 - broker"></a>4.消息代理 - broker</h2><ol>
+<li><p>broker负责，主分区消息的读写请求，并将数据写入到磁盘中</p>
+</li>
+<li><p>broker负责，副分区消息的数据同步，不负责副分区的读写</p>
+</li>
+<li><p>下图kafka集群由8个broker组成。集群中的topice有8个分区，分别是p0-p7。副本因子是3，即每个数据存在3份。每个分区有1个leader和2个follower</p>
+<div style="text-align:center;gap:5px">
+    <img src="/img/kafka_pic/16.png" srcset="/img/loading.gif" lazyload alt="图片描述">
+</div></li>
+</ol>
+<h2 id="5-整体结构"><a href="#5-整体结构" class="headerlink" title="5.整体结构"></a>5.整体结构</h2><div style="text-align:center;gap:5px">
+    <img src="/img/kafka_pic/9.png" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:50%">
+</div>
+
+<h1 id="三、安装配置"><a href="#三、安装配置" class="headerlink" title="三、安装配置"></a>三、安装配置</h1><h2 id="1-MQ的作用"><a href="#1-MQ的作用" class="headerlink" title="1.MQ的作用"></a>1.MQ的作用</h2><ol>
 <li><p>MQ：MessageQueue，消息队列是一种FIFO先进先出的数据结构。一个典型的MQ系统，会将消息由生产者发送到MQ进行排队，然后根据一定的顺序交由消息的消费者进行处理</p>
 <blockquote>
 <p>[!NOTE]</p>
@@ -302,6 +352,12 @@
 <li><p>kafka是目前最具有影响力的开源MQ产品，官网地址：<a target="_blank" rel="noopener" href="https://kafka.apache.org/">https://kafka.apache.org/</a></p>
 </li>
 </ol>
+<div style="text-align:center;gap:5px">
+    <img src="/img/kafka_pic/18.png" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:60%">
+</div>
+
+
+
 <h2 id="2-搭建单机服务"><a href="#2-搭建单机服务" class="headerlink" title="2.搭建单机服务"></a>2.搭建单机服务</h2><ol>
 <li><p>下载Kafka：<a target="_blank" rel="noopener" href="https://kafka.apache.org/downloads">https://kafka.apache.org/downloads</a> </p>
 </li>
@@ -388,7 +444,9 @@
 </ol>
 </li>
 </ol>
-<h2 id="4-消费者组"><a href="#4-消费者组" class="headerlink" title="4.消费者组"></a>4.消费者组</h2><ol>
+<h2 id="4-消费者组-consumer-group"><a href="#4-消费者组-consumer-group" class="headerlink" title="4.消费者组 - consumer group"></a>4.消费者组 - consumer group</h2><ol>
+<li><p><mark>生产者：productor、resolver，消费者：consumer</mark></p>
+</li>
 <li><p>对于每个消费者，可以指定⼀个消费者组。<mark>kafka中的同⼀条消息，只能被同⼀个消费者组下的第⼀个消费者消费；或不属于同⼀个消费者组的其他消费者来消费</mark>。在kafka-console-consumer.sh脚本中，可以通过–consumer-propertygroup.id&#x3D;testGroup来指定所属的消费者组。例如，可以启动三个消费者组，来验证⼀下分组消费机制：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">两个消费者实例属于同⼀个消费者组</span><br>bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --consumer-property group.id=testGroup --topic zctest    // 可以消费<br><br>bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --consumer-property group.id=testGroup --topic zctest    // 不可以消费<br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">这个消费者实例属于不同的消费者组</span><br>bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --consumer-property group.id=testGroup2 --topic zctest   // 可以消费<br></code></pre></td></tr></table></figure>
 </li>
@@ -412,19 +470,26 @@
 <li>话题Topic：这是⼀个逻辑概念，⼀个Topic被认为是业务含义相同的⼀组消息。客户端都通过绑定Topic来⽣产或者消费⾃⼰感兴趣的话题</li>
 <li>分区Partition：Topic只是⼀个逻辑概念，⽽Partition就是实际存储消息的组件。每个Partiton就是⼀个queue队列结构。所有消息以FIFO先进先出的顺序保存在这些Partition分区中</li>
 </ul>
-<h1 id="二、Kafka集群"><a href="#二、Kafka集群" class="headerlink" title="二、Kafka集群"></a>二、Kafka集群</h1><ol>
-<li><p>集群架构</p>
+<h2 id="6-编写方式"><a href="#6-编写方式" class="headerlink" title="6.编写方式"></a>6.编写方式</h2><ol>
+<li>确定想要消费的topic，以及consumerGroup</li>
+<li>编写consume，具体接收消息后的代码</li>
+</ol>
 <div style="text-align:center;gap:5px">
-    <img src="/img/kafka_pic/9.png" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:50%">
+    <img src="/img/kafka_pic/17.png" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:60%">
+</div>
+
+
+<h1 id="四、其他"><a href="#四、其他" class="headerlink" title="四、其他"></a>四、其他</h1><ol>
+<li><p>resolver层：用来处理binlog、kafka等异步消息</p>
+</li>
+<li><p>kbus：是一套从数据库拉取变更数据流（主要是binlog），通过系统内部的处理和过滤等逻辑，默认以Kafka形式提供给业务方进行消费的系统</p>
+<div style="text-align:center;gap:5px">
+    <img src="/img/kafka_pic/19.png" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:80%">
 </div>
 </li>
-<li><p>为什么要⽤集群？</p>
-<ol>
-<li>机服务下，Kafka已经具备了⾮常⾼的性能。TPS能够达到百万级别。但是，在实际⼯作中使⽤时，单机搭建的Kafka会有很⼤的局限性。</li>
-<li>消息太多，需要分开保存。Kafka是⾯向海量消息设计的，⼀个Topic下的消息会⾮常多，单机服务很难存得下来。这些消息就需要分成不同的Partition，分布到多个不同的Broker上。这样每个Broker就只需要保存⼀部分数据。这些分区的个数就称为分区数。</li>
-<li>服务不稳定，数据容易丢失。单机服务下，如果服务崩溃，数据就丢失了。为了保证数据安全，就需要给每个Partition配置⼀个或多个备份，保证数据不丢失。Kafka的集群模式下，每个Partition都有⼀个或多个备份。Kafka会通过⼀个统⼀的Zookeeper集群作为选举中⼼，给每个Partition选举出⼀个主节点Leader，其他节点就是从节点Follower。主节点负责响应客户端的具体业务请求，并保存消息。⽽从节点则负责同步主节点的数据。当主节点发⽣故障时，Kafka会选举出⼀个从节点成为新的主节点。</li>
-<li>Kafka集群中的这些Broker信息，包括Partition的选举信息，都会保存在额外部署的Zookeeper集群当中，这样，kafka集群就不会因为某⼀些Broker服务崩溃⽽中断。</li>
-</ol>
+<li><p>Producer：kafka消息生产者</p>
+</li>
+<li><p>Consumer：kafka消息消费者</p>
 </li>
 </ol>
 
@@ -528,9 +593,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2024/10/05/Redis/" title="Redis">
+                      <a href="/2024/10/05/%E5%BE%AE%E6%9C%8D%E5%8A%A1-micro%20services/" title="微服务">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Redis</span>
+                        <span class="hidden-mobile">微服务</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
