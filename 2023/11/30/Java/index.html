@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://example.com/img/java_pic/1.jpg">
 <meta property="article:published_time" content="2023-11-30T12:00:00.000Z">
-<meta property="article:modified_time" content="2025-05-04T15:50:22.545Z">
+<meta property="article:modified_time" content="2025-09-29T06:37:20.236Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="语言">
 <meta property="article:tag" content="开发">
@@ -237,7 +237,7 @@
         
         
         
-          156 分钟
+          159 分钟
         
       </span>
     
@@ -333,6 +333,7 @@
 <ol start="8">
 <li>向左或向右选中：<code>command + shift + &lt;- </code> 或 <code>command + shift + -&gt; </code> </li>
 <li>复制本行内容到下一行：<code>command + d</code></li>
+<li>返回上一个光标位置：<code>command + [</code></li>
 </ol>
 <h3 id="3-命名方法"><a href="#3-命名方法" class="headerlink" title="3. 命名方法"></a>3. 命名方法</h3><ol>
 <li><p>小驼峰命名法 - <mark>适用于变量名和方法名</mark></p>
@@ -3175,7 +3176,38 @@
 </ol>
 </li>
 </ol>
-<h2 id="8-if-else简便写法"><a href="#8-if-else简便写法" class="headerlink" title="8.if else简便写法"></a>8.if else简便写法</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs java">productModel.setPayStatus(novelInfo.getSalesType() != <span class="hljs-number">3</span> ? <span class="hljs-number">1</span> : <span class="hljs-number">2</span>);<br></code></pre></td></tr></table></figure>
+<h2 id="8-数据判断"><a href="#8-数据判断" class="headerlink" title="8.数据判断"></a>8.数据判断</h2><ol>
+<li>if else判断</li>
+</ol>
+<ul>
+<li>原始写法</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">if</span>(dto.getReasonable() = <span class="hljs-number">0</span> )&#123;<br>	<span class="hljs-type">Boolean</span> <span class="hljs-variable">result</span> <span class="hljs-operator">=</span> <span class="hljs-literal">true</span>;<br>&#125; <span class="hljs-keyword">else</span> &#123;<br>	<span class="hljs-type">Boolean</span> <span class="hljs-variable">result</span> <span class="hljs-operator">=</span> <span class="hljs-literal">false</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+
+
+<ul>
+<li>进阶写法</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-type">Boolean</span> <span class="hljs-variable">result</span> <span class="hljs-operator">=</span> dto.getReasonable() = <span class="hljs-number">0</span> ? <span class="hljs-literal">true</span> : <span class="hljs-literal">false</span>;<br></code></pre></td></tr></table></figure>
+
+
+
+<ol start="2">
+<li>空 &#x2F; 非空判断</li>
+</ol>
+<p><code>StringUtils.isBlank()</code> &amp; <code>StringUtils.isNotBlank()</code></p>
+<ul>
+<li>原始写法</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">if</span> (!<span class="hljs-string">&quot;&quot;</span>.equals(dto.getQpsRecommend() &amp;&amp; dto.getQpsRecommend() != <span class="hljs-literal">null</span>) &#123;&#125;<br></code></pre></td></tr></table></figure>
+
+
+
+<ul>
+<li>进阶写法</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">if</span> (StringUtils.isNotBlank(dto.getQpsRecommend()) &#123;&#125;<br></code></pre></td></tr></table></figure>
 
 
 
@@ -3188,6 +3220,20 @@
 <li><p>例，下图中<code>__DID__</code>, <code>__AID__</code>, <code>__CID__</code>, <code>__CSITE__</code>, <code>__ACCOUNTID__</code>都是宏参数，<code>ksCampaignId</code>, <code>ksUnitId</code>, <code>ksCreativeId</code>, <code>ksCSite</code>, <code>ksSiteAccountId</code> 则是动态参数，<mark>这些值在每次请求或链接生成时都会根据实际需要替换，所以在平台中进行展示的时候会以此种方式</mark></p>
 <figure class="highlight sas"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sas">https://chenzhongkj.com/rest/n/lp/<span class="hljs-keyword">page</span>/getHtml?hyId=landingPg<span class="hljs-variable">&amp;pageId</span>=738539551658369147<span class="hljs-variable">&amp;ksCampaignId</span>=__DID__<span class="hljs-variable">&amp;ksUnitId</span>=__AID__<span class="hljs-variable">&amp;ksCreativeId</span>=__CID__<span class="hljs-variable">&amp;ksCSite</span>=__CSITE__<span class="hljs-variable">&amp;ksSiteAccountId</span>=__ACCOUNTID__<br></code></pre></td></tr></table></figure></li>
 </ol>
+<h2 id="10-哈希"><a href="#10-哈希" class="headerlink" title="10.哈希"></a>10.哈希</h2><h3 id="1-哈希是什么"><a href="#1-哈希是什么" class="headerlink" title="1.哈希是什么"></a>1.哈希是什么</h3><p>哈希（Hash），在计算机科学中，通常指的是将任意长度的输入（比如文件、字符串等）通过特定算法转换成固定长度的输出的过程。这个输出通常被称为哈希值或者散列值。哈希函数的设计目的是让输入数据的任何微小变化都能导致输出的显著不同，同时保证相同的输入总是产生相同的输出。哈希技术广泛应用于数据校验、密码存储、快速查找等领域。</p>
+<h3 id="2-哈希值能逆向破解吗？"><a href="#2-哈希值能逆向破解吗？" class="headerlink" title="2.哈希值能逆向破解吗？"></a>2.哈希值能逆向破解吗？</h3><p>哈希值本身是通过哈希函数从原始数据计算出来的，设计良好的哈希函数具有不可逆性，这意味着从哈希值反推出原始数据是非常困难的，甚至是不可能的。这种特性使得哈希函数特别适合用于密码存储等安全相关的应用中。</p>
+<h3 id="3-示例-1"><a href="#3-示例-1" class="headerlink" title="3.示例"></a>3.示例</h3><ul>
+<li>输入</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">import</span> java.security.MessageDigest;<br><span class="hljs-keyword">import</span> java.security.NoSuchAlgorithmException;<br><span class="hljs-keyword">import</span> java.util.HexFormat;<br><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">HashExample</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> &#123;<br>        <span class="hljs-type">String</span> <span class="hljs-variable">input</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;Hello, World!&quot;</span>;<br>        <br>        <span class="hljs-keyword">try</span> &#123;<br>            <span class="hljs-comment">// 1. 获取SHA-256算法实例</span><br>            <span class="hljs-type">MessageDigest</span> <span class="hljs-variable">digest</span> <span class="hljs-operator">=</span> MessageDigest.getInstance(<span class="hljs-string">&quot;SHA-256&quot;</span>);<br>            <br>            <span class="hljs-comment">// 2. 计算哈希值（返回字节数组）</span><br>            <span class="hljs-type">byte</span>[] hashBytes = digest.digest(input.getBytes());<br>            <br>            <span class="hljs-comment">// 3. 将字节数组转换为十六进制字符串</span><br>            <span class="hljs-type">String</span> <span class="hljs-variable">hexHash</span> <span class="hljs-operator">=</span> HexFormat.of().formatHex(hashBytes);<br>            <br>            System.out.println(<span class="hljs-string">&quot;Original: &quot;</span> + input);<br>            System.out.println(<span class="hljs-string">&quot;SHA-256:  &quot;</span> + hexHash);<br>            <br>        &#125; <span class="hljs-keyword">catch</span> (NoSuchAlgorithmException e) &#123;<br>            System.err.println(<span class="hljs-string">&quot;SHA-256 algorithm not available&quot;</span>);<br>        &#125;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+
+
+<ul>
+<li>输出</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs java">Original: Hello, World!<br>SHA-<span class="hljs-number">256</span>:  dffd6021bb2bd5b0af676290809ec3a53191dd81c7f70a4b28688a362182986f<br></code></pre></td></tr></table></figure>
+
 
                 
               </div>

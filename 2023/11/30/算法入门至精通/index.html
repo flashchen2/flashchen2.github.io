@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://example.com/img/algorithm_pic/1.jpg">
 <meta property="article:published_time" content="2023-11-30T12:00:00.000Z">
-<meta property="article:modified_time" content="2025-05-05T16:07:38.351Z">
+<meta property="article:modified_time" content="2025-09-23T06:30:37.510Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="开发">
 <meta property="article:tag" content="算法">
@@ -225,7 +225,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          12k 字
+          15k 字
         
       </span>
     
@@ -236,7 +236,7 @@
         
         
         
-          97 分钟
+          125 分钟
         
       </span>
     
@@ -613,7 +613,7 @@
 </div>
 
 
-<h1 id="三、数组与链表"><a href="#三、数组与链表" class="headerlink" title="三、数组与链表"></a>三、数组与链表</h1><h2 id="1-数组-int"><a href="#1-数组-int" class="headerlink" title="1. 数组 int[]"></a>1. 数组 int[]</h2><div style="text-align:center;gap:5px">
+<h1 id="三、数组、链表、列表"><a href="#三、数组、链表、列表" class="headerlink" title="三、数组、链表、列表"></a>三、数组、链表、列表</h1><h2 id="1-数组-int"><a href="#1-数组-int" class="headerlink" title="1. 数组 int[]"></a>1. 数组 int[]</h2><div style="text-align:center;gap:5px">
     <img src="/img/algorithm_pic/17.png" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:50%">
 </div>
 #### 1.  初始化数组
@@ -754,13 +754,19 @@
 <li>数组也支持元素增删查改，但由于其长度不可变，因此只能看作一个具有长度限制的列表。</li>
 </ul>
 <p>当使用数组实现列表时，<strong>长度不可变的性质会导致列表的实用性降低</strong>。这是因为我们通常无法事先确定需要存储多少数据，从而难以选择合适的列表长度。</p>
+<h3 id="1-列表常用操作"><a href="#1-列表常用操作" class="headerlink" title="1.  列表常用操作"></a>1.  列表常用操作</h3><h4 id="1-初始化列表"><a href="#1-初始化列表" class="headerlink" title="1.  初始化列表"></a>1.  初始化列表</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">/* 初始化列表 */</span><br><span class="hljs-comment">// 无初始值</span><br>List&lt;Integer&gt; nums1 = <span class="hljs-keyword">new</span> <span class="hljs-title class_">ArrayList</span>&lt;&gt;();<br><br><span class="hljs-comment">// 有初始值（注意数组的元素类型需为 int[] 的包装类 Integer[]）</span><br><span class="hljs-comment">// 先创建数组</span><br>Integer[] integers = &#123;<span class="hljs-number">1</span>, <span class="hljs-number">4</span>, <span class="hljs-number">6</span>, <span class="hljs-number">8</span>, <span class="hljs-number">12</span>, <span class="hljs-number">14</span>, <span class="hljs-number">16</span>, <span class="hljs-number">19</span>, <span class="hljs-number">20</span>&#125;;<br><span class="hljs-comment">// 再将数组动态化</span><br>List&lt;Integer&gt; nums = <span class="hljs-keyword">new</span> <span class="hljs-title class_">ArrayList</span>&lt;&gt;(Arrays.asList(numbers));<br></code></pre></td></tr></table></figure>
+
 <p><mark>列表的概念相当于动态数组，需要先创建数组，然后在将其动态化</mark></p>
-<h3 id="1-列表常用操作"><a href="#1-列表常用操作" class="headerlink" title="1.  列表常用操作"></a>1.  列表常用操作</h3><h4 id="1-初始化列表"><a href="#1-初始化列表" class="headerlink" title="1.  初始化列表"></a>1.  初始化列表</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">/* 初始化列表 */</span><br><span class="hljs-comment">// 无初始值</span><br>List&lt;Integer&gt; nums1 = <span class="hljs-keyword">new</span> <span class="hljs-title class_">ArrayList</span>&lt;&gt;();<br><br><span class="hljs-comment">// 有初始值（注意数组的元素类型需为 int[] 的包装类 Integer[]）</span><br><span class="hljs-comment">// 先创建数组</span><br>Integer[] numbers = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Integer</span>[] &#123; <span class="hljs-number">1</span>, <span class="hljs-number">3</span>, <span class="hljs-number">2</span>, <span class="hljs-number">5</span>, <span class="hljs-number">4</span> &#125;;<br><span class="hljs-comment">// 再将数组动态化</span><br>List&lt;Integer&gt; nums = <span class="hljs-keyword">new</span> <span class="hljs-title class_">ArrayList</span>&lt;&gt;(Arrays.asList(numbers));<br></code></pre></td></tr></table></figure>
+<p>Q：为什么要先创建一个列表？</p>
+<p>A：<code>ArrayList</code> 的构造函数不支持直接传入多个元素，只能先创建一个空的 <code>ArrayList</code>，然后使用 <code>add</code> 方法逐个添加元素，如下</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">// 创建一个空的 ArrayList</span><br>ArrayList&lt;Integer&gt; arrayList = <span class="hljs-keyword">new</span> <span class="hljs-title class_">ArrayList</span>&lt;&gt;();<br><br><span class="hljs-comment">// 添加元素</span><br>arrayList.add(<span class="hljs-number">1</span>);<br>arrayList.add(<span class="hljs-number">4</span>);<br>arrayList.add(<span class="hljs-number">6</span>);<br><br><span class="hljs-comment">// 打印 ArrayList</span><br>System.out.println(arrayList);<br></code></pre></td></tr></table></figure>
 
 
 
-<h3 id="2-访问元素-1"><a href="#2-访问元素-1" class="headerlink" title="2.  访问元素"></a>2.  访问元素</h3><p>列表本质上是数组，因此可以在 O(1) 时间内访问和更新元素，效率很高。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">/* 访问元素 */</span><br><span class="hljs-type">int</span> <span class="hljs-variable">num</span> <span class="hljs-operator">=</span> nums.get(<span class="hljs-number">1</span>);  <span class="hljs-comment">// 访问索引 1 处的元素</span><br><br><span class="hljs-comment">/* 更新元素 */</span><br>nums.set(<span class="hljs-number">1</span>, <span class="hljs-number">0</span>);  <span class="hljs-comment">// 将索引 1 处的元素更新为 0</span><br></code></pre></td></tr></table></figure>
+<p>Q：为什么新建数组不需要 <code>new</code>，而集合需要 <code>new</code></p>
+<p>A：<strong>数组</strong>：数组是 Java 的基本数据类型之一，可以直接使用大括号 <code>&#123;&#125;</code> 来初始化。这种方式实际上是编译器提供的语法糖，底层仍然调用了 <code>new</code> 关键字来分配内存。</p>
+<p>​	<strong>集合</strong>：集合是 Java 集合框架的一部分，它们是对象，需要通过构造函数来创建实例。因此，必须使用 <code>new</code> 关键字来显式地创建集合对象。</p>
+<h3 id="2-访问元素-1"><a href="#2-访问元素-1" class="headerlink" title="2.  访问元素"></a>2.  访问元素</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">/* 访问元素 */</span><br><span class="hljs-type">int</span> <span class="hljs-variable">num</span> <span class="hljs-operator">=</span> nums.get(<span class="hljs-number">1</span>);  <span class="hljs-comment">// 访问索引 1 处的元素</span><br><br><span class="hljs-comment">/* 更新元素 */</span><br>nums.set(<span class="hljs-number">1</span>, <span class="hljs-number">0</span>);  <span class="hljs-comment">// 将索引 1 处的元素更新为 0</span><br></code></pre></td></tr></table></figure>
 
 
 
@@ -779,11 +785,10 @@
 
 
 
-<h3 id="6-排序列表"><a href="#6-排序列表" class="headerlink" title="6.  排序列表"></a>6.  排序列表</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">/* 排序列表 */</span><br>Collections.sort(nums);  <span class="hljs-comment">// 排序后，列表元素从小到大排列</span><br></code></pre></td></tr></table></figure>
+<h3 id="6-排序列表"><a href="#6-排序列表" class="headerlink" title="6.  排序列表"></a>6.  排序列表</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs java">Integer[] nums = &#123;<span class="hljs-number">1</span>,<span class="hljs-number">5</span>,<span class="hljs-number">2</span>,<span class="hljs-number">4</span>,<span class="hljs-number">3</span>&#125;;<br><span class="hljs-type">ArrayList</span> <span class="hljs-variable">arrayList</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">ArrayList</span>&lt;&gt;(Arrays.asList(nums));<br>log.info(String.valueOf(arrayList));    <span class="hljs-comment">// [1, 5, 2, 4, 3]</span><br><br><span class="hljs-comment">// 方法1  Collections.sort(nums);        </span><br>Collections.sort(arrayList2);<br>log.info(String.valueOf(arrayList2));<br><br><span class="hljs-comment">// 方法2 stream().sorted(); </span><br>Object[] array = arrayList.stream().sorted().toArray();<br>log.info(Arrays.toString(array));        <span class="hljs-comment">// [1, 2, 3, 4, 5]</span><br></code></pre></td></tr></table></figure>
 
-<div style="text-align:center;gap:5px">
-    <img src="/img/algorithm_pic/25.png" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:35%;">
-</div>
+
+
 
 
 
@@ -1135,31 +1140,156 @@
 
 
 
-<h1 id="十、搜索"><a href="#十、搜索" class="headerlink" title="十、搜索"></a>十、搜索</h1><h2 id="2-二分查找"><a href="#2-二分查找" class="headerlink" title="2. 二分查找"></a>2. 二分查找</h2><p>二分查找算法也称折半查找，是一种非常高效的工作于有序数组的查找算法。后续的课程中还会学习更多的查找算法，但在此之前，不妨用它作为入门。</p>
-<h3 id="1-需求说明"><a href="#1-需求说明" class="headerlink" title="1. 需求说明"></a>1. 需求说明</h3><div style="text-align:center;gap:5px">
-    <img src="/img/algorithm_pic/2.png" srcset="/img/loading.gif" lazyload alt="图片描述">
+<h1 id="八、图"><a href="#八、图" class="headerlink" title="八、图"></a>八、图</h1><h2 id="1-图"><a href="#1-图" class="headerlink" title="1.图"></a>1.图</h2><p>图（graph）是一种非线性数据结构，由顶点（vertex）和边（edge）组成。我们可以将图 G 抽象地表示为一组顶点 V 和一组边 E 的集合。以下示例展示了一个包含 5 个顶点和 7 条边的图。</p>
+<center>V={1,2,3,4,5}E={(1,2),(1,3),(1,5),(2,3),(2,4),(2,5),(4,5)}G={V,E}</center>
+
+<p>如果将顶点看作节点，将边看作连接各个节点的引用（指针），我们就可以将图看作一种从链表拓展而来的数据结构。如图所示，<strong>相较于线性关系（链表）和分治关系（树），网络关系（图）的自由度更高</strong>，因而更为复杂。</p>
+<div style="text-align:center;gap:5px">
+    <img src="/img/algorithm_pic/46.png" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:60%;">
+</div>
+
+<h3 id="1-图的常见类型与术语"><a href="#1-图的常见类型与术语" class="headerlink" title="1.图的常见类型与术语"></a>1.图的常见类型与术语</h3><p>根据边是否具有方向，可分为无向图（undirected graph）和有向图（directed graph）</p>
+<ul>
+<li>在无向图中，边表示两顶点之间的“双向”连接关系，例如微信或 QQ 中的“好友关系”。</li>
+<li>在有向图中，边具有方向性，即 A→B 和 A←B 两个方向的边是相互独立的，例如微博或抖音上的“关注”与“被关注”关系。</li>
+</ul>
+<div style="text-align:center;gap:5px">
+    <img src="/img/algorithm_pic/47.png" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:60%;">
 </div>
 
 
-<h3 id="2-java实现"><a href="#2-java实现" class="headerlink" title="2. java实现"></a>2. java实现</h3><h4 id="1-基础版（左闭右闭）"><a href="#1-基础版（左闭右闭）" class="headerlink" title="1. 基础版（左闭右闭）"></a>1. 基础版（左闭右闭）</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">// Params：a - 待查找的升序数组</span><br><span class="hljs-comment">//        target - 待查找的目标值</span><br><span class="hljs-comment">// Returns：找到则返回值索引</span><br><span class="hljs-comment">//		    找不到返回 -1</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-type">int</span> <span class="hljs-title function_">binarySearch</span><span class="hljs-params">(<span class="hljs-type">int</span>[] a, <span class="hljs-type">int</span> target)</span> &#123;<br>    <span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>, j = a.length - <span class="hljs-number">1</span>;   <span class="hljs-comment">//设置前后的指针</span><br>    <span class="hljs-keyword">while</span> (i &lt;= j) &#123;           <span class="hljs-comment">// i-j范围内有东西</span><br>        <span class="hljs-type">int</span> <span class="hljs-variable">m</span> <span class="hljs-operator">=</span> (i + j) &gt;&gt;&gt; <span class="hljs-number">1</span>;     <span class="hljs-comment">// 无符号右移，相当于除2后取整</span><br>        <span class="hljs-keyword">if</span> (target &lt; a[m]) &#123;			<span class="hljs-comment">// 目标值在左边</span><br>            j = m - <span class="hljs-number">1</span>;<br>        &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (a[m] &lt; target) &#123;		<span class="hljs-comment">// 目标值在右边</span><br>            i = m + <span class="hljs-number">1</span>;<br>        &#125; <span class="hljs-keyword">else</span> &#123;                   <span class="hljs-comment">// 找到了</span><br>            <span class="hljs-keyword">return</span> m;<br>        &#125;<br>    &#125;<br>    <span class="hljs-keyword">return</span> -<span class="hljs-number">1</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
 
-
-
-<h4 id="2-进阶版（左闭右开）"><a href="#2-进阶版（左闭右开）" class="headerlink" title="2. 进阶版（左闭右开）"></a>2. 进阶版（左闭右开）</h4><p>左边指针只作为一个边界，不参与运算</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-type">int</span> <span class="hljs-title function_">binarySearch</span><span class="hljs-params">(<span class="hljs-type">int</span>[] a, <span class="hljs-type">int</span> target)</span> &#123;<br>    <span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>, j = a.length;   <br>    <span class="hljs-keyword">while</span> (i &lt; j) &#123;           <br>        <span class="hljs-type">int</span> <span class="hljs-variable">m</span> <span class="hljs-operator">=</span> (i + j) &gt;&gt;&gt; <span class="hljs-number">1</span>;     <br>        <span class="hljs-keyword">if</span> (target &lt; a[m]) &#123;			<br>            j = m ;<br>        &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (a[m] &lt; target) &#123;		<br>            i = m + <span class="hljs-number">1</span>;<br>        &#125; <span class="hljs-keyword">else</span> &#123;                   <br>            <span class="hljs-keyword">return</span> m;<br>        &#125;<br>    &#125;<br>    <span class="hljs-keyword">return</span> -<span class="hljs-number">1</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
-
-
-
-<h3 id="3-复杂度"><a href="#3-复杂度" class="headerlink" title="3. 复杂度"></a>3. 复杂度</h3><p>时间复杂度：用来衡量一个算法的执行，随数据规模增大，而增长的时间成本</p>
+<p>根据所有顶点是否连通，可分为连通图（connected graph）和非连通图（disconnected graph）</p>
 <ul>
-<li><p>最坏情况：<code>O(log n)</code></p>
-</li>
-<li><p>最好情况：如果待查找元素恰好在数组中央，只需要循环一次 <code>O(1)</code></p>
-</li>
+<li>对于连通图，从某个顶点出发，可以到达其余任意顶点。</li>
+<li>对于非连通图，从某个顶点出发，至少有一个顶点无法到达。</li>
 </ul>
-<p>空间复杂度：用来衡量一个算法执行随数据规模增大，而增长的<strong>额外</strong>空间成本</p>
+<div style="text-align:center;gap:5px">
+    <img src="/img/algorithm_pic/48.png" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:60%;">
+</div>
+
+
+
+<p>我们还可以为边添加“权重”变量，从而得到如图 9-4 所示的有权图（weighted graph）。例如在《王者荣耀》等手游中，系统会根据共同游戏时间来计算玩家之间的“亲密度”，这种亲密度网络就可以用有权图来表示。</p>
+<div style="text-align:center;gap:5px">
+    <img src="/img/algorithm_pic/49.png" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:60%;">
+</div>
+
+
+
+<p>图数据结构包含以下常用术语。</p>
 <ul>
-<li>需要常数个指针 <code>i,j,m</code>，因此额外占用的空间是 <code>O(1)</code></li>
+<li>邻接（adjacency）：当两顶点之间存在边相连时，称这两顶点“邻接”。在图 9-4 中，顶点 1 的邻接顶点为顶点 2、3、5。</li>
+<li>路径（path）：从顶点 A 到顶点 B 经过的边构成的序列被称为从 A 到 B 的“路径”。在图 9-4 中，边序列 1-5-2-4 是顶点 1 到顶点 4 的一条路径。</li>
+<li>度（degree）：一个顶点拥有的边数。对于有向图，入度（in-degree）表示有多少条边指向该顶点，出度（out-degree）表示有多少条边从该顶点指出。</li>
+</ul>
+<h3 id="2-图的表示"><a href="#2-图的表示" class="headerlink" title="2.图的表示"></a>2.图的表示</h3><p>图的常用表示方式包括“邻接矩阵”和“邻接表”。以下使用无向图进行举例。</p>
+<h4 id="1-邻接矩阵"><a href="#1-邻接矩阵" class="headerlink" title="1.  邻接矩阵"></a>1.  邻接矩阵</h4><p>设图的顶点数量为 n ，邻接矩阵（adjacency matrix）使用一个 n×n 大小的矩阵来表示图，每一行（列）代表一个顶点，矩阵元素代表边，用 1 或 0 表示两个顶点之间是否存在边。</p>
+<p>如图所示，设邻接矩阵为 M、顶点列表为 V ，那么矩阵元素 M[i,j]&#x3D;1 表示顶点 V[i] 到顶点 V[j] 之间存在边，反之 M[i,j]&#x3D;0 表示两顶点之间无边。</p>
+<div style="text-align:center;gap:5px">
+    <img src="/img/algorithm_pic/50.png" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:60%;">
+</div>
+
+<p>邻接矩阵具有以下特性。</p>
+<ul>
+<li>在简单图中，顶点不能与自身相连，此时邻接矩阵主对角线元素没有意义。</li>
+<li>对于无向图，两个方向的边等价，此时邻接矩阵关于主对角线对称。</li>
+<li>将邻接矩阵的元素从 1 和 0 替换为权重，则可表示有权图。</li>
+</ul>
+<p>使用邻接矩阵表示图时，我们可以直接访问矩阵元素以获取边，因此增删查改操作的效率很高，时间复杂度均为 O(1) 。然而，矩阵的空间复杂度为 O(n2) ，内存占用较多。</p>
+<h4 id="2-邻接表"><a href="#2-邻接表" class="headerlink" title="2.  邻接表"></a>2.  邻接表</h4><p>邻接表（adjacency list）使用 n 个链表来表示图，链表节点表示顶点。第 i 个链表对应顶点 i ，其中存储了该顶点的所有邻接顶点（与该顶点相连的顶点）。图 9-6 展示了一个使用邻接表存储的图的示例。</p>
+<div style="text-align:center;gap:5px">
+    <img src="/img/algorithm_pic/51.png" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:60%;">
+</div>
+
+<p>邻接表仅存储实际存在的边，而边的总数通常远小于 n2 ，因此它更加节省空间。然而，在邻接表中需要通过遍历链表来查找边，因此其时间效率不如邻接矩阵。</p>
+<p>观察图 9-6 ，<strong>邻接表结构与哈希表中的“链式地址”非常相似，因此我们也可以采用类似的方法来优化效率</strong>。比如当链表较长时，可以将链表转化为 AVL 树或红黑树，从而将时间效率从 O(n) 优化至 O(log⁡n) ；还可以把链表转换为哈希表，从而将时间复杂度降至 O(1) 。</p>
+<h3 id="3-图的常见应用"><a href="#3-图的常见应用" class="headerlink" title="3.图的常见应用"></a>3.图的常见应用</h3><table>
+<thead>
+<tr>
+<th align="left"></th>
+<th align="left">顶点</th>
+<th align="left">边</th>
+<th align="left">图计算问题</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">社交网络</td>
+<td align="left">用户</td>
+<td align="left">好友关系</td>
+<td align="left">潜在好友推荐</td>
+</tr>
+<tr>
+<td align="left">地铁线路</td>
+<td align="left">站点</td>
+<td align="left">站点间的连通性</td>
+<td align="left">最短路线推荐</td>
+</tr>
+<tr>
+<td align="left">太阳系</td>
+<td align="left">星体</td>
+<td align="left">星体间的万有引力作用</td>
+<td align="left">行星轨道计算</td>
+</tr>
+</tbody></table>
+<h2 id="2-图的基础操作"><a href="#2-图的基础操作" class="headerlink" title="2.图的基础操作"></a>2.图的基础操作</h2><p>图的基础操作可分为对“边”的操作和对“顶点”的操作。在“邻接矩阵”和“邻接表”两种表示方法下，实现方式有所不同。</p>
+<h1 id="九、搜索"><a href="#九、搜索" class="headerlink" title="九、搜索"></a>九、搜索</h1><h2 id="1-二分查找"><a href="#1-二分查找" class="headerlink" title="1. 二分查找"></a>1. 二分查找</h2><p>二分查找（binary search）是一种基于分治策略的高效搜索算法。它利用数据的有序性，每轮缩小一半搜索范围，直至找到目标元素或搜索区间为空为止。</p>
+<h3 id="1-需求说明"><a href="#1-需求说明" class="headerlink" title="1. 需求说明"></a>1. 需求说明</h3><blockquote>
+<p>[!NOTE]</p>
+<p>给定一个长度为 n 的数组 <code>nums</code> ，元素按<mark>从小到大的顺序排列且不重复</mark>。请查找并返回元素 <code>target</code> 在该数组中的索引。若数组不包含该元素，则返回 −1 </p>
+</blockquote>
+<div style="text-align:center;gap:5px">
+    <img src="/img/algorithm_pic/52.png" srcset="/img/loading.gif" lazyload alt="图片描述">
+</div>
+
+
+<p>如图所示，先初始化指针 i&#x3D;0 和 j&#x3D;n−1 ，分别指向数组首元素和尾元素，代表搜索区间 [0,n−1] 。请注意，中括号表示闭区间，其包含边界值本身。</p>
+<p>接下来，循环执行以下两步。</p>
+<ol>
+<li>计算中点索引 m&#x3D;⌊(i+j)&#x2F;2⌋ ，其中 ⌊⌋ 表示向下取整操作。</li>
+<li>判断<code>nums[m]</code>和<code>target</code>的大小关系，分为以下三种情况。<ol>
+<li>当 <code>nums[m] &lt; target</code> 时，说明 <code>target</code> 在区间 [m+1,j] 中，因此执行 i&#x3D;m+1 。</li>
+<li>当 <code>nums[m] &gt; target</code> 时，说明 <code>target</code> 在区间 [i,m−1] 中，因此执行 j&#x3D;m−1 。</li>
+<li>当 <code>nums[m] = target</code> 时，说明找到 <code>target</code> ，因此返回索引 m 。</li>
+</ol>
+</li>
+</ol>
+<p>若数组不包含目标元素，搜索区间最终会缩小为空。此时返回 −1 。</p>
+<div style="text-align:center;gap:5px">
+    <img src="/img/algorithm_pic/53.png" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:35%;">
+    <img src="/img/algorithm_pic/54.png" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:35%;">
+</div>
+
+<div style="text-align:center;gap:5px">
+    <img src="/img/algorithm_pic/55.png" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:35%;">
+    <img src="/img/algorithm_pic/56.png" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:35%;">
+</div>
+
+<div style="text-align:center;gap:5px">
+    <img src="/img/algorithm_pic/57.png" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:35%;">
+    <img src="/img/algorithm_pic/58.png" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:35%;">
+</div>
+
+
+
+<h3 id="2-java实现"><a href="#2-java实现" class="headerlink" title="2. java实现"></a>2. java实现</h3><h4 id="1-标准答案"><a href="#1-标准答案" class="headerlink" title="1. 标准答案"></a>1. 标准答案</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">// Params：a - 待查找的升序数组</span><br><span class="hljs-comment">//        target - 待查找的目标值</span><br><span class="hljs-comment">// Returns：找到则返回值索引</span><br><span class="hljs-comment">//		    找不到返回 -1</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-type">int</span> <span class="hljs-title function_">binarySearch</span><span class="hljs-params">(<span class="hljs-type">int</span>[] a, <span class="hljs-type">int</span> target)</span> &#123;<br>    <span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>, j = a.length - <span class="hljs-number">1</span>;   <span class="hljs-comment">//设置前后的指针</span><br>    <span class="hljs-keyword">while</span> (i &lt;= j) &#123;           <span class="hljs-comment">// i-j范围内有东西</span><br>        <span class="hljs-type">int</span> <span class="hljs-variable">m</span> <span class="hljs-operator">=</span> (i + j) &gt;&gt;&gt; <span class="hljs-number">1</span>;     <span class="hljs-comment">// 无符号右移，相当于除2后取整</span><br>        <span class="hljs-keyword">if</span> (target &lt; a[m]) &#123;			<span class="hljs-comment">// 目标值在左边</span><br>            j = m - <span class="hljs-number">1</span>;<br>        &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (a[m] &lt; target) &#123;		<span class="hljs-comment">// 目标值在右边</span><br>            i = m + <span class="hljs-number">1</span>;<br>        &#125; <span class="hljs-keyword">else</span> &#123;                   <span class="hljs-comment">// 找到了</span><br>            <span class="hljs-keyword">return</span> m;<br>        &#125;<br>    &#125;<br>    <span class="hljs-keyword">return</span> -<span class="hljs-number">1</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+
+
+<h4 id="2-自己的写法"><a href="#2-自己的写法" class="headerlink" title="2. 自己的写法"></a>2. 自己的写法</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Slf4j</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">test01</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> &#123;<br>        <span class="hljs-type">Integer</span> <span class="hljs-variable">v</span> <span class="hljs-operator">=</span> <span class="hljs-number">8</span>;<br>        Integer[] integers = &#123;<span class="hljs-number">1</span>, <span class="hljs-number">4</span>, <span class="hljs-number">6</span>, <span class="hljs-number">8</span>, <span class="hljs-number">12</span>, <span class="hljs-number">14</span>, <span class="hljs-number">16</span>, <span class="hljs-number">19</span>, <span class="hljs-number">20</span>&#125;;<br>        log.info(Arrays.toString(integers));<br><br>        <span class="hljs-type">ArrayList</span> <span class="hljs-variable">arrayList</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">ArrayList</span>&lt;&gt;(Arrays.asList(integers));<br><br>        <span class="hljs-type">Integer</span> <span class="hljs-variable">t</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>;<br>        <span class="hljs-type">Integer</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>;<br>        <span class="hljs-type">Integer</span> <span class="hljs-variable">j</span> <span class="hljs-operator">=</span> arrayList.size();<br>        <span class="hljs-type">Integer</span> <span class="hljs-variable">avg</span> <span class="hljs-operator">=</span> (i+j) / <span class="hljs-number">2</span>;<br><br>        <span class="hljs-keyword">while</span> (integers[avg] != v)&#123;<br><br>            avg = (i+j) / <span class="hljs-number">2</span>;<br>            log.info(<span class="hljs-string">&quot;第&#123;&#125;轮循环，i:&#123;&#125;,j:&#123;&#125;,avg:&#123;&#125;&quot;</span>,t++,i,j,avg);<br>            <span class="hljs-keyword">if</span>(Objects.equals(integers[avg], v))&#123;<br>                log.info(<span class="hljs-string">&quot;done:&#123;&#125;&quot;</span>,avg);<br>                <span class="hljs-keyword">break</span>;<br>            &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (integers[avg] &gt; v) &#123;<br>                j = avg;<br>            &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(integers[avg] &lt; v)&#123;<br>                i = avg;<br>            &#125;<br>        &#125;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+
+
+<h3 id="3-优点与局限性"><a href="#3-优点与局限性" class="headerlink" title="3. 优点与局限性"></a>3. 优点与局限性</h3><p>二分查找在时间和空间方面都有较好的性能。</p>
+<ul>
+<li>二分查找的时间效率高。在大数据量下，对数阶的时间复杂度具有显著优势。例如，当数据大小 n&#x3D;220 时，线性查找需要 220&#x3D;1048576 轮循环，而二分查找仅需 log2⁡220&#x3D;20 轮循环。</li>
+<li>二分查找无须额外空间。相较于需要借助额外空间的搜索算法（例如哈希查找），二分查找更加节省空间。</li>
+</ul>
+<p>然而，二分查找并非适用于所有情况，主要有以下原因。</p>
+<ul>
+<li>二分查找仅适用于有序数据。若输入数据无序，为了使用二分查找而专门进行排序，得不偿失。因为排序算法的时间复杂度通常为 O(nlog⁡n) ，比线性查找和二分查找都更高。对于频繁插入元素的场景，为保持数组有序性，需要将元素插入到特定位置，时间复杂度为 O(n) ，也是非常昂贵的。</li>
+<li>二分查找仅适用于数组。二分查找需要跳跃式（非连续地）访问元素，而在链表中执行跳跃式访问的效率较低，因此不适合应用在链表或基于链表实现的数据结构。</li>
+<li>小数据量下，线性查找性能更佳。在线性查找中，每轮只需 1 次判断操作；而在二分查找中，需要 1 次加法、1 次除法、1 ~ 3 次判断操作、1 次加法（减法），共 4 ~ 6 个单元操作；因此，当数据量 n 较小时，线性查找反而比二分查找更快。</li>
 </ul>
 <h3 id="4-tips"><a href="#4-tips" class="headerlink" title="4. tips"></a>4. tips</h3><ol>
 <li>无符号右移：<code>int m = (i + j) &gt;&gt;&gt; 1;</code>，底层原理是将十进制数字转为2进制数字，并将二进制数向右移动1位</li>
@@ -1171,7 +1301,165 @@
 <ol start="2">
 <li>用<code>int m = (i + j) &gt;&gt;&gt; 1;</code>，而不用<code>int m = (i + j) / 2;</code>的原因，后者数字过大容易超出int限制出现负值</li>
 </ol>
+<h2 id="2-哈希优化策略"><a href="#2-哈希优化策略" class="headerlink" title="2.哈希优化策略"></a>2.哈希优化策略</h2><blockquote>
+<p>[!NOTE]</p>
+<p>给定一个整数数组 <code>nums</code> 和一个目标元素 <code>target</code> ，请在数组中搜索“和”为 <code>target</code> 的两个元素，并返回它们的数组索引。返回任意一个解即可。</p>
+</blockquote>
+<h3 id="1-线性查找：以时间换空间"><a href="#1-线性查找：以时间换空间" class="headerlink" title="1.线性查找：以时间换空间"></a>1.线性查找：以时间换空间</h3><p>开启一个两层循环，在每轮中判断两个整数的和是否为 <code>target</code> ，若是，则返回它们的索引</p>
+<div style="text-align:center;gap:5px">
+    <img src="/img/algorithm_pic/59.png" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:55%;">
+</div>
 
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">/* 方法一：暴力枚举 */</span><br><span class="hljs-type">int</span>[] twoSumBruteForce(<span class="hljs-type">int</span>[] nums, <span class="hljs-type">int</span> target) &#123;<br>    <span class="hljs-type">int</span> <span class="hljs-variable">size</span> <span class="hljs-operator">=</span> nums.length;<br>    <span class="hljs-comment">// 两层循环，时间复杂度为 O(n^2)</span><br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; i &lt; size - <span class="hljs-number">1</span>; i++) &#123;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">j</span> <span class="hljs-operator">=</span> i + <span class="hljs-number">1</span>; j &lt; size; j++) &#123;<br>            <span class="hljs-keyword">if</span> (nums[i] + nums[j] == target)<br>                <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">int</span>[] &#123; i, j &#125;;<br>        &#125;<br>    &#125;<br>    <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">int</span>[<span class="hljs-number">0</span>];<br>&#125;<br></code></pre></td></tr></table></figure>
+
+
+
+<h3 id="2-哈希查找：以空间换时间"><a href="#2-哈希查找：以空间换时间" class="headerlink" title="2.哈希查找：以空间换时间"></a>2.哈希查找：以空间换时间</h3><p>借助一个哈希表，键值对分别为数组元素和元素索引</p>
+<ol>
+<li>判断数字 <code>target - nums[i]</code> 是否在哈希表中，若是，则直接返回这两个元素的索引。</li>
+<li>将键值对 <code>nums[i]</code> 和索引 <code>i</code> 添加进哈希表</li>
+</ol>
+<div style="text-align:center;gap:5px">
+    <img src="/img/algorithm_pic/60.png" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:35%;">
+    <img src="/img/algorithm_pic/61.png" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:35%;">
+</div>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">/* 方法二：辅助哈希表 */</span><br><span class="hljs-type">int</span>[] twoSumHashTable(<span class="hljs-type">int</span>[] nums, <span class="hljs-type">int</span> target) &#123;<br>    <span class="hljs-type">int</span> <span class="hljs-variable">size</span> <span class="hljs-operator">=</span> nums.length;<br>    <span class="hljs-comment">// 辅助哈希表，空间复杂度为 O(n)</span><br>    Map&lt;Integer, Integer&gt; dic = <span class="hljs-keyword">new</span> <span class="hljs-title class_">HashMap</span>&lt;&gt;();<br>    <span class="hljs-comment">// 单层循环，时间复杂度为 O(n)</span><br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; i &lt; size; i++) &#123;<br>        <span class="hljs-keyword">if</span> (dic.containsKey(target - nums[i])) &#123;<br>            <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">int</span>[] &#123; dic.get(target - nums[i]), i &#125;;<br>        &#125;<br>        dic.put(nums[i], i);<br>    &#125;<br>    <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">int</span>[<span class="hljs-number">0</span>];<br>&#125;<br></code></pre></td></tr></table></figure>
+
+
+
+<h1 id="十、排序"><a href="#十、排序" class="headerlink" title="十、排序"></a>十、排序</h1><h2 id="1-选择排序"><a href="#1-选择排序" class="headerlink" title="1.选择排序"></a>1.选择排序</h2><p>工作原理：<mark>开启一个循环，每轮从未排序区间选择最小的元素，将其放到已排序区间的末尾</mark></p>
+<p>设数组的长度为 n ，选择排序的算法流程如下</p>
+<ol>
+<li>初始状态下，所有元素未排序，即未排序（索引）区间为 [0,n−1] 。</li>
+<li>选取区间 [0,n−1] 中的最小元素，将其与索引 0 处的元素交换。完成后，数组前 1 个元素已排序。</li>
+<li>选取区间 [1,n−1] 中的最小元素，将其与索引 1 处的元素交换。完成后，数组前 2 个元素已排序。</li>
+<li>以此类推。经过 n−1 轮选择与交换后，数组前 n−1 个元素已排序。</li>
+<li>仅剩的一个元素必定是最大元素，无须排序，因此数组排序完成。</li>
+</ol>
+<div style="text-align:center;gap:5px">
+    <img src="/img/algorithm_pic/62.png" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:35%;">
+    <img src="/img/algorithm_pic/63.png" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:35%;">
+</div>
+
+<div style="text-align:center;gap:5px">
+    <img src="/img/algorithm_pic/64.png" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:35%;">
+    <img src="/img/algorithm_pic/65.png" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:35%;">
+</div>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">/* 选择排序 */</span><br><span class="hljs-keyword">void</span> <span class="hljs-title function_">selectionSort</span><span class="hljs-params">(<span class="hljs-type">int</span>[] nums)</span> &#123;<br>    <span class="hljs-type">int</span> <span class="hljs-variable">n</span> <span class="hljs-operator">=</span> nums.length;<br>    <span class="hljs-comment">// 外循环：未排序区间为 [i, n-1]</span><br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; i &lt; n - <span class="hljs-number">1</span>; i++) &#123;<br>        <span class="hljs-comment">// 内循环：找到未排序区间内的最小元素</span><br>        <span class="hljs-type">int</span> <span class="hljs-variable">k</span> <span class="hljs-operator">=</span> i;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">j</span> <span class="hljs-operator">=</span> i + <span class="hljs-number">1</span>; j &lt; n; j++) &#123;<br>            <span class="hljs-keyword">if</span> (nums[j] &lt; nums[k])<br>                k = j; <span class="hljs-comment">// 记录最小元素的索引</span><br>        &#125;<br>        <span class="hljs-comment">// 将该最小元素与未排序区间的首个元素交换</span><br>        <span class="hljs-type">int</span> <span class="hljs-variable">temp</span> <span class="hljs-operator">=</span> nums[i];<br>        nums[i] = nums[k];<br>        nums[k] = temp;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+
+
+
+
+<h2 id="2-冒泡排序"><a href="#2-冒泡排序" class="headerlink" title="2.冒泡排序"></a>2.冒泡排序</h2><p>冒泡排序通过连续地比较与交换相邻元素实现排序。这个过程就像气泡从底部升到顶部一样，因此得名冒泡排序</p>
+<p>冒泡过程可以利用元素交换操作来模拟：从数组最左端开始向右遍历，依次比较相邻元素大小，如果“左元素 &gt; 右元素”就交换二者。遍历完成后，最大的元素会被移动到数组的最右端</p>
+<div style="text-align:center;gap:5px">
+    <img src="/img/algorithm_pic/66.png" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:35%;">
+    <img src="/img/algorithm_pic/67.png" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:35%;">
+</div>
+
+<div style="text-align:center;gap:5px">
+    <img src="/img/algorithm_pic/68.png" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:35%;">
+    <img src="/img/algorithm_pic/69.png" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:35%;">
+</div>
+
+<div style="text-align:center;gap:5px">
+    <img src="/img/algorithm_pic/70.png" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:35%;">
+    <img src="/img/algorithm_pic/71.png" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:35%;">
+</div>
+
+
+
+<p>设数组的长度为 ，冒泡排序的步骤如图 11-5 所示。</p>
+<ol>
+<li>首先，对 个元素执行“冒泡”，<strong>将数组的最大元素交换至正确位置</strong>。</li>
+<li>接下来，对剩余 个元素执行“冒泡”，<strong>将第二大元素交换至正确位置</strong>。</li>
+<li>以此类推，经过 轮“冒泡”后，<strong>前 大的元素都被交换至正确位置</strong>。</li>
+<li>仅剩的一个元素必定是最小元素，无须排序，因此数组排序完成。</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">/* 冒泡排序 */</span><br><span class="hljs-keyword">void</span> <span class="hljs-title function_">bubbleSort</span><span class="hljs-params">(<span class="hljs-type">int</span>[] nums)</span> &#123;<br>    <span class="hljs-comment">// 外循环：未排序区间为 [0, i]</span><br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> nums.length - <span class="hljs-number">1</span>; i &gt; <span class="hljs-number">0</span>; i--) &#123;<br>        <span class="hljs-comment">// 内循环：将未排序区间 [0, i] 中的最大元素交换至该区间的最右端</span><br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">j</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; j &lt; i; j++) &#123;<br>            <span class="hljs-keyword">if</span> (nums[j] &gt; nums[j + <span class="hljs-number">1</span>]) &#123;<br>                <span class="hljs-comment">// 交换 nums[j] 与 nums[j + 1]</span><br>                <span class="hljs-type">int</span> <span class="hljs-variable">tmp</span> <span class="hljs-operator">=</span> nums[j];<br>                nums[j] = nums[j + <span class="hljs-number">1</span>];<br>                nums[j + <span class="hljs-number">1</span>] = tmp;<br>            &#125;<br>        &#125;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+
+
+<h2 id="3-插入排序"><a href="#3-插入排序" class="headerlink" title="3.插入排序"></a>3.插入排序</h2><p>插入排序（insertion sort）是一种简单的排序算法，它的工作原理与手动整理一副牌的过程非常相似。</p>
+<p>具体来说，我们在未排序区间选择一个基准元素，将该元素与其左侧已排序区间的元素逐一比较大小，并将该元素插入到正确的位置。</p>
+<p>图 11-6 展示了数组插入元素的操作流程。设基准元素为 <code>base</code> ，我们需要将从目标索引到 <code>base</code> 之间的所有元素向右移动一位，然后将 <code>base</code> 赋值给目标索引。</p>
+<div style="text-align:center;gap:5px">
+    <img src="/img/algorithm_pic/72.png" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:35%;">
+</div>
+
+
+
+<p>插入排序的整体流程如图 11-7 所示。</p>
+<ol>
+<li>初始状态下，数组的第 1 个元素已完成排序。</li>
+<li>选取数组的第 2 个元素作为 <code>base</code> ，将其插入到正确位置后，<strong>数组的前 2 个元素已排序</strong>。</li>
+<li>选取第 3 个元素作为 <code>base</code> ，将其插入到正确位置后，<strong>数组的前 3 个元素已排序</strong>。</li>
+<li>以此类推，在最后一轮中，选取最后一个元素作为 <code>base</code> ，将其插入到正确位置后，<strong>所有元素均已排序</strong>。</li>
+</ol>
+<div style="text-align:center;gap:5px">
+    <img src="/img/algorithm_pic/73.png" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:35%;">
+</div>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">/* 插入排序 */</span><br><span class="hljs-keyword">void</span> <span class="hljs-title function_">insertionSort</span><span class="hljs-params">(<span class="hljs-type">int</span>[] nums)</span> &#123;<br>    <span class="hljs-comment">// 外循环：已排序区间为 [0, i-1]</span><br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">1</span>; i &lt; nums.length; i++) &#123;<br>        <span class="hljs-type">int</span> <span class="hljs-variable">base</span> <span class="hljs-operator">=</span> nums[i], j = i - <span class="hljs-number">1</span>;<br>        <span class="hljs-comment">// 内循环：将 base 插入到已排序区间 [0, i-1] 中的正确位置</span><br>        <span class="hljs-keyword">while</span> (j &gt;= <span class="hljs-number">0</span> &amp;&amp; nums[j] &gt; base) &#123;<br>            nums[j + <span class="hljs-number">1</span>] = nums[j]; <span class="hljs-comment">// 将 nums[j] 向右移动一位</span><br>            j--;<br>        &#125;<br>        nums[j + <span class="hljs-number">1</span>] = base;        <span class="hljs-comment">// 将 base 赋值到正确位置</span><br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+
+
+<h2 id="4-快速排序"><a href="#4-快速排序" class="headerlink" title="4.快速排序"></a>4.快速排序</h2><p>快速排序（quick sort）是一种基于分治策略的排序算法，运行高效，应用广泛。</p>
+<p>快速排序的核心操作是“哨兵划分”，其目标是：选择数组中的某个元素作为“基准数”，将所有小于基准数的元素移到其左侧，而大于基准数的元素移到其右侧。具体来说，哨兵划分的流程如图 11-8 所示。</p>
+<ol>
+<li>选取数组最左端元素作为基准数，初始化两个指针 <code>i</code> 和 <code>j</code> 分别指向数组的两端。</li>
+<li>设置一个循环，在每轮中使用 <code>i</code>（<code>j</code>）分别寻找第一个比基准数大（小）的元素，然后交换这两个元素。</li>
+<li>循环执行步骤 <code>2.</code> ，直到 <code>i</code> 和 <code>j</code> 相遇时停止，最后将基准数交换至两个子数组的分界线。</li>
+</ol>
+<div style="text-align:center;gap:5px">
+    <img src="/img/algorithm_pic/74.png" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:35%;">
+    <img src="/img/algorithm_pic/75.png" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:35%;">
+</div>
+
+<div style="text-align:center;gap:5px">
+    <img src="/img/algorithm_pic/76.png" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:35%;">
+    <img src="/img/algorithm_pic/77.png" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:35%;">
+</div>
+
+<div style="text-align:center;gap:5px">
+    <img src="/img/algorithm_pic/78.png" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:35%;">
+    <img src="/img/algorithm_pic/79.png" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:35%;">
+</div>
+
+<div style="text-align:center;gap:5px">
+    <img src="/img/algorithm_pic/80.png" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:35%;">
+    <img src="/img/algorithm_pic/81.png" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:35%;">
+</div>
+
+<div style="text-align:center;gap:5px">
+    <img src="/img/algorithm_pic/82.png" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:35%;">
+</div>
+
+<p>哨兵划分完成后，原数组被划分成三部分：左子数组、基准数、右子数组，且满足“左子数组任意元素 基准数 右子数组任意元素”。因此，我们接下来只需对这两个子数组进行排序。</p>
+<blockquote>
+<p>[!NOTE]</p>
+<p>哨兵划分的实质是将一个较长数组的排序问题简化为两个较短数组的排序问题。</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">/* 元素交换 */</span><br><span class="hljs-keyword">void</span> <span class="hljs-title function_">swap</span><span class="hljs-params">(<span class="hljs-type">int</span>[] nums, <span class="hljs-type">int</span> i, <span class="hljs-type">int</span> j)</span> &#123;<br>    <span class="hljs-type">int</span> <span class="hljs-variable">tmp</span> <span class="hljs-operator">=</span> nums[i];<br>    nums[i] = nums[j];<br>    nums[j] = tmp;<br>&#125;<br><br><span class="hljs-comment">/* 哨兵划分 */</span><br><span class="hljs-type">int</span> <span class="hljs-title function_">partition</span><span class="hljs-params">(<span class="hljs-type">int</span>[] nums, <span class="hljs-type">int</span> left, <span class="hljs-type">int</span> right)</span> &#123;<br>    <span class="hljs-comment">// 以 nums[left] 为基准数</span><br>    <span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> left, j = right;<br>    <span class="hljs-keyword">while</span> (i &lt; j) &#123;<br>        <span class="hljs-keyword">while</span> (i &lt; j &amp;&amp; nums[j] &gt;= nums[left])<br>            j--;          <span class="hljs-comment">// 从右向左找首个小于基准数的元素</span><br>        <span class="hljs-keyword">while</span> (i &lt; j &amp;&amp; nums[i] &lt;= nums[left])<br>            i++;          <span class="hljs-comment">// 从左向右找首个大于基准数的元素</span><br>        swap(nums, i, j); <span class="hljs-comment">// 交换这两个元素</span><br>    &#125;<br>    swap(nums, i, left);  <span class="hljs-comment">// 将基准数交换至两子数组的分界线</span><br>    <span class="hljs-keyword">return</span> i;             <span class="hljs-comment">// 返回基准数的索引</span><br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>快速排序的整体流程如下</p>
+<ol>
+<li>首先，对原数组执行一次“哨兵划分”，得到未排序的左子数组和右子数组。</li>
+<li>然后，对左子数组和右子数组分别递归执行“哨兵划分”。</li>
+<li>持续递归，直至子数组长度为 1 时终止，从而完成整个数组的排序。</li>
+</ol>
+<div style="text-align:center;gap:5px">
+    <img src="/img/algorithm_pic/83.png" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:35%;">
+</div>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">/* 快速排序 */</span><br><span class="hljs-keyword">void</span> <span class="hljs-title function_">quickSort</span><span class="hljs-params">(<span class="hljs-type">int</span>[] nums, <span class="hljs-type">int</span> left, <span class="hljs-type">int</span> right)</span> &#123;<br>    <span class="hljs-comment">// 子数组长度为 1 时终止递归</span><br>    <span class="hljs-keyword">if</span> (left &gt;= right)<br>        <span class="hljs-keyword">return</span>;<br>    <span class="hljs-comment">// 哨兵划分</span><br>    <span class="hljs-type">int</span> <span class="hljs-variable">pivot</span> <span class="hljs-operator">=</span> partition(nums, left, right);<br>    <span class="hljs-comment">// 递归左子数组、右子数组</span><br>    quickSort(nums, left, pivot - <span class="hljs-number">1</span>);<br>    quickSort(nums, pivot + <span class="hljs-number">1</span>, right);<br>&#125;<br></code></pre></td></tr></table></figure>
+
+
+
+<h2 id="5-归并排序"><a href="#5-归并排序" class="headerlink" title="5.归并排序"></a>5.归并排序</h2>
                 
               </div>
             

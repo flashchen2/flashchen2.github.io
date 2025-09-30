@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://example.com/img/spring_boot_pic/1.png">
 <meta property="article:published_time" content="2024-08-01T12:00:00.000Z">
-<meta property="article:modified_time" content="2025-04-17T11:17:08.661Z">
+<meta property="article:modified_time" content="2025-08-23T16:12:55.901Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="Web开发">
 <meta property="article:tag" content="框架">
@@ -227,7 +227,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          3.9k 字
+          3.4k 字
         
       </span>
     
@@ -238,7 +238,7 @@
         
         
         
-          33 分钟
+          29 分钟
         
       </span>
     
@@ -888,7 +888,7 @@
 </ol>
 </li>
 </ol>
-<h2 id="4-Component-Repository-Service-Controller"><a href="#4-Component-Repository-Service-Controller" class="headerlink" title="4. @Component &amp; @Repository &amp; @Service &amp; @Controller "></a><font color=#1E90FF>4. @Component &amp; @Repository &amp; @Service &amp; @Controller </font></h2><p>以下注释可以直接标注在java类上，将他们定义成Spring Bean</p>
+<h2 id="4-Component-Repository-Service-Controller-定义bean"><a href="#4-Component-Repository-Service-Controller-定义bean" class="headerlink" title="4. @Component &amp; @Repository &amp; @Service &amp; @Controller  定义bean"></a><font color=#1E90FF>4. @Component &amp; @Repository &amp; @Service &amp; @Controller  定义bean</font></h2><p>以下注释可以直接标注在java类上，将他们定义成Spring Bean</p>
 <table>
 <thead>
 <tr>
@@ -913,66 +913,26 @@
 <td>将控制层（Service层）的类，标识为bean</td>
 </tr>
 </tbody></table>
-<h2 id="5-Autowired-Resource"><a href="#5-Autowired-Resource" class="headerlink" title="5. @Autowired &amp; @Resource"></a><font color=#1E90FF>5. @Autowired &amp; @Resource</font></h2><h3 id="1-Autowired"><a href="#1-Autowired" class="headerlink" title="1.@Autowired"></a>1.@Autowired</h3><ol>
-<li><p>功能介绍：<code>@Autowired</code>是Spring框架提供的一个注解，<mark>用于实现自动依赖注入</mark>。它可以应用于变量、构造函数、设置方法上。当Spring容器启动时，它会自动查找并注入所需的依赖。</p>
-</li>
-<li><p>使用方法</p>
-<ol>
-<li><p>创建一个SpringBoot，包含一个服务类的MyService</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">// 标记此类为一个bean类</span><br><span class="hljs-meta">@Service</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">MyService</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">performTask</span><span class="hljs-params">()</span> &#123;<br>        System.out.println(<span class="hljs-string">&quot;Task performed by MyService&quot;</span>);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
-</li>
-<li><p>控制器MyController，调用上述服务</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@RestController</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">MyController</span> &#123;<br>    <br>    <span class="hljs-comment">// 依赖注入</span><br>    <span class="hljs-meta">@Autowired</span><br>    <span class="hljs-keyword">private</span> MyService myService;<br>  <br>    <span class="hljs-meta">@GetMapping(&quot;/perform-task&quot;)</span><br>    <span class="hljs-keyword">public</span> String <span class="hljs-title function_">performTask</span><span class="hljs-params">()</span> &#123;<br>        myService.performTask();<br>        <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;Task performed&quot;</span>;<br>    &#125;<br></code></pre></td></tr></table></figure></li>
-</ol>
-</li>
-<li><p>说明</p>
-<ol>
-<li><code>@Autowired</code>注解自动注入<code>MyService</code>的实例到<code>MyController</code>中。</li>
-<li>当<code>MyController</code>的<code>performTask</code>方法被调用时，它将通过<code>myService</code>实例调用<code>performTask</code>方法。</li>
-</ol>
-</li>
-</ol>
-<h3 id="2-Resource"><a href="#2-Resource" class="headerlink" title="2.@Resource"></a>2.@Resource</h3><ol>
-<li><p>功能介绍：<code>@Resource</code>是Java标准库中的注解，属于JSR-250规范。它也可以<mark>用于实现依赖注入</mark>，但与<code>@Autowired</code>不同的是，<code>@Resource</code>可以通过名称来指定要注入的依赖</p>
-</li>
-<li><p>使用方法</p>
-<ol>
-<li><p>创建一个SpringBoot，包含一个服务类的MyService</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">// 标记此类为一个bean类</span><br><span class="hljs-meta">@Service</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">MyService</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">performTask</span><span class="hljs-params">()</span> &#123;<br>        System.out.println(<span class="hljs-string">&quot;Task performed by MyService&quot;</span>);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
-</li>
-<li><p>控制器MyController，调用上述服务</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@RestController</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">MyController</span> &#123;<br>		<br>    <span class="hljs-comment">// 依赖注入</span><br>    <span class="hljs-meta">@Resource(name = &quot;myService&quot;)</span><br>    <span class="hljs-keyword">private</span> MyService myService;<br>    <br>    <span class="hljs-meta">@GetMapping(&quot;/perform-task&quot;)</span><br>    <span class="hljs-keyword">public</span> String <span class="hljs-title function_">performTask</span><span class="hljs-params">()</span> &#123;<br>        myService.performTask();<br>        <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;Task performed&quot;</span>;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure></li>
-</ol>
-</li>
-<li><p>说明</p>
-<ol>
-<li><code>@Resource</code>注解通过名称<code>myService</code>注入<code>MyService</code>的实例。</li>
-<li>这里的名称必须与Spring容器中定义的bean名称相匹配。</li>
-</ol>
-</li>
-<li><p>@Autowired与@Resource的区别</p>
-<ol>
-<li>使用上的差异<ul>
-<li>@Autowired是Spring框架特有的注解，而@Resource是Java标准库中的注解。</li>
-<li>@Autowired默认按类型进行注入，而@Resource默认按名称进行注入。</li>
-<li>@Autowired可以通过@Qualifier注解指定注入的bean名称，而@Resource可以通过name属性指定注入的bean名称。</li>
-<li>@Autowired可以应用于构造函数、变量、设置方法上，而@Resource只能应用于变量和设置方法上。</li>
-</ul>
-</li>
-<li>适用场景的比较<ul>
-<li>当我们希望按类型进行注入时，可以使用@Autowired。</li>
-<li>当我们希望按名称进行注入时，可以使用@Resource。</li>
-<li>当我们希望有更多的控制权，例如在多个同类型的bean中指定一个特定的bean时，可以使用@Autowired结合@Qualifier或者@Resource的name属性。</li>
-</ul>
-</li>
-<li>两个注解的选择建议<ul>
-<li>如果你的应用完全基于Spring框架，并且不需要与其他框架集成，那么建议使用@Autowired</li>
-<li>如果你需要在多个框架之间进行集成，或者需要按名称进行注入，那么建议使用@Resource</li>
-</ul>
-</li>
-</ol>
-</li>
-</ol>
+<h2 id="5-Autowired-Resource-依赖注入"><a href="#5-Autowired-Resource-依赖注入" class="headerlink" title="5. @Autowired &amp; @Resource  依赖注入"></a><font color=#1E90FF>5. @Autowired &amp; @Resource  依赖注入</font></h2><table>
+<thead>
+<tr>
+<th>注释</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong><code>@Autowired</code></strong>  - 自动装配</td>
+<td>强依赖 Spring 框架，非 Spring 环境不可用</td>
+</tr>
+<tr>
+<td><strong><code>@Resource</code></strong> - 资源</td>
+<td>通用性更强，不依赖 Spring</td>
+</tr>
+</tbody></table>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">// 使用 @Autowired（按类型 + 可选名称匹配）</span><br><span class="hljs-meta">@Service</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">MyService</span> &#123;en<br>    <span class="hljs-meta">@Autowired</span><br>    <span class="hljs-meta">@Qualifier(&quot;userRepositoryImpl&quot;)</span> <span class="hljs-comment">// 解决歧义</span><br>    <span class="hljs-keyword">private</span> UserRepository userRepository;<br>&#125;<br><br><span class="hljs-comment">// 使用 @Resource（按名称匹配）</span><br><span class="hljs-meta">@Service</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">MyService</span> &#123;<br>    <span class="hljs-meta">@Resource(name = &quot;userRepositoryImpl&quot;)</span> <span class="hljs-comment">// 显式指定名称</span><br>    <span class="hljs-keyword">private</span> UserRepository userRepository;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+
+
 <h2 id="6-PostConstruct"><a href="#6-PostConstruct" class="headerlink" title="6.@PostConstruct"></a>6.@PostConstruct</h2><ol>
 <li>功能介绍<ol>
 <li>@PostConstruct 是一个Java EE的注解，用于标记一个方法，在应用启动后立即执行</li>
@@ -983,6 +943,7 @@
 <div style="text-align:center;gap:5px">
     <img src="/img/spring_boot_pic/47.png" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:40%;">
 </div>
+
 
 <h1 id="五、软件包"><a href="#五、软件包" class="headerlink" title="五、软件包"></a>五、软件包</h1><h2 id="1-java"><a href="#1-java" class="headerlink" title="1. java"></a>1. java</h2><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs awk">|- java              <span class="hljs-regexp">//</span> 源码<br>  |- com<br>		|- controller     <span class="hljs-regexp">//</span> 控制层、web层<br>		<br>		|- service        <span class="hljs-regexp">//</span> 服务层接口<br>        |- impl       <span class="hljs-regexp">//</span> 服务层实现<br>        <br>    |- mapper<span class="hljs-regexp">/dao/</span>repository <span class="hljs-regexp">//</span> 数据访问层，与数据库交互为service提供接口<br>    <br>    |- pojo<span class="hljs-regexp">/entity/</span>domain     <span class="hljs-regexp">//</span> 实体对象<br>        |- dto <span class="hljs-regexp">//</span> 持久层需要的实体对象(用于服务层与持久层之间的数据传输对象)<br>        |- vo <span class="hljs-regexp">//</span> 视图层需要的实体对象(用于服务层与视图层之间的数据传输对象)<br><br>    |- constant       <span class="hljs-regexp">//</span> 存放常量<br>    |- utils          <span class="hljs-regexp">//</span> 工具<br>    |- *Application.java  <span class="hljs-regexp">//</span> 入口启动类<br></code></pre></td></tr></table></figure>
 
@@ -1016,7 +977,7 @@
 <ul>
 <li>示例：有一个用户服务，需要从数据库获取用户信息并将其传输到前端。我们可以创建一个UserDTO来承载这些信息。</li>
 </ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">UserDTO</span> &#123;<br>    <span class="hljs-keyword">private</span> String id;<br>    <span class="hljs-keyword">private</span> String username;<br>    <span class="hljs-keyword">private</span> String email;<br>    <span class="hljs-comment">// 省略getter和setter方法...</span><br>&#125;<br></code></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Data</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">UserDTO</span> &#123;<br>    <span class="hljs-keyword">private</span> String id;<br>    <span class="hljs-keyword">private</span> String username;<br>    <span class="hljs-keyword">private</span> String email;<br>    <span class="hljs-comment">// 省略getter和setter方法...</span><br>&#125;<br></code></pre></td></tr></table></figure>
 
 <p>这个例子中，UserDTO只是一个简单的Java类，包含了用户的ID、用户名和电子邮件地址。它没有包含任何与用户相关的业务逻辑，只是用来在不同的层之间传输数据</p>
 <ol start="3">
@@ -1051,7 +1012,7 @@
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs java">System.out.println(response);<br><span class="hljs-comment">// Response&#123;protocol=http/1.1, code=200, message=OK, url=https://star-gateway.staging.kuaishou.com/rest/openapi/gw/dsp/campaign/create&#125;</span><br><br><span class="hljs-comment">// 一般采用此方法获取返回值</span><br>System.out.println(response.body().string()); <br><span class="hljs-comment">// &#123;&quot;code&quot;:0,&quot;data&quot;:&#123;&quot;campaign_id&quot;:1960286&#125;,&quot;message&quot;:&quot;OK&quot;,&quot;request_id&quot;:&quot;EIyDgIDwgpmOrAEYiAMg16-Pq7AyKKj9_OAI&quot;&#125;</span><br></code></pre></td></tr></table></figure></li>
 </ol>
 <h2 id="3-伪json数据解析"><a href="#3-伪json数据解析" class="headerlink" title="3.伪json数据解析 *"></a>3.伪json数据解析 *</h2><p>当请求完成后拿到返回值，返回的数据是伪Json形式的字符串，需要将其转为Json形式，并Get到内部数据？</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs java">System.out.println(response.body().string()); <br><span class="hljs-comment">// &#123;&quot;code&quot;:0,&quot;data&quot;:&#123;&quot;campaign_id&quot;:1960286&#125;,&quot;message&quot;:&quot;OK&quot;,&quot;request_id&quot;:&quot;EIyDgIDwgpmOrAEYiAMg16-Pq7AyKKj9_OAI&quot;&#125;</span><br><br><br><span class="hljs-comment">// 解析JSON响应</span><br><span class="hljs-type">JSONObject</span> <span class="hljs-variable">jsonObject</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">JSONObject</span>(responseBody);<br><span class="hljs-type">JSONObject</span> <span class="hljs-variable">dataObject</span> <span class="hljs-operator">=</span> jsonObject.getJSONObject(<span class="hljs-string">&quot;data&quot;</span>);<br>System.out.println(dataObject);   <span class="hljs-comment">// &#123;&quot;campaign_id&quot;:1960426&#125;</span><br><br><br><span class="hljs-type">int</span> <span class="hljs-variable">campaignId</span> <span class="hljs-operator">=</span> dataObject.getInt(<span class="hljs-string">&quot;campaign_id&quot;</span>);<br>System.out.println(<span class="hljs-string">&quot;Campaign ID: &quot;</span> + campaignId);   <span class="hljs-comment">// Campaign ID: 1960426</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs java">responseBody = response.body().string(); <br><span class="hljs-comment">// &#123;&quot;code&quot;:0,&quot;data&quot;:&#123;&quot;campaign_id&quot;:1960286&#125;,&quot;message&quot;:&quot;OK&quot;,&quot;request_id&quot;:&quot;EIyDgIDwgpmOrAEYiAMg16-Pq7AyKKj9_OAI&quot;&#125;</span><br><br><br><span class="hljs-comment">// 解析JSON响应</span><br><span class="hljs-type">JSONObject</span> <span class="hljs-variable">jsonObject</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">JSONObject</span>(responseBody);<br><span class="hljs-type">Object</span> <span class="hljs-variable">dataObject</span> <span class="hljs-operator">=</span> jsonObject.getObj(<span class="hljs-string">&quot;data&quot;</span>);<br>System.out.println(dataObject);   <span class="hljs-comment">// &#123;&quot;campaign_id&quot;:1960426&#125;</span><br></code></pre></td></tr></table></figure>
 
 
 
@@ -1091,7 +1052,6 @@
 <h2 id="6-perf打点"><a href="#6-perf打点" class="headerlink" title="6.perf打点"></a>6.perf打点</h2><div style="text-align:center;gap:5px">
     <img src="/img/spring_boot_pic/48.png" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:40%;">
 </div>
-
 
                 
               </div>

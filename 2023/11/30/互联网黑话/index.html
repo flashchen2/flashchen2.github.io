@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://example.com/img/Internet_slang_pic/1.png">
 <meta property="article:published_time" content="2023-11-30T12:00:00.000Z">
-<meta property="article:modified_time" content="2025-04-30T06:47:05.310Z">
+<meta property="article:modified_time" content="2025-09-29T08:55:41.960Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="杂谈">
 <meta property="article:tag" content="黑话">
@@ -225,7 +225,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.5k 字
+          1.7k 字
         
       </span>
     
@@ -236,7 +236,7 @@
         
         
         
-          13 分钟
+          15 分钟
         
       </span>
     
@@ -360,7 +360,49 @@
 </li>
 <li><p>avg_rt：平均相应时间</p>
 </li>
+<li><p>代码revert：指的是撤销某次提交（commit）所做的更改，将代码库恢复到该提交之前的状态</p>
+</li>
+<li><p><code>CI</code>：(Continuous Integration - 持续集成)</p>
+<p>核心思想： 开发者频繁地（通常每天多次）将代码变更集成到共享的主干分支（如 main 或 develop）</p>
+</li>
+<li><p><code>CD</code>：(Continuous Delivery - 持续交付)</p>
+<p>核心思想： 确保代码库（通常是主干分支）始终处于可随时、安全地部署到生产环境的状态。每次成功的 CI 构建（通过所有测试）都会自动准备好一个可部署的软件包或镜像</p>
+</li>
+<li><p><code>pb</code>:Protocol Buffers (protobuf) 是一种高效的数据序列化格式，用于结构化数据的序列化（类似 XML&#x2F;JSON，但更小更快）。在 Java 中的典型用法：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">import</span> com.kuaishou.protobuf.ad.comment.CommentPhoto;<br><br>CommentPhoto commentPhoto= CommentPhoto.newBuilder()<br>                    .setFtType(<span class="hljs-string">&quot;INCYCLE&quot;</span>)<br>                    .setNativeStrictStatus(<span class="hljs-number">1</span>)<br>                    .addAllAudioType(Arrays.asList(<span class="hljs-number">1</span>, <span class="hljs-number">3</span>))<br>                    .build();<br></code></pre></td></tr></table></figure>
+</li>
+<li><p>jar包和war包</p>
+</li>
 </ol>
+<table>
+<thead>
+<tr>
+<th>特性</th>
+<th>Jar包</th>
+<th>War包</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>用途</strong></td>
+<td>用于打包Java类文件、资源文件和元数据</td>
+<td>专门用于Web应用程序部署</td>
+</tr>
+<tr>
+<td><strong>文件扩展名</strong></td>
+<td>.jar</td>
+<td>.war</td>
+</tr>
+<tr>
+<td><strong>内容</strong></td>
+<td>普通Java类、资源文件</td>
+<td>Web应用(HTML&#x2F;JSP&#x2F;Servlet等)</td>
+</tr>
+<tr>
+<td><strong>运行方式</strong></td>
+<td>可直接运行或作为库使用</td>
+<td>需要部署到Web容器</td>
+</tr>
+</tbody></table>
 <h2 id="二、广告投放"><a href="#二、广告投放" class="headerlink" title="二、广告投放"></a>二、广告投放</h2><table>
 <thead>
 <tr>
@@ -509,9 +551,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2023/11/30/Markdown/" title="Markdown">
+                      <a href="/2023/11/30/%E7%BB%AD%E8%88%AA%E6%B5%8B%E8%AF%95/" title="续航测试方法">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Markdown</span>
+                        <span class="hidden-mobile">续航测试方法</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -519,8 +561,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2023/11/30/%E5%85%85%E7%94%B5%E6%B5%8B%E8%AF%95/" title="电源测试方法">
-                        <span class="hidden-mobile">电源测试方法</span>
+                      <a href="/2023/11/30/hexo/" title="基于hexo的个人Blog">
+                        <span class="hidden-mobile">基于hexo的个人Blog</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
