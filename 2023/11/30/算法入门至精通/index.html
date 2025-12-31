@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://example.com/img/algorithm_pic/1.jpg">
 <meta property="article:published_time" content="2023-11-30T12:00:00.000Z">
-<meta property="article:modified_time" content="2025-09-23T06:30:37.510Z">
+<meta property="article:modified_time" content="2025-10-26T12:55:13.951Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="开发">
 <meta property="article:tag" content="算法">
@@ -225,7 +225,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          15k 字
+          16k 字
         
       </span>
     
@@ -236,7 +236,7 @@
         
         
         
-          125 分钟
+          130 分钟
         
       </span>
     
@@ -611,12 +611,109 @@
 <div style="text-align:center;gap:5px">
     <img src="/img/algorithm_pic/16.png" srcset="/img/loading.gif" lazyload alt="图片描述">
 </div>
+# 三、字符串
+
+<h3 id="1-String"><a href="#1-String" class="headerlink" title="1. String"></a>1. <code>String</code></h3><h4 id="1-特点"><a href="#1-特点" class="headerlink" title="1. 特点"></a>1. 特点</h4><ul>
+<li>字符串的内容和位数在创建后不能被更改，一般改变的都是返回值</li>
+<li><mark>只能用双引号用于表示字符串常量</mark>，不能用单引号</li>
+</ul>
+<h4 id="2-用法"><a href="#2-用法" class="headerlink" title="2. 用法"></a>2. 用法</h4><h5 id="1-创建对象-String"><a href="#1-创建对象-String" class="headerlink" title="1. 创建对象 String"></a>1. 创建对象 <code>String</code></h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">// 赋值的方式创建字符串</span><br><span class="hljs-type">String</span> <span class="hljs-variable">s1</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;abc&quot;</span>;<br>System.out.println(s1);      <span class="hljs-comment">// abc</span><br><br><span class="hljs-comment">// 创建一个空白字符串，不含有任何内容</span><br><span class="hljs-type">String</span> <span class="hljs-variable">s2</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">String</span>();<br>System.out.println(s2);      <span class="hljs-comment">// </span><br><br><span class="hljs-comment">// 根据字符数组的内容，创建字符串对象</span><br><span class="hljs-type">char</span>[] chs = &#123;<span class="hljs-string">&#x27;a&#x27;</span>, <span class="hljs-string">&#x27;b&#x27;</span>, <span class="hljs-string">&#x27;c&#x27;</span>&#125;;<br><span class="hljs-type">String</span> <span class="hljs-variable">s3</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">String</span>(chs);<br>System.out.println(s3);     <span class="hljs-comment">// abc</span><br><br><span class="hljs-comment">// 根据字节数组的内容，创建字符串对象</span><br><span class="hljs-type">byte</span>[] bys = &#123;<span class="hljs-number">97</span>, <span class="hljs-number">98</span>, <span class="hljs-number">99</span>&#125;;<br><span class="hljs-type">String</span> <span class="hljs-variable">s4</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">String</span>(bys);<br>System.out.println(s4);     <span class="hljs-comment">// abc</span><br></code></pre></td></tr></table></figure>
+
+<h5 id="2-长度-length"><a href="#2-长度-length" class="headerlink" title="2. 长度.length()"></a>2. 长度<code>.length()</code></h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-type">String</span> <span class="hljs-variable">s</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;黑马Java&quot;</span>;<br><span class="hljs-type">int</span> <span class="hljs-variable">i1</span> <span class="hljs-operator">=</span> s.length();<br>System.out.println(i1);    <span class="hljs-comment">// 6</span><br></code></pre></td></tr></table></figure>
+
+<h5 id="3-索引与遍历-charAt"><a href="#3-索引与遍历-charAt" class="headerlink" title="3. 索引与遍历 .charAt() *"></a>3. 索引与遍历 <mark><code>.charAt()</code></mark> *</h5><ol>
+<li>字符串的索引</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-type">String</span> <span class="hljs-variable">s</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;黑马Java&quot;</span>;<br><span class="hljs-type">char</span> <span class="hljs-variable">c</span> <span class="hljs-operator">=</span> s.charAt(<span class="hljs-number">1</span>);<br>System.out.println(c);     <span class="hljs-comment">// 马</span><br></code></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>字符串的遍历</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-type">String</span> <span class="hljs-variable">s</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;黑马Java&quot;</span>;<br><span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; i &lt; s.length(); i++) &#123;<br>    <span class="hljs-type">char</span> <span class="hljs-variable">ch</span> <span class="hljs-operator">=</span> s.charAt(i);<br>    System.out.print(ch);   <span class="hljs-comment">// 黑马Java</span><br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h5 id="4-内容相同判断-equals"><a href="#4-内容相同判断-equals" class="headerlink" title="4. 内容相同判断 .equals()"></a>4. 内容相同判断 <code>.equals()</code></h5><ol>
+<li>内容完全一样</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-type">String</span> <span class="hljs-variable">s1</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">String</span>(<span class="hljs-string">&quot;Java&quot;</span>);<br><span class="hljs-type">String</span> <span class="hljs-variable">s2</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">String</span>(<span class="hljs-string">&quot;Java&quot;</span>);<br>System.out.println(s1.equals(s2));   <span class="hljs-comment">// true</span><br><span class="hljs-comment">// == 比较的是地址值</span><br>System.out.println(s1 == s2);        <span class="hljs-comment">// false</span><br></code></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>忽略大小写，内容完全一样</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-type">String</span> <span class="hljs-variable">s3</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">String</span>(<span class="hljs-string">&quot;Java&quot;</span>);<br><span class="hljs-type">String</span> <span class="hljs-variable">s4</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">String</span>(<span class="hljs-string">&quot;JAVA&quot;</span>);<br>System.out.println(s3.equalsIgnoreCase(s4));    <span class="hljs-comment">// true</span><br></code></pre></td></tr></table></figure>
+
+<h5 id="5-包含内容-contains"><a href="#5-包含内容-contains" class="headerlink" title="5. 包含内容 .contains() *"></a>5. 包含内容<mark> <code>.contains()</code> </mark>*</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-type">String</span> <span class="hljs-variable">s7</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;Java是全世界最好的语言&quot;</span>;<br>System.out.println(s7.contains(<span class="hljs-string">&quot;最好的&quot;</span>));    <span class="hljs-comment">// true</span><br></code></pre></td></tr></table></figure>
+
+<h5 id="6-开头字符-startsWith"><a href="#6-开头字符-startsWith" class="headerlink" title="6. 开头字符 .startsWith()"></a>6. 开头字符<code> .startsWith()</code></h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-type">String</span> <span class="hljs-variable">s8</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;Java是全世界最好的语言&quot;</span>;<br>System.out.println(s8.startsWith(<span class="hljs-string">&quot;Java&quot;</span>));   <span class="hljs-comment">// true</span><br></code></pre></td></tr></table></figure>
+
+<h5 id="7-截取-substring"><a href="#7-截取-substring" class="headerlink" title="7. 截取 .substring()"></a>7. 截取 <code>.substring()</code></h5><ul>
+<li>截取字符串内容：包前不包后</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-type">String</span> <span class="hljs-variable">s5</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;012345678&quot;</span>;<br><span class="hljs-type">String</span> <span class="hljs-variable">rs</span> <span class="hljs-operator">=</span> s5.substring(<span class="hljs-number">0</span>,<span class="hljs-number">5</span>);<br>System.out.println(rs);       <span class="hljs-comment">// 01234  从2索引截取到4索引</span><br><span class="hljs-type">String</span> <span class="hljs-variable">rs1</span> <span class="hljs-operator">=</span> s5.substring(<span class="hljs-number">5</span>);<br>System.out.println(rs1);      <span class="hljs-comment">// 5678   从5索引截取到最后</span><br></code></pre></td></tr></table></figure>
+
+<h5 id="8-分割-split"><a href="#8-分割-split" class="headerlink" title="8. 分割 .split()"></a>8. 分割 <code>.split()</code></h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-type">String</span> <span class="hljs-variable">s9</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;Java,python,go&quot;</span>;<br>String[] names = s9.split(<span class="hljs-string">&quot;,&quot;</span>);<br><span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; i &lt; names.length; i++) &#123;<br>    System.out.println(names[i]);           <span class="hljs-comment">// Java python go</span><br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h5 id="9-替换-replace"><a href="#9-替换-replace" class="headerlink" title="9. 替换.replace()"></a>9. 替换<code>.replace()</code></h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-type">String</span> <span class="hljs-variable">s6</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;Java是全世界最好的语言&quot;</span>;<br><span class="hljs-type">String</span> <span class="hljs-variable">st</span> <span class="hljs-operator">=</span> s6.replace(<span class="hljs-string">&quot;Java&quot;</span>, <span class="hljs-string">&quot;**&quot;</span>);<br>System.out.println(st);      <span class="hljs-comment">// **是全世界最好的语言</span><br></code></pre></td></tr></table></figure>
+
+
+
+
+
+<h3 id="2-StringBuilder"><a href="#2-StringBuilder" class="headerlink" title="2. StringBuilder"></a><font color=#1E90FF>2. <code>StringBuilder</code></font></h3><h4 id="1-介绍"><a href="#1-介绍" class="headerlink" title="1. 介绍"></a><font color=#1E90FF>1. 介绍</font></h4><ul>
+<li><code>StringBuilder</code>相当于一个容器，里面装的字符串是可变的，就是用来操作字符串的</li>
+<li><code>StringBuilder</code>与<code>String</code>的使用情况：<ul>
+<li>对于字符串频繁的拼接、修改等操作时，使用<code>StringBuilder</code>效率更高</li>
+<li>如果操作字符串较少，以及定义字符串，使用<code>String</code></li>
+</ul>
+</li>
+</ul>
+<h4 id="2-用法-1"><a href="#2-用法-1" class="headerlink" title="2. 用法"></a><font color=#1E90FF>2. 用法</font></h4><h5 id="1-添加数据-append"><a href="#1-添加数据-append" class="headerlink" title="1. 添加数据 .append()"></a><font color=#1E90FF>1. 添加数据 <code>.append()</code></font></h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-type">StringBuilder</span> <span class="hljs-variable">sb</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">StringBuilder</span>(<span class="hljs-string">&quot;abc&quot;</span>);<br>change = sb.append(<span class="hljs-number">123</span>).append(<span class="hljs-literal">true</span>);      <span class="hljs-comment">// abc123true</span><br></code></pre></td></tr></table></figure>
+
+<h5 id="2-内容反转-reverse"><a href="#2-内容反转-reverse" class="headerlink" title="2. 内容反转 .reverse()"></a><font color=#1E90FF>2. 内容反转 <code>.reverse()</code></font></h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-type">StringBuilder</span> <span class="hljs-variable">sb</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">StringBuilder</span>(<span class="hljs-string">&quot;abc&quot;</span>);<br>change = sb.reverse();      <span class="hljs-comment">// cba</span><br></code></pre></td></tr></table></figure>
+
+<h5 id="3-长度-length"><a href="#3-长度-length" class="headerlink" title="3. 长度 .length()"></a><font color=#1E90FF>3. 长度 <code>.length()</code></font></h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-type">StringBuilder</span> <span class="hljs-variable">sb</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">StringBuilder</span>(<span class="hljs-string">&quot;abc&quot;</span>);<br><span class="hljs-type">int</span> <span class="hljs-variable">len</span> <span class="hljs-operator">=</span> sb.length();      <span class="hljs-comment">// 3</span><br></code></pre></td></tr></table></figure>
+
+<h5 id="4-变为String类型-toString"><a href="#4-变为String类型-toString" class="headerlink" title="4. 变为String类型.toString()"></a><font color=#1E90FF>4. 变为String类型<code>.toString()</code></font></h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-type">StringBuilder</span> <span class="hljs-variable">sb</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">StringBuilder</span>(<span class="hljs-string">&quot;abc&quot;</span>);<br><span class="hljs-type">String</span> <span class="hljs-variable">str</span> <span class="hljs-operator">=</span> sb.toString();      <span class="hljs-comment">// 3</span><br></code></pre></td></tr></table></figure>
+
+
+
+<h4 id="3-练习"><a href="#3-练习" class="headerlink" title="3. 练习"></a><font color=#1E90FF>3. 练习</font></h4><ul>
+<li>设计一个方法，用于返回任意整型数组的内容，要求返回的数组内容格式如下：<code>[11,22,33]</code></li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span>&#123;<br>    System.out.println(printArr(<span class="hljs-keyword">new</span> <span class="hljs-title class_">int</span>[]&#123;<span class="hljs-number">11</span>,<span class="hljs-number">22</span>,<span class="hljs-number">33</span>&#125;));<br>&#125;<br><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> String <span class="hljs-title function_">printArr</span><span class="hljs-params">(<span class="hljs-type">int</span>[] arr)</span>&#123;<br>    <span class="hljs-type">StringBuilder</span> <span class="hljs-variable">sb</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">StringBuilder</span>();<br>    sb.append(<span class="hljs-string">&quot;[&quot;</span>);<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; i &lt; arr.length; i++)&#123;<br>        <span class="hljs-comment">//i 索引 arr[i] 的元素</span><br>        <span class="hljs-keyword">if</span>(i == arr.length - <span class="hljs-number">1</span>)&#123;<br>            sb.append(arr[i]);<br>        &#125;<span class="hljs-keyword">else</span>&#123;<br>            sb.append(arr[i]).append(<span class="hljs-string">&quot;,&quot;</span>);<br>        &#125;<br>    &#125;<br>    sb.append(<span class="hljs-string">&quot;]&quot;</span>);<br>    <span class="hljs-comment">// 将StringBuilder类型转为String类型</span><br>    <span class="hljs-keyword">return</span> sb.toString<br>&#125;<br></code></pre></td></tr></table></figure>
+
+
+
+<h3 id="3-StringBuffer"><a href="#3-StringBuffer" class="headerlink" title="3. StringBuffer"></a><font color=#1E90FF>3. <code>StringBuffer</code></font></h3><ul>
+<li><code>StringBuffer</code>与<code>StringBuilder</code>的用法是一模一样的</li>
+<li>但<code>StringBuilder</code>的线程是不安全的，<code>StringBuffer</code>的线程是安全的</li>
+</ul>
+<h3 id="4-StringJoiner"><a href="#4-StringJoiner" class="headerlink" title="4. StringJoiner"></a><font color=#1E90FF>4. <code>StringJoiner</code></font></h3><ul>
+<li><code>StringJoiner</code>和<code>StringBuilder</code>一样，也可以看成是一个容器，创建之后里面的内容是可变的</li>
+<li>好处：不仅能提高字符串的操作效率，并且在有些场景下使用它操作字符串，代码会更简洁</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">//1.创建一个对象，并指定中间的间隔符号</span><br><span class="hljs-type">StringJoiner</span> <span class="hljs-variable">sj</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">StringJoiner</span>(<span class="hljs-string">&quot;---&quot;</span>);<br><span class="hljs-comment">//2.添加元素</span><br>sj.add(<span class="hljs-string">&quot;aaa&quot;</span>).add(<span class="hljs-string">&quot;bbb&quot;</span>).add(<span class="hljs-string">&quot;ccc&quot;</span>);<br><span class="hljs-comment">//3.打印结果</span><br>System.out.println(sj);<span class="hljs-comment">//aaa---bbb---ccc</span><br></code></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">//1.创建对象</span><br><span class="hljs-type">StringJoiner</span> <span class="hljs-variable">sj</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">StringJoiner</span>(<span class="hljs-string">&quot;, &quot;</span>,<span class="hljs-string">&quot;[&quot;</span>,<span class="hljs-string">&quot;]&quot;</span>);<br><span class="hljs-comment">//2.添加元素</span><br>sj.add(<span class="hljs-string">&quot;aaa&quot;</span>).add(<span class="hljs-string">&quot;bbb&quot;</span>).add(<span class="hljs-string">&quot;ccc&quot;</span>);<br><span class="hljs-type">int</span> <span class="hljs-variable">len</span> <span class="hljs-operator">=</span> sj.length();<br>System.out.println(len);<span class="hljs-comment">//15</span><br><span class="hljs-comment">//3.打印</span><br>System.out.println(sj);<span class="hljs-comment">//[aaa, bbb, ccc]</span><br><span class="hljs-type">String</span> <span class="hljs-variable">str</span> <span class="hljs-operator">=</span> sj.toString();<br>System.out.println(str);<span class="hljs-comment">//[aaa, bbb, ccc]</span><br></code></pre></td></tr></table></figure>
+
+
+
+
+
+<h3 id="6-重点功能"><a href="#6-重点功能" class="headerlink" title="6. 重点功能"></a>6. 重点功能</h3><ol>
+<li>元素中包含某值</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-type">String</span> <span class="hljs-variable">s7</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;Java是全世界最好的语言&quot;</span>;<br>System.out.println(s7.contains(<span class="hljs-string">&quot;最好的&quot;</span>));    <span class="hljs-comment">// true</span><br></code></pre></td></tr></table></figure>
+
+
+
+
+
 
 
 <h1 id="三、数组、链表、列表"><a href="#三、数组、链表、列表" class="headerlink" title="三、数组、链表、列表"></a>三、数组、链表、列表</h1><h2 id="1-数组-int"><a href="#1-数组-int" class="headerlink" title="1. 数组 int[]"></a>1. 数组 int[]</h2><div style="text-align:center;gap:5px">
     <img src="/img/algorithm_pic/17.png" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:50%">
 </div>
-#### 1.  初始化数组
+#### 1.  初始化数组 *
 
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">// 无初始值，默认初始化为0</span><br><span class="hljs-type">int</span>[] arr = <span class="hljs-keyword">new</span> <span class="hljs-title class_">int</span>[<span class="hljs-number">5</span>]; <span class="hljs-comment">// &#123; 0, 0, 0, 0, 0 &#125;</span><br><span class="hljs-comment">// 给定初始值</span><br><span class="hljs-type">int</span>[] nums = &#123; <span class="hljs-number">1</span>, <span class="hljs-number">3</span>, <span class="hljs-number">2</span>, <span class="hljs-number">5</span>, <span class="hljs-number">4</span> &#125;;<br></code></pre></td></tr></table></figure>
 
@@ -672,7 +769,7 @@
 
 
 
-<h2 id="2-链表"><a href="#2-链表" class="headerlink" title="2. 链表"></a>2. 链表</h2><h3 id="1-介绍"><a href="#1-介绍" class="headerlink" title="1.介绍"></a>1.介绍</h3><p>「链表 linked list」是一种线性数据结构，其中的每个元素都是一个节点对象，各个节点通过“引用”相连接。引用记录了下一个节点的内存地址，通过它可以从当前节点访问到下一个节点</p>
+<h2 id="2-链表"><a href="#2-链表" class="headerlink" title="2. 链表"></a>2. 链表</h2><h3 id="1-介绍-1"><a href="#1-介绍-1" class="headerlink" title="1.介绍"></a>1.介绍</h3><p>「链表 linked list」是一种线性数据结构，其中的每个元素都是一个节点对象，各个节点通过“引用”相连接。引用记录了下一个节点的内存地址，通过它可以从当前节点访问到下一个节点</p>
 <p>链表的设计使得各个节点可以分散存储在内存各处，它们的内存地址无须连续</p>
 <div style="text-align:center;gap:5px">
     <img src="/img/algorithm_pic/21.png" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:60%;">
@@ -688,7 +785,7 @@
 <ul>
 <li><mark>java中没有现成的链表结构，所以链表结构需要手动构造</mark></li>
 </ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">LinkList</span> &#123;<br>    <span class="hljs-type">int</span> value;  <span class="hljs-comment">// 值</span><br>    LinkList next;  <span class="hljs-comment">// 下一个节点指针</span><br><br>    <span class="hljs-keyword">public</span> <span class="hljs-title function_">LinkList</span><span class="hljs-params">(<span class="hljs-type">int</span> x)</span> &#123; value = x; &#125;  <span class="hljs-comment">// 构造函数</span><br>&#125;<br></code></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">LinkList</span> &#123;<br>    <span class="hljs-type">int</span> value;  <span class="hljs-comment">// 值</span><br>    LinkList next;  <span class="hljs-comment">// 下一个节点指针</span><br><br>    <span class="hljs-keyword">public</span> <span class="hljs-title function_">LinkList</span><span class="hljs-params">(<span class="hljs-type">int</span> x)</span> &#123; value = x; &#125;  <span class="hljs-comment">// 构造有参函数</span><br>&#125;<br></code></pre></td></tr></table></figure>
 
 
 
@@ -1328,7 +1425,7 @@
 
 
 
-<h1 id="十、排序"><a href="#十、排序" class="headerlink" title="十、排序"></a>十、排序</h1><h2 id="1-选择排序"><a href="#1-选择排序" class="headerlink" title="1.选择排序"></a>1.选择排序</h2><p>工作原理：<mark>开启一个循环，每轮从未排序区间选择最小的元素，将其放到已排序区间的末尾</mark></p>
+<h1 id="十、排序"><a href="#十、排序" class="headerlink" title="十、排序 *"></a>十、排序 *</h1><h2 id="1-选择排序"><a href="#1-选择排序" class="headerlink" title="1.选择排序"></a>1.选择排序</h2><p>工作原理：<mark>开启一个循环，每轮从未排序区间选择最小的元素，将其放到已排序区间的末尾</mark></p>
 <p>设数组的长度为 n ，选择排序的算法流程如下</p>
 <ol>
 <li>初始状态下，所有元素未排序，即未排序（索引）区间为 [0,n−1] 。</li>
@@ -1558,9 +1655,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2023/11/30/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/" title="Matplotlib+Numpy+Pandas数据分析">
+                      <a href="/2023/11/30/%E7%BB%AD%E8%88%AA%E6%B5%8B%E8%AF%95/" title="续航测试方法">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Matplotlib+Numpy+Pandas数据分析</span>
+                        <span class="hidden-mobile">续航测试方法</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -1568,8 +1665,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2023/11/30/hexo/" title="基于hexo的个人Blog">
-                        <span class="hidden-mobile">基于hexo的个人Blog</span>
+                      <a href="/2023/11/30/%E4%BA%92%E8%81%94%E7%BD%91%E9%BB%91%E8%AF%9D/" title="互联网黑话">
+                        <span class="hidden-mobile">互联网黑话</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

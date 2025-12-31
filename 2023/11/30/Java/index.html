@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://example.com/img/java_pic/1.jpg">
 <meta property="article:published_time" content="2023-11-30T12:00:00.000Z">
-<meta property="article:modified_time" content="2025-09-29T06:37:20.236Z">
+<meta property="article:modified_time" content="2025-12-29T09:46:37.338Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="语言">
 <meta property="article:tag" content="开发">
@@ -226,7 +226,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          19k 字
+          16k 字
         
       </span>
     
@@ -237,7 +237,7 @@
         
         
         
-          159 分钟
+          131 分钟
         
       </span>
     
@@ -333,7 +333,8 @@
 <ol start="8">
 <li>向左或向右选中：<code>command + shift + &lt;- </code> 或 <code>command + shift + -&gt; </code> </li>
 <li>复制本行内容到下一行：<code>command + d</code></li>
-<li>返回上一个光标位置：<code>command + [</code></li>
+<li>返回上一个 \ 下一个跳转的位置：<code>command + [</code> 或 <code>command + ]</code></li>
+<li>查看项目结构：<code>command + ;</code></li>
 </ol>
 <h3 id="3-命名方法"><a href="#3-命名方法" class="headerlink" title="3. 命名方法"></a>3. 命名方法</h3><ol>
 <li><p>小驼峰命名法 - <mark>适用于变量名和方法名</mark></p>
@@ -391,10 +392,8 @@
 
 
 
-<h3 id="8-SDK"><a href="#8-SDK" class="headerlink" title="8. SDK"></a>8. SDK</h3><p>查看项目SDK版本，文件-项目结构-SDK。快捷键：<code>command + ;</code></p>
-<div style="text-align:center;gap:5px">
-    <img src="/img/java_pic/59.png" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:50%">
-</div>
+
+
 
 <hr>
 <h2 id="2-运算符和表达式"><a href="#2-运算符和表达式" class="headerlink" title="2. 运算符和表达式"></a>2. 运算符和表达式</h2><h3 id="1-算数运算符"><a href="#1-算数运算符" class="headerlink" title="1. 算数运算符"></a>1. 算数运算符</h3><ol>
@@ -407,6 +406,24 @@
 </li>
 </ul>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs java">System.out.println( <span class="hljs-number">10</span> / <span class="hljs-number">3</span> );    <span class="hljs-comment">//3 </span><br>System.out.println( <span class="hljs-number">10.0</span> / <span class="hljs-number">3</span> );  <span class="hljs-comment">//3.3333333333333335</span><br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>[!NOTE]</p>
+<p>在Java中，浮点数（<code>float</code>和<code>double</code>）的计算可能会出现精度问题，这是由于浮点数在计算机中的表示方式导致的。浮点数在计算机中是以二进制形式存储的，而某些十进制的小数无法精确地转换为二进制表示，从而导致精度损失</p>
+</blockquote>
+<ul>
+<li>解决方法1：<strong>使用<code>BigDecimal</code>类</strong>：<br><code>BigDecimal</code>类提供了高精度的计算，适用于需要精确结果的场景。你可以使用<code>BigDecimal</code>来替代<code>double</code>进行计算。</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">import</span> java.math.BigDecimal;<br><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">App</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> &#123;<br>        <span class="hljs-type">BigDecimal</span> <span class="hljs-variable">num1</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">BigDecimal</span>(<span class="hljs-string">&quot;8.1&quot;</span>);<br>        <span class="hljs-type">BigDecimal</span> <span class="hljs-variable">num2</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">BigDecimal</span>(<span class="hljs-string">&quot;3&quot;</span>);<br>        <span class="hljs-type">BigDecimal</span> <span class="hljs-variable">result</span> <span class="hljs-operator">=</span> num1.divide(num2, <span class="hljs-number">10</span>, BigDecimal.ROUND_HALF_UP); <span class="hljs-comment">// 保留10位小数，四舍五入</span><br>        System.out.println(result);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+
+
+<ul>
+<li>解决方法2：<strong>控制输出精度</strong>：<br>如果你只关心输出的精度，可以使用<code>String.format</code>或<code>DecimalFormat</code>来控制输出的格式。</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">App</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> &#123;<br>        <span class="hljs-type">double</span> <span class="hljs-variable">result</span> <span class="hljs-operator">=</span> <span class="hljs-number">8.1</span> / <span class="hljs-number">3</span>;<br>        System.out.println(String.format(<span class="hljs-string">&quot;%.10f&quot;</span>, result)); <span class="hljs-comment">// 保留10位小数</span><br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+
 
 <ol start="2">
 <li>加法</li>
@@ -428,13 +445,14 @@
 
 
 <h3 id="4-三元运算符"><a href="#4-三元运算符" class="headerlink" title="4. 三元运算符"></a>4. 三元运算符</h3><ol>
+<li><p>功能：用于简化 if else 写法</p>
+</li>
 <li><p>格式：<mark>关系表达式 ？ 表达式1 ：表达式2 ；</mark></p>
 </li>
 <li><p>计算规则：</p>
 </li>
 </ol>
 <ul>
-<li>计算关系表达式的值</li>
 <li>如果关系表达式的值为真，那么执行表达式1</li>
 <li>如果关系表达式的值为假，那么执行表达式2</li>
 </ul>
@@ -633,113 +651,6 @@
 
 
 
-<h2 id="4-字符串"><a href="#4-字符串" class="headerlink" title="4. 字符串"></a><font color=#1E90FF>4. 字符串</font></h2><h3 id="1-String"><a href="#1-String" class="headerlink" title="1. String"></a>1. <code>String</code></h3><h4 id="1-特点-1"><a href="#1-特点-1" class="headerlink" title="1. 特点"></a>1. 特点</h4><ul>
-<li>字符串的内容和位数在创建后不能被更改，一般改变的都是返回值</li>
-<li><mark>只能用双引号用于表示字符串常量</mark>，不能用单引号</li>
-</ul>
-<h4 id="2-用法-1"><a href="#2-用法-1" class="headerlink" title="2. 用法"></a>2. 用法</h4><h5 id="1-创建对象-String"><a href="#1-创建对象-String" class="headerlink" title="1. 创建对象 String"></a>1. 创建对象 <code>String</code></h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">// 赋值的方式创建字符串</span><br><span class="hljs-type">String</span> <span class="hljs-variable">s1</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;abc&quot;</span>;<br>System.out.println(s1);      <span class="hljs-comment">// abc</span><br><br><span class="hljs-comment">// 创建一个空白字符串，不含有任何内容</span><br><span class="hljs-type">String</span> <span class="hljs-variable">s2</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">String</span>();<br>System.out.println(s2);      <span class="hljs-comment">// </span><br><br><span class="hljs-comment">// 根据字符数组的内容，创建字符串对象</span><br><span class="hljs-type">char</span>[] chs = &#123;<span class="hljs-string">&#x27;a&#x27;</span>, <span class="hljs-string">&#x27;b&#x27;</span>, <span class="hljs-string">&#x27;c&#x27;</span>&#125;;<br><span class="hljs-type">String</span> <span class="hljs-variable">s3</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">String</span>(chs);<br>System.out.println(s3);     <span class="hljs-comment">// abc</span><br><br><span class="hljs-comment">// 根据字节数组的内容，创建字符串对象</span><br><span class="hljs-type">byte</span>[] bys = &#123;<span class="hljs-number">97</span>, <span class="hljs-number">98</span>, <span class="hljs-number">99</span>&#125;;<br><span class="hljs-type">String</span> <span class="hljs-variable">s4</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">String</span>(bys);<br>System.out.println(s4);     <span class="hljs-comment">// abc</span><br></code></pre></td></tr></table></figure>
-
-<h5 id="2-长度-length"><a href="#2-长度-length" class="headerlink" title="2. 长度.length()"></a>2. 长度<code>.length()</code></h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-type">String</span> <span class="hljs-variable">s</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;黑马Java&quot;</span>;<br><span class="hljs-type">int</span> <span class="hljs-variable">i1</span> <span class="hljs-operator">=</span> s.length();<br>System.out.println(i1);    <span class="hljs-comment">// 6</span><br></code></pre></td></tr></table></figure>
-
-<h5 id="3-索引与遍历-charAt"><a href="#3-索引与遍历-charAt" class="headerlink" title="3. 索引与遍历 .charAt() *"></a>3. 索引与遍历 <mark><code>.charAt()</code></mark> *</h5><ol>
-<li>字符串的索引</li>
-</ol>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-type">String</span> <span class="hljs-variable">s</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;黑马Java&quot;</span>;<br><span class="hljs-type">char</span> <span class="hljs-variable">c</span> <span class="hljs-operator">=</span> s.charAt(<span class="hljs-number">1</span>);<br>System.out.println(c);     <span class="hljs-comment">// 马</span><br></code></pre></td></tr></table></figure>
-
-<ol start="2">
-<li>字符串的遍历</li>
-</ol>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-type">String</span> <span class="hljs-variable">s</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;黑马Java&quot;</span>;<br><span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; i &lt; s.length(); i++) &#123;<br>    <span class="hljs-type">char</span> <span class="hljs-variable">ch</span> <span class="hljs-operator">=</span> s.charAt(i);<br>    System.out.print(ch);   <span class="hljs-comment">// 黑马Java</span><br>&#125;<br></code></pre></td></tr></table></figure>
-
-<h5 id="4-内容相同判断-equals"><a href="#4-内容相同判断-equals" class="headerlink" title="4. 内容相同判断 .equals()"></a>4. 内容相同判断 <code>.equals()</code></h5><ol>
-<li>内容完全一样</li>
-</ol>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-type">String</span> <span class="hljs-variable">s1</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">String</span>(<span class="hljs-string">&quot;Java&quot;</span>);<br><span class="hljs-type">String</span> <span class="hljs-variable">s2</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">String</span>(<span class="hljs-string">&quot;Java&quot;</span>);<br>System.out.println(s1.equals(s2));   <span class="hljs-comment">// true</span><br><span class="hljs-comment">// == 比较的是地址值</span><br>System.out.println(s1 == s2);        <span class="hljs-comment">// false</span><br></code></pre></td></tr></table></figure>
-
-<ol start="2">
-<li>忽略大小写，内容完全一样</li>
-</ol>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-type">String</span> <span class="hljs-variable">s3</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">String</span>(<span class="hljs-string">&quot;Java&quot;</span>);<br><span class="hljs-type">String</span> <span class="hljs-variable">s4</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">String</span>(<span class="hljs-string">&quot;JAVA&quot;</span>);<br>System.out.println(s3.equalsIgnoreCase(s4));    <span class="hljs-comment">// true</span><br></code></pre></td></tr></table></figure>
-
-<h5 id="5-包含内容-contains"><a href="#5-包含内容-contains" class="headerlink" title="5. 包含内容 .contains() *"></a>5. 包含内容<mark> <code>.contains()</code> </mark>*</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-type">String</span> <span class="hljs-variable">s7</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;Java是全世界最好的语言&quot;</span>;<br>System.out.println(s7.contains(<span class="hljs-string">&quot;最好的&quot;</span>));    <span class="hljs-comment">// true</span><br></code></pre></td></tr></table></figure>
-
-<h5 id="6-开头字符-startsWith"><a href="#6-开头字符-startsWith" class="headerlink" title="6. 开头字符 .startsWith()"></a>6. 开头字符<code> .startsWith()</code></h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-type">String</span> <span class="hljs-variable">s8</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;Java是全世界最好的语言&quot;</span>;<br>System.out.println(s8.startsWith(<span class="hljs-string">&quot;Java&quot;</span>));   <span class="hljs-comment">// true</span><br></code></pre></td></tr></table></figure>
-
-<h5 id="7-截取-substring"><a href="#7-截取-substring" class="headerlink" title="7. 截取 .substring()"></a>7. 截取 <code>.substring()</code></h5><ul>
-<li>截取字符串内容：包前不包后</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-type">String</span> <span class="hljs-variable">s5</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;012345678&quot;</span>;<br><span class="hljs-type">String</span> <span class="hljs-variable">rs</span> <span class="hljs-operator">=</span> s5.substring(<span class="hljs-number">0</span>,<span class="hljs-number">5</span>);<br>System.out.println(rs);       <span class="hljs-comment">// 01234  从2索引截取到4索引</span><br><span class="hljs-type">String</span> <span class="hljs-variable">rs1</span> <span class="hljs-operator">=</span> s5.substring(<span class="hljs-number">5</span>);<br>System.out.println(rs1);      <span class="hljs-comment">// 5678   从5索引截取到最后</span><br></code></pre></td></tr></table></figure>
-
-<h5 id="8-分割-split"><a href="#8-分割-split" class="headerlink" title="8. 分割 .split()"></a>8. 分割 <code>.split()</code></h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-type">String</span> <span class="hljs-variable">s9</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;Java,python,go&quot;</span>;<br>String[] names = s9.split(<span class="hljs-string">&quot;,&quot;</span>);<br><span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; i &lt; names.length; i++) &#123;<br>    System.out.println(names[i]);           <span class="hljs-comment">// Java python go</span><br>&#125;<br></code></pre></td></tr></table></figure>
-
-<h5 id="9-替换-replace"><a href="#9-替换-replace" class="headerlink" title="9. 替换.replace()"></a>9. 替换<code>.replace()</code></h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-type">String</span> <span class="hljs-variable">s6</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;Java是全世界最好的语言&quot;</span>;<br><span class="hljs-type">String</span> <span class="hljs-variable">st</span> <span class="hljs-operator">=</span> s6.replace(<span class="hljs-string">&quot;Java&quot;</span>, <span class="hljs-string">&quot;**&quot;</span>);<br>System.out.println(st);      <span class="hljs-comment">// **是全世界最好的语言</span><br></code></pre></td></tr></table></figure>
-
-
-
-<h4 id="3-练习-1"><a href="#3-练习-1" class="headerlink" title="3. 练习"></a>3. 练习</h4><ul>
-<li><p>需求：</p>
-<ol>
-<li>定义一个方法，实现字符串反转</li>
-<li>键盘录入一个字符串，调用该方法后，在控制台输出结果</li>
-<li>例如，键盘录入abc，输出结果cba</li>
-</ol>
-</li>
-<li><p>示例代码：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.zc.demo1;<br><span class="hljs-keyword">import</span> java.util.Scanner;<br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">test03</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> &#123;<br>        <span class="hljs-type">Scanner</span> <span class="hljs-variable">sc</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Scanner</span>(System.in);<br>        System.out.println(<span class="hljs-string">&quot;请输入一个数字&quot;</span>);<br>        <span class="hljs-type">String</span> <span class="hljs-variable">s1</span> <span class="hljs-operator">=</span> sc.next();<br><br>        <span class="hljs-type">String</span> <span class="hljs-variable">s3</span> <span class="hljs-operator">=</span> exchangeStr(s1);<br>        System.out.println(<span class="hljs-string">&quot;输出结果为：&quot;</span> + s3);<br>    &#125;<br><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> String <span class="hljs-title function_">exchangeStr</span><span class="hljs-params">(String s1)</span> &#123;<br>        <span class="hljs-type">String</span> <span class="hljs-variable">result</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;&quot;</span>;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> s1.length() - <span class="hljs-number">1</span>; i &gt;= <span class="hljs-number">0</span>; i--) &#123;<br>            result = result + s1.charAt(i);<br>        &#125;<br>        <span class="hljs-keyword">return</span> result;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure></li>
-</ul>
-<h3 id="2-StringBuilder"><a href="#2-StringBuilder" class="headerlink" title="2. StringBuilder"></a><font color=#1E90FF>2. <code>StringBuilder</code></font></h3><h4 id="1-介绍"><a href="#1-介绍" class="headerlink" title="1. 介绍"></a><font color=#1E90FF>1. 介绍</font></h4><ul>
-<li><code>StringBuilder</code>相当于一个容器，里面装的字符串是可变的，就是用来操作字符串的</li>
-<li><code>StringBuilder</code>与<code>String</code>的使用情况：<ul>
-<li>对于字符串频繁的拼接、修改等操作时，使用<code>StringBuilder</code>效率更高</li>
-<li>如果操作字符串较少，以及定义字符串，使用<code>String</code></li>
-</ul>
-</li>
-</ul>
-<h4 id="2-用法-2"><a href="#2-用法-2" class="headerlink" title="2. 用法"></a><font color=#1E90FF>2. 用法</font></h4><h5 id="1-添加数据-append"><a href="#1-添加数据-append" class="headerlink" title="1. 添加数据 .append()"></a><font color=#1E90FF>1. 添加数据 <code>.append()</code></font></h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-type">StringBuilder</span> <span class="hljs-variable">sb</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">StringBuilder</span>(<span class="hljs-string">&quot;abc&quot;</span>);<br>change = sb.append(<span class="hljs-number">123</span>).append(<span class="hljs-literal">true</span>);      <span class="hljs-comment">// abc123true</span><br></code></pre></td></tr></table></figure>
-
-<h5 id="2-内容反转-reverse"><a href="#2-内容反转-reverse" class="headerlink" title="2. 内容反转 .reverse()"></a><font color=#1E90FF>2. 内容反转 <code>.reverse()</code></font></h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-type">StringBuilder</span> <span class="hljs-variable">sb</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">StringBuilder</span>(<span class="hljs-string">&quot;abc&quot;</span>);<br>change = sb.reverse();      <span class="hljs-comment">// cba</span><br></code></pre></td></tr></table></figure>
-
-<h5 id="3-长度-length"><a href="#3-长度-length" class="headerlink" title="3. 长度 .length()"></a><font color=#1E90FF>3. 长度 <code>.length()</code></font></h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-type">StringBuilder</span> <span class="hljs-variable">sb</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">StringBuilder</span>(<span class="hljs-string">&quot;abc&quot;</span>);<br><span class="hljs-type">int</span> <span class="hljs-variable">len</span> <span class="hljs-operator">=</span> sb.length();      <span class="hljs-comment">// 3</span><br></code></pre></td></tr></table></figure>
-
-<h5 id="4-变为String类型-toString"><a href="#4-变为String类型-toString" class="headerlink" title="4. 变为String类型.toString()"></a><font color=#1E90FF>4. 变为String类型<code>.toString()</code></font></h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-type">StringBuilder</span> <span class="hljs-variable">sb</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">StringBuilder</span>(<span class="hljs-string">&quot;abc&quot;</span>);<br><span class="hljs-type">String</span> <span class="hljs-variable">str</span> <span class="hljs-operator">=</span> sb.toString();      <span class="hljs-comment">// 3</span><br></code></pre></td></tr></table></figure>
-
-
-
-<h4 id="3-练习-2"><a href="#3-练习-2" class="headerlink" title="3. 练习"></a><font color=#1E90FF>3. 练习</font></h4><ul>
-<li>设计一个方法，用于返回任意整型数组的内容，要求返回的数组内容格式如下：<code>[11,22,33]</code></li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span>&#123;<br>    System.out.println(printArr(<span class="hljs-keyword">new</span> <span class="hljs-title class_">int</span>[]&#123;<span class="hljs-number">11</span>,<span class="hljs-number">22</span>,<span class="hljs-number">33</span>&#125;));<br>&#125;<br><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> String <span class="hljs-title function_">printArr</span><span class="hljs-params">(<span class="hljs-type">int</span>[] arr)</span>&#123;<br>    <span class="hljs-type">StringBuilder</span> <span class="hljs-variable">sb</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">StringBuilder</span>();<br>    sb.append(<span class="hljs-string">&quot;[&quot;</span>);<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; i &lt; arr.length; i++)&#123;<br>        <span class="hljs-comment">//i 索引 arr[i] 的元素</span><br>        <span class="hljs-keyword">if</span>(i == arr.length - <span class="hljs-number">1</span>)&#123;<br>            sb.append(arr[i]);<br>        &#125;<span class="hljs-keyword">else</span>&#123;<br>            sb.append(arr[i]).append(<span class="hljs-string">&quot;,&quot;</span>);<br>        &#125;<br>    &#125;<br>    sb.append(<span class="hljs-string">&quot;]&quot;</span>);<br>    <span class="hljs-comment">// 将StringBuilder类型转为String类型</span><br>    <span class="hljs-keyword">return</span> sb.toString<br>&#125;<br></code></pre></td></tr></table></figure>
-
-
-
-<h3 id="3-StringBuffer"><a href="#3-StringBuffer" class="headerlink" title="3. StringBuffer"></a><font color=#1E90FF>3. <code>StringBuffer</code></font></h3><ul>
-<li><code>StringBuffer</code>与<code>StringBuilder</code>的用法是一模一样的</li>
-<li>但<code>StringBuilder</code>的线程是不安全的，<code>StringBuffer</code>的线程是安全的</li>
-</ul>
-<h3 id="4-StringJoiner"><a href="#4-StringJoiner" class="headerlink" title="4. StringJoiner"></a><font color=#1E90FF>4. <code>StringJoiner</code></font></h3><ul>
-<li><code>StringJoiner</code>和<code>StringBuilder</code>一样，也可以看成是一个容器，创建之后里面的内容是可变的</li>
-<li>好处：不仅能提高字符串的操作效率，并且在有些场景下使用它操作字符串，代码会更简洁</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">//1.创建一个对象，并指定中间的间隔符号</span><br><span class="hljs-type">StringJoiner</span> <span class="hljs-variable">sj</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">StringJoiner</span>(<span class="hljs-string">&quot;---&quot;</span>);<br><span class="hljs-comment">//2.添加元素</span><br>sj.add(<span class="hljs-string">&quot;aaa&quot;</span>).add(<span class="hljs-string">&quot;bbb&quot;</span>).add(<span class="hljs-string">&quot;ccc&quot;</span>);<br><span class="hljs-comment">//3.打印结果</span><br>System.out.println(sj);<span class="hljs-comment">//aaa---bbb---ccc</span><br></code></pre></td></tr></table></figure>
-
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">//1.创建对象</span><br><span class="hljs-type">StringJoiner</span> <span class="hljs-variable">sj</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">StringJoiner</span>(<span class="hljs-string">&quot;, &quot;</span>,<span class="hljs-string">&quot;[&quot;</span>,<span class="hljs-string">&quot;]&quot;</span>);<br><span class="hljs-comment">//2.添加元素</span><br>sj.add(<span class="hljs-string">&quot;aaa&quot;</span>).add(<span class="hljs-string">&quot;bbb&quot;</span>).add(<span class="hljs-string">&quot;ccc&quot;</span>);<br><span class="hljs-type">int</span> <span class="hljs-variable">len</span> <span class="hljs-operator">=</span> sj.length();<br>System.out.println(len);<span class="hljs-comment">//15</span><br><span class="hljs-comment">//3.打印</span><br>System.out.println(sj);<span class="hljs-comment">//[aaa, bbb, ccc]</span><br><span class="hljs-type">String</span> <span class="hljs-variable">str</span> <span class="hljs-operator">=</span> sj.toString();<br>System.out.println(str);<span class="hljs-comment">//[aaa, bbb, ccc]</span><br></code></pre></td></tr></table></figure>
-
-
-
-<h3 id="5-上述方式异同点"><a href="#5-上述方式异同点" class="headerlink" title="5. 上述方式异同点"></a>5. 上述方式异同点</h3><ol>
-<li>String是不可变的字符串，一旦创建就不能被修改。StringBuilder和StringJoiner是可变的字符串，可以进行修改操作。</li>
-<li>在进行字符串拼接时，使用String每次拼接都会创建一个新的String对象，效率较低。而使用StringBuilder和StringJoiner则可以避免这种情况，可以直接在原有的对象上进行修改，不需要创建新的对象。</li>
-<li>StringJoiner相比StringBuilder更加方便，因为它提供了一些方法来处理分隔符和前缀后缀等问题，使得代码更加简洁易懂。</li>
-</ol>
-<h3 id="6-重点功能"><a href="#6-重点功能" class="headerlink" title="6. 重点功能"></a>6. 重点功能</h3><ol>
-<li>元素中包含某值</li>
-</ol>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-type">String</span> <span class="hljs-variable">s7</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;Java是全世界最好的语言&quot;</span>;<br>System.out.println(s7.contains(<span class="hljs-string">&quot;最好的&quot;</span>));    <span class="hljs-comment">// true</span><br></code></pre></td></tr></table></figure>
-
-
-
-
-
 <h2 id="6-列表和字典区别"><a href="#6-列表和字典区别" class="headerlink" title="6. 列表和字典区别"></a><font color=#1E90FF>6. 列表和字典区别</font></h2><ol>
 <li>数组和集合的区别</li>
 </ol>
@@ -786,12 +697,7 @@
 <h2 id="8-循环"><a href="#8-循环" class="headerlink" title="8. 循环"></a>8. 循环</h2><h3 id="1-列表的循环"><a href="#1-列表的循环" class="headerlink" title="1. 列表的循环"></a>1. 列表的循环</h3><ol>
 <li><p>快捷键</p>
 <ol>
-<li><p>正向遍历：<mark><code>arr.fori + 回车键</code> </mark></p>
-</li>
-<li><p>倒着遍历：<mark><code>arr.forr + 回车键</code> </mark></p>
-</li>
-<li><p>如：<code>100.fori + 回车键</code>，表示循环100次</p>
-</li>
+<li>正向\倒着遍历：<code>arr.fori + 回车键</code> 或 <code>arr.forr + 回车键</code></li>
 </ol>
 </li>
 <li><p>代码编写</p>
@@ -814,15 +720,7 @@
 <li><p>while格式</p>
 </li>
 </ol>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">while</span>(<span class="hljs-literal">true</span>)&#123;<br>    System.out.println(<span class="hljs-string">&quot;循环执行一直在打印内容&quot;</span>);<br>&#125;<br></code></pre></td></tr></table></figure>
-
-<ol start="3">
-<li>do…while格式</li>
-</ol>
-<ul>
-<li>基本不使用</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">do</span>&#123;<br>    System.out.println(<span class="hljs-string">&quot;循环执行一直在打印内容&quot;</span>);<br>&#125;<span class="hljs-keyword">while</span>(<span class="hljs-literal">true</span>);<br></code></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">while</span>(<span class="hljs-literal">true</span>)&#123;<br>    System.out.println(<span class="hljs-string">&quot;循环执行一直在打印内容&quot;</span>);<br>    <span class="hljs-keyword">break</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
 
 
 
@@ -960,7 +858,7 @@
 
 
 
-<h3 id="4-Char和String"><a href="#4-Char和String" class="headerlink" title="4.Char和String"></a>4.<code>Char</code>和<code>String</code></h3><ol>
+<h3 id="4-Char和String"><a href="#4-Char和String" class="headerlink" title="4.Char和String *"></a>4.<code>Char</code>和<code>String</code> *</h3><ol>
 <li>相同点</li>
 </ol>
 <ul>
@@ -970,9 +868,29 @@
 <li>不同点</li>
 </ol>
 <ul>
-<li><code>char</code>是一个基本数据类型，它能存储一个字符，用单引号括起来，例如’a’；char类型的变量可以直接进行比较</li>
-<li><code>String</code>是一个类，它可以存储多个字符，用双引号括起来，例如”hello”；String类型的变量需要用<code>equals()</code>方法进行比较</li>
+<li><code>char</code>是一个基本数据类型，它能存储一个字符，<mark>用单引号括起来</mark>，例如’a’；char类型的变量可以直接进行比较</li>
 </ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-type">char</span> <span class="hljs-variable">c1</span> <span class="hljs-operator">=</span> <span class="hljs-string">&#x27;a&#x27;</span>;    <span class="hljs-comment">// 97</span><br><br><span class="hljs-type">char</span> <span class="hljs-variable">c1</span> <span class="hljs-operator">=</span> <span class="hljs-string">&#x27;许&#x27;</span>; <br>System.out.println((<span class="hljs-type">int</span>)c1);    <span class="hljs-comment">// 35768</span><br><br><br><span class="hljs-keyword">for</span> (<span class="hljs-type">char</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-string">&#x27;a&#x27;</span>; i &lt; <span class="hljs-string">&#x27;z&#x27;</span>; i++) &#123;<br>    System.out.print(i + <span class="hljs-string">&quot; &quot;</span>);   <span class="hljs-comment">// a b c d e f g h i j k l m n o p q r s t u v w x y </span><br>&#125;<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li><code>String</code>是一个类，它可以存储多个字符，<mark>用双引号括起来</mark>，例如”hello”；String类型的变量需要用<code>equals()</code>方法进行比较</li>
+</ul>
+<blockquote>
+<p>[!NOTE]</p>
+<p>Char类型为单个字符串元素</p>
+<p>String类型的循环取数，即<code>String.charAt(x)</code></p>
+</blockquote>
+<h3 id="5-float-和-double"><a href="#5-float-和-double" class="headerlink" title="5.float 和 double"></a>5.float 和 double</h3><ol>
+<li>相同点<ol>
+<li>都是用于表示浮点数的类型</li>
+</ol>
+</li>
+<li>不同点<ol>
+<li><code>float</code>的精度大约是7位有效数字。占用内存更小</li>
+<li><code>double</code>的精度大约是15-16位有效数字。是默认的浮点类型，因为它提供更高的精度</li>
+</ol>
+</li>
+</ol>
 <hr>
 <h2 id="10-面向对象"><a href="#10-面向对象" class="headerlink" title="10. 面向对象 *"></a>10. 面向对象 *</h2><p>对象本质来说是一种特殊的数据结构，相当于一张表，记录了数据和方法</p>
 <p>class也就是类，也称为对象的设计图，或者对象的模版</p>
@@ -1117,10 +1035,91 @@
 
 
 
-
-
+<h2 id="11-int和Integer"><a href="#11-int和Integer" class="headerlink" title="11.int和Integer"></a>11.int和Integer</h2><p><strong>1. 基本区别</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>特性</strong></th>
+<th><strong><code>int</code></strong></th>
+<th><strong><code>Integer</code></strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>类型</strong></td>
+<td>基本数据类型（Primitive）</td>
+<td>包装类（Wrapper Class）</td>
+</tr>
+<tr>
+<td><strong>存储位置</strong></td>
+<td>栈（Stack）</td>
+<td>堆（Heap）</td>
+</tr>
+<tr>
+<td><strong>默认值</strong></td>
+<td>0</td>
+<td><code>null</code></td>
+</tr>
+<tr>
+<td><strong>是否可为空</strong></td>
+<td>不能（必须有值）</td>
+<td>可以（允许 <code>null</code>）</td>
+</tr>
+<tr>
+<td><strong>比较方式</strong></td>
+<td>直接 <code>==</code> 比较</td>
+<td><code>equals()</code> 或 <code>intValue()</code></td>
+</tr>
+<tr>
+<td><strong>泛型支持</strong></td>
+<td>不支持（<code>List&lt;int&gt;</code> ❌）</td>
+<td>支持（<code>List&lt;Integer&gt;</code> ✅）</td>
+</tr>
+<tr>
+<td><strong>自动转换</strong></td>
+<td>自动装箱（<code>int</code> → <code>Integer</code>）</td>
+<td>自动拆箱（<code>Integer</code> → <code>int</code>）</td>
+</tr>
+</tbody></table>
+<p><strong>2. 使用场景</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>场景</strong></th>
+<th><strong>推荐类型</strong></th>
+<th><strong>原因</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>高性能计算（如循环）</td>
+<td><code>int</code></td>
+<td>避免装箱&#x2F;拆箱开销</td>
+</tr>
+<tr>
+<td>集合类（如 <code>List</code>）</td>
+<td><code>Integer</code></td>
+<td>泛型不支持基本类型</td>
+</tr>
+<tr>
+<td>可能为 <code>null</code> 的情况</td>
+<td><code>Integer</code></td>
+<td><code>int</code> 不能表示 <code>null</code></td>
+</tr>
+<tr>
+<td>数据库映射（如 JPA）</td>
+<td><code>Integer</code></td>
+<td>数据库字段可能为 <code>NULL</code></td>
+</tr>
+</tbody></table>
 <hr>
-<h1 id="二、Java加强"><a href="#二、Java加强" class="headerlink" title="二、Java加强"></a><font color=#1E90FF>二、Java加强</font></h1><h2 id="1-静态-static"><a href="#1-静态-static" class="headerlink" title="1. 静态 static"></a><font color=#1E90FF>1. 静态 static</font></h2><h3 id="1-静态变量-与-实例变量"><a href="#1-静态变量-与-实例变量" class="headerlink" title="1. 静态变量 与 实例变量"></a><font color=#1E90FF>1. 静态变量 与 实例变量</font></h3><ol>
+<h1 id="二、Java加强"><a href="#二、Java加强" class="headerlink" title="二、Java加强"></a><font color=#1E90FF>二、Java加强</font></h1><h2 id="1-静态-static"><a href="#1-静态-static" class="headerlink" title="1. 静态 static"></a><font color=#1E90FF>1. 静态 static</font></h2><h2 id="0-静态介绍"><a href="#0-静态介绍" class="headerlink" title="0. 静态介绍"></a><font color=#1E90FF>0. 静态介绍</font></h2><ul>
+<li>在SpringBoot中，如果使用静态参数，则在容器启动后，改参数无法通过外部修改</li>
+<li>如若下方面方式创建了kconf，实际修改白名单后，直接执行代码不会生效，只能重启容器</li>
+</ul>
+<figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs arduino"><span class="hljs-keyword">public</span> <span class="hljs-type">static</span> <span class="hljs-keyword">final</span> Kconf&lt;Map&lt;<span class="hljs-type">String</span>, List&gt;&gt; PATH_LEVEL_WHITE_LIST =<br>            Kconfs.<span class="hljs-built_in">ofJsonMap</span>(<span class="hljs-string">&quot;ad.test.pathLevelWhitelist&quot;</span>, Collections.<span class="hljs-built_in">emptyMap</span>(), <span class="hljs-type">String</span>.<span class="hljs-keyword">class</span>, List.<span class="hljs-keyword">class</span>).<span class="hljs-built_in">build</span>();<br></code></pre></td></tr></table></figure>
+
+
+
+<h3 id="1-静态变量-与-实例变量"><a href="#1-静态变量-与-实例变量" class="headerlink" title="1. 静态变量 与 实例变量"></a><font color=#1E90FF>1. 静态变量 与 实例变量</font></h3><ol>
 <li><p>成员变量按照有无static修饰，分为两种</p>
 <ul>
 <li><p>静态变量：有static修饰，属于类，在内存中只有一份。<mark>静态变量会被类和类的全部对象共享</mark></p>
@@ -1363,7 +1362,7 @@
 
 
 <hr>
-<h2 id="3-多态"><a href="#3-多态" class="headerlink" title="3. 多态"></a><font color=#1E90FF>3. 多态</font></h2><h3 id="1-介绍-1"><a href="#1-介绍-1" class="headerlink" title="1. 介绍"></a><font color=#1E90FF>1. 介绍</font></h3><ul>
+<h2 id="3-多态"><a href="#3-多态" class="headerlink" title="3. 多态"></a><font color=#1E90FF>3. 多态</font></h2><h3 id="1-介绍"><a href="#1-介绍" class="headerlink" title="1. 介绍"></a><font color=#1E90FF>1. 介绍</font></h3><ul>
 <li><p>多态： 在继承 &#x2F; 实现情况下，表现为对象多态、行为多态</p>
 </li>
 <li><p>前提</p>
@@ -2179,7 +2178,7 @@
 </ol>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">test01</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> &#123;<br>        <span class="hljs-type">String</span> <span class="hljs-variable">str</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;我要学学学编编程&quot;</span>;<br><br>        <span class="hljs-type">String</span> <span class="hljs-variable">result</span> <span class="hljs-operator">=</span> str.replaceAll(<span class="hljs-string">&quot;(.)\\1+&quot;</span>,<span class="hljs-string">&quot;$1&quot;</span>);<br>        System.out.println(result);<br>    &#125;<br>&#125;<br><br><span class="hljs-comment">// 我要学编程</span><br></code></pre></td></tr></table></figure>
 
-<h2 id="8-时间"><a href="#8-时间" class="headerlink" title="8. 时间"></a><font color=#1E90FF>8. 时间</font></h2><h3 id="1-本地时间"><a href="#1-本地时间" class="headerlink" title="1. 本地时间"></a><font color=#1E90FF>1. 本地时间</font></h3><h4 id="1-介绍-2"><a href="#1-介绍-2" class="headerlink" title="1. 介绍"></a><font color=#1E90FF>1. 介绍</font></h4><ol>
+<h2 id="8-时间"><a href="#8-时间" class="headerlink" title="8. 时间"></a><font color=#1E90FF>8. 时间</font></h2><h3 id="1-本地时间"><a href="#1-本地时间" class="headerlink" title="1. 本地时间"></a><font color=#1E90FF>1. 本地时间</font></h3><h4 id="1-介绍-1"><a href="#1-介绍-1" class="headerlink" title="1. 介绍"></a><font color=#1E90FF>1. 介绍</font></h4><ol>
 <li><code>LocalDate</code>：代表本地日期（年、月、日、星期）</li>
 <li><code>LocalTime</code>：代表本地时间（时、分、秒、纳秒）</li>
 <li><code>LocalDateTime</code>：代表本地日期、时间（年、月、日、星期、时、分、秒、纳秒）</li>
@@ -2196,7 +2195,7 @@
 
 
 
-<h3 id="2-其他时区时间"><a href="#2-其他时区时间" class="headerlink" title="2. 其他时区时间"></a><font color=#1E90FF>2. 其他时区时间</font></h3><h4 id="1-介绍-3"><a href="#1-介绍-3" class="headerlink" title="1. 介绍"></a><font color=#1E90FF>1. 介绍</font></h4><ol>
+<h3 id="2-其他时区时间"><a href="#2-其他时区时间" class="headerlink" title="2. 其他时区时间"></a><font color=#1E90FF>2. 其他时区时间</font></h3><h4 id="1-介绍-2"><a href="#1-介绍-2" class="headerlink" title="1. 介绍"></a><font color=#1E90FF>1. 介绍</font></h4><ol>
 <li><code>ZoneId</code>：时区</li>
 <li><code>ZonedDateTime</code>：带时区的时间</li>
 </ol>
@@ -2220,7 +2219,7 @@
 
 
 
-<h3 id="4-计算时间间隔"><a href="#4-计算时间间隔" class="headerlink" title="4. 计算时间间隔"></a><font color=#1E90FF>4. 计算时间间隔</font></h3><h4 id="1-介绍-4"><a href="#1-介绍-4" class="headerlink" title="1. 介绍"></a><font color=#1E90FF>1. 介绍</font></h4><ol>
+<h3 id="4-计算时间间隔"><a href="#4-计算时间间隔" class="headerlink" title="4. 计算时间间隔"></a><font color=#1E90FF>4. 计算时间间隔</font></h3><h4 id="1-介绍-3"><a href="#1-介绍-3" class="headerlink" title="1. 介绍"></a><font color=#1E90FF>1. 介绍</font></h4><ol>
 <li><code>Period</code>：用于计算两个<code>LocalDate</code>对象，相差的年数、月数、天数</li>
 <li><code>Duration</code>：用于计算两个时间对象相差的天数、小时数、分数、秒数、纳秒数；支持<code>LocalTime</code>、 <code>LocalDateTime</code>、 <code>Instant</code>等时间</li>
 </ol>
@@ -2296,7 +2295,7 @@
 
 
 
-<h1 id="四、JDK8新特性"><a href="#四、JDK8新特性" class="headerlink" title="四、JDK8新特性"></a><font color=#1E90FF>四、JDK8新特性</font></h1><h2 id="1-Lambda表达式"><a href="#1-Lambda表达式" class="headerlink" title="1. Lambda表达式"></a><font color=#1E90FF>1. Lambda表达式</font></h2><h3 id="1-介绍-5"><a href="#1-介绍-5" class="headerlink" title="1.介绍"></a>1.介绍</h3><ol>
+<h1 id="四、JDK8新特性"><a href="#四、JDK8新特性" class="headerlink" title="四、JDK8新特性"></a><font color=#1E90FF>四、JDK8新特性</font></h1><h2 id="1-Lambda表达式"><a href="#1-Lambda表达式" class="headerlink" title="1. Lambda表达式"></a><font color=#1E90FF>1. Lambda表达式</font></h2><h3 id="1-介绍-4"><a href="#1-介绍-4" class="headerlink" title="1.介绍"></a>1.介绍</h3><ol>
 <li><p>作用：Lambda是jdk8中的一个语法糖，<mark>用于简化函数式接口的，匿名内部类的代码写法</mark></p>
 </li>
 <li><p>什么是函数式接口</p>
@@ -2393,7 +2392,7 @@
 
 
 
-<h2 id="2-stream流"><a href="#2-stream流" class="headerlink" title="2. stream流 *"></a><font color=#1E90FF>2. stream流 *</font></h2><h3 id="1-介绍-6"><a href="#1-介绍-6" class="headerlink" title="1.介绍"></a>1.介绍</h3><ol>
+<h2 id="2-stream流"><a href="#2-stream流" class="headerlink" title="2. stream流 *"></a><font color=#1E90FF>2. stream流 *</font></h2><h3 id="1-介绍-5"><a href="#1-介绍-5" class="headerlink" title="1.介绍"></a>1.介绍</h3><ol>
 <li><p>作用：结合了Lamdba表达式，<mark>简化集合、数组的操作</mark>。它主要关注的是对数据进行了什么操作。<mark>使用此方法，可以不用写for循环？</mark></p>
 </li>
 <li><p>使用步骤</p>
@@ -2679,7 +2678,7 @@
 
 
 
-<h1 id="五、多线程"><a href="#五、多线程" class="headerlink" title="五、多线程"></a><font color=#1E90FF>五、多线程</font></h1><h2 id="1-介绍-7"><a href="#1-介绍-7" class="headerlink" title="1. 介绍"></a>1. 介绍</h2><h3 id="1-程序-、进程、线程"><a href="#1-程序-、进程、线程" class="headerlink" title="1. 程序 、进程、线程"></a>1. 程序 、进程、线程</h3><ol>
+<h1 id="五、多线程"><a href="#五、多线程" class="headerlink" title="五、多线程"></a><font color=#1E90FF>五、多线程</font></h1><h2 id="1-介绍-6"><a href="#1-介绍-6" class="headerlink" title="1. 介绍"></a>1. 介绍</h2><h3 id="1-程序-、进程、线程"><a href="#1-程序-、进程、线程" class="headerlink" title="1. 程序 、进程、线程"></a>1. 程序 、进程、线程</h3><ol>
 <li>程序：程序和数据的有序集合，其本身没有任何运行的含义，是一个静态的概念</li>
 <li>进程：执行程序的一次执行过程，是一个动态的概念，是系统资源分配的单位</li>
 <li>线程：一个进程中包含&gt;&#x3D;1个线程，线程是CPU调度和执行的单位</li>
@@ -2834,292 +2833,6 @@
 
 
 
-<h1 id="七、完整项目"><a href="#七、完整项目" class="headerlink" title="七、完整项目"></a>七、完整项目</h1><h2 id="1-web端拼图游戏"><a href="#1-web端拼图游戏" class="headerlink" title="1. web端拼图游戏"></a>1. web端拼图游戏</h2><h3 id="1-项目分析"><a href="#1-项目分析" class="headerlink" title="1. 项目分析"></a>1. 项目分析</h3><ul>
-<li>注：GUI是指采用图形化的方式显示操作界面</li>
-</ul>
-<div style="text-align:center;gap:5px">
-    <img src="/img/java_pic/24.png" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:80%;">
-</div>
-
-
-
-<h3 id="2-主界面搭建JFrame"><a href="#2-主界面搭建JFrame" class="headerlink" title="2. 主界面搭建JFrame"></a>2. 主界面搭建<code>JFrame</code></h3><h4 id="1-界面效果"><a href="#1-界面效果" class="headerlink" title="1. 界面效果"></a>1. 界面效果</h4><div style="text-align:center;gap:5px">
-    <img src="/img/java_pic/25.png" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:80%;">
-</div>
-
-<h4 id="2-页面常见操作"><a href="#2-页面常见操作" class="headerlink" title="2. 页面常见操作"></a>2. 页面常见操作</h4><ul>
-<li>注：关闭模式有<code>DO_NOTHING_ON_CLOSE</code>, <code>HIIDE_ON_CLOSE</code>, <code>DISPOSE_ON_CLOSE</code>,<code>EXIT_ON_CLOSE</code>四种方式可以选择</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">//1.召唤主界面</span><br><span class="hljs-type">JFrame</span> <span class="hljs-variable">jFrame</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">JFrame</span>();<br><br><span class="hljs-comment">//2.设置主界面的大小</span><br>jFrame.setSize(<span class="hljs-number">514</span>,<span class="hljs-number">595</span>);<br><br><span class="hljs-comment">//设置界面的标题</span><br><span class="hljs-built_in">this</span>.setTitle(<span class="hljs-string">&quot;登录&quot;</span>);<br><br><span class="hljs-comment">//设置界面置顶（位于所有页面最上方）</span><br><span class="hljs-built_in">this</span>.setAlwaysOnTop(<span class="hljs-literal">true</span>);<br><br><span class="hljs-comment">//设置界面，在屏幕中居中</span><br><span class="hljs-built_in">this</span>.setLocationRelativeTo(<span class="hljs-literal">null</span>);<br><br><span class="hljs-comment">//设置关闭模式</span><br><span class="hljs-built_in">this</span>.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);<br><br><span class="hljs-comment">//让主界面显示出来</span><br>jFrame.setVisible(<span class="hljs-literal">true</span>);<br><br><span class="hljs-comment">//关闭当前页面</span><br>jFrame.setVisible(<span class="hljs-literal">false</span>);<br><br><span class="hljs-comment">//关闭虚拟机</span><br>System.exit(<span class="hljs-number">0</span>);<br></code></pre></td></tr></table></figure>
-
-<h4 id="3-利用继承简化代码"><a href="#3-利用继承简化代码" class="headerlink" title="3. 利用继承简化代码"></a>3. 利用继承简化代码</h4><h5 id="1-需求"><a href="#1-需求" class="headerlink" title="1. 需求"></a>1. 需求</h5><p>​	如果把所有的代码都写在main方法中，那么main方法里面的代码，就包含游戏主界面的代码，登录界面的代码，注册界面的代码，会变得非常臃肿后期维护也是一件非常难的事情，所以我们需要用继承改进，改进之后，代码就可以分类了。</p>
-<h5 id="2-目录"><a href="#2-目录" class="headerlink" title="2. 目录"></a>2. 目录</h5><div style="text-align:center;gap:5px">
-    <img src="/img/java_pic/26.png" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:40%;">
-</div>
-
-
-
-<h5 id="3-LoginJFrame"><a href="#3-LoginJFrame" class="headerlink" title="3. LoginJFrame"></a>3. <code>LoginJFrame</code></h5><ul>
-<li>注：其中this表示当前窗体的意思</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">//登录界面</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">LoginJFrame</span> <span class="hljs-keyword">extends</span> <span class="hljs-title class_">JFrame</span> &#123;<br>    <span class="hljs-comment">//LoginJFrame 表示登录界面</span><br>    <span class="hljs-comment">//以后所有跟登录相关的代码，都写在这里</span><br><br>    <span class="hljs-keyword">public</span> <span class="hljs-title function_">LoginJFrame</span><span class="hljs-params">()</span>&#123;<br>        <span class="hljs-comment">//在创建登录界面的时候，同时给这个界面去设置一些信息</span><br>        <span class="hljs-comment">//比如，宽高，直接展示出来</span><br>        <span class="hljs-built_in">this</span>.setSize(<span class="hljs-number">488</span>,<span class="hljs-number">430</span>);<br>        <span class="hljs-comment">//设置界面的标题</span><br>        <span class="hljs-built_in">this</span>.setTitle(<span class="hljs-string">&quot;拼图 登录&quot;</span>);<br>        <span class="hljs-comment">//设置界面置顶（位于所有页面最上方）</span><br>        <span class="hljs-built_in">this</span>.setAlwaysOnTop(<span class="hljs-literal">true</span>);<br>        <span class="hljs-comment">//设置界面，在屏幕中居中</span><br>        <span class="hljs-built_in">this</span>.setLocationRelativeTo(<span class="hljs-literal">null</span>);<br>        <span class="hljs-comment">//设置关闭模式</span><br>        <span class="hljs-built_in">this</span>.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);<br>        <span class="hljs-comment">//让显示显示出来，建议写在最后</span><br>        <span class="hljs-built_in">this</span>.setVisible(<span class="hljs-literal">true</span>);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
-
-<h5 id="4-RegisterJFrame"><a href="#4-RegisterJFrame" class="headerlink" title="4. RegisterJFrame"></a>4. <code>RegisterJFrame</code></h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">//注册界面</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">RegisterJFrame</span> <span class="hljs-keyword">extends</span> <span class="hljs-title class_">JFrame</span> &#123;<br>    <span class="hljs-comment">//跟注册相关的代码，都写在这个界面中</span><br>    <span class="hljs-keyword">public</span> <span class="hljs-title function_">RegisterJFrame</span><span class="hljs-params">()</span>&#123;<br>        <span class="hljs-built_in">this</span>.setSize(<span class="hljs-number">488</span>,<span class="hljs-number">500</span>);<br>        <span class="hljs-comment">//设置界面的标题</span><br>        <span class="hljs-built_in">this</span>.setTitle(<span class="hljs-string">&quot;拼图 注册&quot;</span>);<br>        <span class="hljs-comment">//设置界面置顶</span><br>        <span class="hljs-built_in">this</span>.setAlwaysOnTop(<span class="hljs-literal">true</span>);<br>        <span class="hljs-comment">//设置界面居中</span><br>        <span class="hljs-built_in">this</span>.setLocationRelativeTo(<span class="hljs-literal">null</span>);<br>        <span class="hljs-comment">//设置关闭模式</span><br>        <span class="hljs-built_in">this</span>.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);<br>        <span class="hljs-comment">//让显示显示出来，建议写在最后</span><br>        <span class="hljs-built_in">this</span>.setVisible(<span class="hljs-literal">true</span>);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
-
-<h5 id="5-GameJFrame"><a href="#5-GameJFrame" class="headerlink" title="5.GameJFrame"></a>5.<code>GameJFrame</code></h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">//游戏主界面</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">GameJFrame</span> <span class="hljs-keyword">extends</span> <span class="hljs-title class_">JFrame</span> &#123;<br><br>    <span class="hljs-keyword">public</span> <span class="hljs-title function_">GameJFrame</span><span class="hljs-params">()</span> &#123;<br>        <span class="hljs-comment">//设置界面的宽高</span><br>        <span class="hljs-built_in">this</span>.setSize(<span class="hljs-number">603</span>, <span class="hljs-number">680</span>);<br>        <span class="hljs-comment">//设置界面的标题</span><br>        <span class="hljs-built_in">this</span>.setTitle(<span class="hljs-string">&quot;拼图单机版 v1.0&quot;</span>);<br>        <span class="hljs-comment">//设置界面置顶</span><br>        <span class="hljs-built_in">this</span>.setAlwaysOnTop(<span class="hljs-literal">true</span>);<br>        <span class="hljs-comment">//设置界面居中</span><br>        <span class="hljs-built_in">this</span>.setLocationRelativeTo(<span class="hljs-literal">null</span>);<br>        <span class="hljs-comment">//设置关闭模式</span><br>        <span class="hljs-built_in">this</span>.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);<br>        <span class="hljs-comment">//取消默认的居中放置，只有取消了才会按照XY轴的形式添加组件</span><br>        <span class="hljs-built_in">this</span>.setLayout(<span class="hljs-literal">null</span>);<br>        <span class="hljs-comment">//让界面显示出来，建议写在最后</span><br>        <span class="hljs-built_in">this</span>.setVisible(<span class="hljs-literal">true</span>);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
-
-<h5 id="6-主函数"><a href="#6-主函数" class="headerlink" title="6. 主函数"></a>6. 主函数</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">import</span> com.itheima.ui.GameJFrame;<br><span class="hljs-keyword">import</span> com.itheima.ui.LoginJFrame;<br><span class="hljs-keyword">import</span> com.itheima.ui.RegisterJFrame;<br><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">App</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> &#123;<br>        <span class="hljs-comment">//表示程序的启动入口</span><br>        <span class="hljs-comment">//如果我们想要开启一个界面，就创建谁的对象就可以了</span><br>        <span class="hljs-comment">//new LoginJFrame();</span><br>        <span class="hljs-comment">//new RegisterJFrame();</span><br>        <span class="hljs-keyword">new</span> <span class="hljs-title class_">GameJFrame</span>();<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
-
-
-
-<h3 id="3-菜单制作JMenuBar"><a href="#3-菜单制作JMenuBar" class="headerlink" title="3. 菜单制作JMenuBar"></a>3. 菜单制作<code>JMenuBar</code></h3><h4 id="1-界面效果-1"><a href="#1-界面效果-1" class="headerlink" title="1. 界面效果"></a>1. 界面效果</h4><div style="text-align:center;gap:5px">
-    <img src="/img/java_pic/27.png" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:60%;">
-</div>
-#### 2. 菜单组成
-
-<ul>
-<li><p><code>JMenuBar</code>：整个项目的主体菜单</p>
-</li>
-<li><p><code>JMenu</code>：项目一级菜单</p>
-</li>
-<li><p><code>JMenuItem</code>：项目二级菜单</p>
-</li>
-</ul>
-<div style="text-align:center;gap:5px">
-    <img src="/img/java_pic/28.png" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:60%;">
-</div>
-* 注：当添加三级菜单时，菜单主体为`JMenuBar`，一级菜单为`JMenu`，二级菜单为`JMenu`，三级菜单为`JMenuItem`
-
-<h4 id="3-JMenuBar菜单"><a href="#3-JMenuBar菜单" class="headerlink" title="3. JMenuBar菜单"></a>3. <code>JMenuBar</code>菜单</h4><h5 id="1-创建整个的主体菜单"><a href="#1-创建整个的主体菜单" class="headerlink" title="1. 创建整个的主体菜单"></a>1. 创建整个的主体菜单</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-type">JMenuBar</span> <span class="hljs-variable">zhuti</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">JMenuBar</span>();<br></code></pre></td></tr></table></figure>
-
-<h5 id="2-创建一级菜单，并加入至主体菜单"><a href="#2-创建一级菜单，并加入至主体菜单" class="headerlink" title="2. 创建一级菜单，并加入至主体菜单"></a>2. 创建一级菜单，并加入至主体菜单</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">//创建一级菜单</span><br><span class="hljs-type">JMenu</span> <span class="hljs-variable">yiji</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">JMenu</span>(<span class="hljs-string">&quot;功能&quot;</span>);<br><br><span class="hljs-comment">//将一级菜单加至主体菜单</span><br>zhuti.add(yiji);<br></code></pre></td></tr></table></figure>
-
-<h5 id="3-创建二级菜单，并加入至一级菜单"><a href="#3-创建二级菜单，并加入至一级菜单" class="headerlink" title="3. 创建二级菜单，并加入至一级菜单"></a>3. 创建二级菜单，并加入至一级菜单</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">//创建二级菜单</span><br><span class="hljs-type">JMenuItem</span> <span class="hljs-variable">erji</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">JMenuItem</span>(<span class="hljs-string">&quot;重新游戏&quot;</span>);<br><br><span class="hljs-comment">//将二级菜单加至一级菜单</span><br>yiji.add(erji);<br></code></pre></td></tr></table></figure>
-
-<h5 id="4-给整个界面设置主题菜单"><a href="#4-给整个界面设置主题菜单" class="headerlink" title="4. 给整个界面设置主题菜单"></a>4. 给整个界面设置主题菜单</h5><ul>
-<li>此功能必须存在，且一般位于项目最后</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-built_in">this</span>.setJMenuBar(zhuti);<br></code></pre></td></tr></table></figure>
-
-
-
-<h4 id="4-项目代码"><a href="#4-项目代码" class="headerlink" title="4. 项目代码"></a>4. 项目代码</h4><p><code>GameJFrame</code></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.itheima.ui;<br><span class="hljs-keyword">import</span> javax.swing.*;<br><br><span class="hljs-comment">//游戏主界面</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">GameJFrame</span> <span class="hljs-keyword">extends</span> <span class="hljs-title class_">JFrame</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-title function_">GameJFrame</span><span class="hljs-params">()</span> &#123;<br>        ...<br>        <span class="hljs-comment">//初始化菜单</span><br>        initJMenuBar();<br><br>        <span class="hljs-comment">//让界面显示出来，建议写在最后</span><br>        <span class="hljs-built_in">this</span>.setVisible(<span class="hljs-literal">true</span>);<br>    &#125;<br><br>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">initJMenuBar</span><span class="hljs-params">()</span> &#123;<br>        <span class="hljs-comment">//创建整个的菜单对象</span><br>        <span class="hljs-type">JMenuBar</span> <span class="hljs-variable">jMenuBar</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">JMenuBar</span>();<br>        <span class="hljs-comment">//创建菜单上面的两个选项的对象  （功能 关于我们）</span><br>        <span class="hljs-type">JMenu</span> <span class="hljs-variable">functionJMenu</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">JMenu</span>(<span class="hljs-string">&quot;功能&quot;</span>);<br>        <span class="hljs-type">JMenu</span> <span class="hljs-variable">aboutJMenu</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">JMenu</span>(<span class="hljs-string">&quot;关于我们&quot;</span>);<br>        <span class="hljs-comment">//创建选项下面的条目对象</span><br>        <span class="hljs-type">JMenuItem</span> <span class="hljs-variable">replayItem</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">JMenuItem</span>(<span class="hljs-string">&quot;重新游戏&quot;</span>);<br>        <span class="hljs-type">JMenuItem</span> <span class="hljs-variable">reLoginItem</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">JMenuItem</span>(<span class="hljs-string">&quot;重新登陆&quot;</span>);<br>        <span class="hljs-type">JMenuItem</span> <span class="hljs-variable">closeItem</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">JMenuItem</span>(<span class="hljs-string">&quot;关闭游戏&quot;</span>);<br>        <span class="hljs-type">JMenuItem</span> <span class="hljs-variable">accountItem</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">JMenuItem</span>(<span class="hljs-string">&quot;公众号&quot;</span>);<br><br>        <span class="hljs-comment">//将菜单里面的两个选项添加到菜单当中</span><br>        jMenuBar.add(functionJMenu);<br>        jMenuBar.add(aboutJMenu);<br><br>        <span class="hljs-comment">//将每一个选项下面的条目添加到选项中</span><br>        functionJMenu.add(replayItem);<br>        functionJMenu.add(reLoginItem);<br>        functionJMenu.add(closeItem);<br>        aboutJMenu.add(accountItem);<br><br>        <span class="hljs-comment">//给整个界面设置菜单</span><br>        <span class="hljs-built_in">this</span>.setJMenuBar(jMenuBar);<br>    &#125;<br>&#125;<br><br></code></pre></td></tr></table></figure>
-
-<h3 id="4-添加图片JLable"><a href="#4-添加图片JLable" class="headerlink" title="4. 添加图片JLable"></a>4. 添加图片<code>JLable</code></h3><h4 id="1-界面效果-2"><a href="#1-界面效果-2" class="headerlink" title="1. 界面效果"></a>1. 界面效果</h4><div style="text-align:center;gap:5px">
-    <img src="/img/java_pic/29.png" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:60%;">
-</div>
-
-<ul>
-<li>在上图中，其实是15张小图片。我们在添加图片的时候，要把添加图片的操作重复15次，才能把所有图片都添加到界面当中。</li>
-</ul>
-<h4 id="2-JLable管理容器"><a href="#2-JLable管理容器" class="headerlink" title="2. JLable管理容器*"></a>2. <code>JLable</code>管理容器*</h4><h5 id="1-作用"><a href="#1-作用" class="headerlink" title="1. 作用"></a>1. 作用</h5><p>作为管理容器，用于管理图片、文字的类，可以用来设置位置、宽高</p>
-<h5 id="2-创建文字容器"><a href="#2-创建文字容器" class="headerlink" title="2. 创建文字容器"></a>2. 创建文字容器</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-type">JLabel</span> <span class="hljs-variable">textJLabel</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">JLabel</span>(<span class="hljs-string">&quot;这是文本提示&quot;</span>);<br></code></pre></td></tr></table></figure>
-
-<h5 id="3-创建图片容器"><a href="#3-创建图片容器" class="headerlink" title="3. 创建图片容器"></a>3. 创建图片容器</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-type">JLabel</span> <span class="hljs-variable">imgJLabel</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">JLabel</span>(<span class="hljs-keyword">new</span> <span class="hljs-title class_">ImageIcon</span>(<span class="hljs-string">&quot;url&quot;</span>));<br></code></pre></td></tr></table></figure>
-
-<h5 id="4-指定图片位置、宽高"><a href="#4-指定图片位置、宽高" class="headerlink" title="4. 指定图片位置、宽高"></a>4. 指定图片位置、宽高</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs java">imgJLabel.setBounds(<span class="hljs-number">10</span>, <span class="hljs-number">10</span>, <span class="hljs-number">10</span>, <span class="hljs-number">10</span>);<br></code></pre></td></tr></table></figure>
-
-<h5 id="5-将容器添加到界面中"><a href="#5-将容器添加到界面中" class="headerlink" title="5. 将容器添加到界面中"></a>5. 将容器添加到界面中</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-built_in">this</span>.getContentPane().add(imgJLabel);<br></code></pre></td></tr></table></figure>
-
-
-
-<h4 id="3-位置坐标"><a href="#3-位置坐标" class="headerlink" title="3. 位置坐标"></a>3. 位置坐标</h4><div style="text-align:center;gap:5px">
-    <img src="/img/java_pic/30.png" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:60%;">
-</div>
-
-
-
-<p>界面左上角的点可以看做是坐标的原点，横向的是X轴，纵向的是Y轴。</p>
-<p>图片的位置其实取决于图片左上角的点，在坐标中的位置。</p>
-<p>如果是（0,0）那么该图片会显示再屏幕的左上角。</p>
-<h4 id="4-代码书写"><a href="#4-代码书写" class="headerlink" title="4. 代码书写"></a>4. 代码书写</h4><p><code>GameJFrame</code></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.itheima.ui;<br><br><span class="hljs-keyword">import</span> javax.swing.*;<br><br><span class="hljs-comment">//游戏主界面</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">GameJFrame</span> <span class="hljs-keyword">extends</span> <span class="hljs-title class_">JFrame</span> &#123;<br><br>    <span class="hljs-keyword">public</span> <span class="hljs-title function_">GameJFrame</span><span class="hljs-params">()</span> &#123;<br>        <span class="hljs-comment">//初始化图片</span><br>        initImage();<br><br>        <span class="hljs-comment">//让界面显示出来，建议写在最后</span><br>        <span class="hljs-built_in">this</span>.setVisible(<span class="hljs-literal">true</span>);<br>    &#125;    <br>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">initImage</span><span class="hljs-params">()</span>&#123;<br>        <span class="hljs-type">int</span> <span class="hljs-variable">number</span> <span class="hljs-operator">=</span> <span class="hljs-number">1</span>;<br>        <span class="hljs-comment">//外循环 --- 把内循环重复执行了4次</span><br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">4</span>; i++) &#123;<br>            <span class="hljs-comment">//内循环 --- 表示在一行添加4张图片</span><br>            <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">j</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; j &lt; <span class="hljs-number">4</span>; j++) &#123;<br>                <span class="hljs-comment">//创建一个JLabel的对象（管理容器）</span><br>                <span class="hljs-type">JLabel</span> <span class="hljs-variable">jLabel</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">JLabel</span>(<span class="hljs-keyword">new</span> <span class="hljs-title class_">ImageIcon</span>(<span class="hljs-string">&quot;/Users/zhangchen/Documents/java_project/test01/puzzlegame1/image/animal/animal1/&quot;</span>+number+<span class="hljs-string">&quot;.jpg&quot;</span>));<br>                <span class="hljs-comment">//指定图片位置</span><br>                jLabel.setBounds(<span class="hljs-number">105</span>*j, <span class="hljs-number">105</span>*i, <span class="hljs-number">105</span>,<span class="hljs-number">105</span>);<br>                <span class="hljs-comment">//把管理容器添加到界面中</span><br>                <span class="hljs-built_in">this</span>.getContentPane().add(jLabel);<br>                <span class="hljs-comment">//添加一次之后number需要自增，表示下一次加载后面一张图片</span><br>                number++;<br>            &#125;<br>        &#125;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
-
-
-
-<h3 id="5-设置事件"><a href="#5-设置事件" class="headerlink" title="5. 设置事件"></a>5. 设置事件</h3><h4 id="1-常见的三种事件监听"><a href="#1-常见的三种事件监听" class="headerlink" title="1. 常见的三种事件监听"></a>1. 常见的三种事件监听</h4><ul>
-<li>键盘监听 KeyListener</li>
-<li>鼠标监听 MouseListener</li>
-<li>动作监听 ActionListener</li>
-</ul>
-<h4 id="2-本类添加事件监听接口"><a href="#2-本类添加事件监听接口" class="headerlink" title="2. 本类添加事件监听接口"></a>2. 本类添加事件监听接口</h4><ul>
-<li>第一步</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">MyJFrame</span> <span class="hljs-keyword">extends</span> <span class="hljs-title class_">JFrame</span> <span class="hljs-keyword">implements</span> <span class="hljs-title class_">ActionListener</span>, MouseListener, KeyListener &#123;<br>&#125;<br></code></pre></td></tr></table></figure>
-
-<ul>
-<li>第二步</li>
-</ul>
-<div style="text-align:center;gap:5px">
-    <img src="/img/java_pic/33.png" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:16%;">
-    <img src="/img/java_pic/34.png" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:16%;">
-    <img src="/img/java_pic/35.png" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:16%;">
-</div>
-
-
-<h4 id="3-动作监听ActionListener"><a href="#3-动作监听ActionListener" class="headerlink" title="3. 动作监听ActionListener"></a>3. 动作监听<code>ActionListener</code></h4><h5 id="1-方法摘要"><a href="#1-方法摘要" class="headerlink" title="1.方法摘要"></a>1.方法摘要</h5><table>
-<thead>
-<tr>
-<th>Modifier and Type</th>
-<th>方法</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>void</td>
-<td>actionPerformed(ActionEvent e)</td>
-<td>鼠标左键点击 &#x2F; 按空格</td>
-</tr>
-</tbody></table>
-<ul>
-<li>相当于简化版的鼠标监听功能</li>
-</ul>
-<h5 id="2-JavaBean"><a href="#2-JavaBean" class="headerlink" title="2. JavaBean"></a>2. <code>JavaBean</code></h5><p><mark>鼠标在<code>public class</code>处，按键<code>option+回车</code>，会自动生成下方<code>@Override</code>代码</mark></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">MyJFrame</span> <span class="hljs-keyword">extends</span> <span class="hljs-title class_">JFrame</span> <span class="hljs-keyword">implements</span> <span class="hljs-title class_">ActionListener</span> &#123;<br><br>    <span class="hljs-comment">//创建一个按钮对象</span><br>    <span class="hljs-type">JButton</span> <span class="hljs-variable">jtb1</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">JButton</span>(<span class="hljs-string">&quot;点我啊&quot;</span>);<br>    <span class="hljs-comment">//创建一个按钮对象</span><br>    <span class="hljs-type">JButton</span> <span class="hljs-variable">jtb2</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">JButton</span>(<span class="hljs-string">&quot;再点我啊&quot;</span>);<br><br>    <span class="hljs-keyword">public</span> <span class="hljs-title function_">MyJFrame</span><span class="hljs-params">()</span>&#123;<br>        <span class="hljs-type">JFrame</span> <span class="hljs-variable">jFrame</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">JFrame</span>();<br>        ...<br><br>        <span class="hljs-comment">//给按钮设置位置和宽高</span><br>        jtb1.setBounds(<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">100</span>,<span class="hljs-number">50</span>);<br>        <span class="hljs-comment">//给按钮添加事件</span><br>        jtb1.addActionListener(<span class="hljs-built_in">this</span>);<br><br>        <span class="hljs-comment">//给按钮设置位置和宽高</span><br>        jtb2.setBounds(<span class="hljs-number">100</span>,<span class="hljs-number">0</span>,<span class="hljs-number">100</span>,<span class="hljs-number">50</span>);<br>        jtb2.addActionListener(<span class="hljs-built_in">this</span>);<br><br>        <span class="hljs-comment">//那按钮添加到整个界面当中</span><br>        <span class="hljs-built_in">this</span>.getContentPane().add(jtb1);<br>        <span class="hljs-built_in">this</span>.getContentPane().add(jtb2);<br><br>        <span class="hljs-comment">//让整个界面显示出来</span><br>        <span class="hljs-built_in">this</span>.setVisible(<span class="hljs-literal">true</span>);<br>    &#125;<br><br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">actionPerformed</span><span class="hljs-params">(ActionEvent e)</span> &#123;<br>        <span class="hljs-comment">//对当前的按钮进行判断</span><br><br>        <span class="hljs-comment">//获取当前被操作的那个按钮对象</span><br>        <span class="hljs-type">Object</span> <span class="hljs-variable">source</span> <span class="hljs-operator">=</span> e.getSource();<br><br>        <span class="hljs-keyword">if</span>(source == jtb1)&#123;<br>            jtb1.setSize(<span class="hljs-number">200</span>,<span class="hljs-number">200</span>);<br>        &#125;<span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(source == jtb2)&#123;<br>            <span class="hljs-type">Random</span> <span class="hljs-variable">r</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Random</span>();<br>            jtb2.setLocation(r.nextInt(<span class="hljs-number">500</span>),r.nextInt(<span class="hljs-number">500</span>));<br>        &#125;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
-
-
-
-<h4 id="4-鼠标监听MouseListener"><a href="#4-鼠标监听MouseListener" class="headerlink" title="4. 鼠标监听MouseListener"></a>4. 鼠标监听<code>MouseListener</code></h4><h5 id="1-方法摘要-1"><a href="#1-方法摘要-1" class="headerlink" title="1.方法摘要"></a>1.方法摘要</h5><table>
-<thead>
-<tr>
-<th>Modifier and Type</th>
-<th>方法</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>void</td>
-<td>mouseClicked(MouseEvent e)</td>
-<td>鼠标单击</td>
-</tr>
-<tr>
-<td>void</td>
-<td>mousePressed(MouseEvent e)</td>
-<td>鼠标按下不松</td>
-</tr>
-<tr>
-<td>void</td>
-<td>mouseReleased(MouseEvent e)</td>
-<td>鼠标松开</td>
-</tr>
-<tr>
-<td>void</td>
-<td>mouseEntered(MouseEvent e)</td>
-<td>鼠标滑入</td>
-</tr>
-<tr>
-<td>void</td>
-<td>mouseExited(MouseEvent e)</td>
-<td>鼠标滑出</td>
-</tr>
-</tbody></table>
-<h5 id="2-JavaBean-1"><a href="#2-JavaBean-1" class="headerlink" title="2. JavaBean"></a>2. <code>JavaBean</code></h5><p><mark>鼠标在<code>public class</code>处，按键<code>option+回车</code>，会自动生成下方<code>@Override</code>代码</mark></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.itheima.test;<br><br><span class="hljs-keyword">import</span> javax.swing.*;<br><span class="hljs-keyword">import</span> java.awt.event.MouseEvent;<br><span class="hljs-keyword">import</span> java.awt.event.MouseListener;<br><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Test01</span> <span class="hljs-keyword">extends</span> <span class="hljs-title class_">JFrame</span> <span class="hljs-keyword">implements</span> <span class="hljs-title class_">MouseListener</span> &#123;<br>    <span class="hljs-comment">// 创建一个点击对象</span><br>    <span class="hljs-type">JButton</span> <span class="hljs-variable">jtb1</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">JButton</span>(<span class="hljs-string">&quot;点击&quot;</span>);<br>    <span class="hljs-keyword">public</span> <span class="hljs-title function_">Test01</span><span class="hljs-params">()</span> &#123;<br>        <span class="hljs-type">JFrame</span> <span class="hljs-variable">jFrame</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">JFrame</span>();<br>        ...<br><br>        <span class="hljs-comment">//设置位置和宽高</span><br>        jtb1.setBounds(<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">100</span>,<span class="hljs-number">50</span>);<br>        <span class="hljs-comment">//给按钮绑定鼠标事件</span><br>        jtb1.addMouseListener(<span class="hljs-built_in">this</span>);<br><br><br>        <span class="hljs-comment">//把按钮添加到界面当中</span><br>        jFrame.getContentPane().add(jtb1);<br>        jFrame.setVisible(<span class="hljs-literal">true</span>);<br>    &#125;<br><br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">mouseClicked</span><span class="hljs-params">(MouseEvent e)</span> &#123;<br>        System.out.println(<span class="hljs-string">&quot;鼠标单击&quot;</span>);<br>    &#125;<br><br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">mousePressed</span><span class="hljs-params">(MouseEvent e)</span> &#123;<br>        System.out.println(<span class="hljs-string">&quot;鼠标按下不松&quot;</span>);<br>    &#125;<br><br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">mouseReleased</span><span class="hljs-params">(MouseEvent e)</span> &#123;<br>        System.out.println(<span class="hljs-string">&quot;鼠标松开&quot;</span>);<br>    &#125;<br><br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">mouseEntered</span><span class="hljs-params">(MouseEvent e)</span> &#123;<br>        System.out.println(<span class="hljs-string">&quot;鼠标滑入&quot;</span>);<br>    &#125;<br><br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">mouseExited</span><span class="hljs-params">(MouseEvent e)</span> &#123;<br>        System.out.println(<span class="hljs-string">&quot;鼠标滑出&quot;</span>);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
-
-
-
-<h4 id="5-键盘监听KeyListener"><a href="#5-键盘监听KeyListener" class="headerlink" title="5. 键盘监听KeyListener"></a>5. 键盘监听<code>KeyListener</code></h4><h5 id="1-方法摘要-2"><a href="#1-方法摘要-2" class="headerlink" title="1.方法摘要"></a>1.方法摘要</h5><table>
-<thead>
-<tr>
-<th>Modifier and Type</th>
-<th>方法</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>void</td>
-<td>keyPressed(KeyEvent e)</td>
-<td>键盘按下不松手</td>
-</tr>
-<tr>
-<td>void</td>
-<td>keyReleased(KeyEvent e)</td>
-<td>松开键盘按键</td>
-</tr>
-</tbody></table>
-<h5 id="2-JavaBean-2"><a href="#2-JavaBean-2" class="headerlink" title="2. JavaBean"></a>2. <code>JavaBean</code></h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.itheima.test;<br><br><span class="hljs-keyword">import</span> javax.swing.*;<br><span class="hljs-keyword">import</span> java.awt.event.KeyEvent;<br><span class="hljs-keyword">import</span> java.awt.event.KeyListener;<br><br><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Test02</span> <span class="hljs-keyword">extends</span> <span class="hljs-title class_">JFrame</span> <span class="hljs-keyword">implements</span> <span class="hljs-title class_">KeyListener</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-title function_">Test02</span><span class="hljs-params">()</span> &#123;<br>        <span class="hljs-type">JFrame</span> <span class="hljs-variable">jFrame</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">JFrame</span>();<br>        ...<br><br>        <span class="hljs-comment">//给整个窗体添加键盘监听</span><br>        <span class="hljs-comment">//调用者this，本类对象，当前的界面对象，表示我要给整个界面添加监听</span><br>        <span class="hljs-comment">//addKeyListener:表示要给本界面添加键盘监听</span><br>        <span class="hljs-comment">//参数this：当事件被触发之后，会执行本类中的对应代码</span><br>        jFrame.addKeyListener(<span class="hljs-built_in">this</span>);<br><br>        jFrame.setVisible(<span class="hljs-literal">true</span>);<br>    &#125;<br><br>	<span class="hljs-comment">//几乎不使用此功能</span><br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">keyTyped</span><span class="hljs-params">(KeyEvent e)</span> &#123;<br>    &#125;<br><br>    <span class="hljs-comment">//细节1：如果我们按下一个按键没有松开，那么会重复的去调用keyPressed方法</span><br>    <span class="hljs-comment">//细节2：键盘里面那么多按键，如何进行区分？ - 每一个按键都有一个编号与之对应</span><br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">keyPressed</span><span class="hljs-params">(KeyEvent e)</span> &#123;<br>        System.out.println(<span class="hljs-string">&quot;按下不松&quot;</span>);<br>    &#125;<br><br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">keyReleased</span><span class="hljs-params">(KeyEvent e)</span> &#123;<br>        System.out.println(<span class="hljs-string">&quot;按下松开&quot;</span>);<br>        <span class="hljs-comment">// 获取键盘上每一个按键的编号</span><br>        <span class="hljs-type">int</span> <span class="hljs-variable">code</span> <span class="hljs-operator">=</span> e.getKeyCode();<br>        System.out.println(code);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
-
-
-
-<h3 id="6-美化图片"><a href="#6-美化图片" class="headerlink" title="6. 美化图片"></a>6. 美化图片</h3><h4 id="1-主要工作"><a href="#1-主要工作" class="headerlink" title="1.主要工作"></a>1.主要工作</h4><ol>
-<li><p>将15张小图片移动到界面的中央偏下方</p>
-<p>整体在x、y轴进行偏移</p>
-</li>
-<li><p>添加背景图片</p>
-<p>细节：代码中先加载的图片在在最上面，后加载的图片在下边</p>
-</li>
-<li><p>添加图片的边框</p>
-<p><code>jLabel.setBorder(new BevelBorder(1));</code></p>
-</li>
-<li><p>优化路径</p>
-<p>相对路径：<code>puzzlegame1/image/background.png</code></p>
-<p>绝对路径：<code>/Users/zhangchen/Documents/java_project/test01/puzzlegame1/image/background.png</code></p>
-</li>
-</ol>
-<h4 id="2-JavaBean-3"><a href="#2-JavaBean-3" class="headerlink" title="2. JavaBean"></a>2. <code>JavaBean</code></h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.itheima.ui;<br><br><span class="hljs-keyword">import</span> javax.swing.*;<br><span class="hljs-keyword">import</span> javax.swing.border.BevelBorder;<br><span class="hljs-keyword">import</span> java.util.Random;<br><br><span class="hljs-comment">//游戏主界面</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">GameJFrame</span> <span class="hljs-keyword">extends</span> <span class="hljs-title class_">JFrame</span> &#123;<br><br>    <span class="hljs-comment">//创建一个二维数组</span><br>    <span class="hljs-comment">//目的：用来管理数据</span><br>    <span class="hljs-comment">//加载图片的时候，会根据二维数组中的数据进行加载</span><br>    <span class="hljs-type">int</span>[][] data = <span class="hljs-keyword">new</span> <span class="hljs-title class_">int</span>[<span class="hljs-number">4</span>][<span class="hljs-number">4</span>];<br><br>    <span class="hljs-keyword">public</span> <span class="hljs-title function_">GameJFrame</span><span class="hljs-params">()</span> &#123;<br><br>        <span class="hljs-comment">//初始化菜单</span><br>        initJMenuBar();<br>        <br>        <span class="hljs-comment">//初始化数据（打乱）</span><br>        initDate();<br><br>        <span class="hljs-comment">//初始化图片</span><br>        initImage();<br><br>        <span class="hljs-comment">//让界面显示出来，建议写在最后</span><br>        <span class="hljs-built_in">this</span>.setVisible(<span class="hljs-literal">true</span>);<br>    &#125;<br><br>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">initDate</span><span class="hljs-params">()</span> &#123;<br>        <span class="hljs-comment">//1.定义一个一维数组</span><br>        <span class="hljs-type">int</span>[] tempArr = &#123;<span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>, <span class="hljs-number">6</span>, <span class="hljs-number">7</span>, <span class="hljs-number">8</span>, <span class="hljs-number">9</span>, <span class="hljs-number">10</span>, <span class="hljs-number">11</span>, <span class="hljs-number">12</span>, <span class="hljs-number">13</span>, <span class="hljs-number">14</span>, <span class="hljs-number">15</span>&#125;;<br>        <span class="hljs-comment">//2.打乱数组中的数据的顺序</span><br>        <span class="hljs-comment">//遍历数组，得到每一个元素，拿着每一个元素跟随机索引上的数据进行交换</span><br>        <span class="hljs-type">Random</span> <span class="hljs-variable">r</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Random</span>();<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; i &lt; tempArr.length; i++) &#123;<br>            <span class="hljs-comment">//获取到随机索引</span><br>            <span class="hljs-type">int</span> <span class="hljs-variable">index</span> <span class="hljs-operator">=</span> r.nextInt(tempArr.length);<br>            <span class="hljs-comment">//拿着遍历到的每一个数据，跟随机索引上的数据进行交换</span><br>            <span class="hljs-type">int</span> <span class="hljs-variable">temp</span> <span class="hljs-operator">=</span> tempArr[i];<br>            tempArr[i] = tempArr[index];<br>            tempArr[index] = temp;<br>        &#125;<br><br>        <span class="hljs-comment">//5.给二维数组添加数据</span><br>        <span class="hljs-comment">//遍历二维数组，给里面的每一个数据赋值</span><br>        <span class="hljs-type">int</span> <span class="hljs-variable">index</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; i &lt; data.length; i++) &#123;<br>            <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">j</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; j &lt; data[i].length; j++) &#123;<br>                data[i][j] = tempArr[index];<br>                index++;<br>            &#125;<br>        &#125;<br><br>        <span class="hljs-comment">//遍历二维数组</span><br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; i &lt; data.length; i++) &#123;<br>            <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">j</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; j &lt; data[i].length; j++) &#123;<br>                System.out.print(data[i][j] + <span class="hljs-string">&quot; &quot;</span>);<br>            &#125;<br>            System.out.println();<br>        &#125;<br>    &#125;<br><br>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">initJMenuBar</span><span class="hljs-params">()</span> &#123;<br>        <span class="hljs-comment">//创建整个的菜单对象</span><br>        <span class="hljs-type">JMenuBar</span> <span class="hljs-variable">jMenuBar</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">JMenuBar</span>();<br>        <span class="hljs-comment">//创建菜单上面的两个选项的对象  （功能 关于我们）</span><br>        <span class="hljs-type">JMenu</span> <span class="hljs-variable">functionJMenu</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">JMenu</span>(<span class="hljs-string">&quot;功能&quot;</span>);<br>        <span class="hljs-type">JMenu</span> <span class="hljs-variable">aboutJMenu</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">JMenu</span>(<span class="hljs-string">&quot;关于我们&quot;</span>);<br>        <span class="hljs-comment">//创建选项下面的条目对象</span><br>        <span class="hljs-type">JMenuItem</span> <span class="hljs-variable">replayItem</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">JMenuItem</span>(<span class="hljs-string">&quot;重新游戏&quot;</span>);<br>        <span class="hljs-type">JMenuItem</span> <span class="hljs-variable">reLoginItem</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">JMenuItem</span>(<span class="hljs-string">&quot;重新登陆&quot;</span>);<br>        <span class="hljs-type">JMenuItem</span> <span class="hljs-variable">closeItem</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">JMenuItem</span>(<span class="hljs-string">&quot;关闭游戏&quot;</span>);<br>        <span class="hljs-type">JMenuItem</span> <span class="hljs-variable">accountItem</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">JMenuItem</span>(<span class="hljs-string">&quot;公众号&quot;</span>);<br><br>        <span class="hljs-comment">//将菜单里面的两个选项添加到菜单当中</span><br>        jMenuBar.add(functionJMenu);<br>        jMenuBar.add(aboutJMenu);<br><br>        <span class="hljs-comment">//将每一个选项下面的条目添加到选项中</span><br>        functionJMenu.add(replayItem);<br>        functionJMenu.add(reLoginItem);<br>        functionJMenu.add(closeItem);<br>        aboutJMenu.add(accountItem);<br><br>        <span class="hljs-comment">//给整个界面设置菜单</span><br>        <span class="hljs-built_in">this</span>.setJMenuBar(jMenuBar);<br>    &#125;<br><br>    <span class="hljs-comment">//初始化图片</span><br>    <span class="hljs-comment">//添加图片的时候，就需要按照二维数组中管理的数据添加图片</span><br>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">initImage</span><span class="hljs-params">()</span>&#123;<br>        <span class="hljs-comment">//细节：代码中先加载的图片在在最上面，后加载的图片在下边</span><br><br><br>        <span class="hljs-comment">//外循环 --- 把内循环重复执行了4次</span><br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">4</span>; i++) &#123;<br>            <span class="hljs-comment">//内循环 --- 表示在一行添加4张图片</span><br>            <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">j</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; j &lt; <span class="hljs-number">4</span>; j++) &#123;<br>                <span class="hljs-comment">//获取当前要加载图片的序号</span><br>                <span class="hljs-type">int</span> <span class="hljs-variable">num</span> <span class="hljs-operator">=</span> data[i][j];<br>                <span class="hljs-comment">//创建一个JLabel的对象（管理容器）</span><br>                <span class="hljs-type">JLabel</span> <span class="hljs-variable">jLabel</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">JLabel</span>(<span class="hljs-keyword">new</span> <span class="hljs-title class_">ImageIcon</span>(<span class="hljs-string">&quot;puzzlegame1/image/animal/animal1/&quot;</span>+num+<span class="hljs-string">&quot;.jpg&quot;</span>));<br>                <span class="hljs-comment">//指定图片位置</span><br>                jLabel.setBounds(<span class="hljs-number">105</span>*j+<span class="hljs-number">83</span>, <span class="hljs-number">105</span>*i+<span class="hljs-number">134</span>, <span class="hljs-number">105</span>,<span class="hljs-number">105</span>);<br>                <span class="hljs-comment">//给图片添加边框</span><br>                jLabel.setBorder(<span class="hljs-keyword">new</span> <span class="hljs-title class_">BevelBorder</span>(<span class="hljs-number">1</span>));<br>                <span class="hljs-comment">//把管理容器添加到界面中</span><br>                <span class="hljs-built_in">this</span>.getContentPane().add(jLabel);<br>                <span class="hljs-comment">//添加一次之后number需要自增，表示下一次加载后面一张图片</span><br><span class="hljs-comment">//                number++;</span><br>            &#125;<br>        &#125;<br><br>        <span class="hljs-comment">//添加背景图片</span><br>        <span class="hljs-type">JLabel</span> <span class="hljs-variable">background</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">JLabel</span>(<span class="hljs-keyword">new</span> <span class="hljs-title class_">ImageIcon</span>(<span class="hljs-string">&quot;puzzlegame1/image/background.png&quot;</span>));<br>        background.setBounds(<span class="hljs-number">40</span>,<span class="hljs-number">40</span>,<span class="hljs-number">508</span>,<span class="hljs-number">560</span>);<br>        <span class="hljs-comment">//把背景图片添加到界面中</span><br>        <span class="hljs-built_in">this</span>.getContentPane().add(background);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
-
-
-
-<h4 id="3-Main"><a href="#3-Main" class="headerlink" title="3. Main"></a>3. <code>Main</code></h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">import</span> com.itheima.ui.GameJFrame;<br><span class="hljs-keyword">import</span> com.itheima.ui.LoginJFrame;<br><span class="hljs-keyword">import</span> com.itheima.ui.RegisterJFrame;<br><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">App</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> &#123;<br>        <span class="hljs-comment">//表示程序的启动入口</span><br>        <span class="hljs-comment">//如果我们想要开启一个界面，就创建谁的对象就可以了</span><br><span class="hljs-comment">//        new LoginJFrame();</span><br><span class="hljs-comment">//        new RegisterJFrame();</span><br>        <span class="hljs-keyword">new</span> <span class="hljs-title class_">GameJFrame</span>();<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
-
-
-
-<h3 id="7-移动图片"><a href="#7-移动图片" class="headerlink" title="7. 移动图片"></a>7. 移动图片</h3><ol>
-<li>本类实现<code>KeyListener</code>接口，并重写所有抽象方法</li>
-<li>给整个界面添加键盘监听事件</li>
-<li>统计一下空白方块对应的数字0在二维数组中的位置</li>
-<li>在<code>KeyReleased</code>方法当中实现移动的逻辑</li>
-<li>Bug修复：当空白方块在最下方时，无法再次进行上移等</li>
-</ol>
-<h4 id="1-JavaBean"><a href="#1-JavaBean" class="headerlink" title="1.JavaBean"></a>1.<code>JavaBean</code></h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">initJFrame</span><span class="hljs-params">()</span> &#123;<br>    <span class="hljs-comment">//设置界面的宽高</span><br>    <span class="hljs-built_in">this</span>.setSize(<span class="hljs-number">603</span>, <span class="hljs-number">680</span>);<br>    <span class="hljs-comment">//设置界面的标题</span><br>    <span class="hljs-built_in">this</span>.setTitle(<span class="hljs-string">&quot;拼图单机版 v1.0&quot;</span>);<br>    <span class="hljs-comment">//设置界面置顶</span><br>    <span class="hljs-built_in">this</span>.setAlwaysOnTop(<span class="hljs-literal">true</span>);<br>    <span class="hljs-comment">//设置界面居中</span><br>    <span class="hljs-built_in">this</span>.setLocationRelativeTo(<span class="hljs-literal">null</span>);<br>    <span class="hljs-comment">//设置关闭模式</span><br>    <span class="hljs-built_in">this</span>.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);<br>    <span class="hljs-comment">//取消默认的居中放置，只有取消类才会按照XY轴的形式添加组件</span><br>    <span class="hljs-built_in">this</span>.setLayout(<span class="hljs-literal">null</span>);<br>    <span class="hljs-comment">//给整个页面添加，键盘监听事件</span><br>    <span class="hljs-built_in">this</span>.addKeyListener(<span class="hljs-built_in">this</span>);<br>&#125;<br></code></pre></td></tr></table></figure>
-
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">//游戏主界面</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">GameJFrame</span> <span class="hljs-keyword">extends</span> <span class="hljs-title class_">JFrame</span> <span class="hljs-keyword">implements</span> <span class="hljs-title class_">KeyListener</span> &#123;<br><br>    <span class="hljs-comment">//创建一个二维数组</span><br>    <span class="hljs-comment">//目的：用来管理数据</span><br>    <span class="hljs-comment">//加载图片的时候，会根据二维数组中的数据进行加载</span><br>    <span class="hljs-type">int</span>[][] data = <span class="hljs-keyword">new</span> <span class="hljs-title class_">int</span>[<span class="hljs-number">4</span>][<span class="hljs-number">4</span>];<br><br>    <span class="hljs-comment">//记录空白方块在二维数组中的位置</span><br>    <span class="hljs-type">int</span> <span class="hljs-variable">x</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>;<br>    <span class="hljs-type">int</span> <span class="hljs-variable">y</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>;<br><br>    <span class="hljs-comment">//初始化图片</span><br>    <span class="hljs-comment">//添加图片的时候，就需要按照二维数组中管理的数据添加图片</span><br>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">initImage</span><span class="hljs-params">()</span>&#123;<br>        <span class="hljs-comment">// 清空原本已经出现的所有图片</span><br>        <span class="hljs-built_in">this</span>.getContentPane().removeAll();<br><br>        <span class="hljs-comment">//细节：代码中先加载的图片在在最上面，后加载的图片在下边</span><br>        <span class="hljs-comment">//外循环 --- 把内循环重复执行了4次</span><br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">4</span>; i++) &#123;<br>            <span class="hljs-comment">//内循环 --- 表示在一行添加4张图片</span><br>            <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">j</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; j &lt; <span class="hljs-number">4</span>; j++) &#123;<br>                <span class="hljs-comment">//获取当前要加载图片的序号</span><br>                <span class="hljs-type">int</span> <span class="hljs-variable">num</span> <span class="hljs-operator">=</span> data[i][j];<br>                <span class="hljs-comment">//创建一个JLabel的对象（管理容器）</span><br>                <span class="hljs-type">JLabel</span> <span class="hljs-variable">jLabel</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">JLabel</span>(<span class="hljs-keyword">new</span> <span class="hljs-title class_">ImageIcon</span>(<span class="hljs-string">&quot;puzzlegame1/image/animal/animal1/&quot;</span>+num+<span class="hljs-string">&quot;.jpg&quot;</span>));<br>                <span class="hljs-comment">//指定图片位置</span><br>                jLabel.setBounds(<span class="hljs-number">105</span>*j+<span class="hljs-number">83</span>, <span class="hljs-number">105</span>*i+<span class="hljs-number">134</span>, <span class="hljs-number">105</span>,<span class="hljs-number">105</span>);<br>                <span class="hljs-comment">//给图片添加边框</span><br>                jLabel.setBorder(<span class="hljs-keyword">new</span> <span class="hljs-title class_">BevelBorder</span>(<span class="hljs-number">1</span>));<br>                <span class="hljs-comment">//把管理容器添加到界面中</span><br>                <span class="hljs-built_in">this</span>.getContentPane().add(jLabel);<br>            &#125;<br>        &#125;<br><br>        <span class="hljs-comment">//添加背景图片</span><br>        <span class="hljs-type">JLabel</span> <span class="hljs-variable">background</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">JLabel</span>(<span class="hljs-keyword">new</span> <span class="hljs-title class_">ImageIcon</span>(<span class="hljs-string">&quot;puzzlegame1/image/background.png&quot;</span>));<br>        background.setBounds(<span class="hljs-number">40</span>,<span class="hljs-number">40</span>,<span class="hljs-number">508</span>,<span class="hljs-number">560</span>);<br>        <span class="hljs-comment">//把背景图片添加到界面中</span><br>        <span class="hljs-built_in">this</span>.getContentPane().add(background);<br><br>        <span class="hljs-comment">//刷新一下图片</span><br>        <span class="hljs-built_in">this</span>.getContentPane().repaint();<br>    &#125;<br></code></pre></td></tr></table></figure>
-
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Override</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">keyReleased</span><span class="hljs-params">(KeyEvent e)</span> &#123;<br>    <span class="hljs-comment">// 对上、下、左、右进行判断</span><br>    <span class="hljs-comment">//左：37 ｜ 上：38 ｜ 右：39 ｜ 下：40</span><br>    <span class="hljs-type">int</span> <span class="hljs-variable">code</span> <span class="hljs-operator">=</span> e.getKeyCode();<br>    System.out.println(<span class="hljs-string">&quot;code,&quot;</span>+code);<br>    <span class="hljs-keyword">if</span> (code == <span class="hljs-number">37</span>)&#123;<br>        System.out.println(<span class="hljs-string">&quot;向左移动&quot;</span>);<br>        <span class="hljs-keyword">if</span> (y==<span class="hljs-number">3</span>)&#123;<br>            <span class="hljs-keyword">return</span>;<br>        &#125;<br>        data[x][y] = data[x][y+<span class="hljs-number">1</span>];<br>        data[x][y+<span class="hljs-number">1</span>] = <span class="hljs-number">0</span>;<br>        y++;<br>        initImage();<br>    &#125;<span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(code == <span class="hljs-number">38</span>)&#123;<br>        System.out.println(<span class="hljs-string">&quot;向上移动&quot;</span>);<br>        <span class="hljs-comment">//表示空白方块已经在最下方了，他的相面没有图片可以再移动了</span><br>        <span class="hljs-keyword">if</span> (x==<span class="hljs-number">3</span>)&#123;<br>            <span class="hljs-keyword">return</span>;<br>        &#125;<br>        <span class="hljs-comment">// 逻辑：把空白方块下方的数字向上移动</span><br>        <span class="hljs-comment">// x，y 表示空白方块</span><br>        <span class="hljs-comment">// x+1，y 表示空白方块下方的数字</span><br><br>        <span class="hljs-comment">// 把空白方块下方的数字赋值给空白方块</span><br>        data[x][y] = data[x+<span class="hljs-number">1</span>][y];<br>        data[x+<span class="hljs-number">1</span>][y] = <span class="hljs-number">0</span>;<br>        x++;<br>        <span class="hljs-comment">//调用方法按照最新的数字进行加载</span><br>        initImage();<br>    &#125;<span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(code == <span class="hljs-number">39</span>)&#123;<br>        System.out.println(<span class="hljs-string">&quot;向右移动&quot;</span>);<br>        <span class="hljs-keyword">if</span> (y==<span class="hljs-number">0</span>)&#123;<br>            <span class="hljs-keyword">return</span>;<br>        &#125;<br>        data[x][y] = data[x][y-<span class="hljs-number">1</span>];<br>        data[x][y-<span class="hljs-number">1</span>] = <span class="hljs-number">0</span>;<br>        y--;<br>        <span class="hljs-comment">//调用方法按照最新的数字进行加载</span><br>        initImage();<br>    &#125;<span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(code == <span class="hljs-number">40</span>)&#123;<br>        System.out.println(<span class="hljs-string">&quot;向下移动&quot;</span>);<br>        <span class="hljs-keyword">if</span> (x==<span class="hljs-number">0</span>)&#123;<br>            <span class="hljs-keyword">return</span>;<br>        &#125;<br>        data[x][y] = data[x-<span class="hljs-number">1</span>][y];<br>        data[x-<span class="hljs-number">1</span>][y] = <span class="hljs-number">0</span>;<br>        x--;<br>        <span class="hljs-comment">//调用方法按照最新的数字进行加载</span><br>        initImage();<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
-
-
-
-<h3 id="8-查看完整图片"><a href="#8-查看完整图片" class="headerlink" title="8. 查看完整图片"></a>8. 查看完整图片</h3><ul>
-<li>当按住A不松时，显示完整图片</li>
-<li>松开A显示随机打乱的图片</li>
-</ul>
-<h4 id="1-JavaBean-1"><a href="#1-JavaBean-1" class="headerlink" title="1.JavaBean"></a>1.<code>JavaBean</code></h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">initJFrame</span><span class="hljs-params">()</span> &#123;<br>    <span class="hljs-comment">//设置界面的宽高</span><br>    <span class="hljs-built_in">this</span>.setSize(<span class="hljs-number">603</span>, <span class="hljs-number">680</span>);<br>    <span class="hljs-comment">//设置界面的标题</span><br>    <span class="hljs-built_in">this</span>.setTitle(<span class="hljs-string">&quot;拼图单机版 v1.0&quot;</span>);<br>    <span class="hljs-comment">//设置界面置顶</span><br>    <span class="hljs-built_in">this</span>.setAlwaysOnTop(<span class="hljs-literal">true</span>);<br>    <span class="hljs-comment">//设置界面居中</span><br>    <span class="hljs-built_in">this</span>.setLocationRelativeTo(<span class="hljs-literal">null</span>);<br>    <span class="hljs-comment">//设置关闭模式</span><br>    <span class="hljs-built_in">this</span>.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);<br>    <span class="hljs-comment">//取消默认的居中放置，只有取消类才会按照XY轴的形式添加组件</span><br>    <span class="hljs-built_in">this</span>.setLayout(<span class="hljs-literal">null</span>);<br>    <span class="hljs-comment">//给整个页面添加，键盘监听事件</span><br>    <span class="hljs-built_in">this</span>.addKeyListener(<span class="hljs-built_in">this</span>);<br>&#125;<br></code></pre></td></tr></table></figure>
-
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Override</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">keyPressed</span><span class="hljs-params">(KeyEvent e)</span> &#123;<br>    <span class="hljs-type">int</span> <span class="hljs-variable">code</span> <span class="hljs-operator">=</span> e.getKeyCode();<br>    <span class="hljs-keyword">if</span> (code==<span class="hljs-number">65</span>)&#123;<br>        <span class="hljs-comment">//把界面所有的图片全部删除</span><br>        <span class="hljs-built_in">this</span>.getContentPane().removeAll();<br>        <span class="hljs-comment">//加载第一张完整的图片</span><br>        <span class="hljs-type">JLabel</span> <span class="hljs-variable">all</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">JLabel</span>(<span class="hljs-keyword">new</span> <span class="hljs-title class_">ImageIcon</span>(path+<span class="hljs-string">&quot;/all.jpg&quot;</span>));<br>        all.setBounds(<span class="hljs-number">83</span>, <span class="hljs-number">134</span>, <span class="hljs-number">420</span>, <span class="hljs-number">420</span>);<br>        <span class="hljs-built_in">this</span>.getContentPane().add(all);<br>        <span class="hljs-comment">//加载背景界面</span><br>        <span class="hljs-comment">//添加背景图片</span><br>        <span class="hljs-type">JLabel</span> <span class="hljs-variable">background</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">JLabel</span>(<span class="hljs-keyword">new</span> <span class="hljs-title class_">ImageIcon</span>(<span class="hljs-string">&quot;puzzlegame1/image/background.png&quot;</span>));<br>        background.setBounds(<span class="hljs-number">40</span>,<span class="hljs-number">40</span>,<span class="hljs-number">508</span>,<span class="hljs-number">560</span>);<br>        <span class="hljs-comment">//把背景图片添加到界面中</span><br>        <span class="hljs-built_in">this</span>.getContentPane().add(background);<br><br>        <span class="hljs-comment">//刷新一下图片</span><br>        <span class="hljs-built_in">this</span>.getContentPane().repaint();<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
-
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Override</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">keyReleased</span><span class="hljs-params">(KeyEvent e)</span> &#123;<br>    <span class="hljs-type">int</span> <span class="hljs-variable">code</span> <span class="hljs-operator">=</span> e.getKeyCode();<br>    System.out.println(<span class="hljs-string">&quot;code,&quot;</span>+code);<br>    <span class="hljs-keyword">if</span> (..)&#123;<br>        ...<br>    &#125;<span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(code==<span class="hljs-number">65</span>)&#123;<br>        initImage();<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
-
-<h3 id="9-作弊码"><a href="#9-作弊码" class="headerlink" title="9. 作弊码"></a>9. 作弊码</h3><ol>
-<li><code>JavaBean</code></li>
-</ol>
-<p>按一下W直接胜利</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Override</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">keyReleased</span><span class="hljs-params">(KeyEvent e)</span> &#123;<br>    <span class="hljs-type">int</span> <span class="hljs-variable">code</span> <span class="hljs-operator">=</span> e.getKeyCode();<br>    System.out.println(<span class="hljs-string">&quot;code,&quot;</span>+code);<br>    <span class="hljs-keyword">if</span> (..)&#123;<br>        ...<br>    &#125;<span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(code==<span class="hljs-number">87</span>)&#123;<br>        <span class="hljs-comment">//作弊码-w键</span><br>        data = <span class="hljs-keyword">new</span> <span class="hljs-title class_">int</span>[][]&#123;<br>                &#123;<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>&#125;,<br>                &#123;<span class="hljs-number">5</span>,<span class="hljs-number">6</span>,<span class="hljs-number">7</span>,<span class="hljs-number">8</span>&#125;,<br>                &#123;<span class="hljs-number">9</span>,<span class="hljs-number">10</span>,<span class="hljs-number">11</span>,<span class="hljs-number">12</span>&#125;,<br>                &#123;<span class="hljs-number">13</span>,<span class="hljs-number">14</span>,<span class="hljs-number">15</span>,<span class="hljs-number">0</span>&#125;,<br>        &#125;;<br>        initImage();<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
-
-<h3 id="10-判断胜利"><a href="#10-判断胜利" class="headerlink" title="10. 判断胜利"></a>10. 判断胜利</h3><ol>
-<li><code>JavaBean</code></li>
-</ol>
-<p>判断二维数组中的数字是否按照顺序进行排列，如果排列正确，则显示胜利的图片</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">//定义正确数组，用于胜利判断</span><br><span class="hljs-type">int</span> [][]win =&#123;<br>    &#123;<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>&#125;,<br>    &#123;<span class="hljs-number">5</span>,<span class="hljs-number">6</span>,<span class="hljs-number">7</span>,<span class="hljs-number">8</span>&#125;,<br>    &#123;<span class="hljs-number">9</span>,<span class="hljs-number">10</span>,<span class="hljs-number">11</span>,<span class="hljs-number">12</span>&#125;,<br>    &#123;<span class="hljs-number">13</span>,<span class="hljs-number">14</span>,<span class="hljs-number">15</span>,<span class="hljs-number">0</span>&#125;,<br>&#125;;<br></code></pre></td></tr></table></figure>
-
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">//初始化图片</span><br>    <br><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">initImage</span><span class="hljs-params">()</span>&#123;<br>    <span class="hljs-comment">// 清空原本已经出现的所有图片</span><br>    <span class="hljs-built_in">this</span>.getContentPane().removeAll();<br>    <span class="hljs-keyword">if</span>(victory())&#123;<br>        <span class="hljs-comment">//显示胜利图标</span><br>        <span class="hljs-type">JLabel</span> <span class="hljs-variable">winLable</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">JLabel</span>(<span class="hljs-keyword">new</span> <span class="hljs-title class_">ImageIcon</span>(<span class="hljs-string">&quot;/Users/zhangchen/Documents/java_project/test01/puzzlegame1/image/win.png&quot;</span>));<br>        winLable.setBounds(<span class="hljs-number">203</span>,<span class="hljs-number">283</span>,<span class="hljs-number">197</span>,<span class="hljs-number">73</span>);<br>        <span class="hljs-built_in">this</span>.getContentPane().add(winLable);<br>    &#125;<br>    ...<br>&#125;<br></code></pre></td></tr></table></figure>
-
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">//判断data数组中的数据是否跟win数组中相同</span><br><span class="hljs-comment">//如果全部相同，返回true，否则返回false</span><br><span class="hljs-keyword">public</span> <span class="hljs-type">boolean</span> <span class="hljs-title function_">victory</span><span class="hljs-params">()</span>&#123;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; i &lt; data.length; i++) &#123;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">j</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; j &lt; data[i].length; j++) &#123;<br>            <span class="hljs-keyword">if</span>(data[i][j] != win[i][j])&#123;<br>                <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;<br>            &#125;<br>        &#125;<br>    &#125;<br>    <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
-
-
-
-<h3 id="11-记步功能"><a href="#11-记步功能" class="headerlink" title="11.记步功能"></a>11.记步功能</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">//定义变量，用来统计步数</span><br><span class="hljs-type">int</span> <span class="hljs-variable">step</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>;<br></code></pre></td></tr></table></figure>
-
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">initImage</span><span class="hljs-params">()</span>&#123;<br>    ...<br>    <span class="hljs-comment">// 添加管理容器至图像中</span><br>    <span class="hljs-type">JLabel</span> <span class="hljs-variable">stepCount</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">JLabel</span>(<span class="hljs-string">&quot;步数：&quot;</span> + step);<br>    stepCount.setBounds(<span class="hljs-number">50</span>,<span class="hljs-number">30</span>,<span class="hljs-number">100</span>,<span class="hljs-number">20</span>);<br>    <span class="hljs-built_in">this</span>.getContentPane().add(stepCount);<br>    ...<br>&#125;<br></code></pre></td></tr></table></figure>
-
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Override</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">keyReleased</span><span class="hljs-params">(KeyEvent e)</span> &#123;<br>    <span class="hljs-comment">// 每次移动图片都增加步数</span><br>    <span class="hljs-keyword">if</span> (code == <span class="hljs-number">37</span>)&#123;<br>        ..<br>        step++;<br>        initImage();<br>    &#125;<span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(code == <span class="hljs-number">38</span>)&#123;<br>        ..<br>        step++;<br>        initImage();<br>    &#125;<span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(code == <span class="hljs-number">39</span>)&#123;<br>        ..<br>        step++;<br>        initImage();<br>    &#125;<span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(code == <span class="hljs-number">40</span>)&#123;<br>        ..<br>        step++;<br>        initImage();<br>&#125;<br></code></pre></td></tr></table></figure>
-
-<h3 id="12-其他功能添加"><a href="#12-其他功能添加" class="headerlink" title="12. 其他功能添加"></a>12. 其他功能添加</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">//游戏主界面</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">GameJFrame</span> <span class="hljs-keyword">extends</span> <span class="hljs-title class_">JFrame</span> <span class="hljs-keyword">implements</span> <span class="hljs-title class_">KeyListener</span>, ActionListener &#123;<br>	...<br>    <span class="hljs-comment">//创建选项下面的条目对象</span><br>    <span class="hljs-type">JMenuItem</span> <span class="hljs-variable">replayItem</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">JMenuItem</span>(<span class="hljs-string">&quot;重新游戏&quot;</span>);<br>    <span class="hljs-type">JMenuItem</span> <span class="hljs-variable">reLoginItem</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">JMenuItem</span>(<span class="hljs-string">&quot;重新登陆&quot;</span>);<br>    <span class="hljs-type">JMenuItem</span> <span class="hljs-variable">closeItem</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">JMenuItem</span>(<span class="hljs-string">&quot;关闭游戏&quot;</span>);<br>    <span class="hljs-type">JMenuItem</span> <span class="hljs-variable">accountItem</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">JMenuItem</span>(<span class="hljs-string">&quot;公众号&quot;</span>);<br>&#125;<br></code></pre></td></tr></table></figure>
-
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">initJMenuBar</span><span class="hljs-params">()</span> &#123;<br>    ...<br>	<span class="hljs-comment">//给条目绑定点击事件</span><br>    replayItem.addActionListener(<span class="hljs-built_in">this</span>);<br>    reLoginItem.addActionListener(<span class="hljs-built_in">this</span>);<br>    closeItem.addActionListener(<span class="hljs-built_in">this</span>);<br>    accountItem.addActionListener(<span class="hljs-built_in">this</span>);<br>    ...<br>&#125;<br></code></pre></td></tr></table></figure>
-
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Override</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">actionPerformed</span><span class="hljs-params">(ActionEvent e)</span> &#123;<br>	<span class="hljs-comment">// 获取当前被点击的条目对象</span><br>    <span class="hljs-type">Object</span> <span class="hljs-variable">obj</span> <span class="hljs-operator">=</span> e.getSource();<br>    <span class="hljs-comment">// 判断</span><br>    <span class="hljs-keyword">if</span>(obj == replayItem)&#123;<br>        System.out.println(<span class="hljs-string">&quot;重新游戏&quot;</span>);<br>    &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (obj == reLoginItem) &#123;<br>        System.out.println(<span class="hljs-string">&quot;重新登陆&quot;</span>);<br>    &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (obj == closeItem) &#123;<br>        System.out.println(<span class="hljs-string">&quot;关闭游戏&quot;</span>);<br>    &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (obj == accountItem) &#123;<br>        System.out.println(<span class="hljs-string">&quot;公众号&quot;</span>);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
-
 
 
 <h1 id="八、Tips"><a href="#八、Tips" class="headerlink" title="八、Tips"></a><font color=#1E90FF>八、Tips</font></h1><h2 id="1-创建一个随机数"><a href="#1-创建一个随机数" class="headerlink" title="1. 创建一个随机数"></a><font color=#1E90FF>1. 创建一个随机数</font></h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-type">UUID</span> <span class="hljs-variable">uuid</span> <span class="hljs-operator">=</span> UUID.randomUUID();<br>System.out.println(uuid);    <span class="hljs-comment">// d589f5f0-7205-4794-ba88-f7b3d28bf1b2</span><br></code></pre></td></tr></table></figure>
@@ -3235,6 +2948,13 @@
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs java">Original: Hello, World!<br>SHA-<span class="hljs-number">256</span>:  dffd6021bb2bd5b0af676290809ec3a53191dd81c7f70a4b28688a362182986f<br></code></pre></td></tr></table></figure>
 
 
+
+<h2 id="11-String转Json"><a href="#11-String转Json" class="headerlink" title="11.String转Json"></a>11.String转Json</h2><ul>
+<li>常用于通过接口获取返回值之后，解析其中的信息</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">// 解析 JSON 响应，提取 data 字段</span><br><span class="hljs-type">ObjectMapper</span> <span class="hljs-variable">objectMapper</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">ObjectMapper</span>();<br><span class="hljs-type">JsonNode</span> <span class="hljs-variable">rootNode</span> <span class="hljs-operator">=</span> objectMapper.readTree(response.getBody());<br><br><span class="hljs-comment">// 添加详细日志来调试响应内容</span><br>log.info(<span class="hljs-string">&quot;Root node: &#123;&#125;&quot;</span>, rootNode.toString());<br><br><span class="hljs-type">JsonNode</span> <span class="hljs-variable">dataNode</span> <span class="hljs-operator">=</span> rootNode.get(<span class="hljs-string">&quot;data&quot;</span>);<br></code></pre></td></tr></table></figure>
+
+
                 
               </div>
             
@@ -3335,9 +3055,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2023/11/30/Markdown/" title="Markdown">
+                      <a href="/2023/11/30/JVM/" title="JVM">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Markdown</span>
+                        <span class="hidden-mobile">JVM</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -3345,8 +3065,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2023/11/30/%E4%BA%92%E8%81%94%E7%BD%91%E9%BB%91%E8%AF%9D/" title="互联网黑话">
-                        <span class="hidden-mobile">互联网黑话</span>
+                      <a href="/2023/11/30/Lua/" title="Lua">
+                        <span class="hidden-mobile">Lua</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

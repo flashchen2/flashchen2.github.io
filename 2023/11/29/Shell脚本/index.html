@@ -18,14 +18,14 @@
   
     <meta name="description" content="操作系统是一种系统软件，它是计算机系统中最基本的软件之一，负责管理和控制计算机硬件和软件资源，为用户和应用程序提供服务。常见的操作系统包括Windows、MacOS、Linux等。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Linux操作系统">
-<meta property="og:url" content="http://example.com/2023/11/29/Linux%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/index.html">
+<meta property="og:title" content="Shell脚本">
+<meta property="og:url" content="http://example.com/2023/11/29/Shell%E8%84%9A%E6%9C%AC/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="操作系统是一种系统软件，它是计算机系统中最基本的软件之一，负责管理和控制计算机硬件和软件资源，为用户和应用程序提供服务。常见的操作系统包括Windows、MacOS、Linux等。">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://example.com/img/shell_instruction_pic/1.jpg">
 <meta property="article:published_time" content="2023-11-29T12:00:00.000Z">
-<meta property="article:modified_time" content="2025-04-28T08:36:24.355Z">
+<meta property="article:modified_time" content="2025-10-04T14:22:22.015Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="开发">
 <meta property="article:tag" content="操作系统">
@@ -40,7 +40,7 @@
     <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-  <title>Linux操作系统 - Hexo</title>
+  <title>Shell脚本 - Hexo</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -206,7 +206,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="Linux操作系统"></span>
+            <span id="subtitle" data-typed-text="Shell脚本"></span>
           
         </div>
 
@@ -229,7 +229,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.7k 字
+          2.3k 字
         
       </span>
     
@@ -240,7 +240,7 @@
         
         
         
-          14 分钟
+          20 分钟
         
       </span>
     
@@ -277,7 +277,7 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">Linux操作系统</h1>
+            <h1 id="seo-header">Shell脚本</h1>
             
             
               <div class="markdown-body">
@@ -375,10 +375,10 @@
 <div style="text-align:center">
     <img src="/img/shell_instruction_pic/6.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
 </div>
-
-<div style="text-align:center">
-    <img src="/img/shell_instruction_pic/7.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
+<div style="text-align:center;gap:5px">
+    <img src="/img/git_pic/23.png" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:15%;">
 </div>
+
 
 
 
@@ -548,7 +548,7 @@
 
 
 
-<h1 id="五、手表手环终端"><a href="#五、手表手环终端" class="headerlink" title="五、手表手环终端"></a>五、手表手环终端</h1><h2 id="1-向固件中推入apk"><a href="#1-向固件中推入apk" class="headerlink" title="1. 向固件中推入apk"></a>1. 向固件中推入apk</h2><ol>
+<h1 id="四、手表手环终端"><a href="#四、手表手环终端" class="headerlink" title="四、手表手环终端"></a>四、手表手环终端</h1><h2 id="1-向固件中推入apk"><a href="#1-向固件中推入apk" class="headerlink" title="1. 向固件中推入apk"></a>1. 向固件中推入apk</h2><ol>
 <li>adb devices   # pc是否通过usb检测到固件</li>
 <li>adb root </li>
 <li>adb remount</li>
@@ -559,6 +559,165 @@
 <h2 id="2-拉取固件日志"><a href="#2-拉取固件日志" class="headerlink" title="2. 拉取固件日志"></a>2. 拉取固件日志</h2><ol>
 <li>adb bugreport  #所拉取日志位于 此电脑-c盘-用户-用户处</li>
 </ol>
+<h1 id="五、其他"><a href="#五、其他" class="headerlink" title="五、其他"></a>五、其他</h1><h2 id="1-linux和shell的关系和区别"><a href="#1-linux和shell的关系和区别" class="headerlink" title="1.linux和shell的关系和区别"></a>1.linux和shell的关系和区别</h2><ol>
+<li><p>核心关系</p>
+<ol>
+<li><strong>Linux 是操作系统内核</strong>：它管理硬件资源（CPU、内存、磁盘等），提供基础服务（如进程调度、文件系统）。</li>
+<li><strong>Shell 是用户接口</strong>：它是运行在 Linux 之上的程序，充当<strong>用户与内核的翻译官</strong>。用户通过 Shell 输入命令，Shell 将其翻译成内核能理解的指令。</li>
+</ol>
+</li>
+<li><p>关键区别</p>
+</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th><strong>特性</strong></th>
+<th><strong>Linux</strong></th>
+<th><strong>Shell</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>本质</strong></td>
+<td>操作系统内核</td>
+<td>命令行解释器程序</td>
+</tr>
+<tr>
+<td><strong>作用</strong></td>
+<td>硬件资源管理、进程调度等底层核心功能</td>
+<td>解析用户命令，与内核交互</td>
+</tr>
+<tr>
+<td><strong>层级位置</strong></td>
+<td>最底层（直接操作硬件）</td>
+<td>应用层（运行在内核之上）</td>
+</tr>
+<tr>
+<td><strong>替代性</strong></td>
+<td>不可替代（系统核心）</td>
+<td>可更换（如 bash → zsh&#x2F;fish）</td>
+</tr>
+<tr>
+<td><strong>存在形式</strong></td>
+<td>内核代码（如 <code>/boot/vmlinuz</code>）</td>
+<td>可执行文件（如 <code>/bin/bash</code>）</td>
+</tr>
+</tbody></table>
+<ol start="3">
+<li>通俗比喻<ol>
+<li><strong>Linux 像汽车发动机</strong>：提供核心动力，但你不能直接操作它。</li>
+<li><strong>Shell 像方向盘和仪表盘</strong>：你通过它控制发动机（Linux），看到运行状态。</li>
+</ol>
+</li>
+</ol>
+<h2 id="2-shell和bash的关系和区别"><a href="#2-shell和bash的关系和区别" class="headerlink" title="2.shell和bash的关系和区别"></a>2.shell和bash的关系和区别</h2><ol>
+<li>核心关系<ol>
+<li><strong>Shell 是通用概念</strong>：是<strong>命令行解释器</strong>的统称，是用户与操作系统内核（如 Linux）交互的接口工具。</li>
+<li><strong>Bash 是具体实现</strong>：Bash（<em>Bourne-Again Shell</em>）是 <strong>Shell 的一种具体类型</strong>，也是目前 <strong>Linux 和 macOS 的默认 Shell</strong>。</li>
+</ol>
+</li>
+</ol>
+<pre><code class=" mermaid">graph TB
+  	Shell --&gt; Bash
+  	Shell --&gt; Zsh
+  	Shell --&gt; Fish
+  	Shell --&gt; Csh
+  	Shell --&gt; Ksh
+</code></pre>
+
+<ol start="2">
+<li>关键区别</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th><strong>特性</strong></th>
+<th><strong>Shell</strong></th>
+<th><strong>Bash</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>定义</strong></td>
+<td>抽象概念（命令行解释器的总称）</td>
+<td>具体实现（由 GNU 开发的 Shell 程序）</td>
+</tr>
+<tr>
+<td><strong>范围</strong></td>
+<td>包含所有类型（Bash&#x2F;Zsh&#x2F;Fish 等）</td>
+<td>Shell 的子集</td>
+</tr>
+<tr>
+<td><strong>兼容性</strong></td>
+<td>不同 Shell 语法可能不兼容</td>
+<td>兼容 POSIX 标准并扩展了更多功能</td>
+</tr>
+<tr>
+<td><strong>默认性</strong></td>
+<td>无默认概念</td>
+<td>Linux&#x2F;macOS 的默认 Shell</td>
+</tr>
+<tr>
+<td><strong>脚本首行</strong></td>
+<td><code>#!/bin/sh</code>（指向系统默认 Shell）</td>
+<td><code>#!/bin/bash</code>（明确使用 Bash）</td>
+</tr>
+</tbody></table>
+<ol start="3">
+<li>通俗比喻</li>
+</ol>
+<ul>
+<li><strong>Shell 像 “语言”</strong><br>（如：人类语言中的 “罗曼语族”）</li>
+<li><strong>Bash 像 “具体语言”</strong><br>（如：罗曼语族中的 “法语”）</li>
+</ul>
+<h2 id="3-shell为什么叫脚本"><a href="#3-shell为什么叫脚本" class="headerlink" title="3.shell为什么叫脚本"></a>3.shell为什么叫脚本</h2><p>Shell 之所以被称为”脚本”（Script），这个术语源于戏剧和电影领域，在计算机科学中被借用并赋予了特定含义</p>
+<ol>
+<li>术语起源：戏剧脚本的隐喻</li>
+</ol>
+<ul>
+<li><strong>戏剧脚本</strong>：演员逐行执行的台词和动作指令</li>
+<li><strong>Shell 脚本</strong>：计算机逐行执行的命令序列</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-meta">#!/bin/bash</span><br><span class="hljs-comment"># 就像演员的台词本：</span><br><span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;场景1：备份文件&quot;</span>  <span class="hljs-comment"># 舞台指示</span><br><span class="hljs-built_in">cp</span> -r /data /backup    <span class="hljs-comment"># 执行动作</span><br></code></pre></td></tr></table></figure>
+
+
+
+<ol start="2">
+<li>脚本 vs 程序的关键区别</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th><strong>维度</strong></th>
+<th><strong>脚本 (Shell&#x2F;Python)</strong></th>
+<th><strong>程序 (C&#x2F;C++&#x2F;Go)</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>执行单元</td>
+<td>命令行语句</td>
+<td>函数&#x2F;类&#x2F;模块</td>
+</tr>
+<tr>
+<td>运行依赖</td>
+<td>需要解释器环境</td>
+<td>直接运行（或依赖运行时）</td>
+</tr>
+<tr>
+<td>开发速度</td>
+<td>快（即时测试）</td>
+<td>慢（编译-调试循环）</td>
+</tr>
+<tr>
+<td>典型扩展名</td>
+<td>.sh, .py, .js</td>
+<td>.exe, .bin, .jar</td>
+</tr>
+<tr>
+<td>系统级操作</td>
+<td>直接调用系统命令</td>
+<td>通过API接口调用</td>
+</tr>
+</tbody></table>
 
                 
               </div>
@@ -621,8 +780,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>Linux操作系统</div>
-      <div>http://example.com/2023/11/29/Linux操作系统/</div>
+      <div>Shell脚本</div>
+      <div>http://example.com/2023/11/29/Shell脚本/</div>
     </div>
     <div class="license-meta">
       
