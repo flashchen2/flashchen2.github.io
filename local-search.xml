@@ -644,6 +644,37 @@
   
   
   <entry>
+    <title>Lua</title>
+    <link href="/2023/11/30/Lua/"/>
+    <url>/2023/11/30/Lua/</url>
+    
+    <content type="html"><![CDATA[<h1 id="一、简介"><a href="#一、简介" class="headerlink" title="一、简介"></a>一、简介</h1><ol><li>介绍：Lua是一个由标准C语音开发的、开源的、可扩展的、轻量级的脚本语言</li><li>脚本语言：是一种编程语言，主要用于编写脚本（即简短的程序）。脚本语言的主要特点是由解释器直接执行的，而不是先编译成机器码</li><li>Lua官网：<a href="https://wiki.luatos.com/index.html">https://wiki.luatos.com/index.html</a></li><li>在线体验地址：<a href="https://wiki.luatos.com/_static/luatos-emulator/lua.html">https://wiki.luatos.com/_static/luatos-emulator/lua.html</a></li><li>Lua的优势：<mark>可以轻松的与其他编程语言进行交互</mark>。很少单独用Lua解决某些事情，大部分情况是在其他语言环境，进行功能增强</li></ol><h1 id="二、脚本编写"><a href="#二、脚本编写" class="headerlink" title="二、脚本编写"></a>二、脚本编写</h1><h2 id="1-数据类型"><a href="#1-数据类型" class="headerlink" title="1.数据类型"></a>1.数据类型</h2><ol><li>空值：nil</li></ol><div style="text-align:center;gap:5px">    <img src="/img/lua_pic/2.png" alt="图片描述" style="zoom:25%;"></div>]]></content>
+    
+    
+    <categories>
+      
+      <category>开发</category>
+      
+      <category>工具</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>开发</tag>
+      
+      <tag>工具</tag>
+      
+      <tag>Lua</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>Java基础</title>
     <link href="/2023/11/30/Java/"/>
     <url>/2023/11/30/Java/</url>
@@ -698,37 +729,6 @@
       <tag>工具</tag>
       
       <tag>Markdown</tag>
-      
-    </tags>
-    
-  </entry>
-  
-  
-  
-  <entry>
-    <title>Lua</title>
-    <link href="/2023/11/30/Lua/"/>
-    <url>/2023/11/30/Lua/</url>
-    
-    <content type="html"><![CDATA[<h1 id="一、简介"><a href="#一、简介" class="headerlink" title="一、简介"></a>一、简介</h1><ol><li>介绍：Lua是一个由标准C语音开发的、开源的、可扩展的、轻量级的脚本语言</li><li>脚本语言：是一种编程语言，主要用于编写脚本（即简短的程序）。脚本语言的主要特点是由解释器直接执行的，而不是先编译成机器码</li><li>Lua官网：<a href="https://wiki.luatos.com/index.html">https://wiki.luatos.com/index.html</a></li><li>在线体验地址：<a href="https://wiki.luatos.com/_static/luatos-emulator/lua.html">https://wiki.luatos.com/_static/luatos-emulator/lua.html</a></li><li>Lua的优势：<mark>可以轻松的与其他编程语言进行交互</mark>。很少单独用Lua解决某些事情，大部分情况是在其他语言环境，进行功能增强</li></ol><h1 id="二、脚本编写"><a href="#二、脚本编写" class="headerlink" title="二、脚本编写"></a>二、脚本编写</h1><h2 id="1-数据类型"><a href="#1-数据类型" class="headerlink" title="1.数据类型"></a>1.数据类型</h2><ol><li>空值：nil</li></ol><div style="text-align:center;gap:5px">    <img src="/img/lua_pic/2.png" alt="图片描述" style="zoom:25%;"></div>]]></content>
-    
-    
-    <categories>
-      
-      <category>开发</category>
-      
-      <category>工具</category>
-      
-    </categories>
-    
-    
-    <tags>
-      
-      <tag>开发</tag>
-      
-      <tag>工具</tag>
-      
-      <tag>Lua</tag>
       
     </tags>
     
