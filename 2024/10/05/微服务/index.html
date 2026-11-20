@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://example.com/img/micro_services_pic/1.png">
 <meta property="article:published_time" content="2024-10-05T12:00:00.000Z">
-<meta property="article:modified_time" content="2025-09-30T08:19:23.174Z">
+<meta property="article:modified_time" content="2026-04-03T08:02:52.291Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="Web开发">
 <meta property="article:tag" content="后端">
@@ -226,7 +226,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.3k 字
+          1.6k 字
         
       </span>
     
@@ -237,7 +237,7 @@
         
         
         
-          11 分钟
+          14 分钟
         
       </span>
     
@@ -354,14 +354,14 @@
 
 
 
-<h2 id="1-超时"><a href="#1-超时" class="headerlink" title="1.超时"></a>1.超时</h2><ol>
+<h2 id="2-超时"><a href="#2-超时" class="headerlink" title="2.超时"></a>2.超时</h2><ol>
 <li>加固策略：<ol>
 <li>超时是站在<mark>主调角度</mark>去配置</li>
 <li>超时时间：一般根据P99_rt的1.2倍进行配置</li>
 </ol>
 </li>
 </ol>
-<h2 id="2-熔断"><a href="#2-熔断" class="headerlink" title="2.熔断"></a>2.熔断</h2><ol>
+<h2 id="3-熔断"><a href="#3-熔断" class="headerlink" title="3.熔断"></a>3.熔断</h2><ol>
 <li><p>功能介绍</p>
 <ol>
 <li>熔断是一种保护机制，用于<mark>在服务调用过程中，当某个服务或资源出现故障时，暂时停止对该服务或资源的调用</mark>，降低下游请求量，以防止故障扩散，保护系统的整体稳定性。</li>
@@ -389,7 +389,7 @@
 </ol>
 </li>
 </ol>
-<h2 id="3-限流"><a href="#3-限流" class="headerlink" title="3.限流"></a>3.限流</h2><ol>
+<h2 id="4-限流"><a href="#4-限流" class="headerlink" title="4.限流"></a>4.限流</h2><ol>
 <li><p>功能介绍</p>
 <ol>
 <li>限流是指对请求的数量或流量进行控制，目的是保护系统资源，确保服务的稳定性与可用性，防止因过载导致的服务崩溃或性能下降</li>
@@ -443,6 +443,34 @@
 </li>
 </ol>
 </li>
+</ol>
+<h2 id="5-降级预案"><a href="#5-降级预案" class="headerlink" title="5.降级预案"></a>5.降级预案</h2><ol>
+<li>熔断降级</li>
+</ol>
+<p>场景：依赖服务失败率超过阈值（如50%）</p>
+<p>措施：快速失败。直接返回错误或默认值</p>
+<ol start="2">
+<li>限流降级</li>
+</ol>
+<p>场景：QPS超过系统承载能力</p>
+<p>措施：拒绝超额请求（返回429状态码）、排队等待（队列满时丢弃）</p>
+<ol start="3">
+<li>资源阈值降级</li>
+</ol>
+<p>场景：CPU &gt; 80% 或内存不足</p>
+<p>措施：关闭非核心功能（如日志记录、数据分析）、降低业务复杂度（如简化计算逻辑）</p>
+<h1 id="三、压测"><a href="#三、压测" class="headerlink" title="三、压测"></a>三、压测</h1><h2 id="1-普通压测"><a href="#1-普通压测" class="headerlink" title="1.普通压测"></a>1.普通压测</h2><p>目前最新的压测方式为： 流量回放 + 压测，可以实现接口、rpc、kafka的压测</p>
+<h2 id="2-哨兵压测"><a href="#2-哨兵压测" class="headerlink" title="2.哨兵压测"></a>2.哨兵压测</h2><p>哨兵压测是一种低成本的压测方式，<mark>通过调权，让哨兵节点承受数倍普通节点的流量</mark>，达到验证单机极限、或提前预警的作用。哨兵压测的主要特点有三：</p>
+<ul>
+<li>成本低：不需要额外搭建环境、准备数据</li>
+<li>流量仿真度高：线上引流</li>
+<li>模块级压测：无法反应下游链路的真实容量</li>
+</ul>
+<h2 id="3-写放大"><a href="#3-写放大" class="headerlink" title="3.写放大"></a>3.写放大</h2><ol>
+<li>定义：在一次业务请求中，执行了N次存储层写入</li>
+<li>典型场景：一条前端update请求，修改后端多张表</li>
+<li>对压测的影响：数据库 IO 打满，QPS 上不去</li>
+<li>解决办法：大事务拆小，避免频繁更新同一行</li>
 </ol>
 
                 

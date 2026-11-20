@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://example.com/img/kafka_pic/1.png">
 <meta property="article:published_time" content="2024-09-05T12:00:00.000Z">
-<meta property="article:modified_time" content="2025-12-12T06:53:13.136Z">
+<meta property="article:modified_time" content="2026-06-08T08:10:06.028Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="Web开发">
 <meta property="article:tag" content="中间件">
@@ -226,7 +226,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.4k 字
+          1.5k 字
         
       </span>
     
@@ -237,7 +237,7 @@
         
         
         
-          12 分钟
+          13 分钟
         
       </span>
     
@@ -279,10 +279,7 @@
             
               <div class="markdown-body">
                 
-                <ul>
-<li>学习链接：<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Kwx1e8E1C/?spm_id_from=333.337.search-card.all.click&vd_source=4cf7b60c223a665538a4d958765c91a5">https://www.bilibili.com/video/BV1Kwx1e8E1C/</a></li>
-</ul>
-<h1 id="一、介绍"><a href="#一、介绍" class="headerlink" title="一、介绍"></a>一、介绍</h1><ol>
+                <h1 id="一、介绍"><a href="#一、介绍" class="headerlink" title="一、介绍"></a>一、介绍</h1><ol>
 <li>Kafka可以用来传递业务的消息事件，是削峰填谷的利器</li>
 </ol>
 <h1 id="二、内部结构"><a href="#二、内部结构" class="headerlink" title="二、内部结构"></a>二、内部结构</h1><h2 id="1-主题-topic"><a href="#1-主题-topic" class="headerlink" title="1.主题 - topic"></a>1.主题 - topic</h2><div style="text-align:center;gap:5px">
@@ -328,7 +325,11 @@
     <img src="/img/kafka_pic/16.png" srcset="/img/loading.gif" lazyload alt="图片描述">
 </div></li>
 </ol>
-<h2 id="5-整体结构"><a href="#5-整体结构" class="headerlink" title="5.整体结构"></a>5.整体结构</h2><div style="text-align:center;gap:5px">
+<h2 id="5-整体结构"><a href="#5-整体结构" class="headerlink" title="5.整体结构"></a>5.整体结构</h2><figure class="highlight isbl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs isbl"><span class="hljs-function"><span class="hljs-title">Producer</span>(生产发送)</span><br>-	<span class="hljs-variable">MQ</span>/<span class="hljs-variable">Kafka</span>/消息队列<br>- <span class="hljs-function"><span class="hljs-title">Consumer</span>(接收订阅)</span><br>- <span class="hljs-function"><span class="hljs-title">Resolver</span>(解析处理)</span><br>- 落地存储/业务逻辑<br><br></code></pre></td></tr></table></figure>
+
+
+
+<div style="text-align:center;gap:5px">
     <img src="/img/kafka_pic/9.png" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:50%">
 </div>
 
@@ -491,7 +492,30 @@
 </li>
 <li><p>Consumer：kafka消息消费者</p>
 </li>
+<li><p><strong>RocketMQ 原生支持消息消费的自动重试机制</strong>，而 <strong>Kafka 原生不支持</strong></p>
+</li>
+<li><p>kafka和rpc</p>
+</li>
 </ol>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>kafka</th>
+<th>rpc</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>设计理念</td>
+<td>消息队列（不会实时返回数据）</td>
+<td>远程过程调用</td>
+</tr>
+<tr>
+<td>上下游</td>
+<td>生产者（producer）<br>消费者（consumer）</td>
+<td>客户端（client）<br>服务端（server）</td>
+</tr>
+</tbody></table>
 
                 
               </div>

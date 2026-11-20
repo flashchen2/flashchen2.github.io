@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://example.com/img/algorithm_pic/1.jpg">
 <meta property="article:published_time" content="2023-11-30T12:00:00.000Z">
-<meta property="article:modified_time" content="2025-10-26T12:55:13.951Z">
+<meta property="article:modified_time" content="2026-02-11T06:42:54.244Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="开发">
 <meta property="article:tag" content="算法">
@@ -225,7 +225,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          16k 字
+          15k 字
         
       </span>
     
@@ -236,7 +236,7 @@
         
         
         
-          130 分钟
+          128 分钟
         
       </span>
     
@@ -645,7 +645,7 @@
 
 <h5 id="6-开头字符-startsWith"><a href="#6-开头字符-startsWith" class="headerlink" title="6. 开头字符 .startsWith()"></a>6. 开头字符<code> .startsWith()</code></h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-type">String</span> <span class="hljs-variable">s8</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;Java是全世界最好的语言&quot;</span>;<br>System.out.println(s8.startsWith(<span class="hljs-string">&quot;Java&quot;</span>));   <span class="hljs-comment">// true</span><br></code></pre></td></tr></table></figure>
 
-<h5 id="7-截取-substring"><a href="#7-截取-substring" class="headerlink" title="7. 截取 .substring()"></a>7. 截取 <code>.substring()</code></h5><ul>
+<h5 id="7-截取-substring"><a href="#7-截取-substring" class="headerlink" title="7. 截取 .substring() **"></a>7. 截取 <code>.substring()</code> **</h5><ul>
 <li>截取字符串内容：包前不包后</li>
 </ul>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-type">String</span> <span class="hljs-variable">s5</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;012345678&quot;</span>;<br><span class="hljs-type">String</span> <span class="hljs-variable">rs</span> <span class="hljs-operator">=</span> s5.substring(<span class="hljs-number">0</span>,<span class="hljs-number">5</span>);<br>System.out.println(rs);       <span class="hljs-comment">// 01234  从2索引截取到4索引</span><br><span class="hljs-type">String</span> <span class="hljs-variable">rs1</span> <span class="hljs-operator">=</span> s5.substring(<span class="hljs-number">5</span>);<br>System.out.println(rs1);      <span class="hljs-comment">// 5678   从5索引截取到最后</span><br></code></pre></td></tr></table></figure>
@@ -683,26 +683,17 @@
 
 
 
-<h3 id="3-StringBuffer"><a href="#3-StringBuffer" class="headerlink" title="3. StringBuffer"></a><font color=#1E90FF>3. <code>StringBuffer</code></font></h3><ul>
-<li><code>StringBuffer</code>与<code>StringBuilder</code>的用法是一模一样的</li>
-<li>但<code>StringBuilder</code>的线程是不安全的，<code>StringBuffer</code>的线程是安全的</li>
-</ul>
-<h3 id="4-StringJoiner"><a href="#4-StringJoiner" class="headerlink" title="4. StringJoiner"></a><font color=#1E90FF>4. <code>StringJoiner</code></font></h3><ul>
-<li><code>StringJoiner</code>和<code>StringBuilder</code>一样，也可以看成是一个容器，创建之后里面的内容是可变的</li>
-<li>好处：不仅能提高字符串的操作效率，并且在有些场景下使用它操作字符串，代码会更简洁</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">//1.创建一个对象，并指定中间的间隔符号</span><br><span class="hljs-type">StringJoiner</span> <span class="hljs-variable">sj</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">StringJoiner</span>(<span class="hljs-string">&quot;---&quot;</span>);<br><span class="hljs-comment">//2.添加元素</span><br>sj.add(<span class="hljs-string">&quot;aaa&quot;</span>).add(<span class="hljs-string">&quot;bbb&quot;</span>).add(<span class="hljs-string">&quot;ccc&quot;</span>);<br><span class="hljs-comment">//3.打印结果</span><br>System.out.println(sj);<span class="hljs-comment">//aaa---bbb---ccc</span><br></code></pre></td></tr></table></figure>
-
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">//1.创建对象</span><br><span class="hljs-type">StringJoiner</span> <span class="hljs-variable">sj</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">StringJoiner</span>(<span class="hljs-string">&quot;, &quot;</span>,<span class="hljs-string">&quot;[&quot;</span>,<span class="hljs-string">&quot;]&quot;</span>);<br><span class="hljs-comment">//2.添加元素</span><br>sj.add(<span class="hljs-string">&quot;aaa&quot;</span>).add(<span class="hljs-string">&quot;bbb&quot;</span>).add(<span class="hljs-string">&quot;ccc&quot;</span>);<br><span class="hljs-type">int</span> <span class="hljs-variable">len</span> <span class="hljs-operator">=</span> sj.length();<br>System.out.println(len);<span class="hljs-comment">//15</span><br><span class="hljs-comment">//3.打印</span><br>System.out.println(sj);<span class="hljs-comment">//[aaa, bbb, ccc]</span><br><span class="hljs-type">String</span> <span class="hljs-variable">str</span> <span class="hljs-operator">=</span> sj.toString();<br>System.out.println(str);<span class="hljs-comment">//[aaa, bbb, ccc]</span><br></code></pre></td></tr></table></figure>
-
-
-
-
-
-<h3 id="6-重点功能"><a href="#6-重点功能" class="headerlink" title="6. 重点功能"></a>6. 重点功能</h3><ol>
+<h3 id="3-重点功能"><a href="#3-重点功能" class="headerlink" title="3. 重点功能"></a>3. 重点功能</h3><ol>
 <li>元素中包含某值</li>
 </ol>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-type">String</span> <span class="hljs-variable">s7</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;Java是全世界最好的语言&quot;</span>;<br>System.out.println(s7.contains(<span class="hljs-string">&quot;最好的&quot;</span>));    <span class="hljs-comment">// true</span><br></code></pre></td></tr></table></figure>
+
+
+
+<ol start="2">
+<li>将字符串拆分为数组</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-type">String</span> <span class="hljs-variable">astr</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;leetcode&quot;</span>;<br><span class="hljs-type">char</span>[] charArray = astr.toCharArray();<br>System.out.println(Arrays.toString(charArray)); <br><span class="hljs-comment">// 输出: [&#x27;l&#x27;, &#x27;e&#x27;, &#x27;e&#x27;, &#x27;t&#x27;, &#x27;c&#x27;, &#x27;o&#x27;, &#x27;d&#x27;, &#x27;e&#x27;]</span><br></code></pre></td></tr></table></figure>
 
 
 
@@ -785,7 +776,7 @@
 <ul>
 <li><mark>java中没有现成的链表结构，所以链表结构需要手动构造</mark></li>
 </ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">LinkList</span> &#123;<br>    <span class="hljs-type">int</span> value;  <span class="hljs-comment">// 值</span><br>    LinkList next;  <span class="hljs-comment">// 下一个节点指针</span><br><br>    <span class="hljs-keyword">public</span> <span class="hljs-title function_">LinkList</span><span class="hljs-params">(<span class="hljs-type">int</span> x)</span> &#123; value = x; &#125;  <span class="hljs-comment">// 构造有参函数</span><br>&#125;<br></code></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">LinkList</span> &#123;<br>    <span class="hljs-type">int</span> value;  <span class="hljs-comment">// 值</span><br>    LinkList next;  <span class="hljs-comment">// 下一个节点指针</span><br><br>    <span class="hljs-keyword">public</span> <span class="hljs-title function_">LinkList</span><span class="hljs-params">(<span class="hljs-type">int</span> x)</span> &#123; value = x; &#125;  <span class="hljs-comment">// 构造有参函数,赋值</span><br>&#125;<br></code></pre></td></tr></table></figure>
 
 
 
@@ -796,8 +787,6 @@
 <h4 id="2-插入节点"><a href="#2-插入节点" class="headerlink" title="2.  插入节点"></a>2.  插入节点</h4><div style="text-align:center;gap:5px">
     <img src="/img/algorithm_pic/22.png" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:60%;">
 </div>
-
-
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">/* 在链表的节点 n0 之后插入节点 P ，只需要改变两个节点引用*/</span><br><span class="hljs-keyword">void</span> <span class="hljs-title function_">insert</span><span class="hljs-params">(ListNode n0, ListNode P)</span> &#123;<br>    <span class="hljs-type">ListNode</span> <span class="hljs-variable">n1</span> <span class="hljs-operator">=</span> n0.next;<br>    P.next = n1;<br>    n0.next = P;<br>&#125;<br></code></pre></td></tr></table></figure>
 
 
@@ -851,7 +840,7 @@
 <li>数组也支持元素增删查改，但由于其长度不可变，因此只能看作一个具有长度限制的列表。</li>
 </ul>
 <p>当使用数组实现列表时，<strong>长度不可变的性质会导致列表的实用性降低</strong>。这是因为我们通常无法事先确定需要存储多少数据，从而难以选择合适的列表长度。</p>
-<h3 id="1-列表常用操作"><a href="#1-列表常用操作" class="headerlink" title="1.  列表常用操作"></a>1.  列表常用操作</h3><h4 id="1-初始化列表"><a href="#1-初始化列表" class="headerlink" title="1.  初始化列表"></a>1.  初始化列表</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">/* 初始化列表 */</span><br><span class="hljs-comment">// 无初始值</span><br>List&lt;Integer&gt; nums1 = <span class="hljs-keyword">new</span> <span class="hljs-title class_">ArrayList</span>&lt;&gt;();<br><br><span class="hljs-comment">// 有初始值（注意数组的元素类型需为 int[] 的包装类 Integer[]）</span><br><span class="hljs-comment">// 先创建数组</span><br>Integer[] integers = &#123;<span class="hljs-number">1</span>, <span class="hljs-number">4</span>, <span class="hljs-number">6</span>, <span class="hljs-number">8</span>, <span class="hljs-number">12</span>, <span class="hljs-number">14</span>, <span class="hljs-number">16</span>, <span class="hljs-number">19</span>, <span class="hljs-number">20</span>&#125;;<br><span class="hljs-comment">// 再将数组动态化</span><br>List&lt;Integer&gt; nums = <span class="hljs-keyword">new</span> <span class="hljs-title class_">ArrayList</span>&lt;&gt;(Arrays.asList(numbers));<br></code></pre></td></tr></table></figure>
+<h3 id="1-列表常用操作"><a href="#1-列表常用操作" class="headerlink" title="1.  列表常用操作"></a>1.  列表常用操作</h3><h4 id="1-初始化列表"><a href="#1-初始化列表" class="headerlink" title="1.  初始化列表"></a>1.  初始化列表</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">/* 初始化列表 */</span><br><span class="hljs-comment">// 无初始值</span><br>List&lt;Integer&gt; nums1 = <span class="hljs-keyword">new</span> <span class="hljs-title class_">ArrayList</span>&lt;&gt;();<br><br><span class="hljs-comment">// 有初始值（注意数组的元素类型需为 int[] 的包装类 Integer[]）</span><br><span class="hljs-comment">// 先创建数组</span><br>Integer[] numbers = &#123;<span class="hljs-number">1</span>, <span class="hljs-number">4</span>, <span class="hljs-number">6</span>, <span class="hljs-number">8</span>, <span class="hljs-number">12</span>, <span class="hljs-number">14</span>, <span class="hljs-number">16</span>, <span class="hljs-number">19</span>, <span class="hljs-number">20</span>&#125;;<br><span class="hljs-comment">// 再将数组动态化</span><br>List&lt;Integer&gt; nums = <span class="hljs-keyword">new</span> <span class="hljs-title class_">ArrayList</span>&lt;&gt;(Arrays.asList(numbers));<br></code></pre></td></tr></table></figure>
 
 <p><mark>列表的概念相当于动态数组，需要先创建数组，然后在将其动态化</mark></p>
 <p>Q：为什么要先创建一个列表？</p>
@@ -1014,47 +1003,18 @@
 <h1 id="五、哈希表"><a href="#五、哈希表" class="headerlink" title="五、哈希表"></a>五、哈希表</h1><div style="text-align:center;gap:5px">
     <img src="/img/algorithm_pic/29.png" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:60%;">
 </div>
+|          | 数组 | 链表 | 哈希表 |
+| :------- | :--- | :--- | :----- |
+| 查找元素 | O(n) | O(n) | O(1)   |
+| 添加元素 | O(1) | O(1) | O(1)   |
+| 删除元素 | O(n) | O(n) | O(1)   |
 
 
-<ul>
-<li><strong>添加元素</strong>：仅需将元素添加至数组（链表）的尾部即可，使用 O(1) 时间。</li>
-<li><strong>查询元素</strong>：由于数组（链表）是乱序的，因此需要遍历其中的所有元素，使用 O(n) 时间。</li>
-<li><strong>删除元素</strong>：需要先查询到元素，再从数组（链表）中删除，使用 O(n) 时间。</li>
-</ul>
-<p>表 6-1  元素查询效率对比</p>
-<table>
-<thead>
-<tr>
-<th align="left"></th>
-<th align="left">数组</th>
-<th align="left">链表</th>
-<th align="left">哈希表</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left">查找元素</td>
-<td align="left">O(n)</td>
-<td align="left">O(n)</td>
-<td align="left">O(1)</td>
-</tr>
-<tr>
-<td align="left">添加元素</td>
-<td align="left">O(1)</td>
-<td align="left">O(1)</td>
-<td align="left">O(1)</td>
-</tr>
-<tr>
-<td align="left">删除元素</td>
-<td align="left">O(n)</td>
-<td align="left">O(n)</td>
-<td align="left">O(1)</td>
-</tr>
-</tbody></table>
-<p><strong>在哈希表中进行增删查改的时间复杂度都是 O(1)</strong> ，非常高效</p>
+
 <p>1.哈希表的常用操作：初始化、查询操作、添加键值对和删除键值对等：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">/* 初始化哈希表 */</span><br>Map&lt;Integer, String&gt; map = <span class="hljs-keyword">new</span> <span class="hljs-title class_">HashMap</span>&lt;&gt;();<br><br><span class="hljs-comment">/* 添加操作 */</span><br><span class="hljs-comment">// 在哈希表中添加键值对 (key, value)</span><br>map.put(<span class="hljs-number">12836</span>, <span class="hljs-string">&quot;小哈&quot;</span>);<br>map.put(<span class="hljs-number">15937</span>, <span class="hljs-string">&quot;小啰&quot;</span>);<br>map.put(<span class="hljs-number">16750</span>, <span class="hljs-string">&quot;小算&quot;</span>);<br>map.put(<span class="hljs-number">13276</span>, <span class="hljs-string">&quot;小法&quot;</span>);<br>map.put(<span class="hljs-number">10583</span>, <span class="hljs-string">&quot;小鸭&quot;</span>);<br><br><span class="hljs-comment">/* 查询操作 */</span><br><span class="hljs-comment">// 向哈希表中输入键 key ，得到值 value</span><br><span class="hljs-type">String</span> <span class="hljs-variable">name</span> <span class="hljs-operator">=</span> map.get(<span class="hljs-number">15937</span>);<br><br><span class="hljs-comment">/* 删除操作 */</span><br><span class="hljs-comment">// 在哈希表中删除键值对 (key, value)</span><br>map.remove(<span class="hljs-number">10583</span>);<br></code></pre></td></tr></table></figure>
 
-<p>哈希表有三种常用的遍历方式：遍历键值对、遍历键和遍历值。示例代码如下：</p>
+<p>哈希表有三种常用的遍历方式：遍历键值对、遍历键和遍历值</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">/* 遍历哈希表 */</span><br><span class="hljs-comment">// 遍历键值对 key-&gt;value</span><br><span class="hljs-keyword">for</span> (Map.Entry &lt;Integer, String&gt; kv: map.entrySet()) &#123;<br>    System.out.println(kv.getKey() + <span class="hljs-string">&quot; -&gt; &quot;</span> + kv.getValue());<br>&#125;<br><span class="hljs-comment">// 单独遍历键 key</span><br><span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> key: map.keySet()) &#123;<br>    System.out.println(key);<br>&#125;<br><span class="hljs-comment">// 单独遍历值 value</span><br><span class="hljs-keyword">for</span> (String val: map.values()) &#123;<br>    System.out.println(val);<br>&#125;<br></code></pre></td></tr></table></figure>
 
 
@@ -1655,9 +1615,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2023/11/30/%E7%BB%AD%E8%88%AA%E6%B5%8B%E8%AF%95/" title="续航测试方法">
+                      <a href="/2023/11/30/%E4%BA%92%E8%81%94%E7%BD%91%E9%BB%91%E8%AF%9D/" title="互联网黑话">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">续航测试方法</span>
+                        <span class="hidden-mobile">互联网黑话</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -1665,8 +1625,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2023/11/30/%E4%BA%92%E8%81%94%E7%BD%91%E9%BB%91%E8%AF%9D/" title="互联网黑话">
-                        <span class="hidden-mobile">互联网黑话</span>
+                      <a href="/2023/11/29/Django%20Web%E6%A1%86%E6%9E%B6/" title="Django Web框架">
+                        <span class="hidden-mobile">Django Web框架</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

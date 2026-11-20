@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://example.com/img/mysql_base_pic/1.jpg">
 <meta property="article:published_time" content="2023-12-05T12:00:00.000Z">
-<meta property="article:modified_time" content="2025-12-18T08:48:36.260Z">
+<meta property="article:modified_time" content="2026-05-16T06:56:58.829Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="Web开发">
 <meta property="article:tag" content="后端">
@@ -228,7 +228,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          3.9k 字
+          4.9k 字
         
       </span>
     
@@ -239,7 +239,7 @@
         
         
         
-          33 分钟
+          41 分钟
         
       </span>
     
@@ -281,49 +281,7 @@
             
               <div class="markdown-body">
                 
-                <ul>
-<li>学习链接：<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Kr4y1i7ru?p=6&vd_source=4cf7b60c223a665538a4d958765c91a5">https://www.bilibili.com/video/BV1Kr4y1i7ru?</a></li>
-</ul>
-<h1 id="一、安装-配置"><a href="#一、安装-配置" class="headerlink" title="一、安装&amp;配置"></a>一、安装&amp;配置</h1><ol>
-<li><p>下载地址：<a target="_blank" rel="noopener" href="https://downloads.mysql.com/archives/community/">https://downloads.mysql.com/archives/community/</a></p>
-</li>
-<li><p>下载补丁文件</p>
-<ol>
-<li>vcredist_x64.exe：<a target="_blank" rel="noopener" href="https://www.microsoft.com/zh-cn/download/confirmation.aspx?id=40784">https://www.microsoft.com/zh-cn/download/confirmation.aspx?id=40784</a></li>
-<li>dxwebsetup.exe：<a target="_blank" rel="noopener" href="https://www.pcsoft.com.cn/soft/121449.html">https://www.pcsoft.com.cn/soft/121449.html</a></li>
-<li>安装此补丁时，不用勾选下载tools</li>
-</ol>
-</li>
-<li><p>下载mysql<br>注：可以选择5.7.31版本，既支持windows也支持mac</p>
-<div style="text-align:center">
- <img src="/img/mysql_base_pic/2.jpg" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:60%;">
-</div>
-
-
-
-</li>
-<li><p>配置</p>
-<ol>
-<li>解压之后，在此目录下创建my.ini配置文件</li>
-<li>编写配置文件，如图所示<div style="text-align:center;gap:5px">
- <img src="/img/mysql_base_pic/3.jpg" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:45%;">
- <img src="/img/mysql_base_pic/4.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
-</div></li>
-</ol>
-</li>
-<li><p>后续内容可参考此文档：<a target="_blank" rel="noopener" href="https://blog.csdn.net/m0_72755989/article/details/127388356">https://blog.csdn.net/m0_72755989/article/details/127388356</a></p>
-</li>
-<li><p>出现此页面代表链接成功，第一次登录无密码</p>
-<div style="text-align:center">
- <img src="/img/mysql_base_pic/5.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
-</div>
-
-
-</li>
-<li><p>登录后设置密码set password &#x3D; password(“Pooh_0505”)</p>
-</li>
-</ol>
-<h1 id="二、-MySQL基础语句"><a href="#二、-MySQL基础语句" class="headerlink" title="二、 MySQL基础语句"></a>二、 MySQL基础语句</h1><h2 id="1-通用语法"><a href="#1-通用语法" class="headerlink" title="1. 通用语法"></a>1. 通用语法</h2><ol>
+                <h1 id="一、-MySQL基础语句"><a href="#一、-MySQL基础语句" class="headerlink" title="一、 MySQL基础语句"></a>一、 MySQL基础语句</h1><h2 id="1-通用语法"><a href="#1-通用语法" class="headerlink" title="1. 通用语法"></a>1. 通用语法</h2><ol>
 <li>SQL语句可以单行或多行书写，以分号结尾</li>
 <li>SQL语句可以使用空格&#x2F;缩进，来增强语句的可读性</li>
 <li>MYSQL数据库的SQL语句不区分大小写，关键字建议使用大写</li>
@@ -333,10 +291,7 @@
 </ol>
 </li>
 </ol>
-<h2 id="2-数据定义语言-ddl"><a href="#2-数据定义语言-ddl" class="headerlink" title="2. 数据定义语言 - ddl"></a>2. 数据定义语言 - ddl</h2><ul>
-<li>用来定义数据库对象（数据库，表，字段）</li>
-</ul>
-<h3 id="1-数据库-操作"><a href="#1-数据库-操作" class="headerlink" title="1. 数据库 - 操作"></a>1. 数据库 - 操作</h3><ol>
+<h2 id="2-数据库操作"><a href="#2-数据库操作" class="headerlink" title="2. 数据库操作"></a>2. 数据库操作</h2><ol>
 <li>查询<ol>
 <li>查询所有数据库：<mark><code>SHOW DATABASES;</code></mark></li>
 <li>查询当前数据库：<code>SELECT DATABASE();</code></li>
@@ -346,7 +301,7 @@
 <li>删除数据库：<code>DROP DATABASE 数据库名称</code></li>
 <li>使用数据库：<mark><code>USE 数据库名称</code></mark></li>
 </ol>
-<h3 id="2-数据表-查询"><a href="#2-数据表-查询" class="headerlink" title="2. 数据表 - 查询"></a>2. 数据表 - 查询</h3><ol>
+<h2 id="3-数据表操作"><a href="#3-数据表操作" class="headerlink" title="3. 数据表操作"></a>3. 数据表操作</h2><h3 id="1-查询"><a href="#1-查询" class="headerlink" title="1. 查询"></a>1. 查询</h3><ol>
 <li>查询<ol>
 <li>查询当前数据库所有表：<mark><code>SHOW TABLES;</code></mark></li>
 <li><mark>查询表结构：</mark><code>DESC 表名;</code><ol>
@@ -357,7 +312,7 @@
 </ol>
 </li>
 </ol>
-<h3 id="3-数据表-创建"><a href="#3-数据表-创建" class="headerlink" title="3. 数据表 - 创建"></a>3. 数据表 - 创建</h3><ol>
+<h3 id="2-创建"><a href="#2-创建" class="headerlink" title="2. 创建"></a>2. 创建</h3><ol>
 <li><p>创建表中最后一个字段后面没有逗号</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs mysql">CREATE TABLE 表名(<br>	字段1 字段1类型[COMMENT 字段1注释],<br>	字段2 字段2类型[COMMENT 字段2注释],<br>	...<br>	字段n 字段n类型[COMMENT 字段n注释]<br>) [COMMENT 表注释];<br></code></pre></td></tr></table></figure>
 </li>
@@ -420,7 +375,7 @@
 
 
 
-<h3 id="3-数据表-修改-删除"><a href="#3-数据表-修改-删除" class="headerlink" title="3. 数据表 - 修改&amp;删除"></a>3. 数据表 - 修改&amp;删除</h3><ol>
+<h3 id="3-修改-删除"><a href="#3-修改-删除" class="headerlink" title="3. 修改&amp;删除"></a>3. 修改&amp;删除</h3><ol>
 <li><p><mark>添加字段</mark>：<code>alter table 表名 add 字段名 类型（长度） [comment注释][约束]</code></p>
 <ol>
 <li><p><code>alter</code>：改变</p>
@@ -458,12 +413,187 @@
 <li><p><mark>删除表</mark>：<code>drop table 表名;</code></p>
 </li>
 </ol>
-<h2 id="3-数据操作语言"><a href="#3-数据操作语言" class="headerlink" title="3. 数据操作语言"></a>3. 数据操作语言</h2><ul>
-<li>用来对数据库中表的数据记录进行增删改操作</li>
+<h3 id="4-常用的数据类型"><a href="#4-常用的数据类型" class="headerlink" title="4.常用的数据类型"></a>4.常用的数据类型</h3><h4 id="1-数值类型"><a href="#1-数值类型" class="headerlink" title="1. 数值类型"></a>1. 数值类型</h4><table>
+<thead>
+<tr>
+<th align="left">类型</th>
+<th align="left">大小</th>
+<th align="left">有符号（signed）范围</th>
+<th>无符号（unsigned）范围</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><mark>tinyint</mark></td>
+<td align="left">1 byte</td>
+<td align="left">(-128, 127)</td>
+<td>(0, 255)</td>
+<td>小整数值</td>
+</tr>
+<tr>
+<td align="left">smallint</td>
+<td align="left">2</td>
+<td align="left">(-32768, 32767)</td>
+<td>(0, 65535)</td>
+<td>大整数值</td>
+</tr>
+<tr>
+<td align="left">mediumint</td>
+<td align="left">3</td>
+<td align="left">(-8388608, 8388607)</td>
+<td>(0, 16777215)</td>
+<td>大整数值</td>
+</tr>
+<tr>
+<td align="left"><mark>int</mark> 或 <mark>integer</mark></td>
+<td align="left">4</td>
+<td align="left">(-2147483648, 2147483647)</td>
+<td>(0, 4294967295)</td>
+<td>大整数值</td>
+</tr>
+<tr>
+<td align="left">biting</td>
+<td align="left">8</td>
+<td align="left">(-2<sup>63</sup>, 2<sup>63</sup>-1)</td>
+<td>(0, 2<sup>64</sup>-1)</td>
+<td>极大整数值</td>
+</tr>
+<tr>
+<td align="left"><mark>float</mark></td>
+<td align="left">4</td>
+<td align="left">(-3.4 E+38, 3.4 E+38)</td>
+<td>0 和 (1.1 E-38, 3.4 E+38)</td>
+<td>单精度浮点数值</td>
+</tr>
+<tr>
+<td align="left">double</td>
+<td align="left">8</td>
+<td align="left">(-1.8 E+308, 1.8 E+308)</td>
+<td>0 和 (2.2 E-308, 1.8 E+308)</td>
+<td>双精度浮点数值</td>
+</tr>
+<tr>
+<td align="left">decimal</td>
+<td align="left"></td>
+<td align="left">依赖于M(精度)和D(标度)的值</td>
+<td>依赖于M(精度)和D(标度)的值</td>
+<td>小数值（精确定点数）</td>
+</tr>
+</tbody></table>
+<ul>
+<li>示例</li>
 </ul>
-<ol>
-<li><p><mark>添加数据 - insert into…value</mark></p>
-<ol>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs nginx"><span class="hljs-attribute">age</span> tinyint           <span class="hljs-comment"># 有符号范围</span><br>age tinyint unsigned  <span class="hljs-comment"># 无符号范围</span><br></code></pre></td></tr></table></figure>
+
+
+
+<h4 id="2-字符串类型"><a href="#2-字符串类型" class="headerlink" title="2. 字符串类型"></a>2. 字符串类型</h4><table>
+<thead>
+<tr>
+<th align="left">类型</th>
+<th align="left">大小</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><mark>char</mark></td>
+<td align="left">0-255 bytes</td>
+<td align="left"><mark>定长字符串</mark></td>
+</tr>
+<tr>
+<td align="left">varchar</td>
+<td align="left">0-65535 bytes</td>
+<td align="left">变长字符串</td>
+</tr>
+<tr>
+<td align="left">tinyblob</td>
+<td align="left">0-255 bytes</td>
+<td align="left">不超过255个字符的二进制数据</td>
+</tr>
+<tr>
+<td align="left">tinytext</td>
+<td align="left">0-255 bytes</td>
+<td align="left">短文本字符串</td>
+</tr>
+<tr>
+<td align="left">blob</td>
+<td align="left">0-65535 bytes</td>
+<td align="left">二进制形式的长文本数据</td>
+</tr>
+<tr>
+<td align="left"><mark>text</mark></td>
+<td align="left">0-65535 bytes</td>
+<td align="left"><mark>长文本数据</mark></td>
+</tr>
+<tr>
+<td align="left">mediumblob</td>
+<td align="left">0-16777215 bytes</td>
+<td align="left">二进制形式的中等长度文本数据</td>
+</tr>
+<tr>
+<td align="left">mediumtext</td>
+<td align="left">0-16777215 bytes</td>
+<td align="left">中等长度文本数据</td>
+</tr>
+<tr>
+<td align="left">longblob</td>
+<td align="left">0-4294967295 bytes</td>
+<td align="left">二级制形式的极大文本数据</td>
+</tr>
+<tr>
+<td align="left">longtext</td>
+<td align="left">0-4294967295 bytes</td>
+<td align="left">极大文本数据</td>
+</tr>
+</tbody></table>
+<ul>
+<li>示例</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell">mobile char(11)     # 固定使用11个字符串进行存储，哪怕没有11个<br>mobile varchar(11)  # 真实数据有多长，就会存储多长<br></code></pre></td></tr></table></figure>
+
+
+
+<h4 id="3-日期时间类型"><a href="#3-日期时间类型" class="headerlink" title="3. 日期时间类型"></a>3. 日期时间类型</h4><table>
+<thead>
+<tr>
+<th align="left">类型</th>
+<th align="left">大小</th>
+<th align="left">格式</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><mark>DATE</mark></td>
+<td align="left">3</td>
+<td align="left">YYYY-MM-DD</td>
+<td>日期值</td>
+</tr>
+<tr>
+<td align="left"><mark>TIME</mark></td>
+<td align="left">3</td>
+<td align="left">HH-MM-SS</td>
+<td>时间值或持续时间</td>
+</tr>
+<tr>
+<td align="left">YEAR</td>
+<td align="left">1</td>
+<td align="left">YYYY</td>
+<td>年份值</td>
+</tr>
+<tr>
+<td align="left"><mark>DATETIME</mark></td>
+<td align="left">8</td>
+<td align="left">YYYY-MM-DD HH-MM-SS</td>
+<td>混合日期和时间值</td>
+</tr>
+<tr>
+<td align="left">TIMESTAMP</td>
+<td align="left">4</td>
+<td align="left">YYYY-MM-DD HH-MM-SS</td>
+<td>混合日期和时间值，时间戳</td>
+</tr>
+</tbody></table>
+<h2 id="4-数据操作"><a href="#4-数据操作" class="headerlink" title="4. 数据操作"></a>4. 数据操作</h2><h3 id="1-添加数据"><a href="#1-添加数据" class="headerlink" title="1.添加数据"></a>1.添加数据</h3><ol>
 <li>给指定字段添加数据：<code>insert into 表名(字段名1, 字段名2, ... ) values (值1, 值2, ... );</code></li>
 <li>给全部字段添加数据：<code>insert into 表名 values (值1, 值2, ... );</code></li>
 <li>批量添加数据：<ol>
@@ -476,9 +606,8 @@
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs mysql"># 添加指定字段<br>insert into emplee(id, workno, name, gender, age, idcread, entrydate) values (1, &#x27;2&#x27;, &#x27;Itcast&#x27;, &#x27;男&#x27;， 10, &#x27;123456789012345678&#x27;, &#x27;2000-03-07&#x27;);<br><br># 添加全部字段<br>insert into emplee values (1, &#x27;2&#x27;, &#x27;Itcast&#x27;, &#x27;男&#x27;， 10, &#x27;123456789012345678&#x27;, &#x27;2000-03-07&#x27;);<br><br># 批量添加数据<br>insert into emplee values (1, &#x27;2&#x27;, &#x27;Itcast&#x27;, &#x27;男&#x27;， 10, &#x27;123456789012345678&#x27;, &#x27;2000-03-07&#x27;), (1, &#x27;2&#x27;, &#x27;Itcast&#x27;, &#x27;男&#x27;， 10, &#x27;123456789012345678&#x27;, &#x27;2000-03-07&#x27;);<br></code></pre></td></tr></table></figure>
 
 
-</li>
-<li><p><mark>修改数据  - update…set</mark></p>
-<ol>
+
+<h3 id="2-修改数据"><a href="#2-修改数据" class="headerlink" title="2.修改数据"></a>2.修改数据</h3><ol>
 <li>修改数据：<code>update 表名 set 字段1=值1, 字段2=值2, ... [where 条件]; </code></li>
 </ol>
 <ul>
@@ -490,9 +619,8 @@
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs mysql"># 修改id为1的数据，将name修改为itheima<br>update employee set name=&quot;itheima&quot; where id=1;<br><br># 修改id为1的数据，将name修改为小明，gender修改为女<br>update employee set name=&quot;itheima&quot;,gender=&quot;女&quot; where id=1;<br><br># 将所有的员工入职日期修改为2000-01-01<br>update employee set entrydate=&quot;2000-01-01&quot;;<br></code></pre></td></tr></table></figure>
 
 
-</li>
-<li><p><mark>删除数据 - delete from</mark></p>
-<ol>
+
+<h3 id="3-删除数据"><a href="#3-删除数据" class="headerlink" title="3.删除数据"></a>3.删除数据</h3><ol>
 <li>删除数据：<code>delete from 表名[where 条件]</code></li>
 </ol>
 <ul>
@@ -502,9 +630,13 @@
 <ol start="2">
 <li>示例：</li>
 </ol>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs mysql"># 删除gender为女的员工<br>delete from employee where gender=&quot;女&quot;;<br><br># 删除所有员工<br>delete from employee;<br></code></pre></td></tr></table></figure></li>
-</ol>
-<h1 id="三、数据查询语言"><a href="#三、数据查询语言" class="headerlink" title="三、数据查询语言 *"></a>三、数据查询语言 *</h1><h2 id="1-基本查询"><a href="#1-基本查询" class="headerlink" title="1. 基本查询"></a>1. 基本查询</h2><ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs mysql"># 删除gender为女的员工<br>delete from employee where gender=&quot;女&quot;;<br><br># 删除所有员工<br>delete from employee;<br></code></pre></td></tr></table></figure>
+
+
+
+
+
+<h3 id="4-数据查询"><a href="#4-数据查询" class="headerlink" title="4.数据查询 *"></a>4.数据查询 *</h3><h4 id="1-基本查询"><a href="#1-基本查询" class="headerlink" title="1. 基本查询"></a>1. 基本查询</h4><ol>
 <li>查询多个字段<ol>
 <li><code>select 字段1, 字段2, 字段3, ... from 表名;</code></li>
 <li><code>select * from 表名;</code></li>
@@ -518,7 +650,7 @@
 
 
 
-<h2 id="2-条件查询"><a href="#2-条件查询" class="headerlink" title="2. 条件查询"></a>2. 条件查询</h2><ol>
+<h4 id="2-条件查询"><a href="#2-条件查询" class="headerlink" title="2. 条件查询"></a>2. 条件查询</h4><ol>
 <li>条件查询：<code>select 字段列表 from 表名 where 条件列表;</code></li>
 <li>条件：</li>
 </ol>
@@ -569,7 +701,7 @@
 
 
 
-<h2 id="3-聚合函数"><a href="#3-聚合函数" class="headerlink" title="3. 聚合函数"></a>3. 聚合函数</h2><ol>
+<h4 id="3-聚合函数"><a href="#3-聚合函数" class="headerlink" title="3. 聚合函数"></a>3. 聚合函数</h4><ol>
 <li>介绍：将一列数据作为一个整体，尽行纵向计算</li>
 <li>语法：<code>select 聚合函数(字段列表) from 表名;</code></li>
 <li>常见的聚合函数：</li>
@@ -616,7 +748,7 @@
 
 
 
-<h2 id="4-分组-group-by"><a href="#4-分组-group-by" class="headerlink" title="4. 分组 - group by *"></a>4. 分组 - group by *</h2><ol>
+<h4 id="4-分组-group-by"><a href="#4-分组-group-by" class="headerlink" title="4. 分组 - group by *"></a>4. 分组 - group by *</h4><ol>
 <li>查询方法：<code>select 字段列表 from 表名 [where 条件] group by 分组字段名[having 分组后过滤条件];</code></li>
 <li>where 和 having 区别<ol>
 <li>执行时机不同：where是分组之前进行过滤，不满足where条件的，不参与分组；而having是分组之后对结果进行过滤</li>
@@ -634,7 +766,7 @@
 
 
 
-<h2 id="5-排序-order-by"><a href="#5-排序-order-by" class="headerlink" title="5. 排序 - order by"></a>5. 排序 - order by</h2><ol>
+<h4 id="5-排序-order-by"><a href="#5-排序-order-by" class="headerlink" title="5. 排序 - order by"></a>5. 排序 - order by</h4><ol>
 <li>查询方法：<code>select 字段列表 from 表名 order by 字段1 排序方式1, 字段2 排序方式2;</code></li>
 <li>排序方式<ol>
 <li>asc：升序（默认值）</li>
@@ -648,7 +780,7 @@
 
 
 
-<h2 id="6-分页-limit"><a href="#6-分页-limit" class="headerlink" title="6. 分页 - limit"></a>6. 分页 - limit</h2><ol>
+<h4 id="6-分页-limit"><a href="#6-分页-limit" class="headerlink" title="6. 分页 - limit"></a>6. 分页 - limit</h4><ol>
 <li>查询方法：<code>select 字段列表 from 表名 limit 起始索引, 查询记录数</code></li>
 <li>注意：<ol>
 <li>起始索引从0开始，起始索引&#x3D;（查询页码-1）*每页显示记录数</li>
@@ -662,7 +794,7 @@
 
 
 
-<h2 id="7-合并查询-union-union-all"><a href="#7-合并查询-union-union-all" class="headerlink" title="7.合并查询 - union&#x2F;union all"></a>7.合并查询 - union&#x2F;union all</h2><ul>
+<h4 id="7-合并查询-union-union-all"><a href="#7-合并查询-union-union-all" class="headerlink" title="7.合并查询 - union&#x2F;union all"></a>7.合并查询 - union&#x2F;union all</h4><ul>
 <li><p><mark>纵向链接两张表</mark></p>
 </li>
 <li><p>介绍：纵向组合多个select查询后的结果</p>
@@ -688,10 +820,10 @@
 
 
 
-<h2 id="8-链表查询-join"><a href="#8-链表查询-join" class="headerlink" title="8.链表查询 - join"></a>8.链表查询 - join</h2><ul>
+<h4 id="8-链表查询-join"><a href="#8-链表查询-join" class="headerlink" title="8.链表查询 - join"></a>8.链表查询 - join</h4><ul>
 <li><mark>横向链接两张表</mark></li>
 </ul>
-<h3 id="1-左链接-left-join-on"><a href="#1-左链接-left-join-on" class="headerlink" title="1.左链接 left join .. on"></a>1.左链接 left join .. on</h3><ul>
+<h5 id="1-左链接-left-join-on"><a href="#1-左链接-left-join-on" class="headerlink" title="1.左链接 left join .. on"></a>1.左链接 left join .. on</h5><ul>
 <li>介绍：<mark>会先将左侧表中的数据全部取出来，再去搜索对应的右侧表数据</mark></li>
 </ul>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs mysql">select * from 表1 left join 表2 on 表1.id = 表2.id<br></code></pre></td></tr></table></figure>
@@ -712,33 +844,33 @@
 
 
 
-<h3 id="2-右连接-right-join"><a href="#2-右连接-right-join" class="headerlink" title="2.右连接 right join"></a>2.右连接 right join</h3><p>与左连接的功能一致，只不过完整保留右侧表中的所有内容</p>
+<h5 id="2-右连接-right-join"><a href="#2-右连接-right-join" class="headerlink" title="2.右连接 right join"></a>2.右连接 right join</h5><p>与左连接的功能一致，只不过完整保留右侧表中的所有内容</p>
 <div style="text-align:center">
     <img src="/img/mysql_base_pic/14.png" srcset="/img/loading.gif" lazyload alt="图片描述">
 </div>
 
 
 
-<h3 id="3-内连接-inner-join-join"><a href="#3-内连接-inner-join-join" class="headerlink" title="3.内连接 inner join &#x2F; join"></a>3.内连接 inner join &#x2F; join</h3><p>取左右两张表的交集部分</p>
+<h5 id="3-内连接-inner-join-join"><a href="#3-内连接-inner-join-join" class="headerlink" title="3.内连接 inner join &#x2F; join"></a>3.内连接 inner join &#x2F; join</h5><p>取左右两张表的交集部分</p>
 <div style="text-align:center">
     <img src="/img/mysql_base_pic/13.png" srcset="/img/loading.gif" lazyload alt="图片描述">
 </div>
 
 
 
-<h3 id="4-外链接-outer-join-union"><a href="#4-外链接-outer-join-union" class="headerlink" title="4.外链接 outer join &#x3D; union"></a>4.外链接 outer join &#x3D; union</h3><p>保留两张表内的所有数据，实际上是左连接 union 右链接</p>
+<h5 id="4-外链接-outer-join-union"><a href="#4-外链接-outer-join-union" class="headerlink" title="4.外链接 outer join &#x3D; union"></a>4.外链接 outer join &#x3D; union</h5><p>保留两张表内的所有数据，实际上是左连接 union 右链接</p>
 <div style="text-align:center">
     <img src="/img/mysql_base_pic/15.png" srcset="/img/loading.gif" lazyload alt="图片描述">
 </div>
 
 
 
-<h2 id="9-case-when"><a href="#9-case-when" class="headerlink" title="9.case when"></a>9.case when</h2><p>类似代码中if else的表达方式，示例：</p>
+<h4 id="9-case-when"><a href="#9-case-when" class="headerlink" title="9.case when"></a>9.case when</h4><p>类似代码中if else的表达方式，示例：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs mysql">SELECT <br>    product_name,<br>    price,<br>    CASE <br>        WHEN price &gt; 1000 THEN &#x27;高价&#x27;<br>        WHEN price &gt; 500 THEN &#x27;中价&#x27;<br>        ELSE &#x27;低价&#x27;<br>    END AS price_level<br>FROM products;<br></code></pre></td></tr></table></figure>
 
 
 
-<h2 id="10-distinct-与-order-by-的区别"><a href="#10-distinct-与-order-by-的区别" class="headerlink" title="10.distinct 与 order by 的区别"></a>10.distinct 与 order by 的区别</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs mysql">SELECT a, b FROM table GROUP BY a, b<br><br>SELECT DISTINCT a, b FROM table<br></code></pre></td></tr></table></figure>
+<h4 id="10-distinct-与-order-by-的区别"><a href="#10-distinct-与-order-by-的区别" class="headerlink" title="10.distinct 与 order by 的区别"></a>10.distinct 与 order by 的区别</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs mysql">SELECT a, b FROM table GROUP BY a, b<br><br>SELECT DISTINCT a, b FROM table<br></code></pre></td></tr></table></figure>
 
 <ul>
 <li>输出结果：两者都会返回列 <code>a</code> 和 <code>b</code> 的唯一组合</li>
@@ -753,7 +885,7 @@
 </ul>
 </li>
 </ul>
-<h2 id="11-explain"><a href="#11-explain" class="headerlink" title="11.explain"></a>11.explain</h2><ol>
+<h4 id="11-explain"><a href="#11-explain" class="headerlink" title="11.explain"></a>11.explain</h4><ol>
 <li>explain的应用<ol>
 <li>发现全表扫描(ALL类型)的查询</li>
 <li><mark>检查是否使用了合适的索引</mark></li>
@@ -840,17 +972,17 @@
 
 
 
-<h1 id="四、-连接本地数据库"><a href="#四、-连接本地数据库" class="headerlink" title="四、 连接本地数据库"></a>四、 连接本地数据库</h1><h2 id="0-mysql的启动和关闭"><a href="#0-mysql的启动和关闭" class="headerlink" title="0. mysql的启动和关闭"></a>0. mysql的启动和关闭</h2><ol>
+<h1 id="二、本地数据库"><a href="#二、本地数据库" class="headerlink" title="二、本地数据库"></a>二、本地数据库</h1><h2 id="1-mysql的启停"><a href="#1-mysql的启停" class="headerlink" title="1. mysql的启停"></a>1. mysql的启停</h2><ol>
 <li>启动服务器：net start mysql</li>
 <li>服务停止命令：net stop mysql  </li>
 <li>退出mysql：exit；</li>
 <li>终止此行语句：ctrl + c</li>
 </ol>
-<h2 id="1-进入mysql"><a href="#1-进入mysql" class="headerlink" title="1. 进入mysql"></a>1. 进入mysql</h2><ol>
+<h2 id="2-进入mysql"><a href="#2-进入mysql" class="headerlink" title="2. 进入mysql"></a>2. 进入mysql</h2><ol>
 <li>访问mysql：mysql -u root -p</li>
 <li>重置密码：set password &#x3D; password(“Pooh_0505”)</li>
 </ol>
-<h2 id="2-对mysql中文件夹操作"><a href="#2-对mysql中文件夹操作" class="headerlink" title="2. 对mysql中文件夹操作"></a>2. 对mysql中文件夹操作</h2><ol>
+<h2 id="3-对mysql中文件夹操作"><a href="#3-对mysql中文件夹操作" class="headerlink" title="3. 对mysql中文件夹操作"></a>3. 对mysql中文件夹操作</h2><ol>
 <li>查看mysql目录下文件夹：show databases;</li>
 <li>创建数据库：create database 数据库名字 DEFAULT CHARSET utf8 COLLATE utf8_general_ci;</li>
 <li>删除数据库：drop database 数据库名字;</li>
@@ -863,7 +995,7 @@
 
 
 
-<h2 id="3-对具体文件操作"><a href="#3-对具体文件操作" class="headerlink" title="3. 对具体文件操作"></a>3. 对具体文件操作</h2><ol>
+<h2 id="4-对具体文件操作"><a href="#4-对具体文件操作" class="headerlink" title="4. 对具体文件操作"></a>4. 对具体文件操作</h2><ol>
 <li>创建表：<code>create table 表的名称（列名称 类型，列名称 类型，列名称 类型）default charset=utf8;</code></li>
 <li>删除表：<code>drop table 表的名称;</code></li>
 <li>查看表的格式：<code>desc 表的名称;</code></li>
@@ -879,7 +1011,7 @@
 </p>
 
 
-<h2 id="4-数据行操作"><a href="#4-数据行操作" class="headerlink" title="4. 数据行操作"></a>4. 数据行操作</h2><ol>
+<h2 id="5-数据行操作"><a href="#5-数据行操作" class="headerlink" title="5. 数据行操作"></a>5. 数据行操作</h2><ol>
 <li><p>新增数据：<code>insert into 表的名称（列1名称，列2名称） values(列1数据，列2数据），(列1数据，列2数据），(列1数据，列2数据）;</code></p>
 </li>
 <li><p>删除数据</p>
@@ -891,211 +1023,7 @@
 <li><p><mark>查询数据</mark></p>
 <figure class="highlight axapta"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs axapta"><span class="hljs-keyword">select</span> * <span class="hljs-keyword">from</span> 表的名称;<br><span class="hljs-keyword">select</span> 列名称 <span class="hljs-keyword">from</span> 表的名称;<br><span class="hljs-keyword">select</span> 列名称 <span class="hljs-keyword">from</span> 表的名称 <span class="hljs-keyword">where</span> 条件;<br></code></pre></td></tr></table></figure></li>
 </ol>
-<h2 id="5-其他指令"><a href="#5-其他指令" class="headerlink" title="5. 其他指令"></a>5. 其他指令</h2><ol>
-<li>显示目前已有的用户名：<code>select user from mysql.user;</code></li>
-</ol>
-<ul>
-<li>用户名默认是root<div style="text-align:center">
-  <img src="/img/mysql_base_pic/7.jpg" srcset="/img/loading.gif" lazyload alt="图片描述">
-</div></li>
-</ul>
-<ol start="2">
-<li>查看当前mysql数据库的版本：<code>select version();</code></li>
-</ol>
-<h1 id="五、常用的数据类型"><a href="#五、常用的数据类型" class="headerlink" title="五、常用的数据类型"></a>五、常用的数据类型</h1><h2 id="1-数值类型"><a href="#1-数值类型" class="headerlink" title="1. 数值类型"></a>1. 数值类型</h2><table>
-<thead>
-<tr>
-<th align="left">类型</th>
-<th align="left">大小</th>
-<th align="left">有符号（signed）范围</th>
-<th>无符号（unsigned）范围</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left"><mark>tinyint</mark></td>
-<td align="left">1 byte</td>
-<td align="left">(-128, 127)</td>
-<td>(0, 255)</td>
-<td>小整数值</td>
-</tr>
-<tr>
-<td align="left">smallint</td>
-<td align="left">2</td>
-<td align="left">(-32768, 32767)</td>
-<td>(0, 65535)</td>
-<td>大整数值</td>
-</tr>
-<tr>
-<td align="left">mediumint</td>
-<td align="left">3</td>
-<td align="left">(-8388608, 8388607)</td>
-<td>(0, 16777215)</td>
-<td>大整数值</td>
-</tr>
-<tr>
-<td align="left"><mark>int</mark> 或 <mark>integer</mark></td>
-<td align="left">4</td>
-<td align="left">(-2147483648, 2147483647)</td>
-<td>(0, 4294967295)</td>
-<td>大整数值</td>
-</tr>
-<tr>
-<td align="left">biting</td>
-<td align="left">8</td>
-<td align="left">(-2<sup>63</sup>, 2<sup>63</sup>-1)</td>
-<td>(0, 2<sup>64</sup>-1)</td>
-<td>极大整数值</td>
-</tr>
-<tr>
-<td align="left"><mark>float</mark></td>
-<td align="left">4</td>
-<td align="left">(-3.4 E+38, 3.4 E+38)</td>
-<td>0 和 (1.1 E-38, 3.4 E+38)</td>
-<td>单精度浮点数值</td>
-</tr>
-<tr>
-<td align="left">double</td>
-<td align="left">8</td>
-<td align="left">(-1.8 E+308, 1.8 E+308)</td>
-<td>0 和 (2.2 E-308, 1.8 E+308)</td>
-<td>双精度浮点数值</td>
-</tr>
-<tr>
-<td align="left">decimal</td>
-<td align="left"></td>
-<td align="left">依赖于M(精度)和D(标度)的值</td>
-<td>依赖于M(精度)和D(标度)的值</td>
-<td>小数值（精确定点数）</td>
-</tr>
-</tbody></table>
-<ul>
-<li>示例</li>
-</ul>
-<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs nginx"><span class="hljs-attribute">age</span> tinyint           <span class="hljs-comment"># 有符号范围</span><br>age tinyint unsigned  <span class="hljs-comment"># 无符号范围</span><br></code></pre></td></tr></table></figure>
-
-
-
-
-
-<h2 id="2-字符串类型"><a href="#2-字符串类型" class="headerlink" title="2. 字符串类型"></a>2. 字符串类型</h2><table>
-<thead>
-<tr>
-<th align="left">类型</th>
-<th align="left">大小</th>
-<th align="left">描述</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left"><mark>char</mark></td>
-<td align="left">0-255 bytes</td>
-<td align="left"><mark>定长字符串</mark></td>
-</tr>
-<tr>
-<td align="left">varchar</td>
-<td align="left">0-65535 bytes</td>
-<td align="left">变长字符串</td>
-</tr>
-<tr>
-<td align="left">tinyblob</td>
-<td align="left">0-255 bytes</td>
-<td align="left">不超过255个字符的二进制数据</td>
-</tr>
-<tr>
-<td align="left">tinytext</td>
-<td align="left">0-255 bytes</td>
-<td align="left">短文本字符串</td>
-</tr>
-<tr>
-<td align="left">blob</td>
-<td align="left">0-65535 bytes</td>
-<td align="left">二进制形式的长文本数据</td>
-</tr>
-<tr>
-<td align="left"><mark>text</mark></td>
-<td align="left">0-65535 bytes</td>
-<td align="left"><mark>长文本数据</mark></td>
-</tr>
-<tr>
-<td align="left">mediumblob</td>
-<td align="left">0-16777215 bytes</td>
-<td align="left">二进制形式的中等长度文本数据</td>
-</tr>
-<tr>
-<td align="left">mediumtext</td>
-<td align="left">0-16777215 bytes</td>
-<td align="left">中等长度文本数据</td>
-</tr>
-<tr>
-<td align="left">longblob</td>
-<td align="left">0-4294967295 bytes</td>
-<td align="left">二级制形式的极大文本数据</td>
-</tr>
-<tr>
-<td align="left">longtext</td>
-<td align="left">0-4294967295 bytes</td>
-<td align="left">极大文本数据</td>
-</tr>
-</tbody></table>
-<ul>
-<li>示例</li>
-</ul>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell">mobile char(11)     # 固定使用11个字符串进行存储，哪怕没有11个<br>mobile varchar(11)  # 真实数据有多长，就会存储多长<br></code></pre></td></tr></table></figure>
-
-
-
-
-
-<h2 id="3-日期时间类型"><a href="#3-日期时间类型" class="headerlink" title="3. 日期时间类型"></a>3. 日期时间类型</h2><table>
-<thead>
-<tr>
-<th align="left">类型</th>
-<th align="left">大小</th>
-<th align="left">格式</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left"><mark>DATE</mark></td>
-<td align="left">3</td>
-<td align="left">YYYY-MM-DD</td>
-<td>日期值</td>
-</tr>
-<tr>
-<td align="left"><mark>TIME</mark></td>
-<td align="left">3</td>
-<td align="left">HH-MM-SS</td>
-<td>时间值或持续时间</td>
-</tr>
-<tr>
-<td align="left">YEAR</td>
-<td align="left">1</td>
-<td align="left">YYYY</td>
-<td>年份值</td>
-</tr>
-<tr>
-<td align="left"><mark>DATETIME</mark></td>
-<td align="left">8</td>
-<td align="left">YYYY-MM-DD HH-MM-SS</td>
-<td>混合日期和时间值</td>
-</tr>
-<tr>
-<td align="left">TIMESTAMP</td>
-<td align="left">4</td>
-<td align="left">YYYY-MM-DD HH-MM-SS</td>
-<td>混合日期和时间值，时间戳</td>
-</tr>
-</tbody></table>
-<hr>
-<h1 id="六、数据库迁移"><a href="#六、数据库迁移" class="headerlink" title="六、数据库迁移"></a>六、数据库迁移</h1><h2 id="1-windows数据库迁出"><a href="#1-windows数据库迁出" class="headerlink" title="1. windows数据库迁出"></a>1. windows数据库迁出</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">1.打开终端</span><br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">2.执行： <span class="hljs-built_in">cd</span> 要导出到的目录</span>  <br>cd /d E:<br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">3.执行：mysqldump -u root -p 要导出的数据库名 &gt; 所保存为的名字.sql（sql类型文件）</span><br>mysqldump -u root -p ppc &gt; sql_name.sql<br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">4.输入数据库密码</span><br>Enter password：*********<br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">此时，会在规定的路径（E：）中发现已经导出的.sql文件：sql_name.sql。</span><br></code></pre></td></tr></table></figure>
-
-
-
-<h2 id="2-mac数据迁入"><a href="#2-mac数据迁入" class="headerlink" title="2. mac数据迁入"></a>2. mac数据迁入</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">1. 启动数据库</span><br>mysql -u root -p<br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">2.输入数据库密码</span><br>Enter password：*********<br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">3.创建数据库：create database name;</span><br>create database ppc;<br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">4.进入数据库：use name;</span><br>use name;<br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">5.导入数据：<span class="hljs-built_in">source</span> 『将.sql文件直接拖拽至终端，自动补全其文件目录』</span><br><span class="hljs-meta prompt_">mysql&gt;</span><span class="language-bash"><span class="hljs-built_in">source</span> d/:name.sql</span><br></code></pre></td></tr></table></figure>
-
-
-
-<h1 id="七、Navicat"><a href="#七、Navicat" class="headerlink" title="七、Navicat"></a>七、Navicat</h1><h2 id="1-介绍"><a href="#1-介绍" class="headerlink" title="1. 介绍"></a>1. 介绍</h2><ol>
+<h1 id="三、Navicat"><a href="#三、Navicat" class="headerlink" title="三、Navicat"></a>三、Navicat</h1><h2 id="1-介绍"><a href="#1-介绍" class="headerlink" title="1. 介绍"></a>1. 介绍</h2><ol>
 <li><p>简介：Navicat是一款数据库管理工具，能够同时连接多种主流数据库，用户可以方便地管理和同步多个数据库的内容</p>
 </li>
 <li><p>连接数据后，会自动生成4个数据库</p>
@@ -1143,7 +1071,111 @@
 </div>
 
 
-<h1 id="八、做道题"><a href="#八、做道题" class="headerlink" title="八、做道题"></a>八、做道题</h1><h2 id="1-上升的温度"><a href="#1-上升的温度" class="headerlink" title="1.上升的温度"></a>1.上升的温度</h2><blockquote>
+<h1 id="四、sql慢查"><a href="#四、sql慢查" class="headerlink" title="四、sql慢查"></a>四、sql慢查</h1><p>一般慢查发生时，尝伴随耗时高、主从延迟高的告警</p>
+<h2 id="1-常规优化手段"><a href="#1-常规优化手段" class="headerlink" title="1.常规优化手段"></a>1.常规优化手段</h2><h3 id="1-优化sql"><a href="#1-优化sql" class="headerlink" title="1.优化sql"></a>1.优化sql</h3><h4 id="1-明确查询列"><a href="#1-明确查询列" class="headerlink" title="1.明确查询列"></a>1.明确查询列</h4><p>避免使用<code>select *</code>作为查询的列表字段，需要那些字段必须明确写明</p>
+<h4 id="2-小表join驱动大表"><a href="#2-小表join驱动大表" class="headerlink" title="2.小表join驱动大表"></a>2.小表join驱动大表</h4><p>用数据量较小、索引比较完备的小表，使用其索引和条件，对大表进行数据筛选。从而减少数据计算量，提高查询效率</p>
+<p>如：student表有30条数据，score表有80w条数据</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs mysql">select * from student left join scores on student.id = scores.student_id<br></code></pre></td></tr></table></figure>
+
+
+
+<h4 id="3-连接查询代替子查询"><a href="#3-连接查询代替子查询" class="headerlink" title="3.连接查询代替子查询"></a>3.连接查询代替子查询</h4><p>如：student表有30条数据，score表有80w条数据，想要查看学号小于15的学员各科分数信息</p>
+<ul>
+<li>子查询：需要执行两次数据库查询，一次是外部查询，一次是嵌套子查询</li>
+<li>连接查询：可以减少数据库查询的次数，提高查询效率</li>
+</ul>
+<h4 id="4-批量操作"><a href="#4-批量操作" class="headerlink" title="4.批量操作"></a>4.批量操作</h4><p>批量插入或删除数据，较少频繁的IO操作</p>
+<h4 id="5-使用limit"><a href="#5-使用limit" class="headerlink" title="5.使用limit"></a>5.使用limit</h4><p>避免过度提取数据，简化查询结果</p>
+<h3 id="2-大表拆分"><a href="#2-大表拆分" class="headerlink" title="2.大表拆分"></a>2.大表拆分</h3><h4 id="1-水平拆分"><a href="#1-水平拆分" class="headerlink" title="1.水平拆分"></a>1.水平拆分</h4><ol>
+<li>解决单表数据量过大问题，核心规则是范围 &#x2F; 哈希 &#x2F; 地理 &#x2F; 时间，哈希拆分数据分布最均匀</li>
+<li>注意：分库分表过程中，分片键选择（避免数据倾斜）</li>
+</ol>
+<h4 id="2-纵向拆分"><a href="#2-纵向拆分" class="headerlink" title="2.纵向拆分"></a>2.纵向拆分</h4><ol>
+<li>解决业务耦合和高频字段查询效率问题，核心按业务模块 &#x2F; 访问频率拆分。可分割为主表、从表，或两个完全独立的库</li>
+</ol>
+<h3 id="3-添加索引"><a href="#3-添加索引" class="headerlink" title="3.添加索引"></a>3.添加索引</h3><blockquote>
+<p>[!NOTE]</p>
+<p>【底层原理】增加索引字段，全表扫描-&gt;B+树快速查找。<mark>有序的排列索引的内容，将相同的数据排在一起</mark>，故提高group by的查询效率 </p>
+</blockquote>
+<ol>
+<li>普通索引（单列）</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs mysql">CREATE INDEX idx_user_id ON user (user_id);<br></code></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>联合索引（多列）</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs mysql">CREATE INDEX idx_user_name_age ON user (user_name, age);<br></code></pre></td></tr></table></figure>
+
+<p>注：若已创建联合索引 (A, B)，无需再创建普通索引 (A)（联合索引已包含 A 的索引能力）；</p>
+<ol start="3">
+<li>性能对比<ol>
+<li>假设有 100 万行数据，查询 WHERE name &#x3D; ‘张三’ AND age &#x3D; 25，用两个普通索引（idx_name + idx_age）</li>
+<li>不加索引：数据库需要逐行读取 100 万行数据，对比每行的 name和age，耗时5s</li>
+<li>普通索引：先查 idx_name &#x3D; “张三” 的主键 ID，再查 idx_age &#x3D;25 的 ID，最后合并结果，耗时约 50ms</li>
+<li>联合索引（idx_name_age）：直接定位 “张三 + 25” 的主键 ID，耗时约 5ms</li>
+</ol>
+</li>
+</ol>
+<h3 id="4-增加中间件"><a href="#4-增加中间件" class="headerlink" title="4.增加中间件"></a>4.增加中间件</h3><h4 id="1-redis缓存"><a href="#1-redis缓存" class="headerlink" title="1.redis缓存"></a>1.redis缓存</h4><h4 id="2-es代替复杂查找逻辑"><a href="#2-es代替复杂查找逻辑" class="headerlink" title="2.es代替复杂查找逻辑"></a>2.es代替复杂查找逻辑</h4><h2 id="2-深翻页问题"><a href="#2-深翻页问题" class="headerlink" title="2.深翻页问题"></a>2.深翻页问题</h2><h3 id="1-介绍-1"><a href="#1-介绍-1" class="headerlink" title="1.介绍"></a>1.介绍</h3><ol>
+<li><p>在分页查询中，访问「页码非常靠后」的数据（比如第 1000 页）</p>
+</li>
+<li><p>浅分页：查询第 1 页数据（pageNum&#x3D;1，pageSize&#x3D;10）</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs mysql">SELECT * FROM user ORDER BY id LIMIT 0, 10;<br></code></pre></td></tr></table></figure>
+
+
+</li>
+<li><p>深分页：查询第 1000 页数据（pageNum&#x3D;1000，pageSize&#x3D;10），本质是要获取「第 9991~10000 条」数据。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs mysql">SELECT * FROM user ORDER BY id LIMIT 9990, 10;<br></code></pre></td></tr></table></figure></li>
+</ol>
+<h3 id="2-核心问题"><a href="#2-核心问题" class="headerlink" title="2.核心问题"></a>2.核心问题</h3><p>传统分页用 LIMIT offset, size 实现，但 offset 越大，性能越差，原因是：<br>MySQL 执行 LIMIT 9990, 10 时，会先扫描出前 9990 条数据并丢弃，只返回最后 10 条</p>
+<h3 id="3-解决方案"><a href="#3-解决方案" class="headerlink" title="3.解决方案"></a>3.解决方案</h3><p>1.基于「游标 &#x2F; 上一页最后一条数据」分页</p>
+<ul>
+<li>核心思路：放弃「页码」，改用「上一页最后一条数据的唯一标识（如 ID）」作为查询条件，避免 offset 扫描无效数据。</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs mysql"># 第1页：取ID&lt;=(最后一条ID)的10条<br>SELECT * FROM user ORDER BY id LIMIT 10;  <br><br># 假设第1页最后一条ID是10，第2页：取ID&gt;10的10条<br>SELECT * FROM user WHERE id &gt; 10 ORDER BY id LIMIT 10;  <br><br># 第1000页：取ID&gt;9990的10条（无需扫描前9990条）<br>SELECT * FROM user WHERE id &gt; 9990 ORDER BY id LIMIT 10;<br></code></pre></td></tr></table></figure>
+
+
+
+<ul>
+<li><p>优势：</p>
+<ul>
+<li>无论翻多少页，SQL 只扫描需要的 10 条数据，性能稳定</li>
+<li>适合「下拉加载更多」的场景（APP &#x2F; 网页常见）</li>
+</ul>
+</li>
+<li><p>局限：</p>
+<ul>
+<li><p>无法直接跳转到指定页码（比如用户想直接点第 1000 页）</p>
+</li>
+<li><p>依赖有序的唯一标识（如自增 ID、时间戳 + ID）</p>
+</li>
+</ul>
+</li>
+</ul>
+<p>2.产品层面禁止访问过深的页码</p>
+<ul>
+<li>只允许查询前 x 页，</li>
+<li>强制用户通过筛选条件（如时间、分类）缩小数据范围，再分页</li>
+</ul>
+<p>3.缓存 &#x2F; 预计算（高并发场景）</p>
+<ul>
+<li>对热门数据（如前 100 页）做缓存（Redis），深分页数据预计算后存入缓存，避免直接查数据库</li>
+</ul>
+<h1 id="五、主从延时"><a href="#五、主从延时" class="headerlink" title="五、主从延时"></a>五、主从延时</h1><p>主从延时本质上是从库复制、执行主库 binlog 的速度跟不上主库产生 binlog 的速度，背后涉及主库、网络、从库等多方面因素</p>
+<ol>
+<li>主库层面的原因</li>
+</ol>
+<p>主库写入压力过大：如果主库短时间内有大量 DML 操作（INSERT&#x2F;UPDATE&#x2F;DELETE）、大事务（比如一次性更新 100 万行数据），会产生大量 binlog，从库处理速度根本跟不上。</p>
+<ol start="2">
+<li>网络层面的原因</li>
+</ol>
+<p>网络带宽 &#x2F; 延迟问题：主库的 binlog 通过网络传输到从库的 IO 线程，如果主从节点跨机房、跨地域部署，网络延迟（比如 RTT&gt;100ms）、带宽不足（比如大量大事务的 binlog 传输占满带宽），会直接导致从库获取 binlog 的速度变慢。</p>
+<ol start="3">
+<li>从库层面的核心原因</li>
+</ol>
+<p>从库硬件性能不足：从库的 CPU、内存、磁盘 IO（比如用机械硬盘代替 SSD）配置远低于主库，执行 SQL 的速度慢。比如主库是 16 核 32G+SSD，从库是 4 核 8G+HDD，即使没有并发问题，单条 SQL 执行也会慢。<br>从库自身负载过高：很多场景下会把从库同时作为查询库，大量业务查询占用从库的 CPU、IO 资源，导致 SQL 线程执行复制的资源被抢占，复制速度下降。<br>从库锁冲突：从库执行复制的 SQL 时，遇到表锁、行锁（比如从库有慢查询占用锁），会阻塞复制进程，产生延时</p>
+<h1 id="七、做道题"><a href="#七、做道题" class="headerlink" title="七、做道题"></a>七、做道题</h1><h2 id="1-上升的温度"><a href="#1-上升的温度" class="headerlink" title="1.上升的温度"></a>1.上升的温度</h2><blockquote>
 <p>[!NOTE]</p>
 <p>date 时间类型数据，作差计算</p>
 <p><code>datediff(a.recordDate,b.recordDate)=1</code></p>

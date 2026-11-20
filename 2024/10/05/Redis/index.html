@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://example.com/img/redis_pic/1.png">
 <meta property="article:published_time" content="2024-10-05T12:00:00.000Z">
-<meta property="article:modified_time" content="2025-10-05T16:22:40.085Z">
+<meta property="article:modified_time" content="2026-05-16T06:59:38.715Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="Web开发">
 <meta property="article:tag" content="后端">
@@ -228,7 +228,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.3k 字
+          2k 字
         
       </span>
     
@@ -239,7 +239,7 @@
         
         
         
-          11 分钟
+          17 分钟
         
       </span>
     
@@ -284,9 +284,16 @@
                 <ul>
 <li>学习链接：<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Jj411D7oG?p=2&vd_source=4cf7b60c223a665538a4d958765c91a5">https://www.bilibili.com/video/BV1Jj411D7oG?p=2&vd_source&#x3D;4cf7b60c223a665538a4d958765c91a5</a></li>
 </ul>
-<h1 id="一、介绍"><a href="#一、介绍" class="headerlink" title="一、介绍"></a>一、介绍</h1><h2 id="1-简介"><a href="#1-简介" class="headerlink" title="1.简介"></a>1.简介</h2><ol>
-<li>Redis是Remote Dictionary Server的缩写，是一个开源的基于内存的数据存储系统，可以用作数据库缓存和消息队列等各种场景，也是目前最热门的NoSQL数据库之一</li>
-<li>早期互联网公司大多数是通过MySQL这种传统的数据库。随着互联网的快速发展，应用系统的访问量越来越大，数据库的性能瓶颈越来越明显。主要是由于磁盘IO所导致的，磁盘IO的读写操作速度，与将数据存储在内存中的Redis相比是非常慢的</li>
+<h1 id="一、介绍"><a href="#一、介绍" class="headerlink" title="一、介绍"></a>一、介绍</h1><h2 id="1-介绍"><a href="#1-介绍" class="headerlink" title="1.介绍"></a>1.介绍</h2><ol>
+<li><p>简介：Redis是Remote Dictionary Server的缩写，是一个开源的基于内存的数据存储系统，可以用作数据库缓存和消息队列等各种场景，也是目前最热门的NoSQL数据库之一，主要用于解决MySQL由于磁盘IO耗时过长等问题</p>
+</li>
+<li><p>主要用处</p>
+<ol>
+<li><strong>高性能数据存储：</strong>用于页面浏览量、点赞数、在线用户数等</li>
+<li><strong>缓存系统：</strong>对于热点数据、会话、查询结果等数据进行缓存，可以显著提高应用的响应速度和吞吐量</li>
+<li><strong>消息队列：</strong>实时的消息通知</li>
+</ol>
+</li>
 </ol>
 <h2 id="2-关系数据库与非关系型数据库"><a href="#2-关系数据库与非关系型数据库" class="headerlink" title="2.关系数据库与非关系型数据库"></a>2.关系数据库与非关系型数据库</h2><ol>
 <li><p>关系数据库</p>
@@ -361,10 +368,6 @@
 </div>
 
 
-<h2 id="5-适用场景"><a href="#5-适用场景" class="headerlink" title="5.适用场景"></a>5.<mark>适用场景</mark></h2><ol>
-<li>某些会发生变化的匹配规则，不适合单开一个字段存在mysql中，可以使用redis</li>
-<li>Redis 最常用的一个场景就是作为缓存。通过将频繁访问的数据存储在内存中，Redis 可以显著提高应用的响应速度和吞吐量</li>
-</ol>
 <h1 id="二、命令"><a href="#二、命令" class="headerlink" title="二、命令"></a>二、命令</h1><h2 id="1-字符串"><a href="#1-字符串" class="headerlink" title="1.字符串"></a>1.字符串</h2><ol>
 <li><p>存入数据（redis内的数据以键值对的形式存在）</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs shell">set key value       // 当存入的key重复时，后存入的value会覆盖前面的value<br>setnx key value     // 当没有重复的key时，存入这条数据；若有重复的数据，此命令不生效<br><br>setex key value     // 如果键已经存在，setex 会覆写旧值，并更新过期时间<br></code></pre></td></tr></table></figure>
@@ -447,7 +450,7 @@
     <img src="/img/redis_pic/6.png" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:40%;">
 </div>
 
-<h1 id="三、进阶"><a href="#三、进阶" class="headerlink" title="三、进阶"></a>三、进阶</h1><h2 id="1-发布订阅模式"><a href="#1-发布订阅模式" class="headerlink" title="1.发布订阅模式"></a>1.发布订阅模式</h2><ol>
+<h1 id="三、应用和原理"><a href="#三、应用和原理" class="headerlink" title="三、应用和原理"></a>三、应用和原理</h1><h2 id="1-发布订阅模式"><a href="#1-发布订阅模式" class="headerlink" title="1.发布订阅模式"></a>1.发布订阅模式</h2><ol>
 <li>将消息发送到指定的频道：<code>publish 频道名 消息</code></li>
 <li>订阅某频道：<code>subscribe 频道名</code></li>
 <li>适用于两个客户端（<code>redis-cli</code>）内传递信息</li>
@@ -483,6 +486,70 @@
 <li><p>读取消息 *</p>
 <figure class="highlight arcade"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs arcade"><span class="hljs-comment">// 一次读取2个消息，如果没有读到消息则阻塞1000ms，从geekhour中的第0个元素开始读起</span><br>xread <span class="hljs-built_in">count</span> <span class="hljs-number">2</span> block <span class="hljs-number">1000</span> streams geekhour <span class="hljs-number">0</span><br></code></pre></td></tr></table></figure></li>
 </ol>
+<h2 id="3-主从切换"><a href="#3-主从切换" class="headerlink" title="3.主从切换"></a>3.主从切换</h2><p>介绍：<strong>主节点挂了，从节点自动升级为新主节点，保证服务继续可用。</strong></p>
+<figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><code class="hljs armasm">   原始架构                    <br>┌──────────┐                  <br>│  主节点M  │ ✅ 写操作        <br>└────┬─────┘                  <br>     │ 复制数据                <br>┌────┴────┬─────────┐         <br>│ 从节点<span class="hljs-built_in">S1</span> │ 从节点<span class="hljs-built_in">S2</span> │ 📖 读操作  <br>└────┴────┴─────────┘         <br>                              <br>   💥 主节点M宕机！            <br>                              <br>   哨兵检测到 → 投票选举        <br>                              <br>   <span class="hljs-built_in">S1</span>当选新主节点              <br>┌──────────┐                  <br>│ 新主节点  │ ✅ <span class="hljs-built_in">S1</span>升级为Master <br>│  (原<span class="hljs-built_in">S1</span>)  │                  <br>└────┬─────┘                  <br>     │                        <br>┌────┴────┐                   <br>│ 从节点<span class="hljs-built_in">S2</span> │ 📖 <span class="hljs-built_in">S2</span>重新跟新Master  <br>└────┴────┘                   <br>                              <br>客户端自动重连到新主节点          <br></code></pre></td></tr></table></figure>
+
+
+
+<h1 id="四、MySQL与Redis数据一致性"><a href="#四、MySQL与Redis数据一致性" class="headerlink" title="四、MySQL与Redis数据一致性"></a>四、MySQL与Redis数据一致性</h1><ol>
+<li><mark>旁路缓存模式</mark></li>
+</ol>
+<p>写操作：更新库，删缓存</p>
+<div style="text-align:center">
+    <img src="/img/mysql_base_pic/17.png" srcset="/img/loading.gif" lazyload alt="图片描述" style="zoom:100%;">
+</div>
+
+
+
+
+<ol start="2">
+<li><mark>刷新前瞻模式</mark><ol>
+<li>工作原理：提前将可能访问的数据载入到缓存里（预热）。为避免”首次查询数据库、数据还未载入缓存前“这个窗口里，出现过高的并发流量击穿缓存，一般在大促前就会对可能被访问的热点数据进行缓存加载，这样既能加快首次查询的相应时间，还能避免过高的瞬时并发打垮数据库</li>
+<li>缺点：<ol>
+<li>内存有限，需要识别那些数据是热点数据</li>
+<li>数据不能高频变动，否则存在短期不一致的问题</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<h1 id="五、分布式锁"><a href="#五、分布式锁" class="headerlink" title="五、分布式锁"></a>五、分布式锁</h1><h2 id="1-介绍-1"><a href="#1-介绍-1" class="headerlink" title="1.介绍"></a>1.介绍</h2><p>在<strong>多台服务器</strong>的分布式环境中，保证<strong>同一时刻只有一个进程</strong>能访问某个资源。</p>
+<h2 id="2-单机-vs-分布式"><a href="#2-单机-vs-分布式" class="headerlink" title="2.单机 vs 分布式"></a>2.单机 vs 分布式</h2><figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs ada">单机锁（同一进程内）：<br><span class="hljs-keyword">synchronized</span>、Lock → 只能锁住一台服务器上的线程<br><br>分布式锁（跨服务器）：<br>Redis、ZooKeeper → 能锁住多台服务器上的进程<br></code></pre></td></tr></table></figure>
+
+<h2 id="3-典型场景：库存扣减、电商秒杀"><a href="#3-典型场景：库存扣减、电商秒杀" class="headerlink" title="3.典型场景：库存扣减、电商秒杀"></a>3.典型场景：库存扣减、电商秒杀</h2><figure class="highlight tap"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs tap">❌ 没有分布式锁：<br>服务器A: 读取库存<span class="hljs-number"> 10 </span>→ 减<span class="hljs-number"> 1 </span>→ 写入 9<br>服务器B: 读取库存<span class="hljs-number"> 10 </span>→ 减<span class="hljs-number"> 1 </span>→ 写入 9<br>结果：卖了<span class="hljs-number"> 2 </span>件，库存只减了 1（超卖！）<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">flash_sale</span>(<span class="hljs-params">product_id, user_id</span>):<br>    lock_key = <span class="hljs-string">f&quot;lock:product:<span class="hljs-subst">&#123;product_id&#125;</span>&quot;</span><br>    <br>    <span class="hljs-comment"># 尝试获取锁</span><br>    <span class="hljs-keyword">if</span> redis.<span class="hljs-built_in">set</span>(lock_key, user_id, nx=<span class="hljs-literal">True</span>, ex=<span class="hljs-number">10</span>):<br>        <span class="hljs-keyword">try</span>:<br>            <span class="hljs-comment"># 扣减库存</span><br>            stock = redis.decr(<span class="hljs-string">f&quot;stock:<span class="hljs-subst">&#123;product_id&#125;</span>&quot;</span>)<br>            <span class="hljs-keyword">if</span> stock &gt;= <span class="hljs-number">0</span>:<br>                create_order(product_id, user_id)<br>                <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;成功&quot;</span><br>            <span class="hljs-keyword">else</span>:<br>                <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;已售罄&quot;</span><br>        <span class="hljs-keyword">finally</span>:<br>            redis.delete(lock_key)<br>    <span class="hljs-keyword">else</span>:<br>        <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;请稍后重试&quot;</span><br></code></pre></td></tr></table></figure>
+
+<h2 id="4-标准实现"><a href="#4-标准实现" class="headerlink" title="4.标准实现"></a>4.标准实现</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">// 1. 获取锁</span><br><span class="hljs-type">RLock</span> <span class="hljs-variable">lock</span> <span class="hljs-operator">=</span> redisson.getLock(<span class="hljs-string">&quot;order:12345&quot;</span>);<br><br><span class="hljs-keyword">try</span> &#123;<br>    <span class="hljs-comment">// 2. 尝试加锁（等待10秒，锁30秒后自动释放）</span><br>    <span class="hljs-type">boolean</span> <span class="hljs-variable">isLocked</span> <span class="hljs-operator">=</span> lock.tryLock(<span class="hljs-number">10</span>, <span class="hljs-number">30</span>, TimeUnit.SECONDS);<br>    <br>    <span class="hljs-keyword">if</span> (isLocked) &#123;<br>        <span class="hljs-comment">// 3. 执行业务逻辑</span><br>        deductStock();<br>        createOrder();<br>    &#125;<br>&#125; <span class="hljs-keyword">finally</span> &#123;<br>    <span class="hljs-comment">// 4. 释放锁</span><br>    <span class="hljs-keyword">if</span> (lock.isHeldByCurrentThread()) &#123;<br>        lock.unlock();<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h2 id="5-核心要点"><a href="#5-核心要点" class="headerlink" title="5.核心要点"></a>5.核心要点</h2><ol>
+<li><p><strong>必须设置过期时间</strong></p>
+<figure class="highlight cos"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs cos">❌ 错误：<span class="hljs-keyword">lock</span>.<span class="hljs-keyword">lock</span>()  <span class="hljs-comment">// 没过期时间，服务宕机会死锁</span><br>✅ 正确：<span class="hljs-keyword">lock</span>.tryLock(<span class="hljs-number">10</span>, <span class="hljs-number">30</span>, TimeUnit.SECONDS)<br></code></pre></td></tr></table></figure>
+</li>
+<li><p><strong>加锁和设置过期必须原子性</strong></p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs csharp">❌ 错误：<br>SETNX <span class="hljs-keyword">lock</span> <span class="hljs-keyword">value</span><br>EXPIRE <span class="hljs-keyword">lock</span> <span class="hljs-number">30</span>  <span class="hljs-meta"># 如果中间宕机，锁永不过期</span><br><br>✅ 正确：<br>SET <span class="hljs-keyword">lock</span> <span class="hljs-keyword">value</span> NX EX <span class="hljs-number">30</span>  <span class="hljs-meta"># 原子操作</span><br></code></pre></td></tr></table></figure>
+</li>
+<li><p><strong>防止误删别人的锁</strong></p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs routeros"><span class="hljs-comment"># 使用唯一 ID 标识锁的持有者</span><br>import uuid<br><br><span class="hljs-comment"># 加锁时保存自己的 ID</span><br>lock_id = str(uuid.uuid4())<br>redis.<span class="hljs-built_in">set</span>(<span class="hljs-string">&#x27;lock&#x27;</span>, lock_id, <span class="hljs-attribute">nx</span>=<span class="hljs-literal">True</span>, <span class="hljs-attribute">ex</span>=30)<br><br><span class="hljs-comment"># 解锁时检查是否是自己的锁</span><br><span class="hljs-keyword">if</span> redis.<span class="hljs-built_in">get</span>(<span class="hljs-string">&#x27;lock&#x27;</span>) == lock_id:<br>    redis.delete(<span class="hljs-string">&#x27;lock&#x27;</span>)<br></code></pre></td></tr></table></figure>
+</li>
+<li><p><strong>锁续期（Watch Dog）</strong></p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs csharp"><span class="hljs-comment">// Redisson 自动续期机制</span><br><span class="hljs-comment">// 每 10 秒检查一次，如果业务还没完成，自动延长锁时间</span><br><span class="hljs-keyword">lock</span>.<span class="hljs-keyword">lock</span>();  <span class="hljs-comment">// 默认 30 秒，自动续期</span><br></code></pre></td></tr></table></figure></li>
+</ol>
+<h2 id="6-常见问题：主从切换丢锁"><a href="#6-常见问题：主从切换丢锁" class="headerlink" title="6.常见问题：主从切换丢锁"></a>6.常见问题：主从切换丢锁</h2><ol>
+<li>场景描述</li>
+</ol>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs markdown"><span class="hljs-bullet">1.</span> 客户端A在主节点M加锁 → SET lock NX EX 30 ✅<br><span class="hljs-bullet">2.</span> 主节点M开始异步复制给从节点S1 → 还没复制完<br><span class="hljs-bullet">3.</span> 💥 主节点M宕机！<br><span class="hljs-bullet">4.</span> 哨兵检测到，S1升级为新主节点<br><span class="hljs-bullet">5.</span> 但S1上没有lock的记录（异步复制没完成）<br><span class="hljs-bullet">6.</span> 客户端B在新主节点S1加锁 → ✅ 成功<br><span class="hljs-bullet">7.</span> A和B同时持有锁<br></code></pre></td></tr></table></figure>
+
+<ol>
+<li>结果：A和B同时持有锁（锁失效）</li>
+<li>解决方案：<ol>
+<li>在多个独立的 Redis 节点加锁</li>
+<li>超过半数成功才算加锁成功</li>
+</ol>
+</li>
+</ol>
+<h1 id="六、Memcached"><a href="#六、Memcached" class="headerlink" title="六、Memcached"></a>六、Memcached</h1><p>Memcached 和 Redis 都是<strong>内存型键值存储中间件</strong>，功能相同。核心目标都是提升数据访问速度</p>
+<p>但是 Memcached 得功能不如 Redis ，建议使用 Redis</p>
 
                 
               </div>
